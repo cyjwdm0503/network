@@ -50,7 +50,10 @@ inline char* CServiceName::GetHost()
 
 inline int CServiceName::GetPort()
 {
+  if(strncmp(m_port,"",1) !=0)
     return atoi(m_port);
+  else
+    return 65563;
 }
 
 inline addr_t CServiceName::GetNHost()

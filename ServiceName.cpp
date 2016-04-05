@@ -13,6 +13,10 @@ CServiceName::CServiceName(const char* location):m_host(),m_port(),m_location(),
    bool bhost = false;
    bool bport = false;
 
+   strcpy(m_host,"127.0.0.1");
+   strcpy(m_port,"");
+   strcpy(m_channel,"tcp");
+
    while( m_location[pos] != '\0')
    {
        //m_channel
