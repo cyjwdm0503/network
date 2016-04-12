@@ -16,6 +16,7 @@ public:
   virtual int CreateSocket();
   virtual int Connect(CServiceName* server);
   virtual int Accept();
+  virtual int Listen();
 private:
   CServiceName* m_service;
   int m_fd;

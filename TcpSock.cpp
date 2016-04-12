@@ -47,6 +47,12 @@ int CTcpSock::Accept()
 {
   sockaddr_in clientaddr;
   socklen_t addrlen =  sizeof(clientaddr);
-  return accept(m_fd,(sockaddr*)&clientaddr,&addrlen);
+  int fd = accept(m_fd,(sockaddr*)&clientaddr,&addrlen);
+  return fd;
   //return 0;
+}
+
+int CTcpSock::Listen()
+{
+  return listen(m_fd,SOCK_STREAM);
 }
