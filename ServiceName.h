@@ -19,7 +19,9 @@ public:
     inline channel_t GetNChannel();
     inline port_t GetNPort();
     inline addr_t GetNHost();
-
+    inline void SetPort(int);
+    inline void SetHost(const char*);
+    inline void SetChannel(const char*);
 private:
     char m_host[128];
     char m_port[64];
@@ -68,4 +70,16 @@ inline port_t CServiceName::GetNPort()
     return htons(atoi(m_port));
 }
 
+inline void CServiceName::SetPort(int p)
+{
+  sprintf(m_port,"%d",p);
+}
+inline void CServiceName::SetHost(const char* host)
+{
+  strncpy(m_host,host,strlen(m_host));
+}
+inline void CServiceName::SetChannel(const char* channel)
+{
+  strncpy(m_channel,channel,strlen(m_channel));
+}
 #endif

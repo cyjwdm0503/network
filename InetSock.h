@@ -13,8 +13,8 @@ public:
   virtual ~CInetSock();
 
   virtual int CreateSocket();
-  virtual int Connect(CServiceName* server);
-  virtual int Accept();
+  virtual int Connect(CServiceName* server){};
+  virtual int Accept(){};
 private:
   CServiceName* m_service;
   int m_fd;

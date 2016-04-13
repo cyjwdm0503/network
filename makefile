@@ -1,13 +1,15 @@
 
 CC = g++
-CFLAG = -Wall
+CFLAG = -Wall -g 
 
-all:Channel.o ServiceName.o InetSock.o TcpSock.o Log.o client.o
 
-allObj = $(all)
+allObj=Channel.o ServiceName.o InetSock.o TcpSock.o Log.o
+all:Channel.o ServiceName.o InetSock.o TcpSock.o Log.o client
 
-client.o:client.cpp TcpSock.h TcpSock.h InetSock.h ServiceName.h socks.h
-	$(CC) $(CFLAG)  $^ -c  -o $@
+
+
+client:client.cpp TcpSock.h TcpSock.h InetSock.h ServiceName.h socks.h
+	$(CC) $(CFLAG) $^  $(allObj)  -o $@
 
 server:server.cpp TcpSock.h $(all)
 	$(CC) $(CFLAG) $(all) -o $@
@@ -27,4 +29,4 @@ TcpSock.o:TcpSock.cpp TcpSock.h ServiceName.o InetSock.o
 	$(CC) $(CFLAG) -c $< -o $@
 
 clean:$(all)
-	rm -rf *.o
+	rm -rf *.o client

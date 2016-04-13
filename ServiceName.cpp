@@ -23,6 +23,7 @@ CServiceName::CServiceName(const char* location):m_host(),m_port(),m_location(),
         if(m_location[pos] == ':' && m_location[pos+1] == '/' && bchannel == false )
         {
            strncpy(m_channel,m_location,pos+1);
+           m_channel[pos] = '\0';
            bchannel = true;
         }
 
@@ -40,8 +41,12 @@ CServiceName::CServiceName(const char* location):m_host(),m_port(),m_location(),
            && bhost == false)
         {
             endpos =  pos;
-            strncpy(m_host,m_location+beginpos,endpos-beginpos);
-            bhost =  true;
+            if(beginpos !=0)
+            {
+              strncpy(m_host,m_location+beginpos,endpos-beginpos);
+              bhost =  true;
+              m_host[endpos-beginpos] = '\0';
+            }
         }
 
 
@@ -60,6 +65,7 @@ CServiceName::CServiceName(const char* location):m_host(),m_port(),m_location(),
          {
              strncpy(m_port,m_location+beginpos,endpos-beginpos);
              bport = true;
+             m_port[endpos-beginpos]= '\0';
          }
         pos++;
    }
