@@ -1,0 +1,62 @@
+#include "ServiceName.h"
+#include <cstring>
+using namespace std;
+
+CServiceName::CServiceName(const char* location):m_host(),m_port(),m_location(),m_channel()
+{
+   strcpy(m_location,location);
+   int pos = 0;
+   int beginpos = 0;
+   int endpos = beginpos+1;
+
+   bool bchannel = false;
+   bool bhost = false;
+   bool bport = false;
+
+   while( m_location[pos] != '\0')
+   {
+       //m_channel
+        if(m_location[pos] == ':' && m_location[pos+1] == '/' && bchannel == false )
+        {
+           strncpy(m_channel,m_location,pos+1);
+           bchannel = true;
+        }
+
+
+       //m_host
+        if(bchannel == true 
+           && m_location[pos] == '/' 
+           && m_location[pos-1] == '/'
+           && bhost == false)
+        {
+            beginpos = pos+1;
+        }
+        if(bchannel == true
+           && (m_location[pos] == '/' || m_location[pos] == ':')
+           && bhost == false)
+        {
+            endpos =  pos;
+            strncpy(m_host,m_location+beginpos,endpos-beginpos);
+            bhost =  true;
+        }
+
+
+        //m_port 
+
+        if(bhost == true 
+           && bport == false
+           && m_location[pos] == ':')
+        {
+            beginpos = pos+1;
+        }
+        if(bhost == true
+           && bport == false
+           && (m_location[pos] == '\0' 
+               || m_location[pos] == '/'))
+         {
+             strncpy(m_port,m_location+beginpos,endpos-beginpos);
+             bport = true;
+         }
+        pos++;
+   }
+}
