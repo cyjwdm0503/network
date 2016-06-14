@@ -27,17 +27,26 @@ int CTcpSock::CreateSocket()
   addr.sin_addr.s_addr = m_service->GetNHost();
   socklen_t size ;
   size = sizeof(addr);
-  return   bind(m_fd,(sockaddr*)&addr,size);
+  return bind(m_fd,(sockaddr*)&addr,size);
 
 }
 
 int CTcpSock::Connect(CServiceName* server)
 {
 
-  return 0;
+  sockaddr_in addr;
+  addr.sin_port = server->GetNPort();
+  addr.sin_family = AF_INET;
+  addr.sin_addr.s_addr = server->GetNHost();
+  socklen_t addrlen = sizeof(addr);
+  return   connect(m_fd,(sockaddr*)&addr,addrlen);
+
 }
 
 int CTcpSock::Accept()
 {
-  return 0;
+  sockaddr_in clientaddr;
+  socklen_t addrlen =  sizeof(clientaddr);
+  return accept(m_fd,(sockaddr*)&clientaddr,&addrlen);
+  //return 0;
 }
