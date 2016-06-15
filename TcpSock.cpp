@@ -39,7 +39,7 @@ int CTcpSock::Connect(CServiceName* server)
   addr.sin_family = AF_INET;
   addr.sin_addr.s_addr = server->GetNHost();
   socklen_t addrlen = sizeof(addr);
-  return   connect(m_fd,(sockaddr*)&addr,addrlen);
+  return  connect(m_fd,(sockaddr*)&addr,addrlen);
 
 }
 
