@@ -3,9 +3,7 @@
 #include <cstring>
 using namespace std;
 
-#define DEBUGOUT(errno)  \
-cout<<__FILE__<<"\t"<<__LINE__ \
-CLog::GetInstance().Printerrno(errno)
+
 
 CLog* CLog::g_Log = NULL;
 

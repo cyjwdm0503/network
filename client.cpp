@@ -13,5 +13,9 @@ int main(int argi ,char*args[])
     cout<<"usage: "<<args[0] << "channel:://clientip:port channel://serverip:port"<<endl;
     exit(-1);
   }
+  CTcpSock client(args[1]);
+  client.CreateSocket();
+  CServiceName server(args[2]);
+  client.Connect(&server);
   return 0;
 }

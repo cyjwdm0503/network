@@ -1,4 +1,5 @@
 #include "./TcpSock.h"
+#include "./Log.h"
 CTcpSock::CTcpSock():CInetSock()
 {
   ;
@@ -27,8 +28,9 @@ int CTcpSock::CreateSocket()
   addr.sin_addr.s_addr = m_service->GetNHost();
   socklen_t size ;
   size = sizeof(addr);
-  return bind(m_fd,(sockaddr*)&addr,size);
-
+  int re = bind(m_fd,(sockaddr*)&addr,size);
+  DEBUGOUT(re);
+  return re;
 }
 
 int CTcpSock::Connect(CServiceName* server)
@@ -39,8 +41,10 @@ int CTcpSock::Connect(CServiceName* server)
   addr.sin_family = AF_INET;
   addr.sin_addr.s_addr = server->GetNHost();
   socklen_t addrlen = sizeof(addr);
-  return  connect(m_fd,(sockaddr*)&addr,addrlen);
-
+  int re =   connect(m_fd,(sockaddr*)&addr,addrlen);
+  DEBUGOUT(re);
+ // CLog::GetInstance()->Printerrno(re);
+  return re;
 }
 
 int CTcpSock::Accept()
@@ -54,5 +58,8 @@ int CTcpSock::Accept()
 
 int CTcpSock::Listen()
 {
-  return listen(m_fd,SOCK_STREAM);
+  int re =  listen(m_fd,SOCK_STREAM);
+ // CLog::GetInstance()->Printerrno(re);
+  DEBUGOUT(re);
+  return re;
 }
