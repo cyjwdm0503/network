@@ -1,4 +1,5 @@
 #include "./InetSock.h"
+#include "./Log.h"
 
 CInetSock::CInetSock(void)
 {
@@ -25,6 +26,7 @@ CInetSock::~CInetSock()
 int CInetSock::CreateSocket()
 {
   m_fd = socket(AF_INET,m_service->GetNChannel(),0);
+  DEBUGOUT(m_fd);
   return m_fd;
 }
 
