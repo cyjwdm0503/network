@@ -29,5 +29,5 @@ CLog:: ~CLog()
 
 void CLog::Printerrno(int error)
 {
-  cout<<"return "<<error<<"\t"<<strerror(errno)<<endl;
+  cout<<error<<"\t"<<strerror(error)<<endl;
 }

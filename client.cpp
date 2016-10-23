@@ -13,7 +13,6 @@ int main(int argi ,char*args[])
     cout<<"usage: "<<args[0] << "channel:://clientip:port channel://serverip:port"<<endl;
     exit(-1);
   }
-  cout<<args[1]<<"\t"<<args[2]<<endl;
   CTcpSock client(args[1]);
   client.CreateSocket();
   CServiceName server(args[2]);

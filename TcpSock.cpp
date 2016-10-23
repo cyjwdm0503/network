@@ -21,7 +21,7 @@ CTcpSock::~CTcpSock()
 
 int CTcpSock::CreateSocket()
 {
-  CInetSock::CreateSocket(); 
+  CInetSock::CreateSocket();
   sockaddr_in addr;
   addr.sin_port = m_service->GetNPort();
   addr.sin_family = AF_INET;
@@ -29,6 +29,7 @@ int CTcpSock::CreateSocket()
   socklen_t size ;
   size = sizeof(addr);
   int re = bind(m_fd,(sockaddr*)&addr,size);
+  AddChannel(m_fd,m_service);
   DEBUGOUT(re);
   return re;
 }
@@ -52,6 +53,9 @@ int CTcpSock::Accept()
   sockaddr_in clientaddr;
   socklen_t addrlen =  sizeof(clientaddr);
   int fd = accept(m_fd,(sockaddr*)&clientaddr,&addrlen);
+  CServiceName service;
+  service.SetSockaddr_in(clientaddr);
+  AddChannel(fd,&service);
   return fd;
   //return 0;
 }
@@ -63,3 +67,5 @@ int CTcpSock::Listen()
   DEBUGOUT(re);
   return re;
 }
+
+

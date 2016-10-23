@@ -1,3 +1,6 @@
+/**
+SOCK对应的头文件
+**/
 #ifndef WINDOWS
 
 #include <cstdio>
