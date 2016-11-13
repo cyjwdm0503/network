@@ -40,6 +40,8 @@
 		<Unit filename="Log.h" />
 		<Unit filename="Server.cpp" />
 		<Unit filename="Server.h" />
+		<Unit filename="ServerBase.cpp" />
+		<Unit filename="ServerBase.h" />
 		<Unit filename="ServiceName.cpp" />
 		<Unit filename="ServiceName.h" />
 		<Unit filename="TcpSock.cpp" />

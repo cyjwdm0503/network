@@ -13,14 +13,14 @@ CChannel::~CChannel()
 
 int CChannel::Read(size_t max,char* buf)
 {
-    read(m_fd,buf,max);
-    return 0;
+    return read(m_fd,buf,max);
+
 }
 
 int CChannel::Write(size_t max,char* buf)
 {
-    write(m_fd,buf,max);
-    return 0;
+   return  write(m_fd,buf,max);
+
 }
 
 int CChannel::Getfd() const

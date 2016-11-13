@@ -12,7 +12,7 @@ class CTcpSock:public CInetSock
 
 public:
   CTcpSock(void);
-  CTcpSock(char* location);
+  CTcpSock(const char* location);
   CTcpSock(CServiceName* service);
   virtual ~CTcpSock();
 
@@ -21,9 +21,6 @@ public:
   virtual int Connect(CServiceName* server);
   virtual int Accept();
   virtual int Listen();
-private:
-  CServiceName* m_service;
-  int m_fd;
 };
 
 

@@ -5,7 +5,7 @@ CInetSock::CInetSock(void)
   m_service =  new CServiceName("");
 }
 
-CInetSock::CInetSock(char* location)
+CInetSock::CInetSock(const char* location)
 {
   m_service = new CServiceName(location);
 }
@@ -36,7 +36,7 @@ int CInetSock::Getfd()
 
 CChannel* CInetSock::GetChannel(int fd)
 {
-    if(m_chanelmap.find(fd) == m_chanelmap.end())
+    if(m_chanelmap.find(fd) != m_chanelmap.end())
         return m_chanelmap[fd];
     return NULL;
 }

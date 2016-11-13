@@ -5,7 +5,7 @@ CTcpSock::CTcpSock():CInetSock()
   ;
 }
 
-CTcpSock::CTcpSock(char* loc):CInetSock(loc)
+CTcpSock::CTcpSock(const char* loc):CInetSock(loc)
 {
   ;
 }
@@ -50,9 +50,15 @@ int CTcpSock::Connect(CServiceName* server)
 
 int CTcpSock::Accept()
 {
+    Listen();
   sockaddr_in clientaddr;
   socklen_t addrlen =  sizeof(clientaddr);
   int fd = accept(m_fd,(sockaddr*)&clientaddr,&addrlen);
+  if(fd == -1)
+  {
+      DEBUGOUT(-1);
+      exit(-1);
+  }
   CServiceName service;
   service.SetSockaddr_in(clientaddr);
   AddChannel(fd,&service);

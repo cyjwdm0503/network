@@ -1,21 +1,23 @@
 #include "./socks.h"
 #include "./Server.h"
 
-CServiceName* CServer::GetClient(int clientfd)
+CChannel* CTcpServer::CreateServer(CServiceName* server)
 {
-
-  if (m_clientmap.find(clientfd) != m_clientmap.end())
-  {
-    return m_clientmap[clientfd];
-  }
-  else
-    return NULL;
+    m_serversock =  new CTcpSock(server);
+    m_serversock->CreateSocket();
+    return m_serversock->GetChannel(m_serversock->Getfd());
 }
 
-void CServer::AddClient(int fd)
+CChannel* CTcpServer::CreateServer(const char* server)
 {
-  //m_clientmap[fd] = CreateService(fd);
+    m_serversock =  new CTcpSock(server);
+    m_serversock->CreateSocket();
+    return m_serversock->GetChannel(m_serversock->Getfd());
 }
 
-
+CChannel* CTcpServer::AcceptClient()
+{
+    int fd = m_serversock->Accept();
+    return m_serversock->GetChannel(fd);
+}
 

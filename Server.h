@@ -4,16 +4,15 @@
 #include "./socks.h"
 #include "./ServiceName.h"
 #include <map>
+#include "ServerBase.h"
 using namespace std;
-class CServer
+class CTcpServer:public CServerBase
 {
+    virtual CChannel* CreateServer(CServiceName* server);
+    virtual CChannel* CreateServer(const char* location);
+    virtual CChannel* AcceptClient();
 public:
-  CServiceName* GetClient(int clientfd);
-  void AddClient(int fd);
-protected:
-  map<int,CServiceName*> m_clientmap;
-
-
+    CInetSock* m_serversock;
 };
 
 

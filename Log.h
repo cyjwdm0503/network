@@ -13,6 +13,8 @@
     std::cout<<__FILE__<<"\t"<<__LINE__; \
 CLog::GetInstance()->Printerrno(errno);
 
+
+
 class CLog
 {
 public:

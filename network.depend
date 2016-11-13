@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1477160579 source:/root/桌面/network/Channel.cpp
+1477407462 source:/root/桌面/network/Channel.cpp
 	"Channel.h"
 
 1477160375 /root/桌面/network/Channel.h
@@ -16,29 +16,29 @@
 	"netinet/in.h"
 	"arpa/inet.h"
 
-1460523776 source:/root/桌面/network/client.cpp
+1477407708 source:/root/桌面/network/client.cpp
 	"./TcpSock.h"
 	<iostream>
 	<cstring>
 	<cstdlib>
 	<cstdio>
 
-1477163656 /root/桌面/network/TcpSock.h
+1477324153 /root/桌面/network/TcpSock.h
 	"./InetSock.h"
 	<map>
 
-1477163710 /root/桌面/network/InetSock.h
+1477324153 /root/桌面/network/InetSock.h
 	"socks.h"
 	"./ServiceName.h"
 	"Channel.h"
 	<map>
 
-1477160966 /root/桌面/network/ServiceName.h
+1477323250 /root/桌面/network/ServiceName.h
 	"socks.h"
 	<cstdlib>
 	<cstring>
 
-1477163767 source:/root/桌面/network/InetSock.cpp
+1477407139 source:/root/桌面/network/InetSock.cpp
 	"./InetSock.h"
 
 1460518765 source:/root/桌面/network/Log.cpp
@@ -46,12 +46,12 @@
 	<cerrno>
 	<cstring>
 
-1477156863 /root/桌面/network/Log.h
+1477322939 /root/桌面/network/Log.h
 	<iostream>
 	<cstdlib>
 	<cstdio>
 
-1477160854 source:/root/桌面/network/Server.cpp
+1477324164 source:/root/桌面/network/Server.cpp
 	"./socks.h"
 	"./Server.h"
 
@@ -59,12 +59,26 @@
 	"ServiceName.h"
 	<cstring>
 
-1477163616 source:/root/桌面/network/TcpSock.cpp
+1477406870 source:/root/桌面/network/TcpSock.cpp
 	"./TcpSock.h"
 	"./Log.h"
 
-1477159832 /root/桌面/network/Server.h
+1477324102 /root/桌面/network/Server.h
 	"./socks.h"
 	"./ServiceName.h"
 	<map>
+	"ServerBase.h"
+
+1477323709 /root/桌面/network/ServerBase.h
+	"TcpSock.h"
+
+1477323434 source:/root/桌面/network/ServerBase.cpp
+	"ServerBase.h"
+
+1477407670 source:/root/桌面/network/ServerEndPoint.cpp
+	"Server.h"
+	<iostream>
+	<cstring>
+	<cstdlib>
+	<cstdio>
 
