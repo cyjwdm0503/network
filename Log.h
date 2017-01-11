@@ -10,8 +10,9 @@
 #include <cstdio>
 
 #define DEBUGOUT(errno)  \
-    std::cout<<__FILE__<<"\t"<<__LINE__; \
-CLog::GetInstance()->Printerrno(errno);
+    std::cout<<__FILE__<<"\t"<<__LINE__;
+
+//CLog::GetInstance()->Printerrno(errno);
 
 
 
@@ -23,7 +24,7 @@ public:
 
   CLog();
   ~CLog();
-  void Printerrno(int errno);
+  void Printerrno(int error);
 };
 
 #endif

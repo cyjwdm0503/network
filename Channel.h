@@ -10,7 +10,7 @@ class CChannel
 {
 
 public:
-    CChannel(int fd):m_fd(fd){};
+    CChannel(int fd):m_fd(fd),m_service(NULL){};
     ~CChannel();
 
 

@@ -1,7 +1,18 @@
 /**
 SOCK对应的头文件
 **/
-#ifndef WINDOWS
+
+#ifdef WIN32
+
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <stdio.h>
+#include <cstdlib>
+#include <cstring>
+
+#pragma comment(lib, "Ws2_32.lib")
+
+#else
 
 #include <cstdio>
 #include <cstdlib>
@@ -12,7 +23,7 @@ SOCK对应的头文件
 #include "netinet/in.h"
 #include "arpa/inet.h"
 
-#define WINDOWS
+
 
 
 

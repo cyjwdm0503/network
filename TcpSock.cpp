@@ -26,9 +26,9 @@ int CTcpSock::CreateSocket()
   addr.sin_port = m_service->GetNPort();
   addr.sin_family = AF_INET;
   addr.sin_addr.s_addr = m_service->GetNHost();
-  socklen_t size ;
-  size = sizeof(addr);
-  int re = bind(m_fd,(sockaddr*)&addr,size);
+  socklen_t addr_size ;
+  addr_size = sizeof(addr);
+  int re = bind(m_fd,(sockaddr*)&addr,addr_size);
   AddChannel(m_fd,m_service);
   DEBUGOUT(re);
   return re;

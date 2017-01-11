@@ -1,5 +1,7 @@
 #include "./InetSock.h"
+#include <map>
 
+using namespace std;
 CInetSock::CInetSock(void)
 {
   m_service =  new CServiceName("");

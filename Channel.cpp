@@ -13,13 +13,23 @@ CChannel::~CChannel()
 
 int CChannel::Read(size_t max,char* buf)
 {
+    #ifdef WIN32
+    return  recv(m_fd,buf,max,0);
+    #else
     return read(m_fd,buf,max);
+    #endif // WINDOWS
+
 
 }
 
 int CChannel::Write(size_t max,char* buf)
 {
-   return  write(m_fd,buf,max);
+    #ifdef WIN32
+    return  send(m_fd,buf,max,0);
+    #else
+      return  write(m_fd,buf,max);
+    #endif // WINDOWS
+
 
 }
 

@@ -12,7 +12,7 @@ class CServiceName
    // typedef int addr_t;
    // typedef unsigned short port_t;
 public:
-    CServiceName(){};
+    CServiceName();
     CServiceName(const char* location);
     char* GetChannel();
     char* GetHost();

@@ -29,5 +29,10 @@ CLog:: ~CLog()
 
 void CLog::Printerrno(int error)
 {
-  cout<<error<<"\t"<<strerror(error)<<endl;
+    #ifdef WINDOWS
+
+    #else
+    cout<<error<<"\t"<<strerror(error)<<endl;
+    #endif // WINDOWS
+
 }

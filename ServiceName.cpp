@@ -1,5 +1,6 @@
 #include "ServiceName.h"
 #include <cstring>
+#include <WinSock2.h>
 using namespace std;
 
 CServiceName::CServiceName(const char* location):m_host(),m_port(),m_location(),m_channel()
@@ -61,16 +62,27 @@ CServiceName::CServiceName(const char* location):m_host(),m_port(),m_location(),
         }
         if(bhost == true
            && bport == false
-           && (m_location[pos+1] == '\0'
-               || m_location[pos] == '/'))
+           && (m_location[pos+1] == '\0' || m_location[pos] == '/'))
          {
-             endpos = pos;
+			 if(m_location[pos] != '/' )
+				 endpos = pos+1;
+			 else 
+				endpos = pos ;
              strncpy(m_port,m_location+beginpos,endpos-beginpos);
              bport = true;
              m_port[endpos-beginpos]= '\0';
          }
         pos++;
    }
+}
+
+CServiceName::CServiceName()
+{
+ 
+	  m_host[127] = '\0';
+	  m_port[63] = '\0';
+	  m_location[255] = '\0';
+	  m_channel[63] = '\0';
 }
 
  channel_t CServiceName::GetNChannel()
@@ -103,7 +115,12 @@ CServiceName::CServiceName(const char* location):m_host(),m_port(),m_location(),
   addr_t CServiceName::GetNHost()
 {
     in_addr addr;
+    #ifdef WIN32
+    addr.s_addr = inet_addr(m_host);
+    #else
     inet_aton(m_host,&addr);
+    #endif // WINDOWS
+
     return addr.s_addr;
 }
 
