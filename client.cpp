@@ -1,4 +1,4 @@
-#include "./TcpSock.h"
+#include "TcpSock.h"
 #include <iostream>
 #include <cstring>
 #include <cstdlib>

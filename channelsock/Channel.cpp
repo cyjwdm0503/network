@@ -1,7 +1,6 @@
 #include "Channel.h"
 
 
-
 CChannel::~CChannel()
 {
     if(m_service != NULL)

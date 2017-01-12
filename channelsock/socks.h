@@ -14,6 +14,7 @@ SOCK对应的头文件
 
 #else
 
+#include <cstring>
 #include <cstdio>
 #include <cstdlib>
 #include "sys/time.h"

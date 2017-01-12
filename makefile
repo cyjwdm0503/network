@@ -1,38 +1,68 @@
 
 CC = g++
-CFLAG = -Wall -g 
+CFLAG = -Wall -g -I./channelsock -I./server -I.
+
+clientcpp=./client.cpp
+channelcpp=./channelsock/Channel.cpp
+channelh=./channelsock/Channel.h
+inetsockcpp=./channelsock/InetSock.cpp
+inetsockh=./channelsock/InetSock.h
+servicenamecpp=./channelsock/ServiceName.cpp
+servicenameh=./channelsock/ServiceName.h
+sockh=./channelsock/sock.h
+tcpsockcpp=./channelsock/TcpSock.cpp
+tcpsockh=./channelsock/TcpSock.h
+serverbasecpp=./server/ServerBase.cpp
+serverbaseh=./server/ServerBase.h
+serverendpointcpp=./ServerEndPoint.cpp
+clientcpp=./client.cpp
+servercpp=./server/Server.cpp
+serverh= ./server/Server.h
+logcpp = ./Log.cpp
+logh=./Log.h
+
+channelo=./channelsock/Channel.o
+inetsocko=./channelsock/InetScok.o
+servicenameo=./channelsock/ServiceName.o
+tcpsocko=./channelsock/TcpSock.o
+serverbaseo=./server/ServerBase.o
+cliento=./client.o
+logo=./Log.o
+servero=./server/Server.o
 
 
-allObj=Channel.o ServiceName.o InetSock.o TcpSock.o Log.o ServerBase.o Server.o
-all:Channel.o ServiceName.o InetSock.o TcpSock.o Log.o ServerBase.o Server.o
+allObj:$(channelo) $(servicenameo) $(tcpsocko) $(serverbaseo)  $(logo)
 target: ClientEndPoint ServerEndPoint
 
+Obj = $(channelo) $(servicenameo) $(tcpsocko) $(serverbaseo)  $(logo) $(inetsocko) $(servero) $(serverbaseo)
 
-ClientEndPoint:client.cpp TcpSock.h TcpSock.h InetSock.h ServiceName.h socks.h 
-	$(CC) $(CFLAG) $^ $(allObj)    -o $@
+ClientEndPoint:$(clientcpp) $(Obj)
+	$(CC) $(CFLAG) $^    -o $@
 
-ServerEndPoint:ServerEndPoint.cpp TcpSock.h TcpSock.h InetSock.h ServiceName.h socks.h 
-	$(CC) $(CFLAG) $^ $(allObj)    -o $@
+ServerEndPoint:$(serverendpointcpp) $(Obj)
+	$(CC) $(CFLAG) $^    -o $@
 
-Server.o:Server.cpp TcpSock.h socks.h 
+$(servero):$(servercpp) $(serverh) 
 	$(CC) $(CFLAG) -c $< -o $@
 
-Channel.o:Channel.cpp Channel.h socks.h
+$(channelo):$(channelcpp) $(channelh)
 	$(CC) $(CFLAG)  -c $< -o $@
 
-Log.o:Log.cpp Log.h
+$(logo):$(logcpp) $(logh)
 	$(CC) $(CFLAG) -c $< -o $@
 
-ServiceName.o:ServiceName.cpp ServiceName.h socks.h
+$(servicenameo):$(servicenamecpp) $(servecinameh)
 	$(CC) $(CFLAG) -c $< -o $@
 
-InetSock.o:InetSock.cpp InetSock.h ServiceName.o
-	$(CC) $(CFLAG) -c $< -o $@
-TcpSock.o:TcpSock.cpp TcpSock.h ServiceName.o InetSock.o
+$(inetsocko):$(inetsockcpp) $(inetsockh)
 	$(CC) $(CFLAG) -c $< -o $@
 
-ServerBase.o:ServerBase.cpp 
+$(tcpsocko):$(tcpsockcpp) $(tcpsockh)
+	$(CC) $(CFLAG) -c $< -o $@
+
+
+$(serverbaseo):$(serverbasecpp) $(serverbaseh) 
 	$(CC) $(CFLAG) -c $< -o $@
 
 clean:$(all)
-	rm -rf *.o ClientEndPoint ServerEndPoint
+	rm -rf */*.o ClientEndPoint ServerEndPoint *.o
