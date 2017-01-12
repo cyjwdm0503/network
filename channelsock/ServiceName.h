@@ -1,8 +1,7 @@
 #ifndef SERVICE_H
 #define SERVICE_H
 #include "socks.h"
-#include <cstdlib>
-#include <cstring>
+
 typedef int addr_t;
 typedef unsigned short port_t;
 typedef int channel_t;

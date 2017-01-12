@@ -7,7 +7,7 @@
 #define INETSOCK_H
 
 #include "socks.h"
-#include "./ServiceName.h"
+#include "ServiceName.h"
 #include "Channel.h"
 #include <map>
 class CInetSock

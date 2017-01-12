@@ -4,8 +4,8 @@
 #ifndef TCPSOCK_H
 #define TCPSOCK_H
 
-#include "./InetSock.h"
-#include <map>
+#include "InetSock.h"
+
 
 class CTcpSock:public CInetSock
 {

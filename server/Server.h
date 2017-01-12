@@ -1,9 +1,8 @@
 #ifndef SERVER_H
 #define SERVER_H
 
-#include "./socks.h"
-#include "./ServiceName.h"
-#include <map>
+#include "socks.h"
+#include "ServiceName.h"
 #include "ServerBase.h"
 using namespace std;
 class CTcpServer:public CServerBase

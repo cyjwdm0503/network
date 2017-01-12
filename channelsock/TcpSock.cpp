@@ -1,5 +1,5 @@
-#include "./TcpSock.h"
-#include "./Log.h"
+#include "TcpSock.h"
+#include "Log.h"
 CTcpSock::CTcpSock():CInetSock()
 {
   ;

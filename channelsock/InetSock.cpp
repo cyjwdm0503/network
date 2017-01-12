@@ -1,4 +1,4 @@
-#include "./InetSock.h"
+#include "InetSock.h"
 #include <map>
 
 using namespace std;

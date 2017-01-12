@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="channelsock">
+      <UniqueIdentifier>{3d2a5862-324d-4c75-9276-2fbd4962e088}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="server">
+      <UniqueIdentifier>{944c3517-0c69-417b-a367-4c9f63a73daf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\channelsock\Channel.cpp">
+      <Filter>channelsock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\channelsock\InetSock.cpp">
+      <Filter>channelsock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\channelsock\ServiceName.cpp">
+      <Filter>channelsock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\channelsock\TcpSock.cpp">
+      <Filter>channelsock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\server\Server.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\server\ServerBase.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Log.cpp" />
+    <ClCompile Include="..\ServerEndPoint.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\channelsock\Channel.h">
+      <Filter>channelsock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\channelsock\InetSock.h">
+      <Filter>channelsock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\channelsock\ServiceName.h">
+      <Filter>channelsock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\channelsock\socks.h">
+      <Filter>channelsock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\channelsock\TcpSock.h">
+      <Filter>channelsock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\server\Server.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\server\ServerBase.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Log.h" />
+  </ItemGroup>
+</Project>
