@@ -1,6 +1,6 @@
 #include "ServiceName.h"
 #include <cstring>
-#include <WinSock2.h>
+//#include <WinSock2.h>
 using namespace std;
 
 CServiceName::CServiceName(const char* location):m_host(),m_port(),m_location(),m_channel()
