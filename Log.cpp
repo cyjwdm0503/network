@@ -35,7 +35,7 @@ void CLog::Printerrno(int re)
     #ifdef WIN32
 	cout<<GetLastError();
     #else
-    cout<<re<<"\t"<<strerror(error)<<endl;
+    cout<<re<<"\t"<<strerror(errno)<<endl;
     #endif // WINDOWS
 
 }
