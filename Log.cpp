@@ -1,7 +1,9 @@
 #include "Log.h"
 #include <cerrno>
 #include <cstring>
+#ifdef WIN32
 #include "afxsock.h"
+#endif
 using namespace std;
 
 

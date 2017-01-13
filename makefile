@@ -1,6 +1,6 @@
 
 CC = g++
-CFLAG = -Wall -g -I./channelsock -I./server -I.
+CFLAG = -Wall -g -I./channelsock -I./server  -I./client -I.
 
 clientcpp=./client.cpp
 channelcpp=./channelsock/Channel.cpp
