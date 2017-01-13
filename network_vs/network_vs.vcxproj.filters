@@ -38,6 +38,12 @@
       <Filter>client</Filter>
     </ClCompile>
     <ClCompile Include="..\ServerEndPoint.cpp" />
+    <ClCompile Include="..\channelsock\UdpSock.cpp">
+      <Filter>channelsock</Filter>
+    </ClCompile>
+    <ClCompile Include="..\channelsock\UdpChannel.cpp">
+      <Filter>channelsock</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h">
@@ -67,6 +73,12 @@
     </ClInclude>
     <ClInclude Include="..\client\TcpClient.h">
       <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\channelsock\UdpSock.h">
+      <Filter>channelsock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\channelsock\UdpChannel.h">
+      <Filter>channelsock</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -10,18 +10,18 @@ class CChannel
 {
 
 public:
-    CChannel(int fd):m_fd(fd),m_service(NULL){};
+    CChannel(int fd);
     ~CChannel();
 
 
-    int Read(size_t max ,char* buf);
-    int Write(size_t max ,char* buf);
-    CServiceName* GetService(){return m_service;};
-    void SetService(const CServiceName& service);
+    virtual int Read(size_t max ,char* buf);
+    virtual int Write(size_t max ,const char* buf);
+    virtual CServiceName* GetService();
+    virtual void SetService(const CServiceName& service);
     //获取此的对应文件描述符的id
     int Getfd() const;
 
-private:
+protected:
     int m_fd;
     CServiceName* m_service;
 

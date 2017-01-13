@@ -16,7 +16,7 @@ public:
     char* GetChannel();
     char* GetHost();
     int GetPort();
-    channel_t GetNChannel();
+    channel_t GetNChannel() const;
     port_t GetNPort();
     addr_t GetNHost();
     void SetPort(int);

@@ -18,7 +18,11 @@ public:
   CInetSock(CServiceName* service);
   int Getfd();
   virtual  CChannel* GetChannel(int fd);
+
+protected:
   virtual CChannel* AddChannel(int fd,const CServiceName* service= NULL);
+
+public:
   virtual ~CInetSock();
 
   virtual int CreateSocket();

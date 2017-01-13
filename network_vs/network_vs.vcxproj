@@ -83,6 +83,8 @@
     <ClCompile Include="..\channelsock\InetSock.cpp" />
     <ClCompile Include="..\channelsock\ServiceName.cpp" />
     <ClCompile Include="..\channelsock\TcpSock.cpp" />
+    <ClCompile Include="..\channelsock\UdpChannel.cpp" />
+    <ClCompile Include="..\channelsock\UdpSock.cpp" />
     <ClCompile Include="..\client\ClientBase.cpp" />
     <ClCompile Include="..\client\TcpClient.cpp" />
     <ClCompile Include="..\Log.cpp" />
@@ -96,6 +98,8 @@
     <ClInclude Include="..\channelsock\ServiceName.h" />
     <ClInclude Include="..\channelsock\socks.h" />
     <ClInclude Include="..\channelsock\TcpSock.h" />
+    <ClInclude Include="..\channelsock\UdpChannel.h" />
+    <ClInclude Include="..\channelsock\UdpSock.h" />
     <ClInclude Include="..\client\ClientBase.h" />
     <ClInclude Include="..\client\TcpClient.h" />
     <ClInclude Include="..\Log.h" />
