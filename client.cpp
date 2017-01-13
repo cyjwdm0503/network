@@ -1,4 +1,5 @@
 #include "TcpSock.h"
+#include "TcpClient.h"
 #include <iostream>
 #include <cstring>
 #include <cstdlib>
@@ -9,12 +10,13 @@ using namespace std;
 
 int main(int argi ,char*args[])
 {
-
-#ifdef WIN32
 	argi = 3;
 	args[0] = "netword_ini.exe" ;
 	args[1] = "tcp://127.0.0.1:4321" ;
 	args[2] = "tcp://127.0.0.1:1234" ;
+
+#ifdef WIN32
+
 	WSADATA wsaData;
 	int iResult;
 
@@ -32,11 +34,11 @@ int main(int argi ,char*args[])
 		cout<<"usage: "<<args[0] << "channel:://clientip:port channel://serverip:port"<<endl;
 		exit(-1);
 	}
-	CTcpSock client(args[1]);
-	client.CreateSocket();
-	CServiceName server(args[2]);
-	client.Connect(&server);
-	CChannel* channel = client.GetChannel(client.Getfd());
+	CTcpClient client;
+	client.CreateClient(args[1]);
+	CChannel* channel = client.ConnectServer(args[2]);
+	if(channel == NULL)
+		return 0;
 	char data[] = "1234455678";
 	channel->Write(strlen(data),data);
 	bool over = false;

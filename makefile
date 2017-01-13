@@ -20,6 +20,11 @@ servercpp=./server/Server.cpp
 serverh= ./server/Server.h
 logcpp = ./Log.cpp
 logh=./Log.h
+clientbasecpp=./client/ClientBase.cpp
+clientbaseh=./client/ClientBase.h
+tcpclientcpp=./client/TcpClient.cpp
+tcpclienth=./client/TcpClient.h
+
 
 channelo=./channelsock/Channel.o
 inetsocko=./channelsock/InetScok.o
@@ -29,12 +34,13 @@ serverbaseo=./server/ServerBase.o
 cliento=./client.o
 logo=./Log.o
 servero=./server/Server.o
+clientbaseo=./client/clientbase.o
+tcpcliento=./client/tcpclient.o
 
-
-allObj:$(channelo) $(servicenameo) $(tcpsocko) $(serverbaseo)  $(logo)
+allObj:$(channelo) $(servicenameo) $(tcpsocko) $(serverbaseo)  $(logo) $(clientbaseo) $(tcpcliento)
 target: ClientEndPoint ServerEndPoint
 
-Obj = $(channelo) $(servicenameo) $(tcpsocko) $(serverbaseo)  $(logo) $(inetsocko) $(servero) $(serverbaseo)
+Obj = $(channelo) $(servicenameo) $(tcpsocko) $(serverbaseo)  $(logo) $(inetsocko) $(servero) $(serverbaseo) $(clientbaseo) $(tcpcliento)
 
 ClientEndPoint:$(clientcpp) $(Obj)
 	$(CC) $(CFLAG) $^    -o $@
@@ -62,6 +68,12 @@ $(tcpsocko):$(tcpsockcpp) $(tcpsockh)
 
 
 $(serverbaseo):$(serverbasecpp) $(serverbaseh) 
+	$(CC) $(CFLAG) -c $< -o $@
+
+$(clientbaseo):$(clientbasecpp) $(clientbaseh)
+	$(CC) $(CFLAG) -c $< -o $@
+	
+$(tcpcliento):$(tcpclientcpp) $(tcpclienth)
 	$(CC) $(CFLAG) -c $< -o $@
 
 clean:$(all)

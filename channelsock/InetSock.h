@@ -23,6 +23,7 @@ public:
 
   virtual int CreateSocket();
   virtual int Connect(CServiceName* server){return 0;};
+  virtual int Listen(){return 0;};
   virtual int Accept(){ return 0;};
 public:
   CServiceName* m_service;

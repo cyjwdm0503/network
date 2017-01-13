@@ -52,7 +52,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../server;../channelsock;../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../server;../channelsock;../;../client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -82,6 +83,8 @@
     <ClCompile Include="..\channelsock\InetSock.cpp" />
     <ClCompile Include="..\channelsock\ServiceName.cpp" />
     <ClCompile Include="..\channelsock\TcpSock.cpp" />
+    <ClCompile Include="..\client\ClientBase.cpp" />
+    <ClCompile Include="..\client\TcpClient.cpp" />
     <ClCompile Include="..\Log.cpp" />
     <ClCompile Include="..\ServerEndPoint.cpp" />
     <ClCompile Include="..\server\Server.cpp" />
@@ -93,6 +96,8 @@
     <ClInclude Include="..\channelsock\ServiceName.h" />
     <ClInclude Include="..\channelsock\socks.h" />
     <ClInclude Include="..\channelsock\TcpSock.h" />
+    <ClInclude Include="..\client\ClientBase.h" />
+    <ClInclude Include="..\client\TcpClient.h" />
     <ClInclude Include="..\Log.h" />
     <ClInclude Include="..\server\Server.h" />
     <ClInclude Include="..\server\ServerBase.h" />

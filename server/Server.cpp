@@ -12,6 +12,7 @@ CChannel* CTcpServer::CreateServer(const char* server)
 {
     m_serversock =  new CTcpSock(server);
     m_serversock->CreateSocket();
+	m_serversock->Listen();
     return m_serversock->GetChannel(m_serversock->Getfd());
 }
 

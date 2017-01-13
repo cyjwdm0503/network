@@ -7,6 +7,7 @@
 using namespace std;
 class CTcpServer:public CServerBase
 {
+public:
     virtual CChannel* CreateServer(CServiceName* server);
     virtual CChannel* CreateServer(const char* location);
     virtual CChannel* AcceptClient();

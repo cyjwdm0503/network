@@ -44,13 +44,12 @@ int CTcpSock::Connect(CServiceName* server)
   socklen_t addrlen = sizeof(addr);
   int re =   connect(m_fd,(sockaddr*)&addr,addrlen);
   DEBUGOUT(re);
- // CLog::GetInstance()->Printerrno(re);
+  CLog::GetInstance()->Printerrno(re);
   return re;
 }
 
 int CTcpSock::Accept()
 {
-    Listen();
   sockaddr_in clientaddr;
   socklen_t addrlen =  sizeof(clientaddr);
   int fd = accept(m_fd,(sockaddr*)&clientaddr,&addrlen);

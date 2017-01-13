@@ -1,6 +1,7 @@
 #include "Log.h"
 #include <cerrno>
 #include <cstring>
+#include "afxsock.h"
 using namespace std;
 
 
@@ -29,8 +30,8 @@ CLog:: ~CLog()
 
 void CLog::Printerrno(int error)
 {
-    #ifdef WINDOWS
-
+    #ifdef WIN32
+	cout<<GetLastError();
     #else
     cout<<error<<"\t"<<strerror(error)<<endl;
     #endif // WINDOWS

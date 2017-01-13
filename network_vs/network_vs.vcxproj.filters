@@ -7,6 +7,9 @@
     <Filter Include="server">
       <UniqueIdentifier>{944c3517-0c69-417b-a367-4c9f63a73daf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="client">
+      <UniqueIdentifier>{199aa12c-4ac5-441d-954f-8f21d775eb5b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\channelsock\Channel.cpp">
@@ -28,6 +31,12 @@
       <Filter>server</Filter>
     </ClCompile>
     <ClCompile Include="..\Log.cpp" />
+    <ClCompile Include="..\client\ClientBase.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\client\TcpClient.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
     <ClCompile Include="..\ServerEndPoint.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -53,5 +62,11 @@
       <Filter>server</Filter>
     </ClInclude>
     <ClInclude Include="..\Log.h" />
+    <ClInclude Include="..\client\ClientBase.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\client\TcpClient.h">
+      <Filter>client</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
