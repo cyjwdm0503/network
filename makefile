@@ -36,9 +36,11 @@ logo=./Log.o
 servero=./server/Server.o
 clientbaseo=./client/clientbase.o
 tcpcliento=./client/tcpclient.o
+target=ClientEndPoint ServerEndPoint
 
+target:ClientEndPoint ServerEndPoint
 allObj:$(channelo) $(servicenameo) $(tcpsocko) $(serverbaseo)  $(logo) $(clientbaseo) $(tcpcliento)
-target: ClientEndPoint ServerEndPoint
+
 
 Obj = $(channelo) $(servicenameo) $(tcpsocko) $(serverbaseo)  $(logo) $(inetsocko) $(servero) $(serverbaseo) $(clientbaseo) $(tcpcliento)
 
