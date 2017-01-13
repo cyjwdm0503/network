@@ -30,12 +30,12 @@ CLog:: ~CLog()
   g_Log = NULL;
 }
 
-void CLog::Printerrno(int error)
+void CLog::Printerrno(int re)
 {
     #ifdef WIN32
 	cout<<GetLastError();
     #else
-    cout<<error<<"\t"<<strerror(error)<<endl;
+    cout<<re<<"\t"<<strerror(error)<<endl;
     #endif // WINDOWS
 
 }
