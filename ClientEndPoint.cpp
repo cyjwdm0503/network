@@ -10,12 +10,13 @@ using namespace std;
 
 int main(int argi ,char*args[])
 {
+
+#ifdef WIN32
 	argi = 3;
 	args[0] = "netword_ini.exe" ;
 	args[1] = "udp://127.0.0.1:4321" ;
 	args[2] = "udp://127.0.0.1:1234" ;
 
-#ifdef WIN32
 
 	WSADATA wsaData;
 	int iResult;

@@ -1,6 +1,8 @@
 
 CC = g++
-CFLAGS = -Wall -g -I./channelsock -I./server  -I./client -I.
+CFLAGS = -Wall  -I./channelsock -I./server  -I./client -I.
+
+CPPFLAGS = -Wall  -I./channelsock -I./server  -I./client -I.
 
 
 channelcpp=./channelsock/Channel.cpp
@@ -42,8 +44,8 @@ udpchannelo=./channelsock/UdpChannel.o
 
 serverbaseo=./server/ServerBase.o
 servero=./server/Server.o
-clientbaseo=./client/clientbase.o
-cliento=./client/client.o
+clientbaseo=./client/Clientbase.o
+cliento=./client/Client.o
 
 
 logo=./Log.o
@@ -52,16 +54,16 @@ logo=./Log.o
 target=ClientEndPoint ServerEndPoint
 
 target:ClientEndPoint ServerEndPoint
-allObj:$(channelo) $(inetsocko) $(servicenameo) $(tcpsocko) $(udpsocko) $(udpchannelo) $(serverbaseo) $(servero) $(clientbaseo) $(cliento) 
-Obj = $(channelo) $(inetsocko) $(servicenameo) $(tcpsocko) $(udpsocko) $(udpchannelo) $(serverbaseo) $(servero) $(clientbaseo) $(cliento) 
+allObj:$(channelo) $(inetsocko) $(servicenameo) $(tcpsocko) $(udpsocko) $(udpchannelo) $(serverbaseo) $(servero) $(clientbaseo) $(cliento) $(logo)
+Obj = $(channelo) $(inetsocko) $(servicenameo) $(tcpsocko) $(udpsocko) $(udpchannelo) $(serverbaseo) $(servero) $(clientbaseo) $(cliento) $(logo) 
 
 ClientEndPoint:$(clientendpointcpp) $(Obj)
-	$(CC) $(CFLAGS) $^    -o $@
+	$(CC) $(CFLAGS) -DCLIENT  $^    -o $@
 
 ServerEndPoint:$(serverendpointcpp) $(Obj)
-	$(CC) $(CFLAGS) $^    -o $@
+	$(CC) $(CFLAGS) -DSERVER $^    -o $@
 
-$(servero):$(servercpp) $(serverh) 
+$(servero):$(servercpp) $(serverh)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(channelo):$(channelcpp) $(channelh)
@@ -80,14 +82,14 @@ $(tcpsocko):$(tcpsockcpp) $(tcpsockh)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 
-$(serverbaseo):$(serverbasecpp) $(serverbaseh) 
+$(serverbaseo):$(serverbasecpp) $(serverbaseh)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(clientbaseo):$(clientbasecpp) $(clientbaseh)
 	$(CC) $(CFLAGS) -c $< -o $@
-	
-$(cliento):$(tcpclientcpp) $(tcpclienth)
-	$(CC) $(CFLAG) -c $< -o $@
+
+$(cliento):$(clientcpp) $(clienth)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:$(all)
 	rm -rf */*.o ClientEndPoint ServerEndPoint *.o

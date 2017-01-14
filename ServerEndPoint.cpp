@@ -11,11 +11,10 @@ using namespace std;
 
 int main(int argi ,char*args[])
 {
-	
+#ifdef WIN32
 	argi = 3;
 	args[0] = "netword_win.exe" ;
 	args[1] = "udp://127.0.0.1:1234" ;
-#ifdef WIN32
 
 
 	WSADATA wsaData;
