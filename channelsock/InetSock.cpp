@@ -13,7 +13,7 @@ CInetSock::CInetSock(const char* location)
 	m_service = new CServiceName(location);
 }
 
-CInetSock::CInetSock(CServiceName* service)
+CInetSock::CInetSock(const CServiceName* service)
 {
 	m_service = service;
 }

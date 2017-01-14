@@ -1,6 +1,8 @@
 /**
 SOCK对应的头文件
 **/
+#ifndef SOCK_H
+#define SOCK_H
 
 #ifdef WIN32
 
@@ -9,8 +11,6 @@ SOCK对应的头文件
 #include <stdio.h>
 #include <cstdlib>
 #include <cstring>
-
-
 #pragma comment(lib, "Ws2_32.lib")
 
 #else
@@ -24,9 +24,6 @@ SOCK对应的头文件
 #include "sys/socket.h"
 #include "netinet/in.h"
 #include "arpa/inet.h"
-
-
-
-
+#endif
 
 #endif

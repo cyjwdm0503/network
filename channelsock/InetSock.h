@@ -15,7 +15,7 @@ class CInetSock
 public:
   CInetSock(void);
   CInetSock(const char* location);
-  CInetSock(CServiceName* service);
+  CInetSock(const CServiceName* service);
   int Getfd();
   virtual  CChannel* GetChannel(int fd);
 
@@ -30,7 +30,7 @@ public:
   virtual int Listen(){return 0;};
   virtual int Accept(){ return 0;};
 public:
-  CServiceName* m_service;
+  const CServiceName* m_service;
   int m_fd;
   std::map<int,CChannel*> m_chanelmap;
 };

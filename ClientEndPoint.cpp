@@ -1,5 +1,4 @@
-#include "TcpSock.h"
-#include "TcpClient.h"
+#include "Client.h"
 #include <iostream>
 #include <cstring>
 #include <cstdlib>
@@ -7,13 +6,14 @@
 
 using namespace std;
 
+#ifdef CLIENT
 
 int main(int argi ,char*args[])
 {
 	argi = 3;
 	args[0] = "netword_ini.exe" ;
-	args[1] = "tcp://127.0.0.1:4321" ;
-	args[2] = "tcp://127.0.0.1:1234" ;
+	args[1] = "udp://127.0.0.1:4321" ;
+	args[2] = "udp://127.0.0.1:1234" ;
 
 #ifdef WIN32
 
@@ -34,7 +34,7 @@ int main(int argi ,char*args[])
 		cout<<"usage: "<<args[0] << "channel:://clientip:port channel://serverip:port"<<endl;
 		exit(-1);
 	}
-	CTcpClient client;
+	CClient client;
 	client.CreateClient(args[1]);
 	CChannel* channel = client.ConnectServer(args[2]);
 	if(channel == NULL)
@@ -54,5 +54,10 @@ int main(int argi ,char*args[])
 			over =  true;
 		}
 	}
+	cout<<"input char:";
+	char x;
+	cin>>x;
 	return 0;
 }
+
+#endif

@@ -13,7 +13,7 @@ class CUdpSock:public CInetSock
 public:
 	CUdpSock(void);
 	CUdpSock(const char* location);
-	CUdpSock(CServiceName* service);
+	CUdpSock(const CServiceName* service);
 	virtual ~CUdpSock();
 	virtual  CChannel* GetChannel(int fd);
 private:

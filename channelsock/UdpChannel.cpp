@@ -21,7 +21,9 @@ int CUdpChannel::Read( size_t max ,char* buf )
 	//addr.sin_family = AF_INET;
 	socklen_t len = sizeof(addr);
 	int re =  recvfrom(m_fd,buf,max,0,(sockaddr*)&addr,&len);
-	m_service->SetSockaddr_in(addr);
+	//CServiceName service;
+	//service.SetSockaddr_in(addr);
+	//SetService(service);
 	return re;
 }
 

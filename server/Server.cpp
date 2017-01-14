@@ -1,24 +1,45 @@
-#include "./socks.h"
-#include "./Server.h"
-
-CChannel* CTcpServer::CreateServer(CServiceName* server)
+#include "Server.h"
+#include "UdpSock.h"
+#include "TcpSock.h"
+CChannel* CServer::CreateServer(CServiceName* server)
 {
-    m_serversock =  new CTcpSock(server);
-    m_serversock->CreateSocket();
-    return m_serversock->GetChannel(m_serversock->Getfd());
-}
-
-CChannel* CTcpServer::CreateServer(const char* server)
-{
-    m_serversock =  new CTcpSock(server);
+    m_serversock =  CreateInetSock(server->GetLocation());
     m_serversock->CreateSocket();
 	m_serversock->Listen();
     return m_serversock->GetChannel(m_serversock->Getfd());
 }
 
-CChannel* CTcpServer::AcceptClient()
+CChannel* CServer::CreateServer(const char* server)
+{
+    m_serversock =  CreateInetSock(server);
+    m_serversock->CreateSocket();
+	m_serversock->Listen();
+    return m_serversock->GetChannel(m_serversock->Getfd());
+}
+
+CChannel* CServer::AcceptClient()
 {
     int fd = m_serversock->Accept();
     return m_serversock->GetChannel(fd);
+}
+
+CInetSock* CServer::CreateInetSock( const char* location )
+{
+	CServiceName service(location);
+	switch(service.GetNChannel())
+	{
+	case SOCK_STREAM:
+		return new CTcpSock(location);
+		break;
+	case SOCK_DGRAM:
+		return new CUdpSock(location);
+		break;
+	default:
+		return new CTcpSock(location);
+		break;
+	}
+
+	return NULL;
+
 }
 

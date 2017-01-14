@@ -4,7 +4,7 @@
 #include <string>
 CUdpSock::CUdpSock( void ):CInetSock()
 {
-	;
+	m_channel = NULL;
 }
 
 CUdpSock::CUdpSock( const char* location ):CInetSock(location)
@@ -12,7 +12,7 @@ CUdpSock::CUdpSock( const char* location ):CInetSock(location)
 	;
 }
 
-CUdpSock::CUdpSock( CServiceName* service ):CInetSock(service)
+CUdpSock::CUdpSock(const CServiceName* service ):CInetSock(service)
 {
 
 }
@@ -64,10 +64,20 @@ int CUdpSock::Connect( CServiceName* server )
 int CUdpSock::Accept()
 {
 	m_channel = new CUdpChannel(m_fd);
+
+	sockaddr_in addr;
+	memset(&addr,0,sizeof(addr));
+ 
+	socklen_t len = sizeof(addr);
+	size_t max=1024;
 	char buf[1024];
-	int re = m_channel->Read(1024,buf);
+	int re =  recvfrom(m_fd,buf,max,0,(sockaddr*)&addr,&len);
+	CServiceName service;
+	service.SetSockaddr_in(addr);
+	m_channel->SetService(service);
 	if(re <= 0)
 	{
+		delete m_channel;
 		m_channel = NULL;
 	}
 	//AddChannel(m_fd,server);

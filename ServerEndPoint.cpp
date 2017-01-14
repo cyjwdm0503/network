@@ -6,12 +6,15 @@
 
 using namespace std;
 
+
+#ifdef SERVER
+
 int main(int argi ,char*args[])
 {
 	
 	argi = 3;
 	args[0] = "netword_win.exe" ;
-	args[1] = "tcp://127.0.0.1:1234" ;
+	args[1] = "udp://127.0.0.1:1234" ;
 #ifdef WIN32
 
 
@@ -32,8 +35,9 @@ int main(int argi ,char*args[])
 #else
 
 #endif
+ 
 
-	CServerBase* server = new CTcpServer();//// client(args[1])
+	CServerBase* server = new CServer();//// client(args[1])
 	server->CreateServer(args[1]);
 	CChannel*  channel = server->AcceptClient();
 	char data[1024];
@@ -45,12 +49,17 @@ int main(int argi ,char*args[])
 		{
 			char* buf =  new char[re+1];
 			strncpy(buf,data,re);
-			buf[re+1] = '\0';
+			buf[re] = '\0';
 			cout<<"recive from client:"<<buf<<endl;
 			over =  true;
 		}
 		channel->Write(7,"8765432");
 	}
-
+	cout<<"input char:";
+	char x;
+	cin>>x;
 	return 0;
 }
+
+
+#endif

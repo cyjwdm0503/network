@@ -9,7 +9,7 @@ CTcpSock::CTcpSock(const char* loc):CInetSock(loc)
 {
 	;
 }
-CTcpSock::CTcpSock(CServiceName* service):CInetSock(service)
+CTcpSock::CTcpSock(const CServiceName* service):CInetSock(service)
 {
 	;
 }

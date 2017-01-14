@@ -5,7 +5,7 @@ using namespace std;
 
 CServiceName::CServiceName(const char* location):m_host(),m_port(),m_location(),m_channel()
 {
-	strcpy(m_location,location);
+	strncpy(m_location,location,sizeof(m_location));
 	int pos = 0;
 	int beginpos = 0;
 	int endpos = beginpos+1;
@@ -79,10 +79,18 @@ CServiceName::CServiceName(const char* location):m_host(),m_port(),m_location(),
 CServiceName::CServiceName()
 {
 
-	m_host[127] = '\0';
-	m_port[63] = '\0';
-	m_location[255] = '\0';
-	m_channel[63] = '\0';
+	m_host[0] = '\0';
+	m_port[0] = '\0';
+	m_location[0] = '\0';
+	m_channel[0] = '\0';
+}
+
+CServiceName::CServiceName(const CServiceName& ser )
+{
+	strncpy(m_host,ser.m_host,sizeof(m_host));
+	strncpy(m_port,ser.m_port,sizeof(m_port));
+	strncpy(m_location,ser.m_location,sizeof(m_location));
+	strncpy(m_channel,ser.m_channel,sizeof(m_channel));
 }
 
 channel_t CServiceName::GetNChannel() const
@@ -94,17 +102,17 @@ channel_t CServiceName::GetNChannel() const
 	return SOCK_STREAM;
 }
 
-char* CServiceName::GetChannel()
+const char* CServiceName::GetChannel()const
 {
 	return m_channel;
 }
 
-char* CServiceName::GetHost()
+const char* CServiceName::GetHost()const
 {
 	return m_host;
 }
 
-int CServiceName::GetPort()
+int CServiceName::GetPort()const
 {
 	if(strncmp(m_port,"",1) !=0)
 		return atoi(m_port);
@@ -112,7 +120,7 @@ int CServiceName::GetPort()
 		return 65563;
 }
 
-addr_t CServiceName::GetNHost()
+addr_t CServiceName::GetNHost() const
 {
 	in_addr addr;
 #ifdef WIN32
@@ -124,7 +132,7 @@ addr_t CServiceName::GetNHost()
 	return addr.s_addr;
 }
 
-port_t CServiceName::GetNPort()
+port_t CServiceName::GetNPort()const
 {
 	return htons(atoi(m_port));
 }
@@ -135,14 +143,14 @@ void CServiceName::SetPort(int p)
 }
 void CServiceName::SetHost(const char* host)
 {
-	strncpy(m_host,host,strlen(m_host));
+	strncpy(m_host,host,sizeof(m_host));
 }
 void CServiceName::SetChannel(const char* channel)
 {
-	strncpy(m_channel,channel,strlen(m_channel));
+	strncpy(m_channel,channel,sizeof(m_channel));
 }
 
-sockaddr_in CServiceName::GetSock()
+sockaddr_in CServiceName::GetSock()const
 {
 	sockaddr_in  addr;
 	addr.sin_port =  GetNPort();
@@ -162,4 +170,14 @@ void CServiceName::SetSockaddr_in(const sockaddr_in& in)
 	else
 		SetChannel("udp");
 	SetHost(inet_ntoa(in.sin_addr));
+}
+
+void CServiceName::SetLocation( const char* loc )
+{
+	strncpy(m_location,loc,sizeof(m_location));
+}
+
+const char* CServiceName::GetLocation() const
+{
+	return m_location;
 }

@@ -34,9 +34,6 @@
     <ClCompile Include="..\client\ClientBase.cpp">
       <Filter>client</Filter>
     </ClCompile>
-    <ClCompile Include="..\client\TcpClient.cpp">
-      <Filter>client</Filter>
-    </ClCompile>
     <ClCompile Include="..\ServerEndPoint.cpp" />
     <ClCompile Include="..\channelsock\UdpSock.cpp">
       <Filter>channelsock</Filter>
@@ -44,6 +41,10 @@
     <ClCompile Include="..\channelsock\UdpChannel.cpp">
       <Filter>channelsock</Filter>
     </ClCompile>
+    <ClCompile Include="..\client\Client.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ClientEndPoint.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h">
@@ -71,14 +72,14 @@
     <ClInclude Include="..\client\ClientBase.h">
       <Filter>client</Filter>
     </ClInclude>
-    <ClInclude Include="..\client\TcpClient.h">
-      <Filter>client</Filter>
-    </ClInclude>
     <ClInclude Include="..\channelsock\UdpSock.h">
       <Filter>channelsock</Filter>
     </ClInclude>
     <ClInclude Include="..\channelsock\UdpChannel.h">
       <Filter>channelsock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\client\Client.h">
+      <Filter>client</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

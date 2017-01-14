@@ -1,7 +1,9 @@
 #ifndef SERVERBASE_H
 #define SERVERBASE_H
 
-#include "TcpSock.h"
+#include "Channel.h"
+#include "ServiceName.h"
+
 class CServerBase
 {
 public:

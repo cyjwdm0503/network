@@ -1,8 +1,8 @@
 
 CC = g++
-CFLAG = -Wall -g -I./channelsock -I./server  -I./client -I.
+CFLAGS = -Wall -g -I./channelsock -I./server  -I./client -I.
 
-clientcpp=./client.cpp
+
 channelcpp=./channelsock/Channel.cpp
 channelh=./channelsock/Channel.h
 inetsockcpp=./channelsock/InetSock.cpp
@@ -12,70 +12,81 @@ servicenameh=./channelsock/ServiceName.h
 sockh=./channelsock/sock.h
 tcpsockcpp=./channelsock/TcpSock.cpp
 tcpsockh=./channelsock/TcpSock.h
+udpchannelcpp=./channelsock/UdpChannel.cpp
+udpchannelh=./channelsock/UdpChannel.cpp
+udpsockcpp=./channelsock/UdpSock.cpp
+udpsockh=/channelsock/UdpSock.h
+
 serverbasecpp=./server/ServerBase.cpp
 serverbaseh=./server/ServerBase.h
-serverendpointcpp=./ServerEndPoint.cpp
-clientcpp=./client.cpp
 servercpp=./server/Server.cpp
 serverh= ./server/Server.h
+
 logcpp = ./Log.cpp
 logh=./Log.h
+serverendpointcpp=./ServerEndPoint.cpp
+clientendpointcpp=./ClientEndPoint.cpp
+
 clientbasecpp=./client/ClientBase.cpp
 clientbaseh=./client/ClientBase.h
-tcpclientcpp=./client/TcpClient.cpp
-tcpclienth=./client/TcpClient.h
+clientcpp=./client/Client.cpp
+clienth=./client/Client.h
 
 
 channelo=./channelsock/Channel.o
 inetsocko=./channelsock/InetScok.o
 servicenameo=./channelsock/ServiceName.o
 tcpsocko=./channelsock/TcpSock.o
+udpsocko=./channelsock/UdpSock.o
+udpchannelo=./channelsock/UdpChannel.o
+
 serverbaseo=./server/ServerBase.o
-cliento=./client.o
-logo=./Log.o
 servero=./server/Server.o
 clientbaseo=./client/clientbase.o
-tcpcliento=./client/tcpclient.o
+cliento=./client/client.o
+
+
+logo=./Log.o
+
+
 target=ClientEndPoint ServerEndPoint
 
 target:ClientEndPoint ServerEndPoint
-allObj:$(channelo) $(servicenameo) $(tcpsocko) $(serverbaseo)  $(logo) $(clientbaseo) $(tcpcliento)
+allObj:$(channelo) $(inetsocko) $(servicenameo) $(tcpsocko) $(udpsocko) $(udpchannelo) $(serverbaseo) $(servero) $(clientbaseo) $(cliento) 
+Obj = $(channelo) $(inetsocko) $(servicenameo) $(tcpsocko) $(udpsocko) $(udpchannelo) $(serverbaseo) $(servero) $(clientbaseo) $(cliento) 
 
-
-Obj = $(channelo) $(servicenameo) $(tcpsocko) $(serverbaseo)  $(logo) $(inetsocko) $(servero) $(serverbaseo) $(clientbaseo) $(tcpcliento)
-
-ClientEndPoint:$(clientcpp) $(Obj)
-	$(CC) $(CFLAG) $^    -o $@
+ClientEndPoint:$(clientendpointcpp) $(Obj)
+	$(CC) $(CFLAGS) $^    -o $@
 
 ServerEndPoint:$(serverendpointcpp) $(Obj)
-	$(CC) $(CFLAG) $^    -o $@
+	$(CC) $(CFLAGS) $^    -o $@
 
 $(servero):$(servercpp) $(serverh) 
-	$(CC) $(CFLAG) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(channelo):$(channelcpp) $(channelh)
-	$(CC) $(CFLAG)  -c $< -o $@
+	$(CC) $(CFLAGS)  -c $< -o $@
 
 $(logo):$(logcpp) $(logh)
-	$(CC) $(CFLAG) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(servicenameo):$(servicenamecpp) $(servecinameh)
-	$(CC) $(CFLAG) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(inetsocko):$(inetsockcpp) $(inetsockh)
-	$(CC) $(CFLAG) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(tcpsocko):$(tcpsockcpp) $(tcpsockh)
-	$(CC) $(CFLAG) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 
 $(serverbaseo):$(serverbasecpp) $(serverbaseh) 
-	$(CC) $(CFLAG) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(clientbaseo):$(clientbasecpp) $(clientbaseh)
-	$(CC) $(CFLAG) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 	
-$(tcpcliento):$(tcpclientcpp) $(tcpclienth)
+$(cliento):$(tcpclientcpp) $(tcpclienth)
 	$(CC) $(CFLAG) -c $< -o $@
 
 clean:$(all)

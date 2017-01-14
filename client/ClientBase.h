@@ -1,7 +1,9 @@
 #ifndef CLIENTBASE_H
 #define CLIENTBASE_H
 
-#include "TcpSock.h"
+#include "Channel.h"
+#include "ServiceName.h"
+
 class CClientBase
 {
 public:
