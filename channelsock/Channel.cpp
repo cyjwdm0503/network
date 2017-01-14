@@ -26,7 +26,7 @@ int CChannel::Write(size_t max,const char* buf)
 	#ifdef WIN32
 	return  send(m_fd,buf,max,0);
 	#else
-	  return  write(m_fd,buf,max);
+	return  write(m_fd,buf,max);
 	#endif // WINDOWS
 
 
