@@ -1,4 +1,4 @@
-#include "Client.h"
+#include "ClientApi.h"
 #include <iostream>
 #include <cstring>
 #include <cstdlib>
@@ -30,6 +30,10 @@ int main(int argi ,char*args[])
 #else
 
 #endif
+	CClientApi client(args[1],args[2]);
+	client.Create();
+	client.Join();
+	/*
 	if (argi < 3)
 	{
 		cout<<"usage: "<<args[0] << "channel:://clientip:port channel://serverip:port"<<endl;
@@ -55,6 +59,8 @@ int main(int argi ,char*args[])
 			over =  true;
 		}
 	}
+
+	*/
 	cout<<"input char:";
 	char x;
 	cin>>x;

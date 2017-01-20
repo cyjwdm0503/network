@@ -46,7 +46,7 @@ void CDispatcher::DispatherEvent()
 
 void CDispatcher::Run()
 {
-	if(IsRun)
+	while(IsRun)
 	{//
 		SyncRun();
 		SyncTimer();
@@ -57,11 +57,11 @@ void CDispatcher::Run()
 
 void CDispatcher::SyncTimer()
 {
-	throw std::exception("The method or operation is not implemented.");
+	 
 }
 
 void CDispatcher::SyncRun()
 {
-	throw std::exception("The method or operation is not implemented.");
+	 
 }
 

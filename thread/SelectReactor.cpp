@@ -27,6 +27,7 @@ void CSelectReactor::SyncRun()
 	t.tv_sec = 0;
 	t.tv_usec = 10;
 	select(maxfd+1,&readset,&writeset,NULL,&t);
+	RunHandle(readset,writeset,maxfd);
 
 }
 
@@ -73,5 +74,15 @@ void CSelectReactor::RunHandle( fd_set& readset,fd_set& writeset,int& maxfd )
 			(*it)->HandleOupt();
 		}
 	}
+}
+
+CSelectReactor::CSelectReactor()
+{
+
+}
+
+CSelectReactor::~CSelectReactor()
+{
+
 }
 

@@ -1,17 +1,17 @@
 #ifndef HANDLER_H
 #define HANDLER_H
 
-class CDispatcher;
+class CSelectReactor;
 class CHandler
 {
 public:
-	CHandler();
-	~CHandler();
+	CHandler(CSelectReactor* selecter):m_dispatcher(selecter){};
+	~CHandler(){m_dispatcher =  NULL;};
 	virtual void GetIds(int* readid,int* writeid){};
 	virtual void HandleInput(){};
 	virtual void HandleOupt(){};
 private:
-	CDispatcher* m_dispatcher;
+	CSelectReactor* m_dispatcher;
 };
 
 

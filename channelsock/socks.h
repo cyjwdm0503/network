@@ -6,13 +6,13 @@ SOCK对应的头文件
 
 #ifdef WIN32
 
-#include <winsock2.h>
+#include <WinSock2.h>
 #include <ws2tcpip.h>
 #include <stdio.h>
 #include <cstdlib>
 #include <cstring>
 #pragma comment(lib, "Ws2_32.lib")
-
+typedef int socklen_t;
 #else
 
 #include <cstring>

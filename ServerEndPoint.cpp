@@ -41,6 +41,7 @@ int main(int argi ,char*args[])
 	CChannel*  channel = server->AcceptClient();
 	char data[1024];
 	int over = false;
+	int times=0;
 	while(!over)
 	{
 		int re = channel->Read(1024,data);
@@ -50,7 +51,10 @@ int main(int argi ,char*args[])
 			strncpy(buf,data,re);
 			buf[re] = '\0';
 			cout<<"recive from client:"<<buf<<endl;
-			over =  true;
+			if(times == 20)
+				over =  true;
+			times++;
+			Sleep(1000);
 		}
 		channel->Write(7,"8765432");
 	}

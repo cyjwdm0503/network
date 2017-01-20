@@ -150,6 +150,7 @@
     <ClCompile Include="..\channelsock\TcpSock.cpp" />
     <ClCompile Include="..\channelsock\UdpChannel.cpp" />
     <ClCompile Include="..\channelsock\UdpSock.cpp" />
+    <ClCompile Include="..\ClientApi.cpp" />
     <ClCompile Include="..\ClientEndPoint.cpp" />
     <ClCompile Include="..\client\ClientBase.cpp" />
     <ClCompile Include="..\client\Client.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="..\channelsock\TcpSock.h" />
     <ClInclude Include="..\channelsock\UdpChannel.h" />
     <ClInclude Include="..\channelsock\UdpSock.h" />
+    <ClInclude Include="..\ClientApi.h" />
     <ClInclude Include="..\client\ClientBase.h" />
     <ClInclude Include="..\client\Client.h" />
     <ClInclude Include="..\Log.h" />

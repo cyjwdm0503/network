@@ -66,6 +66,7 @@
     <ClCompile Include="..\thread\SelectReactor.cpp">
       <Filter>thread</Filter>
     </ClCompile>
+    <ClCompile Include="..\ClientApi.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h">
@@ -126,5 +127,6 @@
     <ClInclude Include="..\thread\SelectReactor.h">
       <Filter>thread</Filter>
     </ClInclude>
+    <ClInclude Include="..\ClientApi.h" />
   </ItemGroup>
 </Project>

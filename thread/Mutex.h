@@ -3,12 +3,6 @@
 
 #include "Common.h"
 
-#ifdef WIN32
-#include <windows.h>
-#else
-#include "pthread.h"
-#endif
-
 class CMutex
 {
 public:
