@@ -63,6 +63,9 @@
     <ClCompile Include="..\thread\Dispatcher.cpp">
       <Filter>thread</Filter>
     </ClCompile>
+    <ClCompile Include="..\thread\SelectReactor.cpp">
+      <Filter>thread</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h">

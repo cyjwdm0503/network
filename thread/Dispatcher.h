@@ -10,7 +10,7 @@ class CDispatcher:public CThread
 public:
 	CDispatcher();
 	~CDispatcher();
- 
+
 	void RegisterTimer(CHandler* handler,int event,int ms);
 	void RemoveTimer(CHandler* handler,int event);
 	bool PostEvent(CHandler* handler,int event,DWORD dwParam,void* pParam);//“Ï≤Ω
@@ -20,7 +20,7 @@ public:
 	virtual void Run();
 	void SyncTimer();
 	virtual void SyncRun();
-private:
+protected:
 
 	CMutex m_mtx;
 	bool IsRun;

@@ -7,9 +7,9 @@ class CHandler
 public:
 	CHandler();
 	~CHandler();
-	void GetIds(int* readid,int* writeid);
-	void HandleInput();
-	void HandleOupt();
+	virtual void GetIds(int* readid,int* writeid){};
+	virtual void HandleInput(){};
+	virtual void HandleOupt(){};
 private:
 	CDispatcher* m_dispatcher;
 };
