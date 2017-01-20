@@ -157,6 +157,11 @@
     <ClCompile Include="..\ServerEndPoint.cpp" />
     <ClCompile Include="..\server\Server.cpp" />
     <ClCompile Include="..\server\ServerBase.cpp" />
+    <ClCompile Include="..\thread\Dispatcher.cpp" />
+    <ClCompile Include="..\thread\Mutex.cpp" />
+    <ClCompile Include="..\thread\MutexGuard.cpp" />
+    <ClCompile Include="..\thread\Semaphore.cpp" />
+    <ClCompile Include="..\thread\Thread.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h" />
@@ -171,6 +176,14 @@
     <ClInclude Include="..\Log.h" />
     <ClInclude Include="..\server\Server.h" />
     <ClInclude Include="..\server\ServerBase.h" />
+    <ClInclude Include="..\thread\Common.h" />
+    <ClInclude Include="..\thread\Dispatcher.h" />
+    <ClInclude Include="..\thread\Handler.h" />
+    <ClInclude Include="..\thread\Mutex.h" />
+    <ClInclude Include="..\thread\MutexGuard.h" />
+    <ClInclude Include="..\thread\SelectReactor.h" />
+    <ClInclude Include="..\thread\Semaphore.h" />
+    <ClInclude Include="..\thread\Thread.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

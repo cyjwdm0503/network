@@ -10,6 +10,9 @@
     <Filter Include="client">
       <UniqueIdentifier>{199aa12c-4ac5-441d-954f-8f21d775eb5b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="thread">
+      <UniqueIdentifier>{e1a82de5-9ead-4c95-ac9e-2ae07bbb23b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\channelsock\Channel.cpp">
@@ -45,6 +48,21 @@
       <Filter>client</Filter>
     </ClCompile>
     <ClCompile Include="..\ClientEndPoint.cpp" />
+    <ClCompile Include="..\thread\Mutex.cpp">
+      <Filter>thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thread\MutexGuard.cpp">
+      <Filter>thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thread\Semaphore.cpp">
+      <Filter>thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thread\Thread.cpp">
+      <Filter>thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thread\Dispatcher.cpp">
+      <Filter>thread</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h">
@@ -80,6 +98,30 @@
     </ClInclude>
     <ClInclude Include="..\client\Client.h">
       <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thread\Common.h">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thread\Mutex.h">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thread\MutexGuard.h">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thread\Semaphore.h">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thread\Thread.h">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thread\Dispatcher.h">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thread\Handler.h">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thread\SelectReactor.h">
+      <Filter>thread</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
