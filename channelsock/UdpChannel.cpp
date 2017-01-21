@@ -1,5 +1,5 @@
 #include "UdpChannel.h"
-
+#include "Log.h"
 
 int CUdpChannel::Write( size_t max ,const char* buf )
 {
@@ -9,6 +9,10 @@ int CUdpChannel::Write( size_t max ,const char* buf )
 	addr.sin_family = AF_INET;
 	socklen_t len = sizeof(addr);
 	int re =  sendto(m_fd,buf,max,0,(sockaddr*)&addr,len);
+	if(re == -1)
+	{
+		CLog::GetInstance()->Printerrno(re);
+	}
 	return re;
 }
 
@@ -21,6 +25,13 @@ int CUdpChannel::Read( size_t max ,char* buf )
 	//addr.sin_family = AF_INET;
 	socklen_t len = sizeof(addr);
 	int re =  recvfrom(m_fd,buf,max,0,(sockaddr*)&addr,&len);
+	if(re == -1)
+	{//注意在UDP发送第一个数据时，且没有UDP服务器时，能select 时收到-1的结果
+		/*10054
+		https://support.microsoft.com/zh-cn/help/263823/winsock-recvfrom-now-returns-wsaeconnreset-instead-of-blocking-or-timing-out
+		*/
+		CLog::GetInstance()->Printerrno(re);
+	}
 	//CServiceName service;
 	//service.SetSockaddr_in(addr);
 	//SetService(service);

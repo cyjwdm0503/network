@@ -12,6 +12,8 @@ int main(int argi ,char*args[])
 {
 
 #ifdef WIN32
+
+
 	argi = 3;
 	args[0] = "netword_ini.exe" ;
 	args[1] = "udp://127.0.0.1:4321" ;
@@ -27,6 +29,9 @@ int main(int argi ,char*args[])
 		printf("WSAStartup failed: %d\n", iResult);
 		return 1;
 	}
+
+
+
 #else
 
 #endif

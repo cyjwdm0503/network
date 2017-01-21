@@ -33,9 +33,9 @@ CLog:: ~CLog()
 void CLog::Printerrno(int re)
 {
     #ifdef WIN32
-	cout<<GetLastError();
+	cout<<"GetLastError:"<<GetLastError()<<endl;
     #else
-    cout<<re<<"\t"<<errno<<"\t"<<strerror(errno)<<endl;
+    cout<<"GetLastError:"<<re<<"\t"<<errno<<"\t"<<strerror(errno)<<endl;
     #endif // WINDOWS
 
 }

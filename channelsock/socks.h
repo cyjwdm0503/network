@@ -12,6 +12,13 @@ SOCK对应的头文件
 #include <cstdlib>
 #include <cstring>
 #pragma comment(lib, "Ws2_32.lib")
+
+	/*
+	用于解决发送UDP报文到不可达的UDP服务器时会返回-1的错误错误代码10054
+	*/
+#define SIO_UDP_CONNRESET _WSAIOW(IOC_VENDOR, 12)
+
+
 typedef int socklen_t;
 #else
 

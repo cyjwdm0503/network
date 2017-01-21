@@ -25,6 +25,21 @@ CUdpSock::~CUdpSock()
 int CUdpSock::CreateSocket()
 {
 	CInetSock::CreateSocket();
+
+#ifdef WIN32
+	/*
+	用于解决发送UDP报文到不可达的UDP服务器时会返回-1的错误错误代码10054
+	*/
+	BOOL bNewBehavior = FALSE;
+	DWORD dwBytesReturned = 0;
+	DWORD status;
+	status = WSAIoctl(m_fd, SIO_UDP_CONNRESET,
+		&bNewBehavior, sizeof(bNewBehavior),
+		NULL, 0, &dwBytesReturned,
+		NULL, NULL);
+
+#endif
+
 	sockaddr_in addr;
 	addr.sin_addr.s_addr =  m_service->GetNHost();
 	addr.sin_family = AF_INET;

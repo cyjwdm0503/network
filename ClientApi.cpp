@@ -48,7 +48,8 @@ void CClientApi::HandleInput()
 	if(m_clientchannel != NULL)
 	{
 		int len = m_clientchannel->Read(MAXLENGTH,m_buf);
-		m_buf[len] = '\0';
+		if(len > 0)
+			m_buf[len] = '\0';
 		m_leavewritelen = len;
 		cout<<"CClientApi::HandleInput:"<<len<<" char content:"<<m_buf<<endl;
 	}
@@ -73,6 +74,7 @@ CClientApi::CClientApi( const char* clientip,const char* serverip ):CHandler(thi
 	m_leavewritelen = 1;
 	m_client = new CClient();
 	m_client->CreateClient(clientip);
+
 	m_clientchannel = m_client->ConnectServer(serverip);
 }
 
