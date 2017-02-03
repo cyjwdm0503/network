@@ -155,6 +155,7 @@
     <ClCompile Include="..\client\ClientBase.cpp" />
     <ClCompile Include="..\client\Client.cpp" />
     <ClCompile Include="..\Log.cpp" />
+    <ClCompile Include="..\ServerApi.cpp" />
     <ClCompile Include="..\ServerEndPoint.cpp" />
     <ClCompile Include="..\server\Server.cpp" />
     <ClCompile Include="..\server\ServerBase.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="..\client\ClientBase.h" />
     <ClInclude Include="..\client\Client.h" />
     <ClInclude Include="..\Log.h" />
+    <ClInclude Include="..\ServerApi.h" />
     <ClInclude Include="..\server\Server.h" />
     <ClInclude Include="..\server\ServerBase.h" />
     <ClInclude Include="..\thread\Common.h" />
@@ -187,7 +189,6 @@
     <ClInclude Include="..\thread\SelectReactor.h" />
     <ClInclude Include="..\thread\Semaphore.h" />
     <ClInclude Include="..\thread\Thread.h" />
-    <ClInclude Include="ServerApi.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
