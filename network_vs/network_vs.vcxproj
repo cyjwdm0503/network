@@ -187,6 +187,7 @@
     <ClInclude Include="..\thread\SelectReactor.h" />
     <ClInclude Include="..\thread\Semaphore.h" />
     <ClInclude Include="..\thread\Thread.h" />
+    <ClInclude Include="ServerApi.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -128,5 +128,6 @@
       <Filter>thread</Filter>
     </ClInclude>
     <ClInclude Include="..\ClientApi.h" />
+    <ClInclude Include="ServerApi.h" />
   </ItemGroup>
 </Project>
