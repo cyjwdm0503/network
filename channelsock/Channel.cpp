@@ -54,4 +54,17 @@ CChannel::CChannel( int fd )
 {
 	m_fd = fd;
 	m_service = NULL;
+	m_bConnected = true;
+}
+
+bool CChannel::Available()
+{
+	return m_bConnected;
+}
+
+bool CChannel::Disconnect()
+{
+	m_bConnected = false;
+	closesocket(m_fd);
+	return m_bConnected;
 }

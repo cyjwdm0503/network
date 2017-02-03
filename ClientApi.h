@@ -13,18 +13,23 @@ class CClientApi:public CSelectReactor,public CHandler
 {
 public:
 	CClientApi(const char* client,const char* server);
-	~CClientApi();
+	virtual ~CClientApi();
 	CClientApi();
+
+	//被调度的过程
 	virtual void SyncRun();
 
 	virtual bool ExitInstance();
 
 	virtual bool InitInstance();
 
+	//获取对应的文件套接字
 	virtual void GetIds( int* readid,int* writeid );
 
+	//id准备好后，输入的过程
 	virtual void HandleInput();
 
+	//id准备好后，输出的过程
 	virtual void HandleOupt();
 private:
 	CClient* m_client;

@@ -6,7 +6,7 @@ class CMutexGuard
 {
 public:
 	CMutexGuard(CMutex& mtx);
-	~CMutexGuard();
+	virtual ~CMutexGuard();
 private:
 	CMutex& m_mtx;
 };

@@ -7,7 +7,7 @@ class CSelectReactor:public CDispatcher
 {
 public:
 	CSelectReactor();
-	~CSelectReactor();
+	virtual ~CSelectReactor();
 
 	virtual void SyncRun();
 	void  AddHandler( CHandler* handler );

@@ -9,7 +9,7 @@ class CDispatcher:public CThread
 {
 public:
 	CDispatcher();
-	~CDispatcher();
+	virtual ~CDispatcher();
 
 	void RegisterTimer(CHandler* handler,int event,int ms);
 	void RemoveTimer(CHandler* handler,int event);

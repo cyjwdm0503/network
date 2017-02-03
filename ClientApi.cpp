@@ -29,6 +29,12 @@ void CClientApi::GetIds( int* readid,int* writeid )
 		(*writeid) = 0;
 		return;
 	}
+	if(!m_clientchannel->Available())
+	{
+		(*readid) = 0;
+		(*writeid) = 0;
+		return;
+	}
 	int fd = m_clientchannel->Getfd();
 	if(m_leavewritelen > 0)
 	{
@@ -50,6 +56,8 @@ void CClientApi::HandleInput()
 		int len = m_clientchannel->Read(MAXLENGTH,m_buf);
 		if(len > 0)
 			m_buf[len] = '\0';
+		else
+			m_clientchannel->Disconnect();
 		m_leavewritelen = len;
 		cout<<"CClientApi::HandleInput:"<<len<<" char content:"<<m_buf<<endl;
 	}
@@ -59,9 +67,10 @@ void CClientApi::HandleOupt()
 {
 	if(m_clientchannel != NULL)
 	{
-		int len = m_clientchannel->Write(MAXLENGTH,m_buf);
+		char* ptr = (char*)this;
+		int len = m_clientchannel->Write(sizeof(ptr),ptr);
 		m_leavewritelen = 0;
-		cout<<"CClientApi::HandleOupt:"<<len<<" char content:"<<m_buf<<endl;
+		cout<<"CClientApi::HandleOupt:"<<len<<" char content:"<<ptr<<endl;
 	}
 }
 

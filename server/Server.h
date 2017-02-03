@@ -10,7 +10,7 @@ public:
 	virtual CChannel* CreateServer(CServiceName* server);
 	virtual CChannel* CreateServer(const char* location);
 	virtual CChannel* AcceptClient();
-public:
+protected:
 	CInetSock* m_serversock;
 	CInetSock* CreateInetSock(const char* servicename);
 };

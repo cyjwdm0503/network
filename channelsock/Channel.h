@@ -11,7 +11,7 @@ class CChannel
 
 public:
     CChannel(int fd);
-    ~CChannel();
+    virtual ~CChannel();
 
 
     virtual int Read(size_t max ,char* buf);
@@ -20,10 +20,13 @@ public:
     virtual void SetService(const CServiceName& service);
     //获取此的对应文件描述符的id
     int Getfd() const;
+	bool Available();
+	bool Disconnect();
 
 protected:
     int m_fd;
     CServiceName* m_service;
+	bool m_bConnected;
 
 
 };

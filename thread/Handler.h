@@ -6,7 +6,7 @@ class CHandler
 {
 public:
 	CHandler(CSelectReactor* selecter):m_dispatcher(selecter){};
-	~CHandler(){m_dispatcher =  NULL;};
+	virtual ~CHandler(){m_dispatcher =  NULL;};
 	virtual void GetIds(int* readid,int* writeid){};
 	virtual void HandleInput(){};
 	virtual void HandleOupt(){};

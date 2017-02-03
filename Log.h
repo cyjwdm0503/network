@@ -26,7 +26,7 @@ public:
   static CLog* GetInstance();
 
   CLog();
-  ~CLog();
+  virtual ~CLog();
   void Printerrno(int error);
 };
 

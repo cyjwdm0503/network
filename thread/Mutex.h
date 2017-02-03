@@ -8,7 +8,7 @@ class CMutex
 public:
 	CMutex();
 	CMutex(const char* name);
-	~CMutex();
+	virtual ~CMutex();
 	void Lock();
 	void UnLock();
 	bool TryLock();

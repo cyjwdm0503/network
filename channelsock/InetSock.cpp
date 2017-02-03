@@ -21,13 +21,20 @@ CInetSock::CInetSock(const CServiceName* service)
 CInetSock::~CInetSock()
 {
 	if(m_service != NULL)
+	{
 		delete m_service;
+		
+	}
 	m_service = NULL;
 }
 
 int CInetSock::CreateSocket()
 {
 	m_fd = socket(AF_INET,m_service->GetNChannel(),0);
+	//允许多次连接
+	int on=1;
+	setsockopt(m_fd, SOL_SOCKET, SO_REUSEADDR, (char *)&on, sizeof(on));
+	
 	return m_fd;
 }
 
