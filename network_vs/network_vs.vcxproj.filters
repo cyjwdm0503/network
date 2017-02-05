@@ -13,6 +13,9 @@
     <Filter Include="thread">
       <UniqueIdentifier>{e1a82de5-9ead-4c95-ac9e-2ae07bbb23b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="package">
+      <UniqueIdentifier>{9844bb5d-0557-400e-8e42-38b57443c3bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\channelsock\Channel.cpp">
@@ -68,6 +71,12 @@
     </ClCompile>
     <ClCompile Include="..\ClientApi.cpp" />
     <ClCompile Include="..\ServerApi.cpp" />
+    <ClCompile Include="..\package\channelpackage.cpp">
+      <Filter>package</Filter>
+    </ClCompile>
+    <ClCompile Include="..\package\Package.cpp">
+      <Filter>package</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h">
@@ -130,5 +139,11 @@
     </ClInclude>
     <ClInclude Include="..\ClientApi.h" />
     <ClInclude Include="..\ServerApi.h" />
+    <ClInclude Include="..\package\channelpackage.h">
+      <Filter>package</Filter>
+    </ClInclude>
+    <ClInclude Include="..\package\Package.h">
+      <Filter>package</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,9 +1,11 @@
 #include "ClientApi.h"
 #include <iostream>
 #include "Client.h"
+#include "channelpackage.h"
 using namespace  std;
 
-
+static  int globalVERSION = 1;
+static char letter = 'a';
 void CClientApi::SyncRun()
 {
 	CSelectReactor::SyncRun();
@@ -51,34 +53,47 @@ void CClientApi::GetIds( int* readid,int* writeid )
 
 void CClientApi::HandleInput()
 { 
+ 
+	CChannelPackage package(CHANNELPACKAGE_ID,MAXLENGTH);
+	
 	if(m_clientchannel != NULL)
 	{
-		int len = m_clientchannel->Read(MAXLENGTH,m_buf);
+		int len = package.ReadFromChannel(m_clientchannel);
+		//int len = m_clientchannel->Read(package.GetValidLength(),package.GetValidDataPtr());
 		if(len > 0)
-			m_buf[len] = '\0';
+			;//m_buf[len] = '\0';
 		else
+		{
 			m_clientchannel->Disconnect();
+			return ; 
+		}
 		m_leavewritelen = len;
-		cout<<"CClientApi::HandleInput:"<<len<<" char content:"<<m_buf<<endl;
+		
+		CPackage pack(PACKAGE_ID);
+		package.PopPackage(&pack);
+		pack.MakePackage();
+		cout<<"CClientApi::HandleInput:"<<len<<" char content:"<<"\t"<<pack.GetHeader()->VERSION<<endl;
 	}
 }
 
 void CClientApi::HandleOupt()
 {
+	CChannelPackage package(CHANNELPACKAGE_ID,MAXLENGTH);
+	CPackage pack(PACKAGE_ID,MAXLENGTH);
+	pack.GetHeader()->VERSION = ++globalVERSION;
+	pack.PushHeader();
+	package.PushPackage(&pack);
 	if(m_clientchannel != NULL)
 	{
-		char* ptr = (char*)this;
-		int len = m_clientchannel->Write(sizeof(ptr),ptr);
+		int len = m_clientchannel->Write(package.GetPackageLen(),package.GetPackagePtr());
 		m_leavewritelen = 0;
-		cout<<"CClientApi::HandleOupt:"<<len<<" char content:"<<ptr<<endl;
+		cout<<"CClientApi::HandleOupt:"<<len<<" char content:"<<"\t"<<pack.GetHeader()->VERSION<<endl;
 	}
 }
 
 CClientApi::CClientApi( const char* clientip,const char* serverip ):CHandler(this),m_clientchannel(NULL)
 {
 	AddHandler(this);
-	m_buf = new char[MAXLENGTH+1];
-	strcpy(m_buf,"12345678");
 	m_leavereadlen = 0;
 	m_leavewritelen = 1;
 	m_client = new CClient();

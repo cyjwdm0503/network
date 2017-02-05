@@ -84,7 +84,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../server;../channelsock;../;../client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../package/;../server;../channelsock;../;../client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -99,7 +99,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);SERVER</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../thread;../server;../channelsock;../;../client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../package;../thread;../server;../channelsock;../;../client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -116,7 +116,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);CLIENT</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../thread;../server;../channelsock;../;../client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../package;../thread;../server;../channelsock;../;../client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -134,7 +134,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../server;../channelsock;../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../package/;../server;../channelsock;../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -155,6 +155,8 @@
     <ClCompile Include="..\client\ClientBase.cpp" />
     <ClCompile Include="..\client\Client.cpp" />
     <ClCompile Include="..\Log.cpp" />
+    <ClCompile Include="..\package\channelpackage.cpp" />
+    <ClCompile Include="..\package\Package.cpp" />
     <ClCompile Include="..\ServerApi.cpp" />
     <ClCompile Include="..\ServerEndPoint.cpp" />
     <ClCompile Include="..\server\Server.cpp" />
@@ -178,6 +180,8 @@
     <ClInclude Include="..\client\ClientBase.h" />
     <ClInclude Include="..\client\Client.h" />
     <ClInclude Include="..\Log.h" />
+    <ClInclude Include="..\package\channelpackage.h" />
+    <ClInclude Include="..\package\Package.h" />
     <ClInclude Include="..\ServerApi.h" />
     <ClInclude Include="..\server\Server.h" />
     <ClInclude Include="..\server\ServerBase.h" />

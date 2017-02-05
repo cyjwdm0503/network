@@ -3,7 +3,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <cstdio>
-
+#include "channelpackage.h"
 using namespace std;
 
 
@@ -14,7 +14,7 @@ int main(int argi ,char*args[])
 #ifdef WIN32
 	argi = 3;
 	args[0] = "server.exe" ;
-	args[1] = "tcp://127.0.0.1:1234" ;
+	args[1] = "udp://127.0.0.1:1234" ;
 
 
 	WSADATA wsaData;
@@ -44,20 +44,27 @@ int main(int argi ,char*args[])
 	int times=0;
 	while(!over)
 	{
-		int re = channel->Read(1024,data);
+		char* buf =  new char[1024+1];
+		CChannelPackage package(CHANNELPACKAGE_ID,1024);
+		int re = package.ReadFromChannel(channel);
 		if(re > 0 )
 		{
-			char* buf =  new char[re+1];
-			strncpy(buf,data,re);
-			buf[re] = '\0';
-			cout<<"recive from client:"<<buf<<endl;
+			CPackage pack(PACKAGE_ID);
+			package.PopPackage(&pack);
+			pack.MakePackage();
+			cout<<"CClientApi::HandleInput:"<<re<<" char content:"<<"\t"<<pack.GetHeader()->VERSION<<endl;
+
+			//strncpy(buf,data,re);
+			memcpy(buf,package.GetPackagePtr(),re);
 			if(times == 20)
 				over =  true;
 			times++;
 			Sleep(1000);
+			channel->Write(re,buf);
 		}
-		channel->Write(7,"8765432");
+		
 	}
+	channel->Disconnect();
 	cout<<"input char:";
 	char x;
 	cin>>x;

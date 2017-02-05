@@ -16,8 +16,8 @@ int main(int argi ,char*args[])
 
 	argi = 3;
 	args[0] = "client.exe" ;
-	args[1] = "tcp://127.0.0.1:4321" ;
-	args[2] = "tcp://127.0.0.1:1234" ;
+	args[1] = "udp://127.0.0.1:4321" ;
+	args[2] = "udp://127.0.0.1:1234" ;
 
 
 	WSADATA wsaData;
