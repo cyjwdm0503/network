@@ -102,21 +102,21 @@ char* CPackage::GetPackagePtr()
 	return begin;
 }
 
-unsigned int CPackage::GetDataLen() const
+int CPackage::GetDataLen() const
 {
-	return end-cur;
+	return max(end-cur,0);
 }
 
-unsigned int CPackage::GetPackageLen() const
+int CPackage::GetPackageLen() const
 {
-	return end-begin;
+	return max(end-begin,0);
 }
 
 
 
-unsigned int CPackage::GetValidLength() const
+int CPackage::GetValidLength() const
 {
-	return m_maxlen-(end-cur);
+	return m_maxlen-(max(end-cur,0));
 }
 
 char* CPackage::GetValidDataPtr()

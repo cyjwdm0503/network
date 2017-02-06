@@ -5,7 +5,7 @@
 
 bool CChannelPackage::PopPackage( CPackage* package )
 {
-	if(GetDataLen() < sizeof(header))
+	if( GetDataLen() < sizeof(header))
 		return false;
 
 	header head;

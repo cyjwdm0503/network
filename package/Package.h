@@ -44,11 +44,11 @@ public:
 	char* GetPackagePtr();
 
 	//获取数据的长度
-	unsigned int GetDataLen() const;
-	unsigned int GetPackageLen() const;
+	 int GetDataLen() const;
+	 int GetPackageLen() const;
 
 	//可以读取的最大数据
-	unsigned int GetValidLength() const;
+	 int GetValidLength() const;
 
 	//用于底层获取指针，读取数据
 	char* GetValidDataPtr();

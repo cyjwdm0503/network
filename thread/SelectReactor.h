@@ -13,7 +13,7 @@ public:
 	void  AddHandler( CHandler* handler );
 	void  RemoveHandler( CHandler* handler );
 	void PrepareIds( fd_set& readset,fd_set& writeset,int& maxfd);
-	void RunHandle( fd_set& readset,fd_set& writeset,int& maxfd);
+	void RunHandler( fd_set& readset,fd_set& writeset,int& maxfd);
 private:
 	std::set<CHandler*> m_IOlist;
 

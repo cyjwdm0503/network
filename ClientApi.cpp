@@ -4,7 +4,7 @@
 #include "channelpackage.h"
 using namespace  std;
 
-static  int globalVERSION = 1;
+static  int CLIENTVERSION = 1;
 static char letter = 'a';
 void CClientApi::SyncRun()
 {
@@ -80,7 +80,7 @@ void CClientApi::HandleOupt()
 {
 	CChannelPackage package(CHANNELPACKAGE_ID,MAXLENGTH);
 	CPackage pack(PACKAGE_ID,MAXLENGTH);
-	pack.GetHeader()->VERSION = ++globalVERSION;
+	pack.GetHeader()->VERSION = ++CLIENTVERSION;
 	pack.PushHeader();
 	package.PushPackage(&pack);
 	if(m_clientchannel != NULL)

@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include "channelpackage.h"
+#include "ServerApi.h"
 using namespace std;
 
 
@@ -35,7 +36,10 @@ int main(int argi ,char*args[])
 
 #endif
  
-
+	CServerApi server(args[1]);
+	server.Create();
+	server.Join();
+	/*
 	CServerBase* server = new CServer();//// client(args[1])
 	server->CreateServer(args[1]);
 	CChannel*  channel = server->AcceptClient();
@@ -65,6 +69,7 @@ int main(int argi ,char*args[])
 		
 	}
 	channel->Disconnect();
+	*/
 	cout<<"input char:";
 	char x;
 	cin>>x;

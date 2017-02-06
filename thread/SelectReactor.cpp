@@ -27,7 +27,7 @@ void CSelectReactor::SyncRun()
 	t.tv_sec = 0;
 	t.tv_usec = 10;
 	select(maxfd+1,&readset,&writeset,NULL,&t);
-	RunHandle(readset,writeset,maxfd);
+	RunHandler(readset,writeset,maxfd);
 
 }
 
@@ -57,7 +57,7 @@ void CSelectReactor::PrepareIds( fd_set& readset,fd_set& writeset,int& maxfd)
 
 }
 
-void CSelectReactor::RunHandle( fd_set& readset,fd_set& writeset,int& maxfd )
+void CSelectReactor::RunHandler( fd_set& readset,fd_set& writeset,int& maxfd )
 {
 	std::set<CHandler*>::iterator it= m_IOlist.begin();
 	for(; it!= m_IOlist.end(); it++)
