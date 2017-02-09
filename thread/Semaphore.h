@@ -6,10 +6,17 @@ class CSemaphore
 {
 public:
 	CSemaphore(int count, const char* name = NULL);
-	void Lock(void);
-	void UnLock();
-	bool TryLock();
+	virtual ~CSemaphore();
+	void Lock(int* pCount= NULL);
+	void UnLock(int* pCount= NULL);
+	bool TryLock(int* pCount=NULL);
 private:
-	HANDLE m_semap;
+    #ifdef WIN32
+        HANDLE m_semap;
+	#else
+         pthread_cond_t  m_semap;
+         pthread_mutex_t  mtx;
+         int m_count;
+	#endif
 };
 #endif
