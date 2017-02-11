@@ -20,6 +20,7 @@ public:
   virtual int CreateSocket();
   virtual int Connect(CServiceName* server);
   virtual int Accept();
+  virtual int Bind();
   virtual int Listen();
 };
 

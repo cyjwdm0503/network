@@ -28,6 +28,7 @@ public:
   virtual int CreateSocket();
   virtual int Connect(CServiceName* server){return 0;};
   virtual int Listen(){return 0;};
+  virtual int Bind(){return 0;};
   virtual int Accept(){ return 0;};
 public:
   const CServiceName* m_service;

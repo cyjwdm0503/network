@@ -24,7 +24,7 @@ CUdpSock::~CUdpSock()
 
 int CUdpSock::CreateSocket()
 {
-	CInetSock::CreateSocket();
+	int re = CInetSock::CreateSocket();
 
 #ifdef WIN32
 	/*
@@ -40,13 +40,6 @@ int CUdpSock::CreateSocket()
 
 #endif
 
-	sockaddr_in addr;
-	addr.sin_addr.s_addr =  m_service->GetNHost();
-	addr.sin_family = AF_INET;
-	addr.sin_port =  m_service->GetNPort();
-	socklen_t len =  sizeof(addr);
-	int re = bind(m_fd,(sockaddr*)&addr,len);
-	DEBUGOUT(re);
 	AddChannel(m_fd,m_service);
 	return re;
 
@@ -101,11 +94,24 @@ int CUdpSock::Accept()
 
 int CUdpSock::Listen()
 {
+	return Bind();
 	return 0;
 }
 
 CChannel* CUdpSock::GetChannel( int fd )
 {
 	return m_channel;
+}
+
+int CUdpSock::Bind()
+{
+	sockaddr_in addr;
+	addr.sin_addr.s_addr =  m_service->GetNHost();
+	addr.sin_family = AF_INET;
+	addr.sin_port =  m_service->GetNPort();
+	socklen_t len =  sizeof(addr);
+	int re = bind(m_fd,(sockaddr*)&addr,len);
+	DEBUGOUT(re);
+	return re;
 }
 

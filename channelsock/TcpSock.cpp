@@ -21,16 +21,8 @@ CTcpSock::~CTcpSock()
 
 int CTcpSock::CreateSocket()
 {
-	CInetSock::CreateSocket();
-	sockaddr_in addr;
-	addr.sin_port = m_service->GetNPort();
-	addr.sin_family = AF_INET;
-	addr.sin_addr.s_addr = m_service->GetNHost();
-	socklen_t addr_size ;
-	addr_size = sizeof(addr);
-	int re = bind(m_fd,(sockaddr*)&addr,addr_size);
+	int re = CInetSock::CreateSocket();
 	AddChannel(m_fd,m_service);
-	DEBUGOUT(re);
 	return re;
 }
 
@@ -67,8 +59,22 @@ int CTcpSock::Accept()
 
 int CTcpSock::Listen()
 {
+	Bind();
 	int re =  listen(m_fd,SOCK_STREAM);
 	// CLog::GetInstance()->Printerrno(re);
+	DEBUGOUT(re);
+	return re;
+}
+
+int CTcpSock::Bind()
+{
+	sockaddr_in addr;
+	addr.sin_port = m_service->GetNPort();
+	addr.sin_family = AF_INET;
+	addr.sin_addr.s_addr = m_service->GetNHost();
+	socklen_t addr_size ;
+	addr_size = sizeof(addr);
+	int re = bind(m_fd,(sockaddr*)&addr,addr_size);
 	DEBUGOUT(re);
 	return re;
 }
