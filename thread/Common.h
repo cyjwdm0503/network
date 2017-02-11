@@ -12,4 +12,16 @@
 #include "unistd.h"
 #endif
 
+
+enum EVENT_MSG
+{
+	EVENT_TRY_CONNECT,
+	EVENT_RET_CONNECT,
+	EVENT_TRY_ACCEPT,
+	EVENT_RET_ACCEPT,
+	EVENT_ERR_DISCONNECT,
+	EVENT_ERR_OUTTIME
+};
+
+
 #endif

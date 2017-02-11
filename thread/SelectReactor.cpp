@@ -1,16 +1,5 @@
 #include "SelectReactor.h"
-void CSelectReactor::AddHandler( CHandler* handler )
-{
-	CMutexGuard guard(m_mtx);
-	m_IOlist.insert(handler);
 
-}
-
-void CSelectReactor::RemoveHandler( CHandler* handler )
-{
-	CMutexGuard guard(m_mtx);
-	m_IOlist.erase(handler);
-}
 
 void CSelectReactor::SyncRun()
 {

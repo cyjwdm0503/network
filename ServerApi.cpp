@@ -3,18 +3,20 @@
 #include <iostream>
 
 static int SERVERVERSION = 99;
-CServerApi::CServerApi(const char* server ):CSelectReactor(),CHandler(this)
+CServerApi::CServerApi(CServer* server,CChannel* channel,CDispatcher* reactor):CHandler(reactor)
 {
-	AddHandler(this);
-	m_server =  new CServer();
-	m_server->CreateServer(server);
-	//实际为client与server通信的chanel
-	m_serverchannel = m_server->AcceptClient();
+	//AddHandler(this);
+	//m_server =  new CServer();
+	//m_server->CreateServer(server);
+	////实际为client与server通信的chanel
+	//m_serverchannel = m_server->AcceptClient();
+	m_server = server;
+	m_serverchannel = channel;
 	m_leavewritelen = 1;
 	
 }
 
-CServerApi::CServerApi():CHandler(this)
+CServerApi::CServerApi(CDispatcher* reactor):CHandler(reactor)
 {
 	m_server = NULL;
 	m_serverchannel = NULL;
@@ -29,20 +31,6 @@ CServerApi::~CServerApi()
 	}
 }
 
-void CServerApi::SyncRun()
-{
-	CSelectReactor::SyncRun();
-}
-
-bool CServerApi::ExitInstance()
-{
-	return CSelectReactor::ExitInstance();
-}
-
-bool CServerApi::InitInstance()
-{
-	return CSelectReactor::InitInstance();
-}
 
 void CServerApi::GetIds( int* readid,int* writeid )
 {
@@ -67,7 +55,7 @@ void CServerApi::GetIds( int* readid,int* writeid )
 	{
 		(*writeid) = 0;
 	}
-
+	(*writeid) = fd;
 	(*readid) =fd;
 }
 
@@ -86,7 +74,6 @@ void CServerApi::HandleInput()
 			m_serverchannel->Disconnect();
 			return ;
 		}
-		m_leavewritelen = re;
 		CPackage pack(PACKAGE_ID);
 		if(package.PopPackage(&pack))
 		{
@@ -106,7 +93,6 @@ void CServerApi::HandleOupt()
 	if(m_serverchannel != NULL)
 	{
 		int len = m_serverchannel->Write(package.GetPackageLen(),package.GetPackagePtr());
-		m_leavewritelen = 0;
 		cout<<"CServerApi::HandleOupt:"<<len<<" char content:"<<"\t"<<pack.GetHeader()->VERSION<<endl;
 	}
 }

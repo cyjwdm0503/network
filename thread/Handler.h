@@ -1,17 +1,19 @@
 #ifndef HANDLER_H
 #define HANDLER_H
-
-class CSelectReactor;
+//#include "Dispatcher.h"
+typedef unsigned long       DWORD;
+class CDispatcher;
 class CHandler
 {
 public:
-	CHandler(CSelectReactor* selecter):m_dispatcher(selecter){};
-	virtual ~CHandler(){m_dispatcher =  NULL;};
+	CHandler(CDispatcher* selecter);
+	virtual ~CHandler();
 	virtual void GetIds(int* readid,int* writeid){};
 	virtual void HandleInput(){};
 	virtual void HandleOupt(){};
+	virtual void HandleEvent(int event,DWORD dwParam,void* pParam);;
 private:
-	CSelectReactor* m_dispatcher;
+	CDispatcher* m_dispatcher;
 };
 
 

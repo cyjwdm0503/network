@@ -35,7 +35,8 @@ int CChannelPackage::ReadFromChannel( CChannel* channel )
 	{
 		CLog::GetInstance()->Printerrno(ret);
 		channel->Disconnect();
-		exit(1);
+		return ret;
+		//exit(1);
 	}
 
 	end = end+ret;

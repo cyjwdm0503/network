@@ -1,7 +1,6 @@
 #ifndef CLIENTAPI_H
 #define CLIENTAPI_H
 #include "SelectReactor.h"
-#include "Handler.h"
 #include "Client.h"
 
 class CClient;

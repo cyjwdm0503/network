@@ -5,7 +5,8 @@
 class CSemaphore
 {
 public:
-	CSemaphore(int count, const char* name = NULL);
+	//1ÍË»¯Îªmutex?
+	CSemaphore(int count = 1, const char* name = NULL);
 	virtual ~CSemaphore();
 	void Lock(int* pCount= NULL);
 	void UnLock(int* pCount= NULL);

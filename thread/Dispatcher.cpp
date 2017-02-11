@@ -65,3 +65,16 @@ void CDispatcher::SyncRun()
 	 
 }
 
+
+void CDispatcher::AddHandler( CHandler* handler )
+{
+	CMutexGuard guard(m_mtx);
+	m_IOlist.insert(handler);
+
+}
+
+void CDispatcher::RemoveHandler( CHandler* handler )
+{
+	CMutexGuard guard(m_mtx);
+	m_IOlist.erase(handler);
+}

@@ -16,6 +16,9 @@
     <Filter Include="package">
       <UniqueIdentifier>{9844bb5d-0557-400e-8e42-38b57443c3bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lowsession">
+      <UniqueIdentifier>{3aae06a3-19c5-4e47-9b6a-3245883c7b6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\channelsock\Channel.cpp">
@@ -76,6 +79,12 @@
     </ClCompile>
     <ClCompile Include="..\package\Package.cpp">
       <Filter>package</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lowsession\SessionBase.cpp">
+      <Filter>lowsession</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thread\Handler.cpp">
+      <Filter>thread</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +153,12 @@
     </ClInclude>
     <ClInclude Include="..\package\Package.h">
       <Filter>package</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lowsession\SessionBase.h">
+      <Filter>lowsession</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thread\EventQueue.h">
+      <Filter>thread</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

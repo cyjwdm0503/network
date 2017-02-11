@@ -5,6 +5,8 @@
 #include <cstdio>
 #include "channelpackage.h"
 #include "ServerApi.h"
+#include "SessionBase.h"
+
 using namespace std;
 
 
@@ -12,11 +14,15 @@ using namespace std;
 
 int main(int argi ,char*args[])
 {
-#ifdef WIN32
-	argi = 3;
-	args[0] = "server.exe" ;
-	args[1] = "udp://127.0.0.1:1234" ;
 
+	if(argi != 2)
+	{
+		argi = 2;
+		args[0] = "server.exe" ;
+		args[1] = "tcp://127.0.0.1:1234" ;
+	}
+
+#ifdef WIN32
 
 	WSADATA wsaData;
 	int iResult;
@@ -35,10 +41,22 @@ int main(int argi ,char*args[])
 #else
 
 #endif
- 
+
+	CSelectReactor reactor;
+	CSessionBase base(&reactor,args[1]);
+	cout<<"-------------"<<endl;
+	base.Create();
+	cout<<"-------------"<<endl;
+	reactor.Create();
+	base.Join();
+	cout<<"-------------"<<endl;
+	reactor.Join();
+	cout<<"-------------"<<endl;
+	/*
 	CServerApi server(args[1]);
 	server.Create();
 	server.Join();
+	*/
 	/*
 	CServerBase* server = new CServer();//// client(args[1])
 	server->CreateServer(args[1]);
@@ -48,25 +66,25 @@ int main(int argi ,char*args[])
 	int times=0;
 	while(!over)
 	{
-		char* buf =  new char[1024+1];
-		CChannelPackage package(CHANNELPACKAGE_ID,1024);
-		int re = package.ReadFromChannel(channel);
-		if(re > 0 )
-		{
-			CPackage pack(PACKAGE_ID);
-			package.PopPackage(&pack);
-			pack.MakePackage();
-			cout<<"CClientApi::HandleInput:"<<re<<" char content:"<<"\t"<<pack.GetHeader()->VERSION<<endl;
+	char* buf =  new char[1024+1];
+	CChannelPackage package(CHANNELPACKAGE_ID,1024);
+	int re = package.ReadFromChannel(channel);
+	if(re > 0 )
+	{
+	CPackage pack(PACKAGE_ID);
+	package.PopPackage(&pack);
+	pack.MakePackage();
+	cout<<"CClientApi::HandleInput:"<<re<<" char content:"<<"\t"<<pack.GetHeader()->VERSION<<endl;
 
-			//strncpy(buf,data,re);
-			memcpy(buf,package.GetPackagePtr(),re);
-			if(times == 20)
-				over =  true;
-			times++;
-			Sleep(1000);
-			channel->Write(re,buf);
-		}
-		
+	//strncpy(buf,data,re);
+	memcpy(buf,package.GetPackagePtr(),re);
+	if(times == 20)
+	over =  true;
+	times++;
+	Sleep(1000);
+	channel->Write(re,buf);
+	}
+
 	}
 	channel->Disconnect();
 	*/

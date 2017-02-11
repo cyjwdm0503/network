@@ -34,7 +34,6 @@ int CInetSock::CreateSocket()
 	//允许多次连接
 	int on=1;
 	setsockopt(m_fd, SOL_SOCKET, SO_REUSEADDR, (char *)&on, sizeof(on));
-	
 	return m_fd;
 }
 

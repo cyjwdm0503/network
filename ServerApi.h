@@ -13,18 +13,12 @@ class CChannel;
 
 const size_t  MAXLENGTH = 1024;
 
-class CServerApi:public CSelectReactor,public CHandler
+class CServerApi:public CHandler
 {
 public:
-	CServerApi(const char* server);
+	CServerApi(CServer* server,CChannel* channel,CDispatcher* reactor);
 	virtual ~CServerApi();
-	CServerApi();
-	virtual void SyncRun();
-
-	virtual bool ExitInstance();
-
-	virtual bool InitInstance();
-
+	CServerApi(CDispatcher* reactor);
 	virtual void GetIds( int* readid,int* writeid );
 
 	virtual void HandleInput();
