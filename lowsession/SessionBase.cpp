@@ -15,7 +15,7 @@ void CSessionBase::HandleInput()
 	CChannel* channel = m_server->AcceptClient();
 	if(channel != NULL)
 	{
-		cout<<"void CSessionBase::HandleInput() success"<<endl;
+		cout<<"void CSessionBase::HandleInput() success:"<<channel->Getfd()<<endl;
 		CServerApi* serverapi= new CServerApi(m_server,channel,m_serverreactor);
 	}
 }

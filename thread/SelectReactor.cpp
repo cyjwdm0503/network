@@ -16,6 +16,10 @@ void CSelectReactor::SyncRun()
 	t.tv_sec = 0;
 	t.tv_usec = 10;
 	select(maxfd+1,&readset,&writeset,NULL,&t);
+	
+	//
+	SleepMs(100);
+	//
 	RunHandler(readset,writeset,maxfd);
 
 }

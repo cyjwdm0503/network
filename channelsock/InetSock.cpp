@@ -52,9 +52,9 @@ CChannel* CInetSock::GetChannel(int fd)
 
 CChannel* CInetSock::AddChannel(int fd,const CServiceName* service)
 {
-	if(m_chanelmap.find(fd) == m_chanelmap.end())
+	//if(m_chanelmap.find(fd) == m_chanelmap.end())
 	{
-		if(service->GetNChannel() == 1)
+		if(service->GetNChannel() == SOCK_STREAM)
 			m_chanelmap[fd] = new CChannel(fd);
 		else
 			m_chanelmap[fd] = new CUdpChannel(fd);
