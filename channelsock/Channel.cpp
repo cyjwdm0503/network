@@ -65,6 +65,10 @@ bool CChannel::Available()
 bool CChannel::Disconnect()
 {
 	m_bConnected = false;
-	closesocket(m_fd);
+#ifdef WIN32
+  closesocket(m_fd);
+#else
+  close(m_fd); 
+#endif
 	return m_bConnected;
 }

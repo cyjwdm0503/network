@@ -1,9 +1,11 @@
 #include "Package.h"
 #include <cstdlib>
 #include <cstring>
+#include <cstdio>
 #include "Log.h"
 
-
+#define max(a,b) ((a) > (b)) ? (a) : (b)
+#define max(a,b) ((a) > (b)) ? (b) : (a)
 CPackage::CPackage():m_data(NULL),begin(NULL),end(NULL),cur(NULL),m_maxlen(0)
 {
 	m_header.PACKAGEID=0;

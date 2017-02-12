@@ -1,10 +1,9 @@
-
 CC = g++
-CFLAGS = -Wall  -I./channelsock -I./server  -I./client -I.
+CFLAGS = -Wall  -I./channelsock -I./client \
+					 -I./lowsession -I./package -I./server -I./thread -I./
+CXXFLAGS = $(CFLAGS)
 
-CPPFLAGS = -Wall  -I./channelsock -I./server  -I./client -I.
-
-
+####channelsock
 channelcpp=./channelsock/Channel.cpp
 channelh=./channelsock/Channel.h
 inetsockcpp=./channelsock/InetSock.cpp
@@ -19,43 +18,108 @@ udpchannelh=./channelsock/UdpChannel.cpp
 udpsockcpp=./channelsock/UdpSock.cpp
 udpsockh=/channelsock/UdpSock.h
 
-serverbasecpp=./server/ServerBase.cpp
-serverbaseh=./server/ServerBase.h
-servercpp=./server/Server.cpp
-serverh= ./server/Server.h
-
-logcpp = ./Log.cpp
-logh=./Log.h
-serverendpointcpp=./ServerEndPoint.cpp
-clientendpointcpp=./ClientEndPoint.cpp
-
+##client
 clientbasecpp=./client/ClientBase.cpp
 clientbaseh=./client/ClientBase.h
 clientcpp=./client/Client.cpp
 clienth=./client/Client.h
 
+#lowsession
+sessionbasecpp = ./lowsession/SessionBase.cpp 
+sessionbaseh=./lowsession/SessionBase.h
 
+#package
+channelpackagecpp = ./package/channelpackage.cpp 
+channelpackageh = ./package/channelpackage.h 
+packagecpp = ./package/Package.cpp 
+packageh = ./package/Package.h 
+
+#server 
+serverbasecpp=./server/ServerBase.cpp
+serverbaseh=./server/ServerBase.h
+servercpp=./server/Server.cpp
+serverh= ./server/Server.h
+
+#thread 
+commonh = ./thread/Common.h 
+dispathercpp = ./thread/Dispatcher.cpp 
+dispatherh = ./thread/Dispatcher.h 
+handlercpp= ./thread/Handler.cpp
+handlerh = ./thread/Handler.h 
+mutexcpp = ./thread/Mutex.cpp 
+mutexh = ./thread/Mutex.h 
+mutexgurardcpp = ./thread/MutexGuard.cpp 
+mutexgurardh = ./thread/MutexGuard.h 
+selectreactorcpp =./thread/SelectReactor.cpp
+selectreactorh =./thread/SelectReactor.h
+semaphorecpp = ./thread/Semaphore.cpp 
+semaphoreh = ./thread/Semaphore.h 
+threadcpp = ./thread/Thread.cpp 
+threadh = ./thread/Thread.h 
+
+#global
+clientapicpp = ./ClientApi.cpp 
+clientapih =./ClientApi.h
+logcpp = ./Log.cpp
+logh=./Log.h
+serverendpointcpp=./ServerEndPoint.cpp
+clientendpointcpp=./ClientEndPoint.cpp
+serverapicpp = ./ServerApi.cpp 
+serverapih = ./ServerApi.h
+
+
+####channelsock
 channelo=./channelsock/Channel.o
-inetsocko=./channelsock/InetScok.o
+inetsocko=./channelsock/InetSock.o
 servicenameo=./channelsock/ServiceName.o
 tcpsocko=./channelsock/TcpSock.o
-udpsocko=./channelsock/UdpSock.o
 udpchannelo=./channelsock/UdpChannel.o
+udpsockco=./channelsock/UdpSock.o
 
-serverbaseo=./server/ServerBase.o
-servero=./server/Server.o
-clientbaseo=./client/Clientbase.o
+##client
+clientbaseo=./client/ClientBase.o
 cliento=./client/Client.o
 
+#lowsession
+sessionbaseo = ./lowsession/SessionBase.o
 
-logo=./Log.o
+#package
+channelpackageo = ./package/channelpackage.o
+packageo= ./package/Package.o
+
+#server 
+serverbaseo=./server/ServerBase.o
+servero=./server/Server.o
+
+#thread 
+dispathero = ./thread/Dispatcher.o
+mutexo = ./thread/Mutex.o
+mutexgurardo = ./thread/MutexGuard.o
+selectreactoro =./thread/SelectReactor.o
+semaphoreo = ./thread/Semaphore.o
+threado = ./thread/Thread.o
+handlero = ./thread/Handler.o
+
+#global
+clientapio = ./ClientApi.o
+logo = ./Log.o
+serverendpointo=./ServerEndPoint.o
+clientendpointo=./ClientEndPoint.o
+serverapio = ./ServerApi.o 
 
 
-target=ClientEndPoint ServerEndPoint
 
 target:ClientEndPoint ServerEndPoint
-allObj:$(channelo) $(inetsocko) $(servicenameo) $(tcpsocko) $(udpsocko) $(udpchannelo) $(serverbaseo) $(servero) $(clientbaseo) $(cliento) $(logo)
-Obj = $(channelo) $(inetsocko) $(servicenameo) $(tcpsocko) $(udpsocko) $(udpchannelo) $(serverbaseo) $(servero) $(clientbaseo) $(cliento) $(logo) 
+
+Obj = $(channelo) $(inetsocko) $(servicenameo) $(tcpsocko) $(udpsocko) $(udpchannelo) \
+			$(clientbaseo) $(cliento) \
+			$(sessionbaseo) \
+			$(channelpackageo) $(packageo) \
+			$(serverbaseo) $(servero) \
+			$(handlero) $(threado) $(dispathero) $(mutexo) $(mutexgurardo) $(selectreactoro) $(semaphoreo) \
+			$(clientapio) $(logo) $(serverendpointo) $(clientendpointo) $(serverapio)
+
+
 
 ClientEndPoint:$(clientendpointcpp) $(Obj)
 	$(CC) $(CFLAGS) -DCLIENT  $^    -o $@

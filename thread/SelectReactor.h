@@ -3,6 +3,8 @@
 
 #include "Dispatcher.h"
 #include <set>
+#include "socks.h"
+
 class CSelectReactor:public CDispatcher
 {
 public:
