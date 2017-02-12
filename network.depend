@@ -41,12 +41,13 @@
 1477407139 source:/root/桌面/network/InetSock.cpp
 	"./InetSock.h"
 
-1460518765 source:/root/桌面/network/Log.cpp
+1486875929 source:/root/桌面/network/Log.cpp
 	"Log.h"
 	<cerrno>
 	<cstring>
+	"afxsock.h"
 
-1477322939 /root/桌面/network/Log.h
+1486875929 /root/桌面/network/Log.h
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -75,8 +76,221 @@
 1477323434 source:/root/桌面/network/ServerBase.cpp
 	"ServerBase.h"
 
-1477407670 source:/root/桌面/network/ServerEndPoint.cpp
+1486875929 source:/root/桌面/network/ServerEndPoint.cpp
 	"Server.h"
+	<iostream>
+	<cstring>
+	<cstdlib>
+	<cstdio>
+	"channelpackage.h"
+	"ServerApi.h"
+	"SessionBase.h"
+
+1486878987 source:/root/桌面/network/channelsock/Channel.cpp
+	"Channel.h"
+
+1486875929 /root/桌面/network/channelsock/Channel.h
+	"socks.h"
+	"ServiceName.h"
+
+1486879940 /root/桌面/network/channelsock/socks.h
+	<WinSock2.h>
+	<ws2tcpip.h>
+	<stdio.h>
+	<cstdlib>
+	<cstring>
+	<cstring>
+	<cstdio>
+	<cstdlib>
+	"sys/time.h"
+	"sys/types.h"
+	"unistd.h"
+	"sys/socket.h"
+	"netinet/in.h"
+	"arpa/inet.h"
+
+1484412513 /root/桌面/network/channelsock/ServiceName.h
+	"socks.h"
+
+1486875929 source:/root/桌面/network/channelsock/InetSock.cpp
+	"InetSock.h"
+	"UdpChannel.h"
+	<map>
+
+1486875929 /root/桌面/network/channelsock/InetSock.h
+	"socks.h"
+	"ServiceName.h"
+	"Channel.h"
+	<map>
+
+1484412513 /root/桌面/network/channelsock/UdpChannel.h
+	"Channel.h"
+
+1484412513 source:/root/桌面/network/channelsock/ServiceName.cpp
+	"ServiceName.h"
+	<cstring>
+
+1486875929 source:/root/桌面/network/channelsock/TcpSock.cpp
+	"TcpSock.h"
+	"Log.h"
+
+1486875929 /root/桌面/network/channelsock/TcpSock.h
+	"InetSock.h"
+
+1486875929 source:/root/桌面/network/channelsock/UdpChannel.cpp
+	"UdpChannel.h"
+	"Log.h"
+
+1486875929 source:/root/桌面/network/channelsock/UdpSock.cpp
+	"UdpSock.h"
+	"Log.h"
+	"UdpChannel.h"
+	<string>
+
+1486875929 /root/桌面/network/channelsock/UdpSock.h
+	"InetSock.h"
+
+1484412983 source:/root/桌面/network/client/Client.cpp
+	"Client.h"
+	"TcpSock.h"
+	"UdpSock.h"
+
+1486875929 /root/桌面/network/client/Client.h
+	"ClientBase.h"
+	"InetSock.h"
+
+1484412513 /root/桌面/network/client/ClientBase.h
+	"Channel.h"
+	"ServiceName.h"
+
+1484412513 source:/root/桌面/network/client/ClientBase.cpp
+	"ClientBase.h"
+
+1486885398 source:/root/桌面/network/ClientApi.cpp
+	"ClientApi.h"
+	<iostream>
+	"Client.h"
+	"channelpackage.h"
+
+1486875929 /root/桌面/network/ClientApi.h
+	"SelectReactor.h"
+	"Client.h"
+
+1486875929 source:/root/桌面/network/lowsession/SessionBase.cpp
+	"SessionBase.h"
+	<iostream>
+	"ServerApi.h"
+
+1486875929 /root/桌面/network/lowsession/SessionBase.h
+	"Channel.h"
+	"SelectReactor.h"
+	"Handler.h"
+	"Channel.h"
+	"Server.h"
+
+1486875929 source:/root/桌面/network/package/channelpackage.cpp
+	"channelpackage.h"
+	"Log.h"
+
+1486875929 /root/桌面/network/package/channelpackage.h
+	"Package.h"
+
+1486875929 /root/桌面/network/package/Package.h
+	"Channel.h"
+
+1486883244 source:/root/桌面/network/package/Package.cpp
+	"Package.h"
+	<cstdlib>
+	<cstring>
+	<cstdio>
+	"Log.h"
+
+1484412513 source:/root/桌面/network/server/Server.cpp
+	"Server.h"
+	"UdpSock.h"
+	"TcpSock.h"
+
+1486875929 /root/桌面/network/server/Server.h
+	"ServerBase.h"
+	"InetSock.h"
+
+1484412513 /root/桌面/network/server/ServerBase.h
+	"Channel.h"
+	"ServiceName.h"
+
+1484412513 source:/root/桌面/network/server/ServerBase.cpp
+	"ServerBase.h"
+
+1486885320 source:/root/桌面/network/ServerApi.cpp
+	"ServerApi.h"
+	"channelpackage.h"
+	<iostream>
+
+1486875929 /root/桌面/network/ServerApi.h
+	"SelectReactor.h"
+	"Handler.h"
+	"Server.h"
+
+1486875929 source:/root/桌面/network/thread/Dispatcher.cpp
+	"Dispatcher.h"
+	"Mutex.h"
+
+1486875929 /root/桌面/network/thread/Dispatcher.h
+	"Thread.h"
+	"Handler.h"
+	<list>
+	<set>
+	"MutexGuard.h"
+
+1486875929 /root/桌面/network/thread/Thread.h
+	"Common.h"
+
+1486875929 /root/桌面/network/thread/Common.h
+	<WinSock2.h>
+	<windows.h>
+	<process.h>
+	"pthread.h"
+	"unistd.h"
+
+1486875929 /root/桌面/network/thread/Handler.h
+
+1486875929 /root/桌面/network/thread/MutexGuard.h
+	"Mutex.h"
+
+1486875929 /root/桌面/network/thread/Mutex.h
+	"Common.h"
+
+1486881470 source:/root/桌面/network/thread/Handler.cpp
+	"Handler.h"
+	<cstdlib>
+	"Dispatcher.h"
+
+1486875929 source:/root/桌面/network/thread/Mutex.cpp
+	"Mutex.h"
+
+1486875929 source:/root/桌面/network/thread/MutexGuard.cpp
+	"MutexGuard.h"
+
+1486880506 source:/root/桌面/network/thread/SelectReactor.cpp
+	"SelectReactor.h"
+
+1486880389 /root/桌面/network/thread/SelectReactor.h
+	"Dispatcher.h"
+	<set>
+	"socks.h"
+
+1486875929 source:/root/桌面/network/thread/Semaphore.cpp
+	"Semaphore.h"
+
+1486875929 /root/桌面/network/thread/Semaphore.h
+	"Common.h"
+
+1486875929 source:/root/桌面/network/thread/Thread.cpp
+	"Thread.h"
+	<cstring>
+
+1486875929 source:/root/桌面/network/ClientEndPoint.cpp
+	"ClientApi.h"
 	<iostream>
 	<cstring>
 	<cstdlib>

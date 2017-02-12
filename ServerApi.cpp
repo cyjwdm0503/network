@@ -13,7 +13,7 @@ CServerApi::CServerApi(CServer* server,CChannel* channel,CDispatcher* reactor):C
 	m_server = server;
 	m_serverchannel = channel;
 	m_leavewritelen = 1;
-	
+
 }
 
 CServerApi::CServerApi(CDispatcher* reactor):CHandler(reactor)
@@ -67,7 +67,7 @@ void CServerApi::HandleInput()
 		int re = package.ReadFromChannel(m_serverchannel);
 		if(re > 0)
 		{
-			;
+			cout<<"package:len"<<package.GetPackageLen();
 		}
 		else
 		{//channel在断线后应该通知server.重新进入accept流程。
@@ -78,7 +78,7 @@ void CServerApi::HandleInput()
 		if(package.PopPackage(&pack))
 		{
 			pack.MakePackage();
-			cout<<"CServerApi::HandleInput:"<<re<<" char content:"<<"\t"<<pack.GetHeader()->VERSION<<endl;
+			cout<<"CServerApi::HandleInput:"<<re<<"fp"<<m_serverchannel->Getfd()<<" char content:"<<"\t"<<pack.GetHeader()->VERSION<<endl;
 		}
 	}
 }
@@ -93,6 +93,6 @@ void CServerApi::HandleOupt()
 	if(m_serverchannel != NULL)
 	{
 		int len = m_serverchannel->Write(package.GetPackageLen(),package.GetPackagePtr());
-		cout<<"CServerApi::HandleOupt:"<<len<<" char content:"<<"\t"<<pack.GetHeader()->VERSION<<endl;
+		cout<<"package:len"<<package.GetPackageLen()<<"CServerApi::HandleOupt:"<<len<<"fp"<<m_serverchannel->Getfd()<<" char content:"<<"\t"<<pack.GetHeader()->VERSION<<endl;
 	}
 }

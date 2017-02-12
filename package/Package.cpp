@@ -5,7 +5,7 @@
 #include "Log.h"
 
 #define max(a,b) ((a) > (b)) ? (a) : (b)
-#define max(a,b) ((a) > (b)) ? (b) : (a)
+#define min(a,b) ((a) > (b)) ? (b) : (a)
 CPackage::CPackage():m_data(NULL),begin(NULL),end(NULL),cur(NULL),m_maxlen(0)
 {
 	m_header.PACKAGEID=0;
@@ -38,7 +38,7 @@ bool CPackage::PushPackage( CPackage* package )
 		return false;
 	}
 	memcpy(cur,package->GetPackagePtr(),package->GetPackageLen());
-	
+
 	//cur +=package->GetPackageLen();
 	cur += package->GetPackageLen();
 	end = cur;
@@ -54,13 +54,13 @@ bool CPackage::PopPackage( CPackage* package )
 {
 	if(GetDataLen() < sizeof(header))
 		return false;
-	
+
 	header head;
 	memcpy(&head,cur,sizeof(header));
-	
+
 	if(GetPackageLen()< head.PACKAGELENGTH)
 		return false;
-	
+
 	memcpy(package->GetPackagePtr(),cur,head.PACKAGELENGTH);
 	cur +=head.PACKAGELENGTH;
 	return true;
@@ -130,7 +130,7 @@ bool CPackage::PopHeader()
 {
 	if(GetPackageLen() < sizeof(header))
 		return false;
-	
+
 	memcpy(&m_header,m_data,sizeof(header));
 	return true;
 }

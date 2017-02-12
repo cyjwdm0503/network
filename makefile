@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -Wall  -I./channelsock -I./client \
+CFLAGS = -Wall -lpthread -g -lrt -ldl -I./channelsock -I./client \
 					 -I./lowsession -I./package -I./server -I./thread -I./
 CXXFLAGS = $(CFLAGS)
 
@@ -16,7 +16,7 @@ tcpsockh=./channelsock/TcpSock.h
 udpchannelcpp=./channelsock/UdpChannel.cpp
 udpchannelh=./channelsock/UdpChannel.cpp
 udpsockcpp=./channelsock/UdpSock.cpp
-udpsockh=/channelsock/UdpSock.h
+udpsockh=./channelsock/UdpSock.h
 
 ##client
 clientbasecpp=./client/ClientBase.cpp
@@ -74,7 +74,7 @@ inetsocko=./channelsock/InetSock.o
 servicenameo=./channelsock/ServiceName.o
 tcpsocko=./channelsock/TcpSock.o
 udpchannelo=./channelsock/UdpChannel.o
-udpsockco=./channelsock/UdpSock.o
+udpsocko=./channelsock/UdpSock.o
 
 ##client
 clientbaseo=./client/ClientBase.o
@@ -109,7 +109,7 @@ serverapio = ./ServerApi.o
 
 
 
-target:ClientEndPoint ServerEndPoint
+target:ClientEndPoint ServerEndPoint \
 
 Obj = $(channelo) $(inetsocko) $(servicenameo) $(tcpsocko) $(udpsocko) $(udpchannelo) \
 			$(clientbaseo) $(cliento) \
