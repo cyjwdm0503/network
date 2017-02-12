@@ -2,7 +2,7 @@
 #include "channelpackage.h"
 #include <iostream>
 
-static int SERVERVERSION = 99;
+static int SERVERVERSION = 100;
 CServerApi::CServerApi(CServer* server,CChannel* channel,CDispatcher* reactor):CHandler(reactor)
 {
 	//AddHandler(this);
@@ -12,7 +12,7 @@ CServerApi::CServerApi(CServer* server,CChannel* channel,CDispatcher* reactor):C
 	//m_serverchannel = m_server->AcceptClient();
 	m_server = server;
 	m_serverchannel = channel;
-	m_leavewritelen = 1;
+	m_leavewritelen = 0;
 
 }
 
@@ -55,7 +55,6 @@ void CServerApi::GetIds( int* readid,int* writeid )
 	{
 		(*writeid) = 0;
 	}
-	(*writeid) = fd;
 	(*readid) =fd;
 }
 
@@ -67,6 +66,7 @@ void CServerApi::HandleInput()
 		int re = package.ReadFromChannel(m_serverchannel);
 		if(re > 0)
 		{
+			m_leavewritelen = re;
 			cout<<"package:len"<<package.GetPackageLen();
 		}
 		else
@@ -93,6 +93,7 @@ void CServerApi::HandleOupt()
 	if(m_serverchannel != NULL)
 	{
 		int len = m_serverchannel->Write(package.GetPackageLen(),package.GetPackagePtr());
+		m_leavewritelen = 0;
 		cout<<"package:len"<<package.GetPackageLen()<<"CServerApi::HandleOupt:"<<len<<"fp"<<m_serverchannel->Getfd()<<" char content:"<<"\t"<<pack.GetHeader()->VERSION<<endl;
 	}
 }

@@ -4,7 +4,7 @@
 #include "channelpackage.h"
 using namespace  std;
 
-static  int CLIENTVERSION = 1;
+static  int CLIENTVERSION = 0;
 static char letter = 'a';
 void CClientApi::SyncRun()
 {
