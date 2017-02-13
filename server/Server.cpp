@@ -20,7 +20,9 @@ CChannel* CServer::CreateServer(const char* server)
 CChannel* CServer::AcceptClient()
 {
     int fd = m_serversock->Accept();
-    return m_serversock->GetChannel(fd);
+    if(fd > 0)
+        return m_serversock->GetChannel(fd);
+    return NULL;
 }
 
 CInetSock* CServer::CreateInetSock( const char* location )

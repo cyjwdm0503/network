@@ -1,5 +1,5 @@
 #include "Channel.h"
-
+#include <iostream>
 
 CChannel::~CChannel()
 {
@@ -49,7 +49,7 @@ CServiceName* CChannel::GetService()
 	return m_service;
 }
 
- 
+
 CChannel::CChannel( int fd )
 {
 	m_fd = fd;
@@ -65,10 +65,11 @@ bool CChannel::Available()
 bool CChannel::Disconnect()
 {
 	m_bConnected = false;
+	std::cout<<"CChannel::Disconnect()"<<std::endl;
 #ifdef WIN32
   closesocket(m_fd);
 #else
-  close(m_fd); 
+  close(m_fd);
 #endif
 	return m_bConnected;
 }

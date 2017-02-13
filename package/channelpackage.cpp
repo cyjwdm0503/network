@@ -1,7 +1,7 @@
 #include "channelpackage.h"
 #include "Log.h"
 
- 
+
 
 bool CChannelPackage::PopPackage( CPackage* package )
 {
@@ -31,10 +31,11 @@ void CChannelPackage::MakePackage()
 int CChannelPackage::ReadFromChannel( CChannel* channel )
 {
 	int ret = channel->Read(GetValidLength(),GetValidDataPtr());
-	if(ret <=0)
+	if(ret <0)
 	{
+	    DEBUGOUT(ret);
 		CLog::GetInstance()->Printerrno(ret);
-		channel->Disconnect();
+		//channel->Disconnect();
 		return ret;
 		//exit(1);
 	}
@@ -48,4 +49,4 @@ CChannelPackage::CChannelPackage( unsigned int PACKAGEID,int maxlen/*=1024*/ ):C
 	end = begin;
 }
 
- 
+

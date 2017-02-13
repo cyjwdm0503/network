@@ -11,6 +11,7 @@ int CUdpChannel::Write( size_t max ,const char* buf )
 	int re =  sendto(m_fd,buf,max,0,(sockaddr*)&addr,len);
 	if(re == -1)
 	{
+	    DEBUGOUT(re);
 		CLog::GetInstance()->Printerrno(re);
 	}
 	return re;
@@ -30,6 +31,7 @@ int CUdpChannel::Read( size_t max ,char* buf )
 		/*10054
 		https://support.microsoft.com/zh-cn/help/263823/winsock-recvfrom-now-returns-wsaeconnreset-instead-of-blocking-or-timing-out
 		*/
+		DEBUGOUT(re);
 		CLog::GetInstance()->Printerrno(re);
 	}
 	//CServiceName service;

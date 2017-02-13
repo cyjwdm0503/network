@@ -69,11 +69,16 @@ void CServerApi::HandleInput()
 			m_leavewritelen = re;
 			cout<<"package:len"<<package.GetPackageLen();
 		}
-		else
+		else if(re < 0)
 		{//channel在断线后应该通知server.重新进入accept流程。
 			m_serverchannel->Disconnect();
 			return ;
 		}
+		else
+        {
+           	cout<<"CServerApi::HandleInput:"<<re<<"fp"<<m_serverchannel->Getfd()<<" char content:"<<"\t"<<endl;
+            return ;
+        }
 		CPackage pack(PACKAGE_ID);
 		if(package.PopPackage(&pack))
 		{

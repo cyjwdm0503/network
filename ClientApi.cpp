@@ -46,10 +46,10 @@ void CClientApi::GetIds( int* readid,int* writeid )
 	{
 		(*writeid) = 0;
 	}
-
 	(*readid) =fd;
 
 }
+
 
 void CClientApi::HandleInput()
 {
@@ -62,11 +62,18 @@ void CClientApi::HandleInput()
 		//int len = m_clientchannel->Read(package.GetValidLength(),package.GetValidDataPtr());
 		if(len > 0)
 			cout<<"package:len"<<package.GetPackageLen();
-		else
+		else if(len <0 )
 		{
 			m_clientchannel->Disconnect();
 			return ;
 		}
+		else
+        {
+           	cout<<"CClientApi::HandleInput:"<<len<<"fp"<<m_clientchannel->Getfd()<<" char content:"<<"\t"<<endl;
+            return;
+        }
+
+
 		m_leavewritelen = len;
 
 		CPackage pack(PACKAGE_ID);

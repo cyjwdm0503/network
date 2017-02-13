@@ -76,7 +76,7 @@
 1477323434 source:/root/桌面/network/ServerBase.cpp
 	"ServerBase.h"
 
-1486875929 source:/root/桌面/network/ServerEndPoint.cpp
+1486984117 source:/root/桌面/network/ServerEndPoint.cpp
 	"Server.h"
 	<iostream>
 	<cstring>
@@ -85,9 +85,11 @@
 	"channelpackage.h"
 	"ServerApi.h"
 	"SessionBase.h"
+	<csignal>
 
-1486878987 source:/root/桌面/network/channelsock/Channel.cpp
+1486983378 source:/root/桌面/network/channelsock/Channel.cpp
 	"Channel.h"
+	<iostream>
 
 1486875929 /root/桌面/network/channelsock/Channel.h
 	"socks.h"
@@ -130,14 +132,14 @@
 	"ServiceName.h"
 	<cstring>
 
-1486875929 source:/root/桌面/network/channelsock/TcpSock.cpp
+1486983422 source:/root/桌面/network/channelsock/TcpSock.cpp
 	"TcpSock.h"
 	"Log.h"
 
 1486875929 /root/桌面/network/channelsock/TcpSock.h
 	"InetSock.h"
 
-1486875929 source:/root/桌面/network/channelsock/UdpChannel.cpp
+1486985811 source:/root/桌面/network/channelsock/UdpChannel.cpp
 	"UdpChannel.h"
 	"Log.h"
 
@@ -166,13 +168,13 @@
 1484412513 source:/root/桌面/network/client/ClientBase.cpp
 	"ClientBase.h"
 
-1486885398 source:/root/桌面/network/ClientApi.cpp
+1486988212 source:/root/桌面/network/ClientApi.cpp
 	"ClientApi.h"
 	<iostream>
 	"Client.h"
 	"channelpackage.h"
 
-1486875929 /root/桌面/network/ClientApi.h
+1486984869 /root/桌面/network/ClientApi.h
 	"SelectReactor.h"
 	"Client.h"
 
@@ -188,7 +190,7 @@
 	"Channel.h"
 	"Server.h"
 
-1486875929 source:/root/桌面/network/package/channelpackage.cpp
+1486985811 source:/root/桌面/network/package/channelpackage.cpp
 	"channelpackage.h"
 	"Log.h"
 
@@ -205,7 +207,7 @@
 	<cstdio>
 	"Log.h"
 
-1484412513 source:/root/桌面/network/server/Server.cpp
+1486984487 source:/root/桌面/network/server/Server.cpp
 	"Server.h"
 	"UdpSock.h"
 	"TcpSock.h"
@@ -221,7 +223,7 @@
 1484412513 source:/root/桌面/network/server/ServerBase.cpp
 	"ServerBase.h"
 
-1486885320 source:/root/桌面/network/ServerApi.cpp
+1486988648 source:/root/桌面/network/ServerApi.cpp
 	"ServerApi.h"
 	"channelpackage.h"
 	<iostream>
@@ -231,7 +233,7 @@
 	"Handler.h"
 	"Server.h"
 
-1486875929 source:/root/桌面/network/thread/Dispatcher.cpp
+1486986602 source:/root/桌面/network/thread/Dispatcher.cpp
 	"Dispatcher.h"
 	"Mutex.h"
 
@@ -271,10 +273,11 @@
 1486875929 source:/root/桌面/network/thread/MutexGuard.cpp
 	"MutexGuard.h"
 
-1486880506 source:/root/桌面/network/thread/SelectReactor.cpp
+1486988507 source:/root/桌面/network/thread/SelectReactor.cpp
 	"SelectReactor.h"
+	<iostream>
 
-1486880389 /root/桌面/network/thread/SelectReactor.h
+1486984762 /root/桌面/network/thread/SelectReactor.h
 	"Dispatcher.h"
 	<set>
 	"socks.h"

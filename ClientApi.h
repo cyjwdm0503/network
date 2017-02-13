@@ -30,10 +30,12 @@ public:
 
 	//id准备好后，输出的过程
 	virtual void HandleOupt();
+
+
 private:
 	CClient* m_client;
 	CChannel* m_clientchannel;
-	
+
 	int m_leavewritelen;
 	int m_leavereadlen;
 	char* m_buf;

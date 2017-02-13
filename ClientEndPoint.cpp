@@ -3,7 +3,11 @@
 #include <cstring>
 #include <cstdlib>
 #include <cstdio>
+#ifdef WIN32
 
+#else
+	#include <csignal>
+#endif
 using namespace std;
 
 #ifdef CLIENT
@@ -35,7 +39,9 @@ int main(int argi ,char*args[])
 
 
 #else
-
+    //signal(SIGABRT,SIG_IGN);
+    signal(SIGPIPE,SIG_IGN);
+    //signal(SIGINT,SIG_IGN);
 #endif
 	CClientApi client(args[1],args[2]);
 	client.Create();

@@ -6,7 +6,11 @@
 #include "channelpackage.h"
 #include "ServerApi.h"
 #include "SessionBase.h"
+#ifdef WIN32
 
+#else
+	#include <csignal>
+#endif
 using namespace std;
 
 
@@ -14,7 +18,6 @@ using namespace std;
 
 int main(int argi ,char*args[])
 {
-
 	if(argi != 2)
 	{
 		argi = 2;
@@ -39,7 +42,9 @@ int main(int argi ,char*args[])
 		exit(-1);
 	}
 #else
-
+    //signal(SIGABRT,SIG_IGN);
+    signal(SIGPIPE,SIG_IGN);
+    //signal(SIGINT,SIG_IGN);
 #endif
 
 	CSelectReactor reactor;

@@ -12,8 +12,8 @@ public:
 	virtual ~CSelectReactor();
 
 	virtual void SyncRun();
-	void PrepareIds( fd_set& readset,fd_set& writeset,int& maxfd);
-	void RunHandler( fd_set& readset,fd_set& writeset,int& maxfd);
+	virtual void PrepareIds( fd_set& readset,fd_set& writeset,int& maxfd);
+	virtual void RunHandler( fd_set& readset,fd_set& writeset,int& maxfd);
 private:
 
 

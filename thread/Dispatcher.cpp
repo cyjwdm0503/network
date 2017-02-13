@@ -57,12 +57,12 @@ void CDispatcher::Run()
 
 void CDispatcher::SyncTimer()
 {
-	 
+
 }
 
 void CDispatcher::SyncRun()
 {
-	 
+
 }
 
 

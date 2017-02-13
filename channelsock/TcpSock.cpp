@@ -48,7 +48,8 @@ int CTcpSock::Accept()
 	if(fd == -1)
 	{
 		DEBUGOUT(-1);
-		exit(-1);
+		//exit(-1);
+		return -1;
 	}
 	CServiceName service;
 	service.SetSockaddr_in(clientaddr);
