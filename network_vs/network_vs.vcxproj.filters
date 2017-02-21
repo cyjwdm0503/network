@@ -86,6 +86,9 @@
     <ClCompile Include="..\thread\Handler.cpp">
       <Filter>thread</Filter>
     </ClCompile>
+    <ClCompile Include="..\thread\TimerHeap.cpp">
+      <Filter>thread</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h">
@@ -158,6 +161,12 @@
       <Filter>lowsession</Filter>
     </ClInclude>
     <ClInclude Include="..\thread\EventQueue.h">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thread\TimerHeap.h">
+      <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thread\TimerQueue.h">
       <Filter>thread</Filter>
     </ClInclude>
   </ItemGroup>

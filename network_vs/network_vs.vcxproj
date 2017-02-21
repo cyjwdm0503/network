@@ -169,6 +169,7 @@
     <ClCompile Include="..\thread\SelectReactor.cpp" />
     <ClCompile Include="..\thread\Semaphore.cpp" />
     <ClCompile Include="..\thread\Thread.cpp" />
+    <ClCompile Include="..\thread\TimerHeap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h" />
@@ -197,6 +198,8 @@
     <ClInclude Include="..\thread\SelectReactor.h" />
     <ClInclude Include="..\thread\Semaphore.h" />
     <ClInclude Include="..\thread\Thread.h" />
+    <ClInclude Include="..\thread\TimerHeap.h" />
+    <ClInclude Include="..\thread\TimerQueue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

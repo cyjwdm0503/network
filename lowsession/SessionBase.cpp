@@ -38,6 +38,7 @@ CSessionBase::~CSessionBase()
 	if(m_server != NULL)
 		delete  m_server;
 	m_server = NULL;
+	m_serverreactor =  NULL;
 }
 
 CSessionBase::CSessionBase( CSelectReactor* selecter,const char* location ):CHandler(this)
