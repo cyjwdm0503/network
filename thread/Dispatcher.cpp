@@ -1,5 +1,10 @@
 #include "Dispatcher.h"
 #include "Mutex.h"
+#ifdef WIN32
+#include <sys/timeb.h>
+#include <sys/types.h>
+#else
+#endif
 CDispatcher::CDispatcher()
 {
 	IsRun =  true;
@@ -57,7 +62,20 @@ void CDispatcher::Run()
 
 void CDispatcher::SyncTimer()
 {
-
+#ifdef WIN32
+	struct _timeb timebuf;
+	_ftime(&timebuf);
+	m_Time = timebuf.time;
+	m_MiscroTime = timebuf.millitm;
+	m_clock = m_Time*1000+m_MiscroTime;
+#else
+	struct timeval timebuf;
+	gettimeofday(&timebuf,0);
+	m_Time = timebuf.tv_sec;
+	m_MiscroTime = timebuf.tv_usec/1000;
+	m_clock = m_Time*1000+m_MiscroTime;
+	
+#endif
 }
 
 void CDispatcher::SyncRun()

@@ -29,5 +29,9 @@ protected:
 
 	CMutex m_mtx;
 	bool IsRun;
+
+	DWORD m_MiscroTime;
+	DWORD m_Time;
+	DWORD m_clock;
 };
 #endif
