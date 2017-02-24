@@ -9,9 +9,9 @@ class CTimerHeapNode
 {
 public:
 	CHandler* handler;
-	DWORD event;
+	int event;
 	int elapse;
-	DWORD expire;
+	int expire;
 };
 
 class CNodeCom
@@ -22,6 +22,7 @@ public:
 		return node1.expire < node1.expire;
 	}
 };
+/*
 bool NodeCom(const CTimerHeapNode &node1, const  CTimerHeapNode& node2) 
 {
 	if(node1.expire < node2.expire)
@@ -29,12 +30,12 @@ bool NodeCom(const CTimerHeapNode &node1, const  CTimerHeapNode& node2)
 	else
 		return false;
 }
-
-//typedef bool (*Com)(const CTimerHeapNode& node1, const CTimerHeapNode& node2);
-//这里只能传入一个函数指针类型，在使用时才能传入一个具体的函数指针。
-//但是只能通过重载构造函数，传入对应的函数指针
-//因此一个好的方法是传入函数对象
-//class CTimerHeap:public CTimerQueue,public priority_queue<CTimerHeapNode,vector<CTimerHeapNode>,Com>
+typedef bool (*Com)(const CTimerHeapNode& node1, const CTimerHeapNode& node2);
+class CTimerHeap:public CTimerQueue,public priority_queue<CTimerHeapNode,vector<CTimerHeapNode>,Com>
+这里只能传入一个函数指针类型，在使用时才能传入一个具体的函数指针。
+但是只能通过重载构造函数，传入对应的函数指针
+因此一个好的方法是传入函数对象
+*/
 class CTimerHeap:public CTimerQueue,public priority_queue<CTimerHeapNode,vector<CTimerHeapNode>,CNodeCom>
 {
 public:

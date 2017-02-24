@@ -1,5 +1,7 @@
 #include "Dispatcher.h"
 #include "Mutex.h"
+#include "TimerHeap.h"
+
 #ifdef WIN32
 #include <sys/timeb.h>
 #include <sys/types.h>
@@ -8,11 +10,14 @@
 CDispatcher::CDispatcher()
 {
 	IsRun =  true;
+	m_Timerheap =  new CTimerHeap();
 }
 
 CDispatcher::~CDispatcher()
 {
-
+	if(m_Timerheap != NULL)
+		delete m_Timerheap;
+	m_Timerheap =  NULL;
 }
 
 
@@ -20,11 +25,14 @@ CDispatcher::~CDispatcher()
 void CDispatcher::RegisterTimer( CHandler* handler,int event,int ms )
 {
 	CMutexGuard guard(m_mtx);
+	m_Timerheap->RemoverTime(handler,event);
+	m_Timerheap->RegisterTimer(handler,event,ms);	
 }
 
 void CDispatcher::RemoveTimer( CHandler* handler,int event )
 {
 	CMutexGuard guard(m_mtx);
+	m_Timerheap->RemoverTime(handler,event);
 }
 
 bool CDispatcher::PostEvent( CHandler* handler,int event,DWORD dwParam,void* pParam )
@@ -42,6 +50,7 @@ bool CDispatcher::SendEvent( CHandler* handler,int event,DWORD dwParam,void* pPa
 void CDispatcher::DispatherTimer()
 {
 	CMutexGuard guard(m_mtx);
+	m_Timerheap->Expire(m_clock);
 }
 
 void CDispatcher::DispatherEvent()

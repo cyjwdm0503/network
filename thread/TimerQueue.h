@@ -14,7 +14,6 @@ public:
 	virtual void RemoverTime(CHandler* handler,DWORD event) =0 ;
 
 	virtual void Expire(DWORD curclock) = 0;
-protected:
 	virtual ~CTimerQueue(){};
 };
 

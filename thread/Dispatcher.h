@@ -5,6 +5,8 @@
 #include <list>
 #include <set>
 #include "MutexGuard.h"
+#include "TimerQueue.h"
+
 class CDispatcher:public CThread
 {
 public:
@@ -27,6 +29,7 @@ public:
 protected:
 	std::set<CHandler*> m_IOlist;
 
+	CTimerQueue* m_Timerheap;
 	CMutex m_mtx;
 	bool IsRun;
 
