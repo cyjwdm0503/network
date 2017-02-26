@@ -9,8 +9,9 @@
 #endif
 CDispatcher::CDispatcher()
 {
+	SyncTimer();
 	IsRun =  true;
-	m_Timerheap =  new CTimerHeap();
+	m_Timerheap =  new CTimerHeap(m_clock);
 }
 
 CDispatcher::~CDispatcher()

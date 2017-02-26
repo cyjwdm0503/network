@@ -1,7 +1,14 @@
 #include "SelectReactor.h"
 #include <iostream>
+#ifdef WIN32
+
+#else
+
 #define max(a,b) ((a) > (b)) ? (a) : (b)
 #define min(a,b) ((a) > (b)) ? (b) : (a)
+
+#endif
+
 
 void CSelectReactor::SyncRun()
 {

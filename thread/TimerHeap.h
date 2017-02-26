@@ -10,8 +10,8 @@ class CTimerHeapNode
 public:
 	CHandler* handler;
 	int event;
-	int elapse;
-	int expire;
+	DWORD elapse;
+	DWORD expire;
 };
 
 class CNodeCom
@@ -44,9 +44,15 @@ public:
 
 	virtual void RemoverTime( CHandler* handler,DWORD event );
 
-	virtual void Expire( DWORD curclock );
-	virtual ~CTimerHeap();
-private:
+	virtual void Expire( DWORD curmsclock );
 	
+	//
+	//根据现在的时间同步
+	virtual void SyncTime(DWORD curmsclock);
+	virtual ~CTimerHeap();
+	CTimerHeap(DWORD curmsclock);
+private:
+	DWORD m_beginclock;
+	DWORD m_curclock;
 };
 #endif
