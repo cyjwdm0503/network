@@ -15,7 +15,7 @@ CHandler::~CHandler()
 	m_dispatcher =  NULL;
 }
 
-void CHandler::HandleEvent( int event,DWORD dwParam,void* pParam )
+int CHandler::HandleEvent( int event,DWORD dwParam,void* pParam )
 {
-	;
+	return 0;
 }

@@ -12,6 +12,7 @@ CDispatcher::CDispatcher()
 	SyncTimer();
 	IsRun =  true;
 	m_Timerheap =  new CTimerHeap(m_clock);
+	m_EventQueue = new CEventQueue(10);
 }
 
 CDispatcher::~CDispatcher()
@@ -25,38 +26,71 @@ CDispatcher::~CDispatcher()
 
 void CDispatcher::RegisterTimer( CHandler* handler,int event,int ms )
 {
-	CMutexGuard guard(m_mtx);
+	//CMutexGuard guard(m_mtx);
 	m_Timerheap->RemoverTime(handler,event);
 	m_Timerheap->RegisterTimer(handler,event,ms);	
 }
 
 void CDispatcher::RemoveTimer( CHandler* handler,int event )
 {
-	CMutexGuard guard(m_mtx);
+	//CMutexGuard guard(m_mtx);
 	m_Timerheap->RemoverTime(handler,event);
 }
 
-bool CDispatcher::PostEvent( CHandler* handler,int event,DWORD dwParam,void* pParam )
+bool CDispatcher::PostEvent( CHandler* handler,EVENT_MSG event,DWORD dwParam,void* pParam )
 {
-	CMutexGuard guard(m_mtx);
+	m_EventQueue->AddPostEvent(handler,event,dwParam,pParam);
 	return true;
 }
 
-bool CDispatcher::SendEvent( CHandler* handler,int event,DWORD dwParam,void* pParam )
+int CDispatcher::SendEvent( CHandler* handler,EVENT_MSG event,DWORD dwParam,void* pParam )
 {
-	CMutexGuard guard(m_mtx);
-	return true;
+	//单线程的同步event
+	if(IsCurrentThread())
+	{
+		if(handler != NULL)
+			return handler->HandleEvent(event,dwParam,pParam);
+		else
+			return HandleEvent(event,dwParam,pParam);
+	}
+
+	//以下为多线程时的同步event
+	//传入
+	EventType *ev = m_EventQueue->AddSyncEvent(handler,event,dwParam,pParam);
+	
+	//等待解锁
+	ev->sem.Lock();
+	return ev->retValue;
 }
 
 void CDispatcher::DispatherTimer()
 {
-	CMutexGuard guard(m_mtx);
+	//CMutexGuard guard(m_mtx);
 	m_Timerheap->Expire(m_clock);
 }
 
 void CDispatcher::DispatherEvent()
 {
 	CMutexGuard guard(m_mtx);
+	EventType event;
+	while (m_EventQueue->PeekEvent(event) && IsRun)
+	{
+		int ret = 0;
+		if(event.handler != NULL)
+		{
+			ret = event.handler->HandleEvent(event.event_msg,event.dwParam,event.pParam);
+		}
+		else
+		{
+			ret = HandleEvent(event.event_msg,event.dwParam,event.pParam);
+		}
+		if(event.pThisAddr != NULL)
+		{
+			event.retValue = ret;
+			event.sem.UnLock();
+		}
+
+	}
 }
 
 void CDispatcher::Run()

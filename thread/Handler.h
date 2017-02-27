@@ -12,7 +12,7 @@ public:
 	virtual void HandleInput(){};
 	virtual void HandleOupt(){};
 	virtual void OnTimer(int event){};
-	virtual void HandleEvent(int event,DWORD dwParam,void* pParam);;
+	virtual int HandleEvent(int event,DWORD dwParam,void* pParam);;
 private:
 	CDispatcher* m_dispatcher;
 };

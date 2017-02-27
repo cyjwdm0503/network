@@ -89,6 +89,9 @@
     <ClCompile Include="..\thread\TimerHeap.cpp">
       <Filter>thread</Filter>
     </ClCompile>
+    <ClCompile Include="..\thread\EventQueue.cpp">
+      <Filter>thread</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h">

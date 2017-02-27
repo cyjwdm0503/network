@@ -25,9 +25,9 @@ void CSessionBase::HandleOupt()
 	;
 }
 
-void CSessionBase::HandleEvent( int event,DWORD dwParam,void* pParam )
+int CSessionBase::HandleEvent( int event,DWORD dwParam,void* pParam )
 {
-	;
+	return 0;
 }
 
 CSessionBase::~CSessionBase()

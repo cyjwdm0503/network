@@ -24,7 +24,7 @@ public:
 	bool Join();
 	void SleepMs(int ms);
 	THREAD_HANDLE GetHandle();
-
+	bool IsCurrentThread();
 #ifdef WIN32
 	static DWORD WINAPI _ThreadEntry(LPVOID pParam);
 #else

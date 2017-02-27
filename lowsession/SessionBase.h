@@ -22,7 +22,7 @@ public:
 
 	virtual void HandleOupt();
 
-	virtual void HandleEvent( int event,DWORD dwParam,void* pParam );
+	virtual int HandleEvent( int event,DWORD dwParam,void* pParam );
 	
 	
 private:

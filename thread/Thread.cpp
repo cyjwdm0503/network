@@ -92,3 +92,12 @@ bool CThread::Join()
     return pthread_join(m_hThread,&status);
 #endif
 }
+
+bool CThread::IsCurrentThread()
+{
+#ifdef WIN32
+	return ::GetCurrentThreadId() == m_IDThread;
+#else
+	return pthread_self() == m_hThread;
+#endif
+}

@@ -6,6 +6,7 @@
 #include <set>
 #include "MutexGuard.h"
 #include "TimerQueue.h"
+#include "EventQueue.h"
 
 class CDispatcher:public CThread
 {
@@ -16,9 +17,12 @@ public:
 	void RegisterTimer(CHandler* handler,int event,int ms);
 	void RemoveTimer(CHandler* handler,int event);
 	//异步event
-	bool PostEvent(CHandler* handler,int event,DWORD dwParam,void* pParam);//异步
+	bool PostEvent(CHandler* handler,EVENT_MSG event,DWORD dwParam,void* pParam);//异步
 	//同步event
-	bool SendEvent(CHandler* handler,int event,DWORD dwParam,void* pParam);//同步
+	int SendEvent(CHandler* handler,EVENT_MSG event,DWORD dwParam,void* pParam);//同步
+
+	virtual int HandleEvent(int nEventID, DWORD dwParam, void *pParam){return 0;};
+	
 	void DispatherTimer();
 	void DispatherEvent();
 	virtual void Run();
@@ -30,6 +34,7 @@ protected:
 	std::set<CHandler*> m_IOlist;
 
 	CTimerQueue* m_Timerheap;
+	CEventQueue* m_EventQueue;
 	CMutex m_mtx;
 	bool IsRun;
 

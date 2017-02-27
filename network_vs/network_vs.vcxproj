@@ -163,6 +163,7 @@
     <ClCompile Include="..\server\Server.cpp" />
     <ClCompile Include="..\server\ServerBase.cpp" />
     <ClCompile Include="..\thread\Dispatcher.cpp" />
+    <ClCompile Include="..\thread\EventQueue.cpp" />
     <ClCompile Include="..\thread\Handler.cpp" />
     <ClCompile Include="..\thread\Mutex.cpp" />
     <ClCompile Include="..\thread\MutexGuard.cpp" />
