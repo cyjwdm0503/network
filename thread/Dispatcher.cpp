@@ -45,9 +45,11 @@ bool CDispatcher::PostEvent( CHandler* handler,EVENT_MSG event,DWORD dwParam,voi
 
 int CDispatcher::SendEvent( CHandler* handler,EVENT_MSG event,DWORD dwParam,void* pParam )
 {
+	m_mtx.Lock();
 	//单线程的同步event
 	if(IsCurrentThread())
 	{
+		m_mtx.UnLock();
 		if(handler != NULL)
 			return handler->HandleEvent(event,dwParam,pParam);
 		else
@@ -57,9 +59,10 @@ int CDispatcher::SendEvent( CHandler* handler,EVENT_MSG event,DWORD dwParam,void
 	//以下为多线程时的同步event
 	//传入
 	EventType *ev = m_EventQueue->AddSyncEvent(handler,event,dwParam,pParam);
-	
+	m_mtx.UnLock();
 	//等待解锁
 	ev->sem.Lock();
+	
 	return ev->retValue;
 }
 
@@ -71,7 +74,6 @@ void CDispatcher::DispatherTimer()
 
 void CDispatcher::DispatherEvent()
 {
-	CMutexGuard guard(m_mtx);
 	EventType event;
 	while (m_EventQueue->PeekEvent(event) && IsRun)
 	{
