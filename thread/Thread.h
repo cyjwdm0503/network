@@ -6,10 +6,13 @@
 #ifdef WIN32
 //typedef unsigned long DWORD;
 typedef HANDLE THREAD_HANDLE;
+
 #else
+
 typedef unsigned long DWORD;
 typedef pthread_t THREAD_HANDLE;
 typedef void* LPVOID;
+
 #endif
 
 class CThread

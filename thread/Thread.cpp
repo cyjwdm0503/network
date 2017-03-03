@@ -27,10 +27,14 @@ bool CThread::Create( void )
 {
 #ifdef WIN32
     m_hThread = ::CreateThread(NULL,0,_ThreadEntry,this,0,&m_IDThread);
+	if(m_hThread == NULL)
+		return false;
 #else
     pthread_attr_t attr;
     pthread_attr_init(&attr);
-    pthread_create(&m_hThread,NULL,_ThreadEntry,(void*)this);
+    int ret = pthread_create(&m_hThread,NULL,_ThreadEntry,(void*)this);
+	if(ret != 0)
+		return false;
 #endif
 	return true;
 }

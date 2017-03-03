@@ -32,9 +32,10 @@ bool CEventQueue::AddPostEvent( CHandler* handler,EVENT_MSG nEventID, DWORD dwPa
 	event->handler = handler;
 	event->dwParam = dwParam;
 	event->pParam = pParam;
-	event->pThisAddr = handler;
+	//event->pThisAddr = handler;
 	event->event_msg = nEventID;
 	event->retValue = 0;
+	//设置为空是用来确定是Send还是Post
 	event->pThisAddr =  NULL;
 	m_writepos++;
 	if(m_writepos >= m_eventSize )
@@ -55,7 +56,7 @@ EventType* CEventQueue::AddSyncEvent( CHandler* handler,EVENT_MSG nEventID, DWOR
 	event->handler = handler;
 	event->dwParam = dwParam;
 	event->pParam = pParam;
-	event->pThisAddr = handler;
+	//event->pThisAddr = handler;
 	event->event_msg = nEventID;
 	event->retValue = 0;
 	event->sem.Lock();

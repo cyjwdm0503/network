@@ -25,7 +25,7 @@ public:
 	
 	void DispatherTimer();
 	void DispatherEvent();
-	virtual void Run();
+	void Run();
 	void SyncTimer();
 	virtual void SyncRun();
 	void  AddHandler( CHandler* handler );

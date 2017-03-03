@@ -1,6 +1,7 @@
 #include "Dispatcher.h"
 #include "Mutex.h"
 #include "TimerHeap.h"
+#include <iostream>
 
 #ifdef WIN32
 #include <sys/timeb.h>
@@ -142,3 +143,107 @@ void CDispatcher::RemoveHandler( CHandler* handler )
 	CMutexGuard guard(m_mtx);
 	m_IOlist.erase(handler);
 }
+
+#define 
+
+#ifdef EVENTDEBUG
+
+class CTestReactor:public CDispatcher
+{
+public:
+
+	virtual int HandleEvent( int nEventID, DWORD dwParam, void *pParam ) 
+	{
+		cout<<__FILE__<<"\t"<<__LINE__<<"\t"<<__FUNCTION__;
+		cout<<GetCurrentThreadId()<<"\t"<<nEventID<<"\t"<<dwParam<<"\t"<<pParam<<endl;
+
+		if(nEventID == EVENT_STOP)
+			IsRun = false;
+
+		return 0;
+	}
+
+	virtual void SyncRun() 
+	{
+		SleepMs(1000);
+		std::set<CHandler*>::iterator it= m_IOlist.begin();
+		for(; it!= m_IOlist.end(); it++)
+		{
+			if(*it != NULL)
+			{
+				(*it)->HandleInput();
+				(*it)->HandleOupt();
+			}
+		}
+	}
+
+	virtual bool ExitInstance() 
+	{
+		cout<<__FILE__<<"\t"<<__LINE__<<"\t"<<__FUNCTION__<<endl;
+		return true;
+		//throw std::exception("The method or operation is not implemented.");
+	}
+
+	virtual bool InitInstance() 
+	{
+		cout<<__FILE__<<"\t"<<__LINE__<<"\t"<<__FUNCTION__<<endl;
+		m_times = 0;
+		return true;
+		//throw std::exception("The method or operation is not implemented.");
+	}
+
+private:
+	int m_times;
+
+};
+
+class CTestHandler:public CHandler
+{
+public:
+
+	CTestHandler(EVENT_MSG msg,CDispatcher* select,CDispatcher* selector):m_msg(msg),m_select(select),CHandler(selector){};
+
+	virtual void HandleInput() 
+	{
+		//throw std::exception("The method or operation is not implemented.");
+	}
+
+	virtual void HandleOupt() 
+	{
+		cout<<__FILE__<<"\t"<<__LINE__<<"\t"<<__FUNCTION__;
+		cout<<GetCurrentThreadId()<<"\t"<<m_msg<<"\t"<<(void*)this<<endl;
+		m_select->SendEvent(this,m_msg,GetCurrentThreadId(),(void*)this);
+
+	}
+
+	virtual void OnTimer( int event ) 
+	{
+		cout<<__FILE__<<"\t"<<__LINE__<<"\t"<<__FUNCTION__;
+		cout<<(void*)this<<"\t"<<event<<endl;
+	}
+
+	virtual int HandleEvent( int event,DWORD dwParam,void* pParam ) 
+	{
+		
+		cout<<__FILE__<<"\t"<<__LINE__<<"\t"<<__FUNCTION__;
+		cout<<GetCurrentThreadId()<<"\t"<<event<<"\t"<<(void*)this<<endl;
+		return 0;
+	}
+private:
+	EVENT_MSG m_msg;
+	CDispatcher* m_select;
+};
+
+int main(int ,char**)
+{
+	CTestReactor reactor;
+	CTestReactor rect;
+	//CTestHandler connecthandler(EVENT_RET_CONNECT,&reactor,&reactor);
+	CTestHandler accepthandler(EVENT_RET_ACCEPT,&reactor,&rect);
+	rect.Create();
+	reactor.Create();
+	reactor.Join();
+	rect.Join();
+	return 0;
+}
+#endif
