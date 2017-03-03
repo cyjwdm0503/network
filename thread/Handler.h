@@ -15,6 +15,7 @@ public:
 	virtual int HandleEvent(int event,DWORD dwParam,void* pParam);
 	virtual bool PostEvent(int event, DWORD dwParam,void* pParam);
 	virtual void SetTimer(int event,int elapse);
+	virtual void KillTimer(int event);
 	virtual int SendEvent(int event, DWORD dwParam, void* pParam);
 private:
 	CDispatcher* m_dispatcher;

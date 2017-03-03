@@ -40,3 +40,9 @@ int CHandler::SendEvent( int event, DWORD dwParam, void* pParam )
 		return 	m_dispatcher->SendEvent(this,event,dwParam, pParam);
 	return 0;
 }
+
+void CHandler::KillTimer( int event )
+{
+	if(m_dispatcher != NULL)
+		m_dispatcher->RemoveTimer(this,event);
+}

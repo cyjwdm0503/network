@@ -144,7 +144,7 @@ void CDispatcher::RemoveHandler( CHandler* handler )
 	m_IOlist.erase(handler);
 }
 
-#define 
+#define EVENTDEBUG
 
 #ifdef EVENTDEBUG
 
@@ -201,7 +201,10 @@ class CTestHandler:public CHandler
 {
 public:
 
-	CTestHandler(EVENT_MSG msg,CDispatcher* select,CDispatcher* selector):m_msg(msg),m_select(select),CHandler(selector){};
+	CTestHandler(EVENT_MSG msg,CDispatcher* select,CDispatcher* selector):m_msg(msg),m_select(select),CHandler(selector)
+	{
+		SetTimer(EVENT_ERR_OUTTIME,5000);
+	}
 
 	virtual void HandleInput() 
 	{
@@ -220,6 +223,7 @@ public:
 	{
 		cout<<__FILE__<<"\t"<<__LINE__<<"\t"<<__FUNCTION__;
 		cout<<(void*)this<<"\t"<<event<<endl;
+		KillTimer(event);
 	}
 
 	virtual int HandleEvent( int event,DWORD dwParam,void* pParam ) 
@@ -239,7 +243,7 @@ int main(int ,char**)
 	CTestReactor reactor;
 	CTestReactor rect;
 	//CTestHandler connecthandler(EVENT_RET_CONNECT,&reactor,&reactor);
-	CTestHandler accepthandler(EVENT_RET_ACCEPT,&reactor,&rect);
+	CTestHandler accepthandler(EVENT_RET_ACCEPT,&reactor,&reactor);
 	rect.Create();
 	reactor.Create();
 	reactor.Join();
