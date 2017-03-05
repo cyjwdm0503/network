@@ -144,7 +144,7 @@ void CDispatcher::RemoveHandler( CHandler* handler )
 	m_IOlist.erase(handler);
 }
 
-#define EVENTDEBUG
+
 
 #ifdef EVENTDEBUG
 
