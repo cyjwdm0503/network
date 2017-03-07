@@ -92,6 +92,9 @@
     <ClCompile Include="..\thread\EventQueue.cpp">
       <Filter>thread</Filter>
     </ClCompile>
+    <ClCompile Include="..\package\contentpackage.cpp">
+      <Filter>package</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h">
@@ -171,6 +174,9 @@
     </ClInclude>
     <ClInclude Include="..\thread\TimerQueue.h">
       <Filter>thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\package\contentpackage.h">
+      <Filter>package</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

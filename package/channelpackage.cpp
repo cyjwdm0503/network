@@ -1,52 +1,50 @@
 #include "channelpackage.h"
 #include "Log.h"
 
-
-
-bool CChannelPackage::PopPackage( CPackage* package )
+CChannelPackage::CChannelPackage( int maxlength )
 {
-	if( GetDataLen() < sizeof(header))
-		return false;
-
-	header head;
-	memcpy(&head,cur,sizeof(header));
-
-	if(GetDataLen()< head.PACKAGELENGTH)
-		return false;
-
-	memcpy(package->GetPackagePtr(),cur,head.PACKAGELENGTH);
-	cur +=head.PACKAGELENGTH;
-	//pop完成后，要将后来的值移动到begin位置
-	memmove(begin,cur,end-cur);
-	end -= head.PACKAGELENGTH;
-	cur -= head.PACKAGELENGTH;
-	return true;
+	ConstructAlloc(maxlength,0);
 }
 
-void CChannelPackage::MakePackage()
+CChannelPackage::~CChannelPackage()
 {
-	;
+
 }
 
 int CChannelPackage::ReadFromChannel( CChannel* channel )
 {
-	int ret = channel->Read(GetValidLength(),GetValidDataPtr());
-	if(ret <0)
+	///http://www.linuxidc.com/Linux/2014-11/109545.htm
+	int ret = 0;
+	if(channel->GetService()->GetNChannel() == SOCK_STREAM)
 	{
-	    DEBUGOUT(ret);
-		CLog::GetInstance()->Printerrno(ret);
-		//channel->Disconnect();
-		return ret;
-		//exit(1);
-	}
+		int len =  m_head-m_pPackageBuf->Data();
+		//将数据移动到Data处
+		memmove(m_pPackageBuf->Data(),m_head,Length());
+		m_head -=len;
+		m_end -= len;
 
-	end = end+ret;
+		int avalen =  m_pPackageBuf->Length()-Length();
+		ret =  channel->Read(avalen,m_end);
+		if(ret >0)
+			m_end += ret;
+
+	}
+	else///UDP协议是基于报文的。所以每次只能读取一个完整的package
+	{
+		m_end = m_head =  m_pPackageBuf->Data();///?????
+		ret =  channel->Read(m_pPackageBuf->Length(),m_end);
+		if(ret > 0)
+			m_end += ret;
+	}
 	return ret;
 }
 
-CChannelPackage::CChannelPackage( unsigned int PACKAGEID,int maxlen/*=1024*/ ):CPackage(CHANNELPACKAGE_ID,maxlen)
+int CChannelPackage::GetActiveID()
 {
-	end = begin;
+	return 0;
 }
 
-
+int CChannelPackage::ValidPackage()
+{
+	return Length();
+}

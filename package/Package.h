@@ -57,7 +57,9 @@ public:
 
 	void Release();
 
-private:
+	void BufRelease();
+
+protected:
 	CPackageBuffer* m_pPackageBuf;
 	char* m_head;
 	char* m_end;

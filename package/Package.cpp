@@ -62,6 +62,7 @@ CPackage::CPackage()
 
 CPackage::~CPackage()
 {
+	BufRelease();
 	Release();
 }
 
@@ -177,10 +178,14 @@ void CPackage::Truncate( int newLength )
 		m_end =  m_head+newLength;
 }
 
-void CPackage::Release()
-{
-	m_RefCount--;
-	if(m_RefCount<=0)
-		delete this;
 
+
+void CPackage::BufRelease()
+{
+	CPackageBuffer *old=m_pPackageBuf;
+	if(m_pPackageBuf!=NULL){
+		m_pPackageBuf->Release();
+		m_pPackageBuf=NULL;
+		m_head=m_end=NULL;
+	}
 }
