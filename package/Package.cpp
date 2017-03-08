@@ -63,9 +63,15 @@ CPackage::CPackage()
 CPackage::~CPackage()
 {
 	BufRelease();
-	Release();
+	//Release();
 }
-
+void CPackage::Release()
+{
+	if(m_RefCount <= 1)
+	{
+		delete this;
+	}
+}
 void CPackage::Clear()
 {
 	if(m_pPackageBuf == NULL)
@@ -127,6 +133,7 @@ char* CPackage::Address()
 
 void CPackage::AddBuf( CPackage* pPackage )
 {
+	BufRelease();
 	m_head =  pPackage->m_head;
 	m_end = pPackage->m_end;
 	m_pPackageBuf = pPackage->m_pPackageBuf;	

@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Client.h"
 #include "channelpackage.h"
+#include "contentpackage.h"
 using namespace  std;
 
 static  int CLIENTVERSION = 0;
@@ -54,14 +55,14 @@ void CClientApi::GetIds( int* readid,int* writeid )
 void CClientApi::HandleInput()
 {
 
-	CChannelPackage package(CHANNELPACKAGE_ID,MAXLENGTH);
 
+	CChannelPackage channelpackage(4096);
 	if(m_clientchannel != NULL)
 	{
-		int len = package.ReadFromChannel(m_clientchannel);
+		int len = channelpackage.ReadFromChannel(m_clientchannel);
 		//int len = m_clientchannel->Read(package.GetValidLength(),package.GetValidDataPtr());
 		if(len > 0)
-			cout<<"package:len"<<package.GetPackageLen();
+			cout<<"package:len"<<channelpackage.Length();
 		else if(len <0 )
 		{
 			m_clientchannel->Disconnect();
@@ -75,26 +76,31 @@ void CClientApi::HandleInput()
 
 
 		m_leavewritelen = len;
-
-		CPackage pack(PACKAGE_ID);
-		package.PopPackage(&pack);
-		pack.MakePackage();
-		cout<<"CClientApi::HandleInput:"<<len<<"fp"<<m_clientchannel->Getfd()<<" char content:"<<"\t"<<pack.GetHeader()->VERSION<<endl;
+		//从channelpackage中取出来对应的contentpackage
+		CContentPackage contentpackage;
+		contentpackage.AddBuf(&channelpackage);
+		if(contentpackage.ValidPackage()>0)
+			cout<<"package:len"<<channelpackage.Length()<<"CClientApi::HandleInput:"<<len<<"fp"<<m_clientchannel->Getfd()<<" char content:"<<"\t"<<contentpackage.GetContentHeader()->Type<<endl;
 	}
 }
 
 void CClientApi::HandleOupt()
 {
-	CChannelPackage package(CHANNELPACKAGE_ID,MAXLENGTH);
-	CPackage pack(PACKAGE_ID,MAXLENGTH);
-	pack.GetHeader()->VERSION = ++CLIENTVERSION;
-	pack.PushHeader();
-	package.PushPackage(&pack);
+	CContentPackage contentpackage;
+	contentpackage.ConstructAlloc(1024,128);
+	contentpackage.AllocMax();
+	contentpackage.GetContentHeader()->Type = ++ CLIENTVERSION;
+	contentpackage.MakePackage();
+
+	CChannelPackage channelpackage(4096);
+	channelpackage.AddBuf(&contentpackage);
+	channelpackage.MakePackage();
+
 	if(m_clientchannel != NULL)
 	{
-		int len = m_clientchannel->Write(package.GetPackageLen(),package.GetPackagePtr());
+		int len = m_clientchannel->Write(channelpackage.Length(),channelpackage.Address());
 		m_leavewritelen = 0;
-		cout<<"package:len"<<package.GetPackageLen()<<"CClientApi::HandleOupt:"<<len<<"fp"<<m_clientchannel->Getfd()<<" char content:"<<"\t"<<pack.GetHeader()->VERSION<<endl;
+		cout<<"package:len"<<channelpackage.Length()<<"CClientApi::HandleOupt:"<<len<<"fp"<<m_clientchannel->Getfd()<<" char content:"<<"\t"<<contentpackage.GetContentHeader()->Type<<endl;
 	}
 }
 

@@ -20,7 +20,7 @@ void CSelectReactor::SyncRun()
 
 	PrepareIds(readset,writeset,maxfd);
 	//select
-	SleepMs(1000);
+	SleepMs(100);
 	timeval t;
 	t.tv_sec = 0;
 	t.tv_usec = 10;

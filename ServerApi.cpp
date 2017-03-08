@@ -1,5 +1,6 @@
 #include "ServerApi.h"
 #include "channelpackage.h"
+#include "contentpackage.h"
 #include <iostream>
 
 static int SERVERVERSION = 100;
@@ -60,14 +61,14 @@ void CServerApi::GetIds( int* readid,int* writeid )
 
 void CServerApi::HandleInput()
 {
-	CChannelPackage package(CHANNELPACKAGE_ID,1024);
+	CChannelPackage channelpackage(4096);
 	if(m_serverchannel != NULL)
 	{
-		int re = package.ReadFromChannel(m_serverchannel);
+		int re = channelpackage.ReadFromChannel(m_serverchannel);
 		if(re > 0)
 		{
 			m_leavewritelen = re;
-			cout<<"package:len"<<package.GetPackageLen();
+			cout<<"package:len"<<channelpackage.Length();
 		}
 		else if(re < 0)
 		{//channel在断线后应该通知server.重新进入accept流程。
@@ -79,26 +80,30 @@ void CServerApi::HandleInput()
            	cout<<"CServerApi::HandleInput:"<<re<<"fp"<<m_serverchannel->Getfd()<<" char content:"<<"\t"<<endl;
             return ;
         }
-		CPackage pack(PACKAGE_ID);
-		if(package.PopPackage(&pack))
-		{
-			pack.MakePackage();
-			cout<<"CServerApi::HandleInput:"<<re<<"fp"<<m_serverchannel->Getfd()<<" char content:"<<"\t"<<pack.GetHeader()->VERSION<<endl;
-		}
+		//从channelpackage中取出来对应的contentpackage
+		CContentPackage contentpackage;
+		contentpackage.AddBuf(&channelpackage);
+		if(contentpackage.ValidPackage() >0)
+			cout<<"package:len"<<channelpackage.Length()<<"CServerApi::HandleInput:"<<re<<"fp"<<m_serverchannel->Getfd()<<" char content:"<<"\t"<<contentpackage.GetContentHeader()->Type<<endl;
+
 	}
 }
 
 void CServerApi::HandleOupt()
 {
-	CChannelPackage package(CHANNELPACKAGE_ID,MAXLENGTH);
-	CPackage pack(PACKAGE_ID,MAXLENGTH);
-	pack.GetHeader()->VERSION = ++SERVERVERSION;
-	pack.PushHeader();
-	package.PushPackage(&pack);
+	CContentPackage contentpackage;
+	contentpackage.ConstructAlloc(1024,128);
+	contentpackage.AllocMax();
+	contentpackage.GetContentHeader()->Type = ++ SERVERVERSION;
+	contentpackage.MakePackage();
+
+	CChannelPackage channelpackage(1024);
+	channelpackage.AddBuf(&contentpackage);
+	channelpackage.MakePackage();
 	if(m_serverchannel != NULL)
 	{
-		int len = m_serverchannel->Write(package.GetPackageLen(),package.GetPackagePtr());
+		int len = m_serverchannel->Write(channelpackage.Length(),channelpackage.Address());
 		m_leavewritelen = 0;
-		cout<<"package:len"<<package.GetPackageLen()<<"CServerApi::HandleOupt:"<<len<<"fp"<<m_serverchannel->Getfd()<<" char content:"<<"\t"<<pack.GetHeader()->VERSION<<endl;
+		cout<<"package:len"<<channelpackage.Length()<<"CServerApi::HandleOupt:"<<len<<"fp"<<m_serverchannel->Getfd()<<" char content:"<<"\t"<<contentpackage.GetContentHeader()->Type<<endl;
 	}
 }
