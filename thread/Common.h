@@ -10,6 +10,7 @@
 #else
 #include "pthread.h"
 #include "unistd.h"
+#include <sys/time.h>
 #endif
 
 //如果写const int 会在类和结构体中报错

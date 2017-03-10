@@ -109,7 +109,7 @@ semaphoreo = ./thread/Semaphore.o
 threado = ./thread/Thread.o
 handlero = ./thread/Handler.o
 eventqueueo = ./thread/EventQueue.o
-timerheapo = ./thread/TimerQueue.o
+timerheapo = ./thread/TimerHeap.o
 
 #global
 clientapio = ./ClientApi.o
@@ -127,7 +127,7 @@ Obj = $(channelo) $(inetsocko) $(servicenameo) $(tcpsocko) $(udpsocko) $(udpchan
 			$(sessionbaseo) \
 			$(channelpackageo) $(contentpackageo) $(packageo) \
 			$(serverbaseo) $(servero) \
-			$(handlero) $(eventqueueo) $(timerqueueo) $(threado) $(dispathero) $(mutexo) $(mutexgurardo) $(selectreactoro) $(semaphoreo) \
+			$(handlero) $(eventqueueo) $(timerheapo)  $(threado) $(dispathero) $(mutexo) $(mutexgurardo) $(selectreactoro) $(semaphoreo) \
 			$(clientapio) $(logo) $(serverendpointo) $(clientendpointo) $(serverapio)
 
 

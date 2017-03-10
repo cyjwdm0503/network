@@ -1,4 +1,5 @@
 #include "EventQueue.h"
+#include <cstring>
 
 CEventQueue::CEventQueue( int size )
 {

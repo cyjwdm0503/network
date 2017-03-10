@@ -9,9 +9,9 @@ public:
 	virtual ~CPackageBuffer();
 	char* Data();
 	int Length();
-	void CPackageBuffer::AddRef();
+	void AddRef();
 
-	void CPackageBuffer::Release();
+	void Release();
 private:
 	char* m_pData;
 	int m_length;
