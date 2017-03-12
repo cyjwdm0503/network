@@ -31,8 +31,11 @@ sessionbaseh=./lowsession/SessionBase.h
 #package
 channelpackagecpp = ./package/channelpackage.cpp 
 channelpackageh = ./package/channelpackage.h 
+contentpackagecpp = ./package/contentpackage.cpp
+contentpackageh = ./package/contentpackage.h
 packagecpp = ./package/Package.cpp 
 packageh = ./package/Package.h 
+
 
 #server 
 serverbasecpp=./server/ServerBase.cpp
@@ -43,7 +46,9 @@ serverh= ./server/Server.h
 #thread 
 commonh = ./thread/Common.h 
 dispathercpp = ./thread/Dispatcher.cpp 
-dispatherh = ./thread/Dispatcher.h 
+dispatherh = ./thread/Dispatcher.h
+eventqueuecpp = ./thread/EventQueue.cpp
+eventqueueh = ./thread/EventQueue.h 
 handlercpp= ./thread/Handler.cpp
 handlerh = ./thread/Handler.h 
 mutexcpp = ./thread/Mutex.cpp 
@@ -56,6 +61,9 @@ semaphorecpp = ./thread/Semaphore.cpp
 semaphoreh = ./thread/Semaphore.h 
 threadcpp = ./thread/Thread.cpp 
 threadh = ./thread/Thread.h 
+timerheapcpp = ./thread/TimerHeap.cpp
+timerheaph = ./thread/TimerHeap.h
+timerqueueh = ./thread/TimerQueue.h
 
 #global
 clientapicpp = ./ClientApi.cpp 
@@ -85,6 +93,7 @@ sessionbaseo = ./lowsession/SessionBase.o
 
 #package
 channelpackageo = ./package/channelpackage.o
+contentpackageo = ./package/contentpackage.o
 packageo= ./package/Package.o
 
 #server 
@@ -99,6 +108,8 @@ selectreactoro =./thread/SelectReactor.o
 semaphoreo = ./thread/Semaphore.o
 threado = ./thread/Thread.o
 handlero = ./thread/Handler.o
+eventqueueo = ./thread/EventQueue.o
+timerheapo = ./thread/TimerHeap.o
 
 #global
 clientapio = ./ClientApi.o
@@ -114,9 +125,9 @@ target:ClientEndPoint ServerEndPoint \
 Obj = $(channelo) $(inetsocko) $(servicenameo) $(tcpsocko) $(udpsocko) $(udpchannelo) \
 			$(clientbaseo) $(cliento) \
 			$(sessionbaseo) \
-			$(channelpackageo) $(packageo) \
+			$(channelpackageo) $(contentpackageo) $(packageo) \
 			$(serverbaseo) $(servero) \
-			$(handlero) $(threado) $(dispathero) $(mutexo) $(mutexgurardo) $(selectreactoro) $(semaphoreo) \
+			$(handlero) $(eventqueueo) $(timerheapo)  $(threado) $(dispathero) $(mutexo) $(mutexgurardo) $(selectreactoro) $(semaphoreo) \
 			$(clientapio) $(logo) $(serverendpointo) $(clientendpointo) $(serverapio)
 
 

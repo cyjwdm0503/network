@@ -7,6 +7,7 @@
 #include "MutexGuard.h"
 #include "TimerQueue.h"
 #include "EventQueue.h"
+#include "TimerHeap.h"
 
 class CDispatcher:public CThread
 {

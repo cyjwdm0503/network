@@ -7,6 +7,7 @@
 #include <sys/timeb.h>
 #include <sys/types.h>
 #else
+#include <sys/time.h>
 #endif
 CDispatcher::CDispatcher()
 {

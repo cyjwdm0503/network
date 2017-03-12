@@ -15,6 +15,7 @@ public:
 
 	virtual void Expire(DWORD curclock) = 0;
 	virtual ~CTimerQueue(){};
+	CTimerQueue(){};
 };
 
 #endif
