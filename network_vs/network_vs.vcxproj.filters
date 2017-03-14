@@ -101,36 +101,6 @@
     <ClCompile Include="..\package\contentpackage.cpp">
       <Filter>package</Filter>
     </ClCompile>
-    <ClCompile Include="..\flow\CachedFileFlow.cpp">
-      <Filter>flow</Filter>
-    </ClCompile>
-    <ClCompile Include="..\flow\CachedFlow.cpp">
-      <Filter>flow</Filter>
-    </ClCompile>
-    <ClCompile Include="..\flow\FileFlow.cpp">
-      <Filter>flow</Filter>
-    </ClCompile>
-    <ClCompile Include="..\flow\Flow.cpp">
-      <Filter>flow</Filter>
-    </ClCompile>
-    <ClCompile Include="..\flow\FlowReader.cpp">
-      <Filter>flow</Filter>
-    </ClCompile>
-    <ClCompile Include="..\flow\IndexPackageFlow.cpp">
-      <Filter>flow</Filter>
-    </ClCompile>
-    <ClCompile Include="..\flow\ReadCachedFileFlow.cpp">
-      <Filter>flow</Filter>
-    </ClCompile>
-    <ClCompile Include="..\flow\ReadOnlyFlow.cpp">
-      <Filter>flow</Filter>
-    </ClCompile>
-    <ClCompile Include="..\flow\CacheList.cpp">
-      <Filter>flow</Filter>
-    </ClCompile>
-    <ClCompile Include="..\flow\flowcommon.cpp">
-      <Filter>flow</Filter>
-    </ClCompile>
     <ClCompile Include="..\protocol\Protocol.cpp">
       <Filter>protocol</Filter>
     </ClCompile>
@@ -216,36 +186,6 @@
     </ClInclude>
     <ClInclude Include="..\package\contentpackage.h">
       <Filter>package</Filter>
-    </ClInclude>
-    <ClInclude Include="..\flow\CachedFileFlow.h">
-      <Filter>flow</Filter>
-    </ClInclude>
-    <ClInclude Include="..\flow\CachedFlow.h">
-      <Filter>flow</Filter>
-    </ClInclude>
-    <ClInclude Include="..\flow\FileFlow.h">
-      <Filter>flow</Filter>
-    </ClInclude>
-    <ClInclude Include="..\flow\Flow.h">
-      <Filter>flow</Filter>
-    </ClInclude>
-    <ClInclude Include="..\flow\FlowReader.h">
-      <Filter>flow</Filter>
-    </ClInclude>
-    <ClInclude Include="..\flow\IndexPackageFlow.h">
-      <Filter>flow</Filter>
-    </ClInclude>
-    <ClInclude Include="..\flow\ReadCachedFileFlow.h">
-      <Filter>flow</Filter>
-    </ClInclude>
-    <ClInclude Include="..\flow\ReadOnlyFlow.h">
-      <Filter>flow</Filter>
-    </ClInclude>
-    <ClInclude Include="..\flow\flowcommon.h">
-      <Filter>flow</Filter>
-    </ClInclude>
-    <ClInclude Include="..\flow\CacheList.h">
-      <Filter>flow</Filter>
     </ClInclude>
     <ClInclude Include="..\protocol\Protocol.h">
       <Filter>protocol</Filter>
