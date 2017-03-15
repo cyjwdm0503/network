@@ -94,7 +94,7 @@ int CUdpSock::Accept()
 
 int CUdpSock::Listen()
 {
-	return Bind();
+	//return Bind();
 	return 0;
 }
 
