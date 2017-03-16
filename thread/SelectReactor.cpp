@@ -20,10 +20,10 @@ void CSelectReactor::SyncRun()
 
 	PrepareIds(readset,writeset,maxfd);
 	//select
-	SleepMs(100);
+	//SleepMs(100);
 	timeval t;
 	t.tv_sec = 0;
-	t.tv_usec = 10;
+	t.tv_usec = 1000;
 	select(maxfd+1,&readset,&writeset,NULL,&t);
 
 	//
@@ -38,7 +38,7 @@ void CSelectReactor::PrepareIds( fd_set& readset,fd_set& writeset,int& maxfd)
 	FD_ZERO(&readset);
 	FD_ZERO(&writeset);
 	maxfd = 0;
-	std::set<CHandler*>::iterator it= m_IOlist.begin();
+	ChandlerList::iterator it= m_IOlist.begin();
 	for(; it!= m_IOlist.end(); it++)
 	{
 		//首先获取所有的ids 写入fd_set;从而利用fd_set 进行输入与输出
@@ -61,10 +61,12 @@ void CSelectReactor::PrepareIds( fd_set& readset,fd_set& writeset,int& maxfd)
 
 void CSelectReactor::RunHandler( fd_set& readset,fd_set& writeset,int& maxfd )
 {
-	std::set<CHandler*>::iterator it= m_IOlist.begin();
+	ChandlerList::iterator it= m_IOlist.begin();
 	for(; it!= m_IOlist.end(); it++)
 	{
 		int readfd = 0,writefd= 0;
+		if((*it) == NULL)
+			continue;//避免在内部被removehandler;
 		(*it)->GetIds(&readfd,&writefd);
 		//首先获取所有的ids 写入fd_set;从而利用fd_set 进行输入与输出
 		if(FD_ISSET(readfd,&readset) && readfd>0)

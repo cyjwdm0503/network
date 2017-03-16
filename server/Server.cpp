@@ -20,7 +20,7 @@ CChannel* CServer::CreateServer(const char* server)
 CChannel* CServer::AcceptClient()
 {
     int fd = m_serversock->Accept();
-    if(fd > 0)
+    if(fd >= 0)
         return m_serversock->GetChannel(fd);
     return NULL;
 }

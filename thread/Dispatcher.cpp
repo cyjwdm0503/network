@@ -135,14 +135,21 @@ void CDispatcher::SyncRun()
 void CDispatcher::AddHandler( CHandler* handler )
 {
 	CMutexGuard guard(m_mtx);
-	m_IOlist.insert(handler);
+	m_IOlist.push_back(handler);
 
 }
 
 void CDispatcher::RemoveHandler( CHandler* handler )
 {
+	//不能直接在内部用set的erase。不会正确删除
 	CMutexGuard guard(m_mtx);
-	m_IOlist.erase(handler);
+	for (ChandlerList::iterator i = m_IOlist.begin(); i != m_IOlist.end(); i++)
+	{
+		if ((*i) == handler) 
+		{
+			(*i) = NULL;
+		}
+	}
 }
 
 

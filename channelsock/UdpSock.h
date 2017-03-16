@@ -17,7 +17,7 @@ public:
 	virtual ~CUdpSock();
 	virtual  CChannel* GetChannel(int fd);
 private:
-	virtual CChannel* AddChannel(int fd,const CServiceName* service= NULL){return NULL;};
+	virtual CChannel* AddChannel(int fd,const CServiceName* service= NULL);
 	CChannel* m_channel;
 
 public:

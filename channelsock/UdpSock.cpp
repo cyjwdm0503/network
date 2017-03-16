@@ -9,7 +9,7 @@ CUdpSock::CUdpSock( void ):CInetSock()
 
 CUdpSock::CUdpSock( const char* location ):CInetSock(location)
 {
-	;
+	m_channel =  NULL;
 }
 
 CUdpSock::CUdpSock(const CServiceName* service ):CInetSock(service)
@@ -58,24 +58,36 @@ int CUdpSock::Connect( CServiceName* server )
 	CLog::GetInstance()->Printerrno(re);
 	return re;
 	*/
-	m_channel = new CUdpChannel(m_fd);
+	Bind();
+	if(m_channel == NULL)
+		m_channel = new CUdpChannel(m_fd);
 	m_channel->SetService(*server);
+	
+	/*UDP 不需要验证是否能够连接上服务器
 	char buf[2] = "0";
 	int re = m_channel->Write(2,buf);
 	if(re <= 0 )
 	{
 		m_channel =  NULL;
 	}
+	*/
 	return 0;
 }
 
 int CUdpSock::Accept()
 {
-	m_channel = new CUdpChannel(m_fd);
+	if(m_channel == NULL)
+		m_channel = new CUdpChannel(m_fd);
 
+	CServiceName service;
+	service.SetPort(m_service->GetPort()+1);
+	service.SetHost(m_service->GetHost());
+	service.SetChannel(m_service->GetChannel());
+	m_channel->SetService(service);
+	return 0;
+	/* UDP不需要验证服务器是否有客户连接上
 	sockaddr_in addr;
 	memset(&addr,0,sizeof(addr));
- 
 	socklen_t len = sizeof(addr);
 	size_t max=1024;
 	char buf[1024];
@@ -87,14 +99,16 @@ int CUdpSock::Accept()
 	{
 		delete m_channel;
 		m_channel = NULL;
+		return -1;
 	}
 	//AddChannel(m_fd,server);
 	return 0;
+	*/
 }
 
 int CUdpSock::Listen()
 {
-	//return Bind();
+	return Bind();
 	return 0;
 }
 
@@ -113,5 +127,13 @@ int CUdpSock::Bind()
 	int re = bind(m_fd,(sockaddr*)&addr,len);
 	DEBUGOUT(re);
 	return re;
+}
+
+CChannel* CUdpSock::AddChannel( int fd,const CServiceName* service/*= NULL*/ )
+{
+	if(m_channel == NULL)
+		m_channel = new CUdpChannel(fd);
+	m_channel->SetService(*service);
+	return m_channel;
 }
 

@@ -12,6 +12,7 @@ using namespace std;
 
 #ifdef CLIENT
 
+
 int main(int argi ,char*args[])
 {
 
@@ -21,8 +22,14 @@ int main(int argi ,char*args[])
 	{
 		argi = 3;
 		args[0] = "client.exe" ;
+#ifdef TCP
 		args[1] = "tcp://127.0.0.1:4321" ;
 		args[2] = "tcp://127.0.0.1:1234" ;
+#endif
+#ifdef UDP
+		args[1] = "udp://127.0.0.1:1235" ;
+		args[2] = "udp://127.0.0.1:1234" ;
+#endif
 	}
 #ifdef WIN32
 

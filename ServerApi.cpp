@@ -6,7 +6,7 @@
 static int SERVERVERSION = 100;
 CServerApi::CServerApi(CServer* server,CChannel* channel,CDispatcher* reactor):CHandler(reactor)
 {
-	//AddHandler(this);
+	reactor->AddHandler(this);
 	//m_server =  new CServer();
 	//m_server->CreateServer(server);
 	////实际为client与server通信的chanel

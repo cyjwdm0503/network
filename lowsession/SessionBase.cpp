@@ -17,6 +17,10 @@ void CSessionBase::HandleInput()
 	{
 		cout<<"void CSessionBase::HandleInput() success:"<<channel->Getfd()<<endl;
 		CServerApi* serverapi= new CServerApi(m_server,channel,m_serverreactor);
+		if(channel->GetService()->GetNChannel() == SOCK_DGRAM)
+		{//自我不在进行自我调度
+			this->RemoveHandler(this);
+		}
 	}
 }
 
@@ -43,7 +47,23 @@ CSessionBase::~CSessionBase()
 
 CSessionBase::CSessionBase( CSelectReactor* selecter,const char* location ):CHandler(this)
 {
+	AddHandler(this);
 	m_server = new CServer();
 	m_channel = m_server->CreateServer(location);
 	m_serverreactor =  selecter;
+}
+
+void CSessionBase::SyncRun()
+{
+	if(m_channel->GetService()->GetNChannel() == SOCK_STREAM)
+		CSelectReactor::SyncRun();
+	else
+	{
+		ChandlerList::iterator it= m_IOlist.begin();
+		for(; it!= m_IOlist.end(); it++)
+		{
+			if((*it) != NULL)
+				(*it)->HandleInput();
+		}
+	}
 }

@@ -23,8 +23,9 @@ public:
 	virtual void HandleOupt();
 
 	virtual int HandleEvent( int event,DWORD dwParam,void* pParam );
-	
-	
+
+	virtual void SyncRun();
+
 private:
 	CServer* m_server;
 	CChannel* m_channel;

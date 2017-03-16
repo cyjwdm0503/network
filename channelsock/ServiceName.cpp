@@ -177,7 +177,13 @@ void CServiceName::SetLocation( const char* loc )
 	strncpy(m_location,loc,sizeof(m_location));
 }
 
-const char* CServiceName::GetLocation() const
+const char* CServiceName::GetLocation()
 {
+	MakeLocation();
 	return m_location;
+}
+
+void CServiceName::MakeLocation()
+{
+	sprintf(m_location,"%s://%s:%d/",GetChannel(),GetHost(),GetPort());
 }

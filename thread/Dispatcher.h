@@ -32,7 +32,8 @@ public:
 	void  AddHandler( CHandler* handler );
 	void  RemoveHandler( CHandler* handler );
 protected:
-	std::set<CHandler*> m_IOlist;
+	typedef std::list<CHandler*> ChandlerList;
+	ChandlerList m_IOlist;
 
 	CTimerQueue* m_Timerheap;
 	CEventQueue* m_EventQueue;

@@ -22,7 +22,13 @@ int main(int argi ,char*args[])
 	{
 		argi = 2;
 		args[0] = "server.exe" ;
+#ifdef TCP
 		args[1] = "tcp://127.0.0.1:1234" ;
+#endif
+#ifdef UDP
+		args[1] = "udp://127.0.0.1:1234" ;
+#endif
+
 	}
 
 #ifdef WIN32
