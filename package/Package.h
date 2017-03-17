@@ -29,6 +29,8 @@ public:
 	virtual void Clear();
 	virtual int GetActiveID();
 	virtual int ValidPackage();
+
+	//组装对应的package 无错返回0
 	virtual int MakePackage();
 	//压入多少个字节，返回对应起点的指针。主要是用在头部
 	char* Push(int size);

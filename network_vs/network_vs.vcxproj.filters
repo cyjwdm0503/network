@@ -25,6 +25,9 @@
     <Filter Include="protocol">
       <UniqueIdentifier>{5e3fed9d-2810-4b0d-bf3b-c1e868d2f525}</UniqueIdentifier>
     </Filter>
+    <Filter Include="utility">
+      <UniqueIdentifier>{bd2d96cf-796c-40e4-95e3-6cb76eacf85e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\channelsock\Channel.cpp">
@@ -103,6 +106,12 @@
     </ClCompile>
     <ClCompile Include="..\protocol\Protocol.cpp">
       <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\protocol\channelprotocol.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\utility\cachelist.cpp">
+      <Filter>utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +198,12 @@
     </ClInclude>
     <ClInclude Include="..\protocol\Protocol.h">
       <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protocol\channelprotocol.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\utility\cachelist.h">
+      <Filter>utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

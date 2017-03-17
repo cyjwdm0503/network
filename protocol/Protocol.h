@@ -42,6 +42,7 @@ public:
 	//事件对象
 	virtual void RegisterErrHandler(CHandler* pHandler);
 
+	//此函数调用肯定是来自于有个固定使用场景，不然不能出现exit;
 	virtual int send(CPackage* package);
 
 	virtual int GetReserverLen() const;
@@ -51,6 +52,7 @@ public:
 	virtual int HandlePackage(CPackage* pPackage,CProtocol* protocol);
 
 protected:
+	//一个协议上层不应该存在多个activeID一样的上层协议
 	void AddUpper(CProtocol* pUpper);
 	
 	CProtocol* GetUpper(unsigned int activeid);
@@ -69,14 +71,18 @@ protected:
 	virtual int Push(CPackage* package,CProtocol* protocol);
 
 protected:
-	CHandler* m_pErrHandler;
+	//handler 一般是protocol对应的handler的session
+	CHandler* m_errHandler;
+	CProtocolCallback* m_uppderHandler;
+
 	CPackage* m_upperPackage;
 	CPackage* m_sendPackage;
-	CProtocol* p_lower;
-	map<unsigned int,CProtocol*> m_UpperMap;
-	int m_reservelen;
-	unsigned int m_activeid;
-	CProtocolCallback* m_pUppderHandler;
+	CProtocol* m_lower;
+	//uppermap里面是对应的协议栈
+	map<unsigned int,CProtocol*> m_upperMap;
+	int m_reserveLen;
+	unsigned int m_activeID;
+	
 
 };
 

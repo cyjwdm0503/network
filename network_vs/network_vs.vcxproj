@@ -99,7 +99,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);SERVER</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../flow;../protocol;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../flow;../protocol;../utility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -159,6 +159,7 @@
     <ClCompile Include="..\package\channelpackage.cpp" />
     <ClCompile Include="..\package\contentpackage.cpp" />
     <ClCompile Include="..\package\Package.cpp" />
+    <ClCompile Include="..\protocol\channelprotocol.cpp" />
     <ClCompile Include="..\protocol\Protocol.cpp" />
     <ClCompile Include="..\ServerApi.cpp" />
     <ClCompile Include="..\ServerEndPoint.cpp" />
@@ -173,6 +174,7 @@
     <ClCompile Include="..\thread\Semaphore.cpp" />
     <ClCompile Include="..\thread\Thread.cpp" />
     <ClCompile Include="..\thread\TimerHeap.cpp" />
+    <ClCompile Include="..\utility\cachelist.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h" />
@@ -190,6 +192,7 @@
     <ClInclude Include="..\package\channelpackage.h" />
     <ClInclude Include="..\package\contentpackage.h" />
     <ClInclude Include="..\package\Package.h" />
+    <ClInclude Include="..\protocol\channelprotocol.h" />
     <ClInclude Include="..\protocol\Protocol.h" />
     <ClInclude Include="..\ServerApi.h" />
     <ClInclude Include="..\server\Server.h" />
@@ -205,6 +208,7 @@
     <ClInclude Include="..\thread\Thread.h" />
     <ClInclude Include="..\thread\TimerHeap.h" />
     <ClInclude Include="..\thread\TimerQueue.h" />
+    <ClInclude Include="..\utility\cachelist.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
