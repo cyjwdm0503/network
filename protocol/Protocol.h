@@ -14,6 +14,9 @@ public:
 	virtual int HandlePackage(CPackage* pPackage,CProtocol* protocol)= 0;
 };
 
+/************************************************************************/
+/* 继承与CHandler是为了给CChannelProtocol进行输入输出操作                */
+/************************************************************************/
 class CProtocol:public CHandler,public CProtocolCallback
 {
 public:
@@ -49,6 +52,10 @@ public:
 
 	virtual unsigned int GetActiveID();
 
+	/************************************************************************/
+	/* CChannelprotocol是没有对应handlePackage的，是为上层协议处理而设定的        
+	因此CChaneelProtocol在HandleInput时已经Pop，发往上层协议.上层协议利用HandlePackage再进行上层的Pop*/
+	/************************************************************************/
 	virtual int HandlePackage(CPackage* pPackage,CProtocol* protocol);
 
 protected:

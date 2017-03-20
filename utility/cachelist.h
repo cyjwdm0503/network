@@ -9,6 +9,8 @@
 #include <list>
 #include <string>
 
+const int MAXNODELENGTH = 4096;
+
 class CacheNode
 {
 public:
@@ -20,7 +22,18 @@ public:
 		m_length = 0;
 		m_deleteAll =  false;
 	}
-
+	~CacheNode()
+	{
+		if(m_buf != NULL)
+		{
+			delete m_buf;
+			m_buf = NULL;
+		}
+		m_cur =  NULL;
+	}
+	/************************************************************************/
+	/* push  对应的内容。返回起始地址                                            */
+	/************************************************************************/
 	char* push(void* data,int len)
 	{
 		char* tmp = m_buf+m_length;
@@ -29,6 +42,9 @@ public:
 		return tmp;
 	}
 
+	/************************************************************************/
+	/* 返回对应长度的内容，返回实际的长度与指针位置                              */
+	/************************************************************************/
 	void* getdata(int& length)
 	{
 		if(length > size())
@@ -37,6 +53,9 @@ public:
 		return ptr;
 	}
 
+	/************************************************************************/
+	/* 弹出对应长度的内容，在getdata后调用                                      */
+	/************************************************************************/
 	int pop(int length)
 	{
 		int ret = 0;
@@ -49,8 +68,15 @@ public:
 			ret = length;			
 		}
 		m_cur += ret;
+		//在pop后尝试调用clear
+		clear();
 		return ret;
 
+	}
+	//剩下可以放数据的长度
+	int avablesize()
+	{
+		return m_maxSize-size();
 	}
 	//剩下未pop的数据长度
 	int size()
@@ -58,11 +84,9 @@ public:
 		return m_length-(m_cur-m_buf);
 	}
 
-	//剩下可以放数据的长度
-	int avablesize()
-	{
-		return m_maxSize-size();
-	}
+private:
+
+
 	//
 	void clear()
 	{
@@ -70,9 +94,14 @@ public:
 		{	
 			delete m_buf;
 			m_buf = NULL;
+			m_cur = NULL;
 			m_deleteAll = true;
 		}
 	}
+public:
+	/************************************************************************/
+	/* 在尝试push前调用。                                                                     */
+	/************************************************************************/
 	bool isdeleted()
 	{
 		return m_deleteAll;
@@ -88,17 +117,16 @@ private:
 class CCacheList
 {
 public:
-	CCacheList(int nodesize);
+	CCacheList();
 	~CCacheList();
 	
 	void* get_data(int& length);
 	void* push_back(void* data, int length);
 	int pop_front(int maxlength);
-	bool is_empty();
-	void clear();
+	int is_empty();
 private:
-	typedef std::string CacheNode;
-	std::list<CacheNode> m_nodeList;
+	 
+	std::list<CacheNode*> m_nodeList;
 	int m_nodeSize;
 
 };

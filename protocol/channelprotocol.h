@@ -2,6 +2,8 @@
 #define CHANNELPROTOCOL_H
 #include "channelpackage.h"
 #include "Protocol.h"
+#include "cachelist.h"
+
 class CChannelProtocol:public CProtocol
 {
 public:
@@ -22,8 +24,8 @@ public:
 private:
 	int m_maxPackageSize;
 	CChannel* m_channel;
-	CChannelPackage m_channelpackage;
-list<char
+	CChannelPackage m_channelPackage;
+	CCacheList m_cacheList;
 };
 
 #endif
