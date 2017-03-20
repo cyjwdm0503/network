@@ -3,6 +3,9 @@
 #include <cstring>
 #include <cstdlib>
 #include <cstdio>
+
+
+
 #ifdef WIN32
 
 #else
@@ -11,6 +14,13 @@
 using namespace std;
 
 #ifdef CLIENT
+
+struct Content
+{
+	int m_value;
+	int m_ratio;
+	int m_buf;
+};
 
 
 int main(int argi ,char*args[])

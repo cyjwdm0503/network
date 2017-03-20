@@ -9,7 +9,7 @@
 #include <list>
 #include <string>
 
-const int MAXNODELENGTH = 4096;
+const int MAXNODELENGTH = 25;
 
 class CacheNode
 {
