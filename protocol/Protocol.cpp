@@ -80,8 +80,39 @@ unsigned int CProtocol::GetActiveID()
 }
 
 int CProtocol::HandlePackage( CPackage* pPackage,CProtocol* protocol )
-{
-	return 0;
+{//在Pop会调用上层的协议或者eventhandler，需要在此层protocol进行解包
+	int ret = 0;
+	while (pPackage->Length() > 0)
+	{//上层的package加载此包
+		m_upperPackage->AddBuf(pPackage);
+		int len =  m_upperPackage->ValidPackage();
+
+		if(len >=0)
+		{
+			ret = Pop(m_upperPackage);
+			if(ret <0)
+			{
+				break;
+			}
+			//因为已经成功生成上层的package。因此这里要把当前层的package多余的数据给Pop掉
+			pPackage->Pop(len);
+		}
+		else if(len == -1)
+		{
+			//数据包未收全
+			break;
+		}
+		else
+		{
+			//错误数据包这里实际将session的职能放到了protocol里面
+			OnRecvErrPackage(pPackage);
+			ret=len;
+			break;
+		}
+
+		m_upperPackage->BufRelease();
+	}
+	return ret;
 }
 
 void CProtocol::AddUpper( CProtocol* pUpper )
@@ -141,7 +172,8 @@ int CProtocol::OnRecvErrPackage( CPackage* package )
 
 void CProtocol::NotifyErr( int msg,unsigned int dwParam, void* pParam )
 {
-	return;
+	if(m_errHandler != NULL)
+		m_errHandler->SendEvent(msg,dwParam,pParam);
 }
 
 int CProtocol::Push( CPackage* package,CProtocol* protocol )

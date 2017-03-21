@@ -113,6 +113,9 @@
     <ClCompile Include="..\utility\cachelist.cpp">
       <Filter>utility</Filter>
     </ClCompile>
+    <ClCompile Include="..\protocol\contentprotocol.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h">
@@ -204,6 +207,9 @@
     </ClInclude>
     <ClInclude Include="..\utility\cachelist.h">
       <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protocol\contentprotocol.h">
+      <Filter>protocol</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

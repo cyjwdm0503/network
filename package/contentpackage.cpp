@@ -48,7 +48,7 @@ int CContentPackage::MakePackage()
 	char *buf;
 	m_contenthead.Length = Length();
 	//先把扩展报文头写进去
-	if(m_contentexthead.Tag != CONTENTTagNone)
+	if(m_contentexthead.Tag != CONTENTEXTTAGNANO)
 	{
 		m_contenthead.ExtensionLen = CONTENTEXTHEADLENGTH + m_contentexthead.TagLen;
 		buf = Push(m_contenthead.ExtensionLen);

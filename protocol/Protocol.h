@@ -1,6 +1,19 @@
 #ifndef PROTOCOL_H
 #define PROTOCOL_H
+/************************************************************************/
+/* 
+发送数据经历protocol的过程为
+contentprotocol.Push()->channelprotocol.Push();
 
+或者
+contentprotocol.Send()->channelprotocol.Push();
+
+对应的vilidpackage包的流程为
+channelpackage.ValidPackage()->contentpackage.ValidPackage()
+对应makepackage的流程为：
+contentpackage.MakePackage()->channelpackage.MakePackage()
+*/
+/************************************************************************/
 #include "SelectReactor.h"
 #include "Package.h"
 #include <map>
@@ -46,6 +59,9 @@ public:
 	virtual void RegisterErrHandler(CHandler* pHandler);
 
 	//此函数调用肯定是来自于有个固定使用场景，不然不能出现exit;
+	//不是为channelprotocol，或者contentprotocol准备的,是上层向contentprotocol进行发送时使用。
+	//因为send，不是包引用。而是直接发送包，不包含封装新头部的过程。所以为顶层的protocol(自身发送数据包调用)。Push为响应上层使用。
+	//或者contentprotocol直接发送本层的数据包才使用(自身发送数据包调用)。
 	virtual int send(CPackage* package);
 
 	virtual int GetReserverLen() const;

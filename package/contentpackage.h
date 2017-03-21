@@ -11,7 +11,15 @@
 
 #define  MAX_CONTENT_LEN 127
 #define  MAX_CONTENT_PACKAGE_LEN 4096
-#define CONTENTTagNone				0x00
+
+#define CONTENTEXTTAGNANO				0x00 
+//表明没有扩展报文
+#define CONTENTTYPENANO				0x00 
+//表明没有上层报文
+
+#define CONTENT_HEART_TAG		0x01
+#define CONTENT_ANSWER_TAG		0x02
+
 
 //用于对应CContentPackage的数据包长度。以及对应的上层协议
 struct CContentHeadType
