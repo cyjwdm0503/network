@@ -12,6 +12,10 @@ contentprotocol.Send()->channelprotocol.Push();
 channelpackage.ValidPackage()->contentpackage.ValidPackage()
 对应makepackage的流程为：
 contentpackage.MakePackage()->channelpackage.MakePackage()
+
+protocol只是提供一组对应的发送package与接收package的过程。但是这个过程的维护。
+由session进行负责。每个session控制何时调用protocol进行报文的发送。
+session之间有继承关系。
 */
 /************************************************************************/
 #include "SelectReactor.h"

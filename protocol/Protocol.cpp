@@ -33,6 +33,8 @@ CProtocol::~CProtocol()
 
 void CProtocol::AttachLower( CProtocol* pLower)
 {
+	//底层保留字节+当前层保留字节
+	m_reserveLen += pLower->GetReserverLen();
 	if(pLower != NULL)
 	{
 		pLower->AddUpper(this);

@@ -12,11 +12,14 @@
 #define  MAX_CONTENT_LEN 127
 #define  MAX_CONTENT_PACKAGE_LEN 4096
 
-#define CONTENTEXTTAGNANO				0x00 
 //表明没有扩展报文
-#define CONTENTTYPENANO				0x00 
-//表明没有上层报文
+#define CONTENTEXTTAGNANO				0x00 
 
+//表明没有上层报文
+#define CONTENTTYPENANO				0x00 
+
+
+//用于测试的报文
 #define CONTENT_HEART_TAG		0x01
 #define CONTENT_ANSWER_TAG		0x02
 
