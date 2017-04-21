@@ -3,6 +3,8 @@
 
 int CUdpChannel::Write( size_t max ,const char* buf )
 {
+	if(!m_bConnected)
+		return -1;
 	sockaddr_in addr;
 	addr.sin_addr.s_addr = GetService()->GetNHost();
 	addr.sin_port = GetService()->GetNPort();
@@ -19,6 +21,8 @@ int CUdpChannel::Write( size_t max ,const char* buf )
 
 int CUdpChannel::Read( size_t max ,char* buf )
 {
+	if(!m_bConnected)
+		return -1;
 	sockaddr_in addr;
 	memset(&addr,0,sizeof(addr));
 	//addr.sin_addr.s_addr = GetService()->GetNHost();

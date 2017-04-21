@@ -21,7 +21,7 @@ public:
 
 	virtual void HandleInput();
 
-	virtual void HandleOupt();
+	virtual void HandleOutput();
 
 	virtual void OnTimer( int event );
 

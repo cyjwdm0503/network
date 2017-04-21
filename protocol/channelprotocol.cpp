@@ -72,7 +72,7 @@ void CChannelProtocol::HandleInput()
 	
 }
 
-void CChannelProtocol::HandleOupt()
+void CChannelProtocol::HandleOutput()
 {//取出缓存的数据进行发送
 
 	if(!m_channel->Available())

@@ -12,6 +12,8 @@ CChannel::~CChannel()
 
 int CChannel::Read(size_t max,char* buf)
 {
+	if(!m_bConnected)
+		return -1;
 	#ifdef WIN32
 	return  recv(m_fd,buf,max,0);
 	#else
@@ -23,6 +25,8 @@ int CChannel::Read(size_t max,char* buf)
 
 int CChannel::Write(size_t max,const char* buf)
 {
+	if(!m_bConnected)
+		return -1;
 	#ifdef WIN32
 	return  send(m_fd,buf,max,0);
 	#else
