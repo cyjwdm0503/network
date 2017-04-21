@@ -68,3 +68,8 @@ void CContentProtocol::set_timeout( CPackage* package )
 	memcpy(&m_timeOut,contentpkg->GetExtData(),sizeof(m_timeOut));
 }
 
+void CContentProtocol::set_timecheck( bool flag )
+{
+	m_checktime =  flag;
+}
+

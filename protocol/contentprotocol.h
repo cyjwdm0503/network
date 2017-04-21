@@ -38,9 +38,11 @@ public:
 	//利用收到的CContentPackage设置对应的心跳超时时间
 	void set_timeout(CPackage* package);
 
+	//不进行心跳的测试
+	void set_timecheck(bool flag);
 private:
 	int m_timeOut;
-
+	bool m_checktime;
 };
 
 
