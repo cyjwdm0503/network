@@ -31,6 +31,7 @@ public:
 	virtual void SyncRun();
 	void  AddHandler( CHandler* handler );
 	void  RemoveHandler( CHandler* handler );
+	int Time();
 protected:
 	typedef std::list<CHandler*> ChandlerList;
 	ChandlerList m_IOlist;

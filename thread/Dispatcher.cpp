@@ -152,6 +152,11 @@ void CDispatcher::RemoveHandler( CHandler* handler )
 	}
 }
 
+int CDispatcher::Time()
+{
+	return m_Time;
+}
+
 
 
 #ifdef EVENTDEBUG

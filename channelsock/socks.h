@@ -33,6 +33,6 @@ typedef int socklen_t;
 #include "arpa/inet.h"
 #endif
 
-#define UDP
+#define TCP
 
 #endif

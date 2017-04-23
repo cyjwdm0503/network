@@ -1,5 +1,4 @@
 #include "channelprotocol.h"
-
 int CChannelProtocol::Push( CPackage* package,CProtocol* protocol )
 {
 	if(m_channel->GetService()->GetNChannel() == SOCK_STREAM)

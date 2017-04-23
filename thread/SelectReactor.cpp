@@ -23,7 +23,7 @@ void CSelectReactor::SyncRun()
 	//SleepMs(100);
 	timeval t;
 	t.tv_sec = 0;
-	t.tv_usec = 1000;
+	t.tv_usec = 10;
 	select(maxfd+1,&readset,&writeset,NULL,&t);
 
 	//

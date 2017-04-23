@@ -17,7 +17,7 @@ public:
 	virtual void SetTimer(int event,int elapse);
 	virtual void KillTimer(int event);
 	virtual int SendEvent(int event, DWORD dwParam, void* pParam);
-private:
+protected:
 	CDispatcher* m_dispatcher;
 };
 

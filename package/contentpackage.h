@@ -20,8 +20,10 @@
 
 
 //用于测试的报文
-#define CONTENT_HEART_TAG		0x01
-#define CONTENT_ANSWER_TAG		0x02
+#define CONTENT_HEART_TIMEOUT		0x01
+#define CONTENT_HEART_TAG		0x02
+#define CONTENT_ANSWER_TAG		0x03
+
 
 
 //用于对应CContentPackage的数据包长度。以及对应的上层协议

@@ -8,11 +8,19 @@ CContentProtocol.Push()会写入到CChannelProtocol
 
 见contentprotocol的send与push的描述
 
-*/
 /************************************************************************/
-
+/*
+此协议需要保证会话和数据包的一致性
+在pop时就已经能够获取到正确的包。
+同时需要指定protocol的会话状态。
+主要是通过报文时间进行确定。
+服务器和客服端采用点到点通信。
+在一个协议连接起来后。如果设置进行心跳验证
+服务器和客服端会进行心跳包的通信。
+*/
 #ifndef CONTENTPROTOCOL_H 
 #define CONTENTPROTOCOL_H
+
 
 #include "Protocol.h"
 
@@ -40,9 +48,13 @@ public:
 
 	//不进行心跳的测试
 	void set_timecheck(bool flag);
+
+	bool SendHeartTag();
 private:
 	int m_timeOut;
-	bool m_checktime;
+	bool m_needchecktime;
+	int m_LastReadTime;
+	int m_LastWriteTime;
 };
 
 

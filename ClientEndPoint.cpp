@@ -33,12 +33,12 @@ int main(int argi ,char*args[])
 		argi = 3;
 		args[0] = "client.exe" ;
 #ifdef TCP
-		args[1] = "tcp://127.0.0.1:4321" ;
-		args[2] = "tcp://127.0.0.1:1234" ;
+		args[1] = "tcp://192.168.1.105:4321" ;
+		args[2] = "tcp://192.168.1.105:1234" ;
 #endif
 #ifdef UDP
-		args[1] = "udp://127.0.0.1:1235" ;
-		args[2] = "udp://127.0.0.1:1234" ;
+		args[1] = "udp://192.168.1.105:1235" ;
+		args[2] = "udp://192.168.1.105:1234" ;
 #endif
 	}
 #ifdef WIN32
