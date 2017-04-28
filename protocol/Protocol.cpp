@@ -1,6 +1,6 @@
 #include "Protocol.h"
 
-CProtocol::CProtocol( CSelectReactor* reactor,CPackage* pUpperPackage,CPackage* pSendPackage,int ReserverLen ):CHandler(reactor)
+CProtocol::CProtocol( CDispatcher* reactor,CPackage* pUpperPackage,CPackage* pSendPackage,int ReserverLen ):CHandler(reactor)
 {
 	m_activeID=0;
 	m_errHandler = NULL;

@@ -28,7 +28,7 @@ CContentProtocol.Push()ª·–¥»ÎµΩCChannelProtocol
 class CContentProtocol:public CProtocol
 {
 public:
-	CContentProtocol(CSelectReactor* reactor);
+	CContentProtocol(CDispatcher* reactor);
 	virtual ~CContentProtocol();
 
 	virtual int Pop( CPackage* package );

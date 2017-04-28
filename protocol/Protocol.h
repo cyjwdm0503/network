@@ -44,7 +44,7 @@ public:
 	保留的长度
 	*/
 	/************************************************************************/
-	CProtocol(CSelectReactor* reactor,CPackage* pUpperPackage,CPackage* pSendPackage,int ReserverLen);
+	CProtocol(CDispatcher* reactor,CPackage* pUpperPackage,CPackage* pSendPackage,int ReserverLen);
 
 	virtual ~CProtocol();
 

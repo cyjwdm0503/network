@@ -88,7 +88,7 @@ void CChannelProtocol::HandleOutput()
 			successlen = m_channel->Write(outlen,(char*)ptr);
 			if(successlen <0)
 			{
-				NotifyErr(EVENT_CHANNEL_READ_ERRO,0,this);
+				NotifyErr(EVENT_CHANNEL_WRITE_ERRO,0,this);
 				return;
 			}
 			m_cacheList.pop_front(successlen);
@@ -108,7 +108,7 @@ void CChannelProtocol::OnTimer( int event )
 		HandleOupt();
 }
 
-CChannelProtocol::CChannelProtocol( CSelectReactor* reactor,CChannel* channel,int maxPackageSize ):CProtocol(reactor,NULL,NULL,0),m_channel(channel),m_channelPackage(maxPackageSize)
+CChannelProtocol::CChannelProtocol( CDispatcher* reactor,CChannel* channel,int maxPackageSize ):CProtocol(reactor,NULL,NULL,0),m_channel(channel),m_channelPackage(maxPackageSize)
 {
 	if (m_channel->GetService()->GetNChannel() == SOCK_STREAM)
 	{
