@@ -3,7 +3,10 @@
 因为session也是被事件调度的类，因此要继承与CHandler
 因为以后对外提供的都是session的输入输出接口，因此要将channel进行封装
 
-为方便提供自定义的回调处理。提供一个回调参数
+为方便提供自定义的回调处理。提供一个回调参数类
+
+session 的input，output沦落为channelprotocol的特例方法
+
 */
 /************************************************************************/
 #ifndef CHAANELSESSION_H
@@ -25,7 +28,7 @@ class CSession:public CHandler
 {
 public:
 	CSession(CDispatcher *selecter,CChannel *pChannel,int MaxPackageSize);
-	~CSession();
+	virtual ~CSession();
 
 	virtual void GetIds( int* readid,int* writeid );
 

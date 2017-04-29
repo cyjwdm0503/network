@@ -25,6 +25,13 @@ session之间有继承关系。
 using namespace std;
 
 class CProtocol;
+
+//是用来input->Pop是用来处理，调用上层解包package或者将package放进handlepackage里面处理，或者调用上层协议的默认方式handlepackage，继续解包
+//将解包后的数据继续在pop里面处理、
+//
+//后需要上层协议handlepackage->pop->继续handlepackage 继续pop。
+//调用protocol来handlepackage,或者用最顶层session进行handlermessage。
+
 class CProtocolCallback
 {
 public:

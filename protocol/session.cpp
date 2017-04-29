@@ -1,4 +1,4 @@
-#include "channelsession.h"
+#include "session.h"
 #include <ctime>
 
 unsigned int SESSION_ID = 0;
@@ -37,16 +37,18 @@ int CSession::HandleEvent( int event,DWORD dwParam,void* pParam )
 	default:
 		break;
 	}
+	return 0;
 }
 
 void CSession::HandleInput()
 {
-	throw std::exception("The method or operation is not implemented.");
+	m_ChannelProtocol->HandleInput();
 }
 
 void CSession::HandleOupt()
 {
-	throw std::exception("The method or operation is not implemented.");
+	
+	m_ChannelProtocol->HandleOutput();
 }
 
 void CSession::Disconected( int event )

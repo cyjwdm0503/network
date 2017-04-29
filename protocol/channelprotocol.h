@@ -30,7 +30,7 @@ private:
 	int m_maxPackageSize;
 	CChannel* m_channel;
 	CChannelPackage m_channelPackage;
-	CCacheList m_cacheList;
+	CCacheList* m_cacheList;
 };
 
 #endif
