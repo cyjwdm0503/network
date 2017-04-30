@@ -116,6 +116,12 @@
     <ClCompile Include="..\protocol\contentprotocol.cpp">
       <Filter>protocol</Filter>
     </ClCompile>
+    <ClCompile Include="..\protocol\session.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\protocol\contentsession.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h">
@@ -209,6 +215,12 @@
       <Filter>utility</Filter>
     </ClInclude>
     <ClInclude Include="..\protocol\contentprotocol.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protocol\session.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protocol\contentsession.h">
       <Filter>protocol</Filter>
     </ClInclude>
   </ItemGroup>

@@ -13,7 +13,7 @@ CServerApi::CServerApi(CServer* server,CChannel* channel,CDispatcher* reactor):C
 	//m_serverchannel = m_server->AcceptClient();
 	m_server = server;
 	m_serverchannel = channel;
-	m_leavewritelen = 0;
+	m_leavewritelen = 1;
 
 }
 
@@ -103,7 +103,7 @@ void CServerApi::HandleOupt()
 	if(m_serverchannel != NULL)
 	{
 		int len = m_serverchannel->Write(channelpackage.Length(),channelpackage.Address());
-		m_leavewritelen = 0;
+		//m_leavewritelen = 0;
 		cout<<"package:len"<<channelpackage.Length()<<"CServerApi::HandleOupt:"<<len<<"fp"<<m_serverchannel->Getfd()<<" char content:"<<"\t"<<contentpackage.GetContentHeader()->Type<<endl;
 	}
 }

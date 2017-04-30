@@ -12,7 +12,7 @@
 class CChannelProtocol:public CProtocol
 {
 public:
-	CChannelProtocol(CSelectReactor* reactor,CChannel* channel,int maxPackageSize);
+	CChannelProtocol(CDispatcher* reactor,CChannel* channel,int maxPackageSize);
 	virtual ~CChannelProtocol();
 
 	virtual int Push( CPackage* package,CProtocol* protocol );
@@ -30,7 +30,7 @@ private:
 	int m_maxPackageSize;
 	CChannel* m_channel;
 	CChannelPackage m_channelPackage;
-	CCacheList m_cacheList;
+	CCacheList* m_cacheList;
 };
 
 #endif

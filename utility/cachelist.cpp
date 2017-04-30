@@ -43,7 +43,7 @@ void* CCacheList::push_back( void* data, int length )
 
 	if(m_nodeList.empty() || m_nodeList.back()->avablesize() < length)
 	{//插入一个新的node
-		CacheNode *node = new CacheNode(MAXNODELENGTH);
+		CacheNode *node = new CacheNode(length);
 		ptr = node->push((char*)data,length);
 		m_nodeList.push_back(node);
 	}

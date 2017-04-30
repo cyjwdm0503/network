@@ -3,6 +3,8 @@
 #include "SelectReactor.h"
 #include "Client.h"
 
+#include "contentsession.h";
+
 class CClient;
 class CChannel;
 
@@ -39,5 +41,15 @@ private:
 	int m_leavewritelen;
 	int m_leavereadlen;
 	char* m_buf;
+};
+
+class CSessionTest:public CSelectReactor
+{
+public:
+	CSessionTest(const char* client,const char* server);
+	virtual bool InitInstance();
+	CContentSession* m_Session;
+	CClient* m_client;
+	CChannel* m_clientchannel;
 };
 #endif

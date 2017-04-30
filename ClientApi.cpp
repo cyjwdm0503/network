@@ -75,7 +75,7 @@ void CClientApi::HandleInput()
         }
 
 
-		m_leavewritelen = len;
+		//m_leavewritelen = len;
 		//从channelpackage中取出来对应的contentpackage
 		CContentPackage contentpackage;
 		contentpackage.AddBuf(&channelpackage);
@@ -125,3 +125,17 @@ CClientApi::~CClientApi()
 
 }
 
+
+bool CSessionTest::InitInstance()
+{
+	m_Session = new CContentSession(this,m_clientchannel);
+	AddHandler(m_Session);
+	return CDispatcher::InitInstance();
+}
+
+CSessionTest::CSessionTest( const char* clientip,const char* serverip )
+{
+	m_client = new CClient();
+	m_client->CreateClient(clientip);
+	m_clientchannel = m_client->ConnectServer(serverip);
+}

@@ -42,7 +42,7 @@ void CLog::Printerrno(int re)
 
 }
 
-void CLog::PrintLog( char* info )
+void CLog::PrintLog(const char* info )
 {
 	time_t now;
 	time(&now);

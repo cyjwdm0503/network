@@ -28,7 +28,7 @@ public:
   CLog();
   virtual ~CLog();
   void Printerrno(int error);
-  void PrintLog(char* info);
+  void PrintLog(const char* info);
 };
 
 #endif
