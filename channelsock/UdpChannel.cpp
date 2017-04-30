@@ -46,5 +46,12 @@ int CUdpChannel::Read( size_t max ,char* buf )
 
 CUdpChannel::CUdpChannel( int fd ):CChannel(fd)
 {
+	int rcvbufsize = 1*1024*1024;
+	socklen_t paramlen = sizeof(rcvbufsize);
+	int ret = setsockopt(fd, SOL_SOCKET, SO_RCVBUF, (const char *)&rcvbufsize, paramlen);
+	if(ret != 0)
+	{
+		CLog::GetInstance()->PrintLog("Can not setsockopt revbuf\n");
+	}
 	;//CChannel(fd);
 }
