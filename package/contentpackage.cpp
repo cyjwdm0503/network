@@ -1,7 +1,19 @@
 #include "contentpackage.h"
+#include "socks.h"
 
+void CContentHeadType::NetToHost()
+{
+	NetToHostLong(Type);
+	NetToHostLong(ExtensionLen);
+	NetToHostLong(Length);
+}
 
-
+void CContentHeadType::HostToNet()
+{
+	HostToNetLong(Type);
+	HostToNetLong(ExtensionLen);
+	HostToNetLong(Length);
+}
 
 void CContentPackage::Clear()
 {
@@ -119,3 +131,5 @@ void CContentPackage::SetExtHeader( unsigned int Tag, unsigned int TagLen, char 
 	m_contentexthead.TagLen = TagLen;
 	memcpy(m_contentexthead.Data,pData,TagLen);
 }
+
+

@@ -36,6 +36,8 @@ struct CContentHeadType
 	inline void Init();
 	inline void ToStream(char *pStream);
 	inline void FromStream(char *pStream);
+	void NetToHost();
+	void HostToNet();
 };
 
 
@@ -43,8 +45,12 @@ struct CContentHeadType
 */
 struct CContentExtHeadType
 {
-	unsigned int Tag;		/**< 状态标示　*/
-	unsigned int TagLen;	/**< 扩展包的长度 */
+	/************************************************************************/
+	// 这里设置127 是刚刚好char可以表示完。
+	//能够直接从网络字节序中读出来。不用再进行大小跟端的转换                                                                     */
+	/************************************************************************/
+	unsigned char Tag;		/**< 状态标示　*/
+	unsigned char TagLen;	/**< 扩展包的长度 */
 	char Data[MAX_CONTENT_LEN];	/**< 扩展包包体 */
 	inline void Init();
 };
@@ -115,11 +121,13 @@ void CContentHeadType::Init()
 void CContentHeadType::ToStream( char *pStream )
 {
 	memcpy(pStream,this,sizeof(CContentHeadType));
+	((CContentHeadType*)pStream)->HostToNet();
 }
 
 void CContentHeadType::FromStream( char *pStream )
 {
 	memcpy(this,pStream,sizeof(CContentHeadType));
+	NetToHost();
 }
 
 

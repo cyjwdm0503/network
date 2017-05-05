@@ -35,4 +35,9 @@ typedef int socklen_t;
 
 #define UDP
 
+#define NetToHostShort(value) 	value = ntohs((u_short)value)
+#define NetToHostLong(value) 	value = ntohl((u_long)value)
+#define HostToNetShort(value) 	value = htons((u_short)value)
+#define HostToNetLong(value) 	value = htonl((u_long)value)
+
 #endif
