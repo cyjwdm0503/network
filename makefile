@@ -1,6 +1,6 @@
 CC = g++
-CFLAGS = -Wall -lpthread -g -lrt -ldl -I./channelsock -I./client \
-					 -I./lowsession -I./package -I./server -I./thread -I./
+CFLAGS = -Wall -lpthread -g -lrt -ldl -I./channelsock -I./client -I./protocol -I./utility \
+			 -I./lowsession -I./package -I./server -I./thread -I./
 CXXFLAGS = $(CFLAGS)
 
 ####channelsock
@@ -95,6 +95,14 @@ sessionbaseo = ./lowsession/SessionBase.o
 channelpackageo = ./package/channelpackage.o
 contentpackageo = ./package/contentpackage.o
 packageo= ./package/Package.o
+##protocol
+channelprotocolo = ./protocol/channelprotocol.o
+contentprotocolo = ./protocol/contentprotocol.o
+contentsessiono  = ./protocol/contentsession.o
+protocolo	 = ./protocol/Protocol.o
+sessiono	 = ./protocol/session.o
+##utility
+cachelisto = ./utility/cachelist.o
 
 #server 
 serverbaseo=./server/ServerBase.o
@@ -124,7 +132,9 @@ target:ClientEndPoint ServerEndPoint \
 
 Obj = $(channelo) $(inetsocko) $(servicenameo) $(tcpsocko) $(udpsocko) $(udpchannelo) \
 			$(clientbaseo) $(cliento) \
-			$(sessionbaseo) \
+			$(sessionbaseo) $(sessiono) $(contentsessiono)\
+			 $(protocolo) $(cachelisto)\
+			$(channelprotocolo) $(contentprotocolo) \
 			$(channelpackageo) $(contentpackageo) $(packageo) \
 			$(serverbaseo) $(servero) \
 			$(handlero) $(eventqueueo) $(timerheapo)  $(threado) $(dispathero) $(mutexo) $(mutexgurardo) $(selectreactoro) $(semaphoreo) \

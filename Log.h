@@ -11,7 +11,7 @@
 
 #define DEBUGOUT(errno)  \
     std::cout<<__FILE__<<"\t"<<__LINE__<<"\t";\
-	if(errno != -1)\
+	if(errno == -1)\
 	{\
 		CLog::GetInstance()->Printerrno(errno);\
 	}
