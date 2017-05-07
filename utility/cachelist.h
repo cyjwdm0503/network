@@ -8,7 +8,7 @@
 
 #include <list>
 #include <string>
-
+#include <cstring>
 const int MAXNODELENGTH = 25;
 
 class CacheNode

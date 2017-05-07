@@ -25,8 +25,8 @@ CUdpSock::~CUdpSock()
 int CUdpSock::CreateSocket()
 {
 	int re = CInetSock::CreateSocket();
-	int on =true;
-	setsockopt(m_fd, SOL_SOCKET, SO_BROADCAST, (char *)&on, sizeof(on));
+	int on = 1;
+	setsockopt(m_fd,SOL_SOCKET,SO_BROADCAST,(char*)&on,sizeof(on));
 #ifdef WIN32
 	/*
 	用于解决发送UDP报文到不可达的UDP服务器时会返回-1的错误错误代码10054
@@ -58,6 +58,9 @@ int CUdpSock::Connect( CServiceName* server )
 	DEBUGOUT(re);
 	CLog::GetInstance()->Printerrno(re);
 	return re;
+	*/
+	/*
+	UDP广播时，不再绑定客户端的IP，，否则客户端,和服务器只能接收目的地址=已经绑定的IP的数据包。
 	*/
 	Bind();
 	if(m_channel == NULL)
@@ -121,7 +124,7 @@ CChannel* CUdpSock::GetChannel( int fd )
 int CUdpSock::Bind()
 {
 	sockaddr_in addr;
-	addr.sin_addr.s_addr =  m_service->GetNHost();
+	addr.sin_addr.s_addr =htonl(INADDR_ANY);//  m_service->GetNHost();
 	addr.sin_family = AF_INET;
 	addr.sin_port =  m_service->GetNPort();
 	socklen_t len =  sizeof(addr);
