@@ -61,7 +61,7 @@ int main(int argi ,char*args[])
     //signal(SIGINT,SIG_IGN);
 #endif
 	
-	CClientApi client(args[1],args[2]);
+	CSessionTest client(args[1],args[2]);
 	client.Create();
 	client.Join();
 	/*

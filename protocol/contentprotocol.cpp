@@ -102,7 +102,7 @@ void CContentProtocol::set_timeout( CPackage* package )
 
 void CContentProtocol::set_timecheck( bool flag )
 {
-	if(m_needchecktime)
+	if(flag)
 	{
 		SetTimer(CONTENTPROTOCOL_CHECKTIME_ID,2000);
 	}
