@@ -40,4 +40,12 @@ typedef int socklen_t;
 #define HostToNetShort(value) 	value = htons((u_short)value)
 #define HostToNetLong(value) 	value = htonl((u_long)value)
 
+
+#ifdef WIN32
+#define GET_LAST_ERROR() WSAGetLastError() 
+#define EWOULDBLOCK WSAEWOULDBLOCK
+#else
+#define GET_LAST_ERROR() errno
+#endif // WIN32
+
 #endif
