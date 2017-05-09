@@ -41,8 +41,54 @@ typedef int socklen_t;
 #define NetToHostLong(value) 	value = ntohl((u_long)value)
 #define HostToNetShort(value) 	value = htons((u_short)value)
 #define HostToNetLong(value) 	value = htonl((u_long)value)
+#define HostToNetDouble(value) 	\
+	{\
+	char value##_8[8]; \
+	memcpy( value##_8,(char*)&value,8);\
+	ChangeEndianCopy8((char*)&value,value##_8);\
+	}
 
 
+#define NetToHostDouble(value) 	\
+	{\
+	char value##_8[8]; \
+	memcpy(value##_8,(char*)&value,8);\
+	ChangeEndianCopy8((char*)&value,value##_8);\
+	}
+
+
+
+static void ChangeEndianCopy2(char *pTarget, char *pSource)
+{
+#ifndef BIG_ENDIAN
+	pTarget[1] = pSource[0];
+	pTarget[0] = pSource[1];
+#endif
+}
+
+static void ChangeEndianCopy4(char *pTarget, char *pSource)
+{
+#ifndef BIG_ENDIAN
+	pTarget[3] = pSource[0];
+	pTarget[2] = pSource[1];
+	pTarget[1] = pSource[2];
+	pTarget[0] = pSource[3];
+#endif // !BIG_ENDIAN
+}
+
+static void ChangeEndianCopy8(char *pTarget, char *pSource)
+{
+#ifndef BIG_ENDIAN
+	pTarget[7] = pSource[0];
+	pTarget[6] = pSource[1];
+	pTarget[5] = pSource[2];
+	pTarget[4] = pSource[3];
+	pTarget[3] = pSource[4];
+	pTarget[2] = pSource[5];
+	pTarget[1] = pSource[6];
+	pTarget[0] = pSource[7];
+#endif // !BIG_ENDIAN
+}
 #ifdef WIN32
 #define GET_LAST_ERROR() WSAGetLastError() 
 #define EWOULDBLOCK WSAEWOULDBLOCK

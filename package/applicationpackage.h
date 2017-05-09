@@ -18,7 +18,8 @@ struct CFieldHeader
 
 class CFieldIterator
 {
-
+public:
+	CFieldIterator(char* head,char* end,CF);
 };
 
 class CFieldSet:public CPackage
