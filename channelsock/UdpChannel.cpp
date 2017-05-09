@@ -1,6 +1,6 @@
 #include "Log.h"
 #include "UdpChannel.h"
-#include <unistd.h>
+
 
 int CUdpChannel::Write( size_t max ,const char* buf )
 {
