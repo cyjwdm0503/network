@@ -28,6 +28,7 @@ int CContentSession::HandlePackage( CPackage* pPackage,CProtocol* protocol )
 		int i=0;
 		if(content != NULL)
 		{
+			m_dispatcher->SleepMs(100);
 //#ifdef CLIENT
 			cout<<content->Length()<<"\t"<<content->GetContentHeader()->Type<<endl;
 //#endif

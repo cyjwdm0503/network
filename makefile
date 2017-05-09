@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -Wall -lpthread -g -lrt -ldl -I./channelsock -I./client -I./protocol -I./utility \
+CFLAGS = -DLINUX -DUNIX -Wall -lpthread -g -lrt -ldl -I./channelsock -I./client -I./protocol -I./utility \
 			 -I./lowsession -I./package -I./server -I./thread -I./
 CXXFLAGS = $(CFLAGS)
 

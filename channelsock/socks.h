@@ -31,6 +31,8 @@ typedef int socklen_t;
 #include "sys/socket.h"
 #include "netinet/in.h"
 #include "arpa/inet.h"
+#include <cerrno>
+#include <sys/ioctl.h>
 #endif
 
 #define UDP

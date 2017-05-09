@@ -1,6 +1,6 @@
 #include "Log.h"
 #include "UdpChannel.h"
-
+#include <unistd.h>
 
 int CUdpChannel::Write( size_t max ,const char* buf )
 {
@@ -77,7 +77,7 @@ CUdpChannel::CUdpChannel( int fd ):CChannel(fd)
 	ret = ioctlsocket(fd, FIONBIO, &on_windows) ; 
 #else
 	int on=1;
-	ret = ioctlsocket(fd, FIONBIO, (char *)&on);
+	ret = ioctl(fd, FIONBIO, (char *)&on);
 #endif
 	if(ret != 0)
 	{
