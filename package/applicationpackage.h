@@ -1,5 +1,6 @@
 #ifndef APPLICATIONPACKAGE_H 
 #define APPLICATIONPACKAGE_H
+#include "Package.h"
 /************************************************************************/
 /* 应用层协议，contentpackage主要是用来确保每个包是一个完整的数据包，但是没法对应于业务。
 此package对应于业务，每个package内都是存取的分业务的数据包。
@@ -9,12 +10,20 @@ package里面放置field,每次放置field时，在field前放置一个fieldheader，然后复制fiel
 存入数据的过程，每次会想package申请一块空间，然后进行存入。
 */
 /************************************************************************/
-class CFieldHeader
+struct CFieldHeader
 {
-public:
 	unsigned short FieldID;
 	unsigned short FiledLength;
-	CFieldHeader();
-	
 };
+
+class CFieldIterator
+{
+
+};
+
+class CFieldSet:public CPackage
+{
+
+};
+
 #endif
