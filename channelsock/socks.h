@@ -37,6 +37,8 @@ typedef int socklen_t;
 
 #define UDP
 
+//注意以下对应BIG_ENDIAN的宏定义。
+//在VMware虚拟机上BIG_ENDIAN被宏定义。但是测试发现确是LITTLE_ENDIAN。难道是虚拟机的原因
 #define NetToHostShort(value) 	value = ntohs((u_short)value)
 #define NetToHostLong(value) 	value = ntohl((u_long)value)
 #define HostToNetShort(value) 	value = htons((u_short)value)
@@ -89,6 +91,9 @@ static void ChangeEndianCopy8(char *pTarget, char *pSource)
 	pTarget[0] = pSource[7];
 #endif // !BIG_ENDIAN
 }
+
+
+//用于判定socket读取错误
 #ifdef WIN32
 #define GET_LAST_ERROR() WSAGetLastError() 
 #define EWOULDBLOCK WSAEWOULDBLOCK
