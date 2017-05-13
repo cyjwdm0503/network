@@ -38,7 +38,9 @@ typedef int socklen_t;
 #define UDP
 
 //注意以下对应BIG_ENDIAN的宏定义。
-//在VMware虚拟机上BIG_ENDIAN被宏定义。但是测试发现确是LITTLE_ENDIAN。难道是虚拟机的原因
+//在VMware虚拟机上BIG_ENDIAN被宏定义。网络字节序是BIG_ENDIAN
+//测试发现系统是确是LITTLE_ENDIAN。难道是虚拟机的原因
+//为了保证统一性,因此附加定义_BIG_ENDIAN_
 #define NetToHostShort(value) 	value = ntohs((u_short)value)
 #define NetToHostLong(value) 	value = ntohl((u_long)value)
 #define HostToNetShort(value) 	value = htons((u_short)value)
@@ -62,7 +64,7 @@ typedef int socklen_t;
 
 static void ChangeEndianCopy2(char *pTarget, char *pSource)
 {
-#ifndef BIG_ENDIAN
+#ifndef _BIG_ENDIAN_
 	pTarget[1] = pSource[0];
 	pTarget[0] = pSource[1];
 #endif
@@ -70,7 +72,7 @@ static void ChangeEndianCopy2(char *pTarget, char *pSource)
 
 static void ChangeEndianCopy4(char *pTarget, char *pSource)
 {
-#ifndef BIG_ENDIAN
+#ifndef _BIG_ENDIAN_
 	pTarget[3] = pSource[0];
 	pTarget[2] = pSource[1];
 	pTarget[1] = pSource[2];
@@ -80,7 +82,7 @@ static void ChangeEndianCopy4(char *pTarget, char *pSource)
 
 static void ChangeEndianCopy8(char *pTarget, char *pSource)
 {
-#ifndef BIG_ENDIAN
+#ifndef _BIG_ENDIAN_
 	pTarget[7] = pSource[0];
 	pTarget[6] = pSource[1];
 	pTarget[5] = pSource[2];

@@ -2,6 +2,7 @@
 /* 
 用于描述field的类。从字节流里面取数据，需要知道每个field的描述状况，才能从中取出数据*/
 //主要目的是为了避免对齐导致的错误。因此需要统计每个member的实际长度。以及类和package流中各自的偏移位置
+//field的存取规则。。用于描述field. field在创建时就要生成对应的的fielddescribe。。对应package通过描述存取对应的内容到一个field指针中
 /************************************************************************/
 #ifndef FIELDDESCRIBE_H
 #define FIELDDESCRIBE_H
@@ -47,58 +48,91 @@ struct SMembererDesc
 
 class CFieldDescribe
 {
-	CFieldDescribe(unsigned short FieldID,int StructSize,const char* Comment,int TotalMember,const char* FieldName);
+	typedef void (*fun_callback)();
 public:
+	CFieldDescribe(unsigned short FieldID,int StructSize,const char* Comment,int TotalMember,const char* FieldName,fun_callback fun);
+
 	unsigned short m_FieldID;
-	int m_StructSize;
+	int m_ClassSize;
 	int m_PackageSize;
 	char m_Comment[127];
 	int m_TotalMember;
 	char m_FieldName[127];
 	SMembererDesc m_MemberDesc[100];
 
-	inline void SetupMember(MemberType type,int ClassOffset,int PackageOffset,int Size,const char* name);
-	void SetupMember(CBaseStringType&,int ClassOffset,int PackageOffset,int Size,const char* name )
+	inline void SetupMember(MemberType type,int ClassOffset,int Size,const char* name);
+	
+	//设置对应数据成员的占位信息等
+	void SetupMember(CBaseStringType&,int ClassOffset,int Size,const char* name )
 	{
-		SetupMember(MT_ONE,  ClassOffset,  PackageOffset,  Size,    name);
+		SetupMember(MT_ONE,  ClassOffset,  Size,    name);
 	}
-	void SetupMember(CBaseIntTpye&,int ClassOffset,int PackageOffset,int Size,const char* name )
+	void SetupMember(CBaseIntTpye&,int ClassOffset,int Size,const char* name )
 	{
-		SetupMember(MT_FOUR,  ClassOffset,  PackageOffset,  Size,    name);
+		SetupMember(MT_FOUR,  ClassOffset,  Size,    name);
 	}
-	void SetupMember(CBaseDoubleType&,int ClassOffset,int PackageOffset,int Size,const char* name )
+	void SetupMember(CBaseDoubleType&,int ClassOffset,int Size,const char* name )
 	{
-		SetupMember(MT_EIGHT,  ClassOffset,  PackageOffset,  Size,    name);
+		SetupMember(MT_EIGHT,  ClassOffset,  Size,    name);
 	}
-	void SetupMember(CBaseCharType&,int ClassOffset,int PackageOffset,int Size,const char* name )
+	void SetupMember(CBaseCharType&,int ClassOffset,int Size,const char* name )
 	{
-		SetupMember(MT_ONE,  ClassOffset,  PackageOffset,  Size,    name);
+		SetupMember(MT_ONE,  ClassOffset,  Size,    name);
 	}
-	void SetupMember(CBaseShortType&,int ClassOffset,int PackageOffset,int Size,const char* name )
+	void SetupMember(CBaseShortType&,int ClassOffset,int Size,const char* name )
 	{
-		SetupMember(MT_TWO,  ClassOffset,  PackageOffset,  Size,    name);
+		SetupMember(MT_TWO,  ClassOffset,  Size,    name);
 	}
 };
 
-CFieldDescribe::CFieldDescribe( unsigned short FieldID,int StructSize,const char* Comment,int TotalMember,const char* FieldName )
+CFieldDescribe::CFieldDescribe( unsigned short FieldID,int StructSize,const char* Comment,int TotalMember,const char* FieldName,fun_callback fun)
 {
-	m_FieldID = 0;
-	m_StructSize = 0;
+	m_FieldID = FieldID;
+	m_ClassSize = StructSize;
 	m_PackageSize = 0;
 	m_TotalMember = 0;
+	fun();//执行一次内部数据位置的基础数据
 }
 
-void CFieldDescribe::SetupMember( MemberType type,int ClassOffset,int PackageOffset,int Size,const char* name )
+void CFieldDescribe::SetupMember( MemberType type,int ClassOffset,int Size,const char* name )
 {
 	SMembererDesc* desc = (m_MemberDesc+m_TotalMember);
 	strcpy(desc->name,name);
 	desc->classOffset = ClassOffset;
-	desc->packageOffset = PackageOffset;
+	desc->packageOffset = m_PackageSize;//前一个字节结束是的package，字节流位置
 	desc->size = Size;
 	desc->type = type;
 	m_PackageSize +=Size;
 	m_TotalMember++;
 
 }
+
+class TESTField
+{
+public:
+	CBaseIntTpye m_int;
+	CBaseShortType m_short;
+	CBaseStringType m_string;
+	CBaseCharType m_char;
+	CBaseDoubleType m_double;
+	void DescriberMember()
+	{
+		m_Describe.SetupMember(m_int,(char*)&m_int-(char*)this,sizeof(m_int),"m_int");
+		m_Describe.SetupMember(m_short,(char*)&m_short-(char*)this,sizeof(m_short),"m_short");
+		m_Describe.SetupMember(m_string,(char*)&m_string-(char*)this,sizeof(m_short),"m_string");
+	}
+	static CFieldDescribe m_Describe;
+	
+};
+
+//CFieldDescribe TESTField::m_Describe(12,sizeof(TESTField),"类名的解释",0,"类名",Make_TESTField);
+
+
+#define  TYPE_DESC(member)  m_Describe.SetupMember(member,(char*)&member-(char*)this,sizeof(member), #member)
+#define	 FIELD_DESC(member)	void DescriberMember(){ member; }	static CFieldDescribe m_Describe
+#define  MAKGE_FIELD_DESC(FIELD,FIELDID,NAME) static void Make_##FIELD() {FIELD field; field.DescriberMember();} CFieldDescribe TESTField::m_Describe(FIELDID,sizeof(TESTField), NAME ,0, #FIELD ,Make_##FIELD);
+
+//调用方式为FILED_DESC(TYPE(m_int); TYPE(m_short);......);//成员类型需要继承与基础类型
+MAKGE_FIELD_DESC(TESTField,1,"TESTFieldCOMMENT")
 
 #endif

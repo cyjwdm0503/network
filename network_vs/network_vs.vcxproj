@@ -269,6 +269,7 @@
     <ClInclude Include="..\package\applicationpackage.h" />
     <ClInclude Include="..\package\channelpackage.h" />
     <ClInclude Include="..\package\contentpackage.h" />
+    <ClInclude Include="..\package\fielddefine.h" />
     <ClInclude Include="..\package\fileddescribe.h" />
     <ClInclude Include="..\package\Package.h" />
     <ClInclude Include="..\protocol\channelprotocol.h" />
