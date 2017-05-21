@@ -7,28 +7,8 @@
 #ifndef FIELDDESCRIBE_H
 #define FIELDDESCRIBE_H
 #include <cstring>
+#include "typedef.h"
 
-class CBaseStringType
-{
-};
-
-class CBaseIntTpye 
-{
-};
-
-class CBaseDoubleType
-{
-
-};
-class CBaseCharType
-{
-
-};
-
-class CBaseShortType
-{
-
-};
 
 enum MemberType
 {
@@ -107,6 +87,8 @@ void CFieldDescribe::SetupMember( MemberType type,int ClassOffset,int Size,const
 
 }
 
+#ifdef  TEST_FIELD
+
 class TESTField
 {
 public:
@@ -124,15 +106,18 @@ public:
 	static CFieldDescribe m_Describe;
 	
 };
-
+static void Make_TESTField(){TESTField field;field.DescriberMember();};
+CFieldDescribe TESTField::m_Describe(1,sizeof(TESTField),"测试类",0,"TestField",Make_TESTField);
 //CFieldDescribe TESTField::m_Describe(12,sizeof(TESTField),"类名的解释",0,"类名",Make_TESTField);
-
+#endif
 
 #define  TYPE_DESC(member)  m_Describe.SetupMember(member,(char*)&member-(char*)this,sizeof(member), #member)
 #define	 FIELD_DESC(member)	void DescriberMember(){ member; }	static CFieldDescribe m_Describe
-#define  MAKGE_FIELD_DESC(FIELD,FIELDID,NAME) static void Make_##FIELD() {FIELD field; field.DescriberMember();} CFieldDescribe TESTField::m_Describe(FIELDID,sizeof(TESTField), NAME ,0, #FIELD ,Make_##FIELD);
+#define  MAKGE_FIELD_DESC(FIELD,FIELDID,NAME) static void Make_##FIELD() {FIELD field; field.DescriberMember();} CFieldDescribe FIELD::m_Describe(FIELDID,sizeof(FIELD), NAME ,0, #FIELD ,Make_##FIELD);
 
 //调用方式为FILED_DESC(TYPE(m_int); TYPE(m_short);......);//成员类型需要继承与基础类型
-MAKGE_FIELD_DESC(TESTField,1,"TESTFieldCOMMENT")
+
+
+
 
 #endif

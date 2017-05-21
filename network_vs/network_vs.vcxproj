@@ -272,6 +272,7 @@
     <ClInclude Include="..\package\fielddefine.h" />
     <ClInclude Include="..\package\fileddescribe.h" />
     <ClInclude Include="..\package\Package.h" />
+    <ClInclude Include="..\package\packagedefine.h" />
     <ClInclude Include="..\protocol\channelprotocol.h" />
     <ClInclude Include="..\protocol\contentsession.h" />
     <ClInclude Include="..\protocol\session.h" />
@@ -292,6 +293,7 @@
     <ClInclude Include="..\thread\TimerHeap.h" />
     <ClInclude Include="..\thread\TimerQueue.h" />
     <ClInclude Include="..\utility\cachelist.h" />
+    <ClInclude Include="..\utility\typedef.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

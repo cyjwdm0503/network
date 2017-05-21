@@ -232,5 +232,11 @@
     <ClInclude Include="..\package\fielddefine.h">
       <Filter>package</Filter>
     </ClInclude>
+    <ClInclude Include="..\utility\typedef.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\package\packagedefine.h">
+      <Filter>package</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

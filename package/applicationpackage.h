@@ -11,6 +11,8 @@ package里面放置field,每次放置field时，在field前放置一个fieldheader，然后复制fiel
 applicationpackage 存入field.field的规则描述为fielddescribe。
 */
 /************************************************************************/
+
+#include "fileddescribe.h"
 struct CFieldHeader
 {
 	unsigned short FieldID;
@@ -20,7 +22,7 @@ struct CFieldHeader
 class CFieldIterator
 {
 public:
-	CFieldIterator(char* head,char* end,CF);
+	CFieldIterator(char* head,char* end,CFieldDescribe fielddesc);
 };
 
 class CFieldSet:public CPackage
