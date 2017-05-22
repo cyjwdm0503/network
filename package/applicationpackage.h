@@ -12,7 +12,7 @@ applicationpackage 存入field.field的规则描述为fielddescribe。
 */
 /************************************************************************/
 
-#include "fileddescribe.h"
+#include "fielddescribe.h"
 struct CFieldHeader
 {
 	unsigned short FieldID;

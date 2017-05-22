@@ -41,23 +41,43 @@ typedef int socklen_t;
 //在VMware虚拟机上BIG_ENDIAN被宏定义。网络字节序是BIG_ENDIAN
 //测试发现系统是确是LITTLE_ENDIAN。难道是虚拟机的原因
 //为了保证统一性,因此附加定义_BIG_ENDIAN_
-#define NetToHostShort(value) 	value = ntohs((u_short)value)
-#define NetToHostLong(value) 	value = ntohl((u_long)value)
-#define HostToNetShort(value) 	value = htons((u_short)value)
-#define HostToNetLong(value) 	value = htonl((u_long)value)
+#define NetToHostShort(value) 	\
+	{\
+	u_short s_value = ntohs((u_short)value);\
+	memcpy(&value,&s_value,sizeof(u_short));\
+	}
+
+#define NetToHostLong(value) \
+	{\
+		u_long l_value  = ntohl((u_long)value);\
+		memcpy(&value,&l_value,sizeof(u_long));\
+	}
+
+#define HostToNetShort(value) 	\
+	{\
+		u_short s_value  = htons((u_short)value);\
+		memcpy(&value,&s_value,sizeof(u_short));\
+	}
+
+#define HostToNetLong(value)\
+	{\
+		u_long l_value  = htonl((u_long)value);\
+		memcpy(&value,&l_value,sizeof(u_long));\
+	}
+
 #define HostToNetDouble(value) 	\
 	{\
-	char value##_8[8]; \
-	memcpy( value##_8,(char*)&value,8);\
-	ChangeEndianCopy8((char*)&value,value##_8);\
+	char d_value_8[8]; \
+	memcpy( d_value_8,(char*)&value,8);\
+	ChangeEndianCopy8((char*)&value,d_value_8);\
 	}
 
 
 #define NetToHostDouble(value) 	\
 	{\
-	char value##_8[8]; \
-	memcpy(value##_8,(char*)&value,8);\
-	ChangeEndianCopy8((char*)&value,value##_8);\
+	char d_value_8[8]; \
+	memcpy(d_value_8,(char*)&value,8);\
+	ChangeEndianCopy8((char*)&value,d_value_8);\
 	}
 
 

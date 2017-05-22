@@ -21,7 +21,7 @@ struct SMembererDesc
 {
 	MemberType type;//成员变量的类型---用来做字节序转换
 	int classOffset;//在类中的偏移量
-	int packageOffset;//在package中的偏移量
+	int streamOffset;//在package中的偏移量
 	int size;//数据长度
 	char name[30];//数据名称长度
 };
@@ -30,15 +30,9 @@ class CFieldDescribe
 {
 	typedef void (*fun_callback)();
 public:
-	CFieldDescribe(unsigned short FieldID,int StructSize,const char* Comment,int TotalMember,const char* FieldName,fun_callback fun);
+	CFieldDescribe(unsigned short FieldID,int ClassSize,const char* Comment,int TotalMember,const char* FieldName,fun_callback fun);
 
-	unsigned short m_FieldID;
-	int m_ClassSize;
-	int m_PackageSize;
-	char m_Comment[127];
-	int m_TotalMember;
-	char m_FieldName[127];
-	SMembererDesc m_MemberDesc[100];
+
 
 	inline void SetupMember(MemberType type,int ClassOffset,int Size,const char* name);
 	
@@ -63,29 +57,21 @@ public:
 	{
 		SetupMember(MT_TWO,  ClassOffset,  Size,    name);
 	}
+	
+	void StreamToClass(char* pField,char* pStream);
+	void ClassToStream(char* pClass,char* pStream);
+
+
+	unsigned short m_FieldID;
+	int m_ClassSize;
+	int m_StreamSize;
+	char m_Comment[127];
+	int m_TotalMember;
+	char m_FieldName[127];
+	SMembererDesc m_MemberDesc[100];
 };
 
-CFieldDescribe::CFieldDescribe( unsigned short FieldID,int StructSize,const char* Comment,int TotalMember,const char* FieldName,fun_callback fun)
-{
-	m_FieldID = FieldID;
-	m_ClassSize = StructSize;
-	m_PackageSize = 0;
-	m_TotalMember = 0;
-	fun();//执行一次内部数据位置的基础数据
-}
 
-void CFieldDescribe::SetupMember( MemberType type,int ClassOffset,int Size,const char* name )
-{
-	SMembererDesc* desc = (m_MemberDesc+m_TotalMember);
-	strcpy(desc->name,name);
-	desc->classOffset = ClassOffset;
-	desc->packageOffset = m_PackageSize;//前一个字节结束是的package，字节流位置
-	desc->size = Size;
-	desc->type = type;
-	m_PackageSize +=Size;
-	m_TotalMember++;
-
-}
 
 #ifdef  TEST_FIELD
 

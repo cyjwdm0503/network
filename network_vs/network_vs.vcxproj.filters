@@ -122,6 +122,9 @@
     <ClCompile Include="..\protocol\contentsession.cpp">
       <Filter>protocol</Filter>
     </ClCompile>
+    <ClCompile Include="..\utility\fielddescribe.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h">
@@ -226,17 +229,17 @@
     <ClInclude Include="..\package\applicationpackage.h">
       <Filter>package</Filter>
     </ClInclude>
-    <ClInclude Include="..\package\fileddescribe.h">
-      <Filter>package</Filter>
-    </ClInclude>
-    <ClInclude Include="..\package\fielddefine.h">
-      <Filter>package</Filter>
-    </ClInclude>
     <ClInclude Include="..\utility\typedef.h">
       <Filter>utility</Filter>
     </ClInclude>
-    <ClInclude Include="..\package\packagedefine.h">
-      <Filter>package</Filter>
+    <ClInclude Include="..\utility\fielddefine.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\utility\packagedefine.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\utility\fielddescribe.h">
+      <Filter>utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
