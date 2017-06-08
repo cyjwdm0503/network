@@ -58,7 +58,7 @@ public:
 		SetupMember(MT_TWO,  ClassOffset,  Size,    name);
 	}
 	
-	void StreamToClass(char* pField,char* pStream);
+	void StreamToClass(char* pField,char* pStream,int streamSize);
 	void ClassToStream(char* pClass,char* pStream);
 
 
@@ -99,6 +99,9 @@ CFieldDescribe TESTField::m_Describe(1,sizeof(TESTField),"测试类",0,"TestField",
 
 #define  TYPE_DESC(member)  m_Describe.SetupMember(member,(char*)&member-(char*)this,sizeof(member), #member)
 #define	 FIELD_DESC(member)	void DescriberMember(){ member; }	static CFieldDescribe m_Describe
+
+
+// 全局静态变量。用于生成对应的描述的信息
 #define  MAKGE_FIELD_DESC(FIELD,FIELDID,NAME) static void Make_##FIELD() {FIELD field; field.DescriberMember();} CFieldDescribe FIELD::m_Describe(FIELDID,sizeof(FIELD), NAME ,0, #FIELD ,Make_##FIELD);
 
 //调用方式为FILED_DESC(TYPE(m_int); TYPE(m_short);......);//成员类型需要继承与基础类型

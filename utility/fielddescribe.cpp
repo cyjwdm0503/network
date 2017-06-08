@@ -23,12 +23,16 @@ void CFieldDescribe::SetupMember( MemberType type,int ClassOffset,int Size,const
 
 }
 
-void CFieldDescribe::StreamToClass( char* pField,char* pStream )
+void CFieldDescribe::StreamToClass( char* pField,char* pStream,int streamSize )
 {
 	for(int i=0;i < m_TotalMember;i++)
 	{
 		SMembererDesc* member = m_MemberDesc+i;
 		memset(pField+member->classOffset,0,member->size);
+		
+		if(member->streamOffset+member->size > streamSize)
+			continue;
+
 		memcpy(pField+member->classOffset,pStream+member->streamOffset,member->size);
 		switch (member->type)
 		{
