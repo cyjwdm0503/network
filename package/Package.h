@@ -19,7 +19,7 @@ private:
 	bool m_bReleaseData;
 };
 
-
+//m_head往前移动，end往后 是个 很精妙的设计
 ///此类的所有分配操作都从位节点往前移动。确定分配的head地址。而不是修改end地址
 class CPackage
 {

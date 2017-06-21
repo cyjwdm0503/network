@@ -1,3 +1,5 @@
+//用代码生成工具生成对应的代码
+
 #include "fielddescribe.h"
 
 class SendField
