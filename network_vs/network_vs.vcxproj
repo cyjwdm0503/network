@@ -118,7 +118,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;%(AdditionalIncludeDirectories);../userdefine</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -133,7 +133,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);SERVER</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../protocol;../utility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../protocol;../utility;%(AdditionalIncludeDirectories);../userdefine</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -150,7 +150,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);CLIENT</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../protocol;../utility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../protocol;../utility;%(AdditionalIncludeDirectories);../userdefine</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -168,7 +168,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../lowsession;../package/;../server;../channelsock;../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../lowsession;../package/;../server;../channelsock;../;%(AdditionalIncludeDirectories);../userdefine</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -186,7 +186,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);SERVER</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../protocol;../utility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../protocol;../utility;%(AdditionalIncludeDirectories);../userdefine</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -206,7 +206,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);CLIENT</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../protocol;../utility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../protocol;../utility;%(AdditionalIncludeDirectories);../userdefine</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -230,6 +230,7 @@
     <ClCompile Include="..\client\Client.cpp" />
     <ClCompile Include="..\Log.cpp" />
     <ClCompile Include="..\lowsession\SessionBase.cpp" />
+    <ClCompile Include="..\package\applicationpackage.cpp" />
     <ClCompile Include="..\package\channelpackage.cpp" />
     <ClCompile Include="..\package\contentpackage.cpp" />
     <ClCompile Include="..\package\Package.cpp" />
@@ -253,6 +254,7 @@
     <ClCompile Include="..\thread\TimerHeap.cpp" />
     <ClCompile Include="..\utility\cachelist.cpp" />
     <ClCompile Include="..\utility\fielddescribe.cpp" />
+    <ClCompile Include="..\utility\fieldset.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h" />
@@ -293,6 +295,7 @@
     <ClInclude Include="..\utility\cachelist.h" />
     <ClInclude Include="..\utility\fielddefine.h" />
     <ClInclude Include="..\utility\fielddescribe.h" />
+    <ClInclude Include="..\utility\fieldset.h" />
     <ClInclude Include="..\utility\packagedefine.h" />
     <ClInclude Include="..\utility\typedef.h" />
   </ItemGroup>
