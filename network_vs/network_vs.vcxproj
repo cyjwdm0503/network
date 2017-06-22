@@ -45,7 +45,7 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Client|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -292,11 +292,11 @@
     <ClInclude Include="..\thread\Thread.h" />
     <ClInclude Include="..\thread\TimerHeap.h" />
     <ClInclude Include="..\thread\TimerQueue.h" />
+    <ClInclude Include="..\userdefine\fielddefine.h" />
+    <ClInclude Include="..\userdefine\packagedefine.h" />
     <ClInclude Include="..\utility\cachelist.h" />
-    <ClInclude Include="..\utility\fielddefine.h" />
     <ClInclude Include="..\utility\fielddescribe.h" />
     <ClInclude Include="..\utility\fieldset.h" />
-    <ClInclude Include="..\utility\packagedefine.h" />
     <ClInclude Include="..\utility\typedef.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

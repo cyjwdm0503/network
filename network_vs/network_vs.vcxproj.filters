@@ -247,10 +247,10 @@
     <ClInclude Include="..\utility\fieldset.h">
       <Filter>utility</Filter>
     </ClInclude>
-    <ClInclude Include="..\utility\packagedefine.h">
+    <ClInclude Include="..\userdefine\packagedefine.h">
       <Filter>userdefine</Filter>
     </ClInclude>
-    <ClInclude Include="..\utility\fielddefine.h">
+    <ClInclude Include="..\userdefine\fielddefine.h">
       <Filter>userdefine</Filter>
     </ClInclude>
   </ItemGroup>

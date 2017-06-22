@@ -45,8 +45,12 @@ bool CFieldIterator::Next()
 
 int CFieldIterator::RetrieveField(CFieldDescribe* describer,void* field )
 {
-	describer->StreamToClass((char*)field,m_data,m_header.FieldLength);
-	return min(describer->m_StreamSize,m_header.FieldLength);
+	if(m_data != NULL)
+	{
+		describer->StreamToClass((char*)field,m_data,m_header.FieldLength);
+		return min(describer->m_StreamSize,m_header.FieldLength);
+	}
+	return 0;
 }
 
 
@@ -70,14 +74,19 @@ CFieldSet::~CFieldSet()
 
 int CFieldSet::GetSingleField( CFieldDescribe *pFieldDescribe, void *pField )
 {
-
+	CFieldIterator it= GetFieldIterator(pFieldDescribe);
+	return it.RetrieveField(pFieldDescribe,pField);
 }
 
 int CFieldSet::AddField( CFieldDescribe *pFieldDescribe, void *pField )
 {
 	char* data =  AllocField(pFieldDescribe->m_FieldID,pFieldDescribe->m_StreamSize);
-	pFieldDescribe->ClassToStream((char*)pField,data);
-	return pFieldDescribe->m_StreamSize;
+	if( data != NULL)
+	{
+		pFieldDescribe->ClassToStream((char*)pField,data);
+		return pFieldDescribe->m_StreamSize;
+	}
+	return 0;
 }
 
 CFieldIterator CFieldSet::GetFieldIterator( CFieldDescribe *pFieldDescribe )

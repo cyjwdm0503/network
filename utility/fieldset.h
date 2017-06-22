@@ -23,6 +23,7 @@ struct CFieldHeader
 class CFieldIterator
 {
 public:
+	//在DESC为空时，能够按照内部结构自动遍历所有的Field 
 	CFieldIterator(char* head,char* end,CFieldDescribe* fielddesc);
 	virtual bool IsEnd();
 	virtual bool Next();
