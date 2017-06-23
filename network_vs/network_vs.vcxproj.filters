@@ -51,7 +51,6 @@
     <ClCompile Include="..\server\ServerBase.cpp">
       <Filter>server</Filter>
     </ClCompile>
-    <ClCompile Include="..\Log.cpp" />
     <ClCompile Include="..\client\ClientBase.cpp">
       <Filter>client</Filter>
     </ClCompile>
@@ -134,6 +133,9 @@
     <ClCompile Include="..\utility\fieldset.cpp">
       <Filter>utility</Filter>
     </ClCompile>
+    <ClCompile Include="..\Log.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h">
@@ -157,7 +159,6 @@
     <ClInclude Include="..\server\ServerBase.h">
       <Filter>server</Filter>
     </ClInclude>
-    <ClInclude Include="..\Log.h" />
     <ClInclude Include="..\client\ClientBase.h">
       <Filter>client</Filter>
     </ClInclude>
@@ -252,6 +253,9 @@
     </ClInclude>
     <ClInclude Include="..\userdefine\fielddefine.h">
       <Filter>userdefine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Log.h">
+      <Filter>utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

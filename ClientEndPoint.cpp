@@ -1,4 +1,6 @@
 #include "ClientApi.h"
+#include "Log.h"
+
 #include <iostream>
 #include <cstring>
 #include <cstdlib>

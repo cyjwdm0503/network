@@ -2,7 +2,7 @@
 #include <cerrno>
 #include <cstring>
 #ifdef WIN32
-#include "afxsock.h"
+//#include "afxsock.h"
 #endif
 using namespace std;
 
@@ -14,39 +14,47 @@ CLog* CLog::g_Log = NULL;
 
 CLog* CLog::GetInstance()
 {
-  if(g_Log == NULL)
-  {
-    return g_Log = new CLog();
-  }
-  else
-    return g_Log;
+	if(g_Log == NULL)
+	{
+		return g_Log = new CLog();
+	}
+	else
+		return g_Log;
 }
 
 CLog::CLog()
 {
-  ;
+	;
 }
 CLog:: ~CLog()
 {
-  delete g_Log;
-  g_Log = NULL;
+	delete g_Log;
+	g_Log = NULL;
 }
 
 void CLog::Printerrno(int re)
 {
-    #ifdef WIN32
-	cout<<"GetLastError:"<<GetLastError()<<endl;
-    #else
-    cout<<"GetLastError:"<<re<<"\t"<<errno<<"\t"<<strerror(errno)<<endl;
-    #endif // WINDOWS
+	char buf[1024]; 
+#ifdef WIN32
+	PrintLog("GetLastError:%d\n",GetLastError());
+#else
+	PrintLog("GetLastError:%d\tdesc:",re,strerror(errno));
+	//cout<<"GetLastError:"<<re<<"\t"<<errno<<"\t"<<strerror(errno)<<endl;
+#endif // WINDOWS
 
 }
 
-void CLog::PrintLog(const char* info )
+void CLog::PrintLog(const char* info,...)
 {
+	m_mtx.Lock();
 	time_t now;
 	time(&now);
 	char timeBuffer[100];
-	strftime(timeBuffer, 100,"%b %d %H:%M:%S",localtime(&now));
-	printf("%s %s %s %d[%d]: %s %s\n", timeBuffer,info);
+	strftime(timeBuffer, 100,"%b %d %H:%M:%S\t",localtime(&now));
+	fprintf(stdout,timeBuffer);
+	va_list v;
+	va_start(v,info);
+	vfprintf(stdout, info,v);
+	va_end(v);
+	m_mtx.UnLock();
 }

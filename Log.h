@@ -8,12 +8,13 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
+#include <cstdarg>
+#include "Mutex.h"
 
 #define DEBUGOUT(errno)  \
-    std::cout<<__FILE__<<"\t"<<__LINE__<<"\t";\
-	if(errno == -1)\
 	{\
-		CLog::GetInstance()->Printerrno(errno);\
+	 CLog::GetInstance()->PrintLog("%s_%s_%d\n",__FILE__,__FUNCTION__,__LINE__);\
+	 CLog::GetInstance()->Printerrno(errno);\
 	}
 
 
@@ -21,14 +22,15 @@
 
 class CLog
 {
-public:
+protected:
   static CLog* g_Log;
-  static CLog* GetInstance();
-
   CLog();
   virtual ~CLog();
+  CMutex m_mtx;
+public:
+  static CLog* GetInstance();
   void Printerrno(int error);
-  void PrintLog(const char* info);
+  void PrintLog(const char* info,...);
 };
 
 #endif

@@ -69,10 +69,10 @@ void CClientApi::HandleInput()
 			return ;
 		}
 		else
-        {
-           	cout<<"CClientApi::HandleInput:"<<len<<"fp"<<m_clientchannel->Getfd()<<" char content:"<<"\t"<<endl;
-            return;
-        }
+		{
+			cout<<"CClientApi::HandleInput:"<<len<<"fp"<<m_clientchannel->Getfd()<<" char content:"<<"\t"<<endl;
+			return;
+		}
 
 
 		//m_leavewritelen = len;

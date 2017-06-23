@@ -56,9 +56,13 @@ int CFieldIterator::RetrieveField(CFieldDescribe* describer,void* field )
 
 int CFieldIterator::RetrieveHeader( CFieldHeader& field )
 {
-	field.FieldID = m_header.FieldID;
-	field.FieldLength = m_header.FieldLength;
-	return m_header.FieldLength;
+	if(m_data != NULL)
+	{
+		field.FieldID = m_header.FieldID;
+		field.FieldLength = m_header.FieldLength;
+		return m_header.FieldLength;
+	}
+	return 0;
 }
 
 
