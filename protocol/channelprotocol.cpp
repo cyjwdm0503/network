@@ -19,7 +19,7 @@ int CChannelProtocol::Push( CPackage* package,CProtocol* protocol )
 
 void CChannelProtocol::GetIds( int* readid,int* writeid )
 {
-	if(!m_channel->Available())
+	if(m_channel!=NULL && !m_channel->Available())
 	{
 		*readid = 0;
 		*writeid = 0;
@@ -37,13 +37,16 @@ void CChannelProtocol::GetIds( int* readid,int* writeid )
 	if(m_cacheList == NULL)
 		*writeid = m_channel->Getfd();
 	//用于TCP协议...因为UDP是无连接协议，任何时候都能写入。TCP需要在先判定在写入
-	if(!m_cacheList->is_empty())
-	{
-		*writeid = m_channel->Getfd();
-	}
 	else
 	{
-		*writeid = 0;
+		if( !m_cacheList->is_empty())
+		{
+			*writeid = m_channel->Getfd();
+		}
+		else
+		{
+			*writeid = 0;
+		}
 	}
 
 }

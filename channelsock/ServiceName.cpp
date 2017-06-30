@@ -40,7 +40,8 @@ CServiceName::CServiceName(const char* location):m_host(),m_port(),m_location(),
 		if(bchannel == true
 			&& (m_location[pos] == '/' || m_location[pos] == ':')
 			&& m_location[pos-1]!= '/'
-			&& bhost == false)
+			&& bhost == false
+			&& pos > 1)
 		{
 			endpos =  pos;
 			if(endpos > beginpos && beginpos > 0)
