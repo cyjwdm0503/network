@@ -63,7 +63,7 @@ int main(int argi ,char*args[])
     //signal(SIGINT,SIG_IGN);
 #endif
 	
-	CSessionTest client(args[1],args[2]);
+	CClientSession client(args[1],args[2]);
 	client.Create();
 	client.Join();
 	/*

@@ -126,14 +126,14 @@ CClientApi::~CClientApi()
 }
 
 
-bool CSessionTest::InitInstance()
+bool CClientSession::InitInstance()
 {
 	m_Session = new CContentSession(this,m_clientchannel);
 	AddHandler(m_Session);
 	return CDispatcher::InitInstance();
 }
 
-CSessionTest::CSessionTest( const char* clientip,const char* serverip )
+CClientSession::CClientSession( const char* clientip,const char* serverip )
 {
 	m_client = new CClient();
 	m_client->CreateClient(clientip);

@@ -55,12 +55,12 @@ int main(int argi ,char*args[])
 #endif
 
 	CSelectReactor reactor;
-	CSessionBase base(&reactor,args[1]);
+	CServerSession server(&reactor,args[1]);
 	cout<<"-------------"<<endl;
-	base.Create();
+	server.Create();
 	cout<<"-------------"<<endl;
 	reactor.Create();
-	base.Join();
+	server.Join();
 	cout<<"-------------"<<endl;
 	reactor.Join();
 	cout<<"-------------"<<endl;

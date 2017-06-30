@@ -7,6 +7,7 @@
 #include "SelectReactor.h"
 #include "Handler.h"
 #include "Server.h"
+#include "SessionBase.h"
  
 class CServer;
 class CChannel;
@@ -33,6 +34,15 @@ private:
 	char* m_buf;
 };
 
+class CServerSession :public CServerAcceptManager
+{
+public:
+	CServerSession(CSelectReactor* selecter,const char* location );
+	~CServerSession();
+	virtual void CreateSession(CChannel* channel);
+private:
+
+};
 
 
 #endif

@@ -115,14 +115,12 @@ void CChannelProtocol::OnTimer( int event )
 
 CChannelProtocol::CChannelProtocol( CDispatcher* reactor,CChannel* channel,int maxPackageSize ):CProtocol(reactor,NULL,NULL,0),m_channel(channel),m_channelPackage(maxPackageSize)
 {
-#ifdef DEBUG
-	m_cacheList =  NULL
-#endif
-
-#ifndef DEBUG
-	m_cacheList = new CCacheList();
-#endif
-
+ 
+	if(m_channel->GetService()->GetNChannel() == SOCK_STREAM)
+		m_cacheList =  new CCacheList();
+	else
+		m_cacheList =  NULL;
+	
 	if (m_cacheList != NULL && m_channel->GetService()->GetNChannel() == SOCK_STREAM)
 	{
 		SetTimer(EVENT_CHANNELTIME_ID, 1000);			//打开定时强制刷新定时器

@@ -29,9 +29,9 @@ int CContentSession::HandlePackage( CPackage* pPackage,CProtocol* protocol )
 		if(content != NULL)
 		{
 			 
-//#ifdef CLIENT
+#ifdef CLIENT
 			cout<<content->Length()<<"\t"<<content->GetContentHeader()->Type<<endl;
-//#endif
+#endif
 		}
 	}
 	catch(exception &e)

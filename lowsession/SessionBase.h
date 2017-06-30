@@ -1,7 +1,6 @@
-/**
+#ifndef SESSIONBASE_H
+#define SESSIONBASE_H
 
-
-**/
 
 #include "Channel.h"
 #include "SelectReactor.h"
@@ -9,12 +8,12 @@
 #include "Channel.h"
 #include "Server.h"
 
-class CSessionBase:public CSelectReactor, public CHandler
+class CServerAcceptManager:public CSelectReactor, public CHandler
 {
 	
 public:
-	CSessionBase(CSelectReactor* selecter,const char* location );
-	virtual ~CSessionBase();
+	CServerAcceptManager(CSelectReactor* selecter,const char* location );
+	virtual ~CServerAcceptManager();
 
 	virtual void GetIds( int* readid,int* writeid );
 
@@ -26,8 +25,13 @@ public:
 
 	virtual void SyncRun();
 
-private:
+	virtual void CreateSession(CChannel* channel)= 0;
+
+protected:
 	CServer* m_server;
 	CChannel* m_channel;
+	//用于调度session的reactor
 	CSelectReactor* m_serverreactor;
 };
+
+#endif

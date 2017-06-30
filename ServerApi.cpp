@@ -1,6 +1,7 @@
 #include "ServerApi.h"
 #include "channelpackage.h"
 #include "contentpackage.h"
+#include "contentsession.h"
 #include <iostream>
 
 static int SERVERVERSION = 100;
@@ -107,4 +108,22 @@ void CServerApi::HandleOupt()
 		//m_leavewritelen --;
 		cout<<"package:len"<<channelpackage.Length()<<"CServerApi::HandleOupt:"<<len<<"fp"<<m_serverchannel->Getfd()<<" char content:"<<"\t"<<contentpackage.GetContentHeader()->Type<<endl;
 	}
+}
+
+CServerSession::CServerSession( CSelectReactor* selecter,const char* location ):CServerAcceptManager(selecter,location)
+{
+	
+}
+
+CServerSession::~CServerSession()
+{
+
+}
+
+void CServerSession::CreateSession( CChannel* channel )
+{
+	 
+	CContentSession*  m_Session = new CContentSession(this,channel);
+	m_serverreactor->AddHandler(m_Session);
+	
 }

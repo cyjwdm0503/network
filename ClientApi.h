@@ -43,10 +43,10 @@ private:
 	char* m_buf;
 };
 
-class CSessionTest:public CSelectReactor
+class CClientSession:public CSelectReactor
 {
 public:
-	CSessionTest(const char* client,const char* server);
+	CClientSession(const char* client,const char* server);
 	virtual bool InitInstance();
 	CContentSession* m_Session;
 	CClient* m_client;

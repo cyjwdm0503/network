@@ -2,21 +2,22 @@
 #include <iostream>
 #include "ServerApi.h"
 
-void CSessionBase::GetIds( int* readid,int* writeid )
+void CServerAcceptManager::GetIds( int* readid,int* writeid )
 {
 	if(m_channel != NULL)
 		*readid = m_channel->Getfd();
 	*writeid = 0;
 }
 
-void CSessionBase::HandleInput()
+void CServerAcceptManager::HandleInput()
 {
 	//内部生成channel方式有待考验，因为涉及到serverapi多线程读取channel
 	CChannel* channel = m_server->AcceptClient();
 	if(channel != NULL)
 	{
 		cout<<"void CSessionBase::HandleInput() success:"<<channel->Getfd()<<endl;
-		CServerApi* serverapi= new CServerApi(m_server,channel,m_serverreactor);
+		//CServerApi* serverapi= new CServerApi(m_server,channel,m_serverreactor);
+		CreateSession(channel);
 		if(channel->GetService()->GetNChannel() == SOCK_DGRAM)
 		{//自我不在进行自我调度
 			this->RemoveHandler(this);
@@ -24,17 +25,17 @@ void CSessionBase::HandleInput()
 	}
 }
 
-void CSessionBase::HandleOupt()
+void CServerAcceptManager::HandleOupt()
 {
 	;
 }
 
-int CSessionBase::HandleEvent( int event,DWORD dwParam,void* pParam )
+int CServerAcceptManager::HandleEvent( int event,DWORD dwParam,void* pParam )
 {
 	return 0;
 }
 
-CSessionBase::~CSessionBase()
+CServerAcceptManager::~CServerAcceptManager()
 {
 	if(m_channel != NULL)
 		delete m_channel;
@@ -45,7 +46,7 @@ CSessionBase::~CSessionBase()
 	m_serverreactor =  NULL;
 }
 
-CSessionBase::CSessionBase( CSelectReactor* selecter,const char* location ):CHandler(this)
+CServerAcceptManager::CServerAcceptManager( CSelectReactor* selecter,const char* location ):CHandler(this)
 {
 	AddHandler(this);
 	m_server = new CServer();
@@ -53,7 +54,7 @@ CSessionBase::CSessionBase( CSelectReactor* selecter,const char* location ):CHan
 	m_serverreactor =  selecter;
 }
 
-void CSessionBase::SyncRun()
+void CServerAcceptManager::SyncRun()
 {
 	if(m_channel->GetService()->GetNChannel() == SOCK_STREAM)
 		CSelectReactor::SyncRun();
