@@ -8,6 +8,7 @@
 #include "Channel.h"
 #include "Server.h"
 
+class CSession;
 class CServerAcceptManager:public CSelectReactor, public CHandler
 {
 	
@@ -25,7 +26,7 @@ public:
 
 	virtual void SyncRun();
 
-	virtual void CreateSession(CChannel* channel)= 0;
+	virtual CSession* CreateSession(CChannel* channel)= 0;
 
 protected:
 	CServer* m_server;

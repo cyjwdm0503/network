@@ -36,9 +36,9 @@ void CLog::Printerrno(int re)
 {
 	char buf[1024]; 
 #ifdef WIN32
-	PrintLog("GetLastError:%d\n",GetLastError());
+	PrintLog("GetLastError:%d\n",WSAGetLastError());
 #else
-	PrintLog("GetLastError:%d\tdesc:",re,strerror(errno));
+	PrintLog("GetLastError:%d\tdesc:%s\n",re,strerror(errno));
 	//cout<<"GetLastError:"<<re<<"\t"<<errno<<"\t"<<strerror(errno)<<endl;
 #endif // WINDOWS
 

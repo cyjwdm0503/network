@@ -68,7 +68,7 @@ void CContentProtocol::OnTimer( int event )
 	CProtocol::OnTimer(event);
 }
 
-CContentProtocol::CContentProtocol( CDispatcher* reactor ):CProtocol(reactor,new CContentPackage(),new CContentPackage(),CONTENTHEADLENGTH+CONTENTEXTHEADLENGTH+MAX_CONTENT_LEN)
+CContentProtocol::CContentProtocol( CDispatcher* reactor ):CProtocol(reactor,new CContentPackage(),new CContentPackage(),CONTENTHEADLENGTH+CONTENTEXTHEADLENGTH)
 {
 	m_timeOut = 0;
 	m_LastReadTime = reactor->Time();

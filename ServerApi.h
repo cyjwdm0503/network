@@ -39,7 +39,7 @@ class CServerSession :public CServerAcceptManager
 public:
 	CServerSession(CSelectReactor* selecter,const char* location );
 	~CServerSession();
-	virtual void CreateSession(CChannel* channel);
+	virtual CSession* CreateSession(CChannel* channel);
 private:
 
 };

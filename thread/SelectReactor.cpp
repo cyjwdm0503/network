@@ -71,12 +71,12 @@ void CSelectReactor::RunHandler( fd_set& readset,fd_set& writeset,int& maxfd )
 		//首先获取所有的ids 写入fd_set;从而利用fd_set 进行输入与输出
 		if(FD_ISSET(readfd,&readset) && readfd>0)
 		{
-		   std::cout<<__FILE__<<"\t"<<readfd<<"\t"<<__LINE__<<std::endl;
+		   //std::cout<<__FILE__<<"\t"<<readfd<<"\t"<<__LINE__<<std::endl;
 			(*it)->HandleInput();
 		}
 		if(FD_ISSET(writefd,&writeset) && writefd>0)
 		{
-		     std::cout<<__FILE__<<"\t"<<writefd<<"\t"<<__LINE__<<std::endl;
+		     //std::cout<<__FILE__<<"\t"<<writefd<<"\t"<<__LINE__<<std::endl;
 			(*it)->HandleOupt();
 		}
 	}

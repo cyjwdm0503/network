@@ -27,16 +27,17 @@ int CChannel::Read(size_t max,char* buf)
 	}
 	if(re == -1)
 	{
-		DEBUGOUT(re);
+		
 		int errnum = GET_LAST_ERROR();
 		if(errnum == EWOULDBLOCK)
 			return 0;
-
-		DEBUGOUT(re);
-		CLog::GetInstance()->Printerrno(re);
+		else
+		{
+			DEBUGOUT(re);
+			return -1;
+		}
 	}
-
-
+	return re;
 }
 
 int CChannel::Write(size_t max,const char* buf)
@@ -56,15 +57,18 @@ int CChannel::Write(size_t max,const char* buf)
 	}
 	if(re == -1)
 	{
-		DEBUGOUT(re);
+		
 		int errnum = GET_LAST_ERROR();
 		if(errnum == EWOULDBLOCK)
 			return 0;
+		else
+		{
 
-		DEBUGOUT(re);
-		CLog::GetInstance()->Printerrno(re);
+			DEBUGOUT(re);
+			return -1;
+		}
 	}
-
+	return re;
 
 }
 

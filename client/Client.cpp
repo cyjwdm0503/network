@@ -19,6 +19,24 @@ CChannel* CClient::ConnectServer(const char* location)
 {
 	CServiceName* name = new CServiceName(location);
 	int re = m_clientsock->Connect(name);
+	/*处理在非阻塞模式下返回-1的缺陷*/
+	fd_set connectfd;
+	FD_ZERO(&connectfd);
+	timeval tv;
+	tv.tv_sec= 10;
+	tv.tv_usec = 0;
+	FD_SET(m_clientsock->Getfd(),&connectfd);
+	re = select(m_clientsock->Getfd()+1,NULL,&connectfd,NULL,&tv);
+	if(re == 0)
+	{
+		closesocket(m_clientsock->Getfd());
+		re = -1;
+	}
+	if(re!= 0 && FD_ISSET(m_clientsock->Getfd(),&connectfd))
+	{
+		re = 0;
+	}
+
 	if(re == 0)
 	{
 		return m_clientsock->GetChannel(m_clientsock->Getfd());

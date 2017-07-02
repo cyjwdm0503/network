@@ -132,7 +132,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);SERVER</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);SERVER;SESSION_DEBUG</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../protocol;../utility;%(AdditionalIncludeDirectories);../userdefine</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
@@ -149,7 +149,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);CLIENT</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);CLIENT;SESSION_DEBUG</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../protocol;../utility;%(AdditionalIncludeDirectories);../userdefine</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
@@ -228,7 +228,6 @@
     <ClCompile Include="..\ClientEndPoint.cpp" />
     <ClCompile Include="..\client\ClientBase.cpp" />
     <ClCompile Include="..\client\Client.cpp" />
-    <ClCompile Include="..\Log.cpp" />
     <ClCompile Include="..\lowsession\SessionBase.cpp" />
     <ClCompile Include="..\package\applicationpackage.cpp" />
     <ClCompile Include="..\package\channelpackage.cpp" />
@@ -255,6 +254,7 @@
     <ClCompile Include="..\utility\cachelist.cpp" />
     <ClCompile Include="..\utility\fielddescribe.cpp" />
     <ClCompile Include="..\utility\fieldset.cpp" />
+    <ClCompile Include="..\utility\Log.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h" />
@@ -267,7 +267,6 @@
     <ClInclude Include="..\ClientApi.h" />
     <ClInclude Include="..\client\ClientBase.h" />
     <ClInclude Include="..\client\Client.h" />
-    <ClInclude Include="..\Log.h" />
     <ClInclude Include="..\lowsession\SessionBase.h" />
     <ClInclude Include="..\package\applicationpackage.h" />
     <ClInclude Include="..\package\channelpackage.h" />
@@ -297,6 +296,7 @@
     <ClInclude Include="..\utility\cachelist.h" />
     <ClInclude Include="..\utility\fielddescribe.h" />
     <ClInclude Include="..\utility\fieldset.h" />
+    <ClInclude Include="..\utility\Log.h" />
     <ClInclude Include="..\utility\typedef.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
