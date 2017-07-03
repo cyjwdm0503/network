@@ -83,6 +83,8 @@ void CChannelProtocol::HandleOutput()
 	{
 		return ;
 	}
+	if(m_cacheList == NULL)
+		return;
 	for(int i=0; i<10; i++)
 	{
 		int outlen = 4096;
@@ -123,7 +125,7 @@ CChannelProtocol::CChannelProtocol( CDispatcher* reactor,CChannel* channel,int m
 	
 	if (m_cacheList != NULL && m_channel->GetService()->GetNChannel() == SOCK_STREAM)
 	{
-		SetTimer(EVENT_CHANNELTIME_ID, 1000);			//打开定时强制刷新定时器
+		SetTimer(EVENT_CHANNELTIME_ID, 10);			//打开定时强制刷新定时器
 	}
 }
 

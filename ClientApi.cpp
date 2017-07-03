@@ -128,9 +128,14 @@ CClientApi::~CClientApi()
 
 bool CClientSession::InitInstance()
 {
-	m_Session = new CContentSession(this,m_clientchannel);
-	AddHandler(m_Session);
-	return CDispatcher::InitInstance();
+	if(m_clientchannel != NULL)
+	{
+
+		m_Session = new CClientContent(this,m_clientchannel);
+		AddHandler(m_Session);
+		return CDispatcher::InitInstance();
+
+	}
 }
 
 CClientSession::CClientSession( const char* clientip,const char* serverip )
@@ -139,3 +144,5 @@ CClientSession::CClientSession( const char* clientip,const char* serverip )
 	m_client->CreateClient(clientip);
 	m_clientchannel = m_client->ConnectServer(serverip);
 }
+
+

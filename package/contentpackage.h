@@ -26,6 +26,7 @@
 
 
 
+
 //用于对应CContentPackage的数据包长度。以及对应的上层协议
 struct CContentHeadType
 {
@@ -58,7 +59,6 @@ struct CContentExtHeadType
 
 const unsigned int CONTENTHEADLENGTH = sizeof(CContentHeadType);
 const unsigned int CONTENTEXTHEADLENGTH = sizeof(CContentExtHeadType);
-
 
 
 class CContentPackage:public CPackage

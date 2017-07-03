@@ -120,10 +120,11 @@ CServerSession::~CServerSession()
 
 }
 
-void CServerSession::CreateSession( CChannel* channel )
+CSession* CServerSession::CreateSession( CChannel* channel )
 {
 	 
-	CContentSession*  m_Session = new CContentSession(this,channel);
-	m_serverreactor->AddHandler(m_Session);
+	CContentSession*  session = new CClientContent(m_serverreactor,channel);
+	m_serverreactor->AddHandler(session);
+	return session;
 	
 }

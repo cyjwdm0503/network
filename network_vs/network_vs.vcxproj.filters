@@ -133,7 +133,7 @@
     <ClCompile Include="..\utility\fieldset.cpp">
       <Filter>utility</Filter>
     </ClCompile>
-    <ClCompile Include="..\Log.cpp">
+    <ClCompile Include="..\utility\Log.cpp">
       <Filter>utility</Filter>
     </ClCompile>
   </ItemGroup>
@@ -254,7 +254,7 @@
     <ClInclude Include="..\userdefine\fielddefine.h">
       <Filter>userdefine</Filter>
     </ClInclude>
-    <ClInclude Include="..\Log.h">
+    <ClInclude Include="..\utility\Log.h">
       <Filter>utility</Filter>
     </ClInclude>
   </ItemGroup>

@@ -21,9 +21,11 @@ int CUdpChannel::Write( size_t max ,const char* buf )
 		int errnum = GET_LAST_ERROR();
 		if(errnum == EWOULDBLOCK)
 			return 0;
-
-		DEBUGOUT(re);
-		CLog::GetInstance()->Printerrno(re);
+		else
+		{
+			DEBUGOUT(re);
+			return -1;
+		}
 	}
 	return re;
 }
@@ -45,6 +47,7 @@ int CUdpChannel::Read( size_t max ,char* buf )
 	}
 	if(re == -1)
 	{
+		
 		int errnum = GET_LAST_ERROR();
 		if(errnum == EWOULDBLOCK)
 			return 0;
@@ -53,8 +56,11 @@ int CUdpChannel::Read( size_t max ,char* buf )
 		/*10054
 		https://support.microsoft.com/zh-cn/help/263823/winsock-recvfrom-now-returns-wsaeconnreset-instead-of-blocking-or-timing-out
 		*/
-		DEBUGOUT(re);
-		CLog::GetInstance()->Printerrno(re);
+		else
+		{
+			DEBUGOUT(re);
+			return -1;
+		}
 	}
 	//CServiceName service;
 	//service.SetSockaddr_in(addr);

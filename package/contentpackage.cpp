@@ -35,7 +35,7 @@ int CContentPackage::ValidPackage()
 	if(m_contenthead.Length < 0 || m_contenthead.Length > MAX_CONTENT_PACKAGE_LEN )
 		return -2;
 
-	if(m_contenthead.ExtensionLen <0 || m_contenthead.ExtensionLen > MAX_CONTENT_LEN ||(m_contenthead.ExtensionLen >0 && m_contenthead.ExtensionLen<CONTENTEXTHEADLENGTH))
+	if(m_contenthead.ExtensionLen <0 || (m_contenthead.ExtensionLen >0 && m_contenthead.ExtensionLen>CONTENTEXTHEADLENGTH))
 		return -3;
 
 	//组装exthead
@@ -62,7 +62,7 @@ int CContentPackage::MakePackage()
 	//先把扩展报文头写进去
 	if(m_contentexthead.Tag != CONTENTEXTTAGNANO)
 	{
-		m_contenthead.ExtensionLen = CONTENTEXTHEADLENGTH + m_contentexthead.TagLen;
+		m_contenthead.ExtensionLen = CONTENTEXTHEADLENGTH /*+ m_contentexthead.TagLen*/;
 		buf = Push(m_contenthead.ExtensionLen);
 		memcpy(buf, &m_contentexthead, m_contenthead.ExtensionLen);
 	}
