@@ -11,6 +11,7 @@ CContentSession::CContentSession( CDispatcher *selecter,CChannel *pChannel):
 	m_ContentProtocol->RegisterErrHandler(this);
 	m_ContentProtocol->RegisterUpperHandler(this);
 	m_ContentProtocol->set_timecheck(false);
+	RegisterSessionCallback(this);
 }
 
 CContentSession::~CContentSession()
@@ -40,6 +41,14 @@ int CContentSession::HandlePackage( CPackage* pPackage,CProtocol* protocol )
 	}
 	return 0;
 
+}
+void CChannelSession::OnDisconnected( int ErrorCode )
+{
+	if(ErrorCode == EVENT_CHANNEL_READ_ERRO || EVENT_CHANNEL_WRITE_ERRO)
+	{
+		m_ChannelProtocol->HandleOutput();
+		m_Channel->Disconnect();
+	}
 }
 
 #ifdef  SESSION_DEBUG
@@ -94,3 +103,5 @@ void CClientContent::OnTimer( int event )
 }
 
 #endif
+
+

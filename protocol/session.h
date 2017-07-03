@@ -40,6 +40,8 @@ public:
 	virtual void HandleOupt();
 
 	virtual void Disconected( int event );
+
+	void RegisterSessionCallback(CSessionCallback* callback);
 protected:
 	CChannelProtocol* m_ChannelProtocol;
 	CChannel* m_Channel;

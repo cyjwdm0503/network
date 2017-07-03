@@ -7,7 +7,7 @@
 #include "session.h"
 #include "contentprotocol.h"
 
-class CChannelSession:public CSession
+class CChannelSession:public CSession,public CSessionCallback
 {
 public:
 	CChannelSession(CDispatcher *selecter,CChannel *pChannel,int MaxPackageSize):CSession(selecter,pChannel,MaxPackageSize){};
@@ -19,6 +19,8 @@ public:
 	void HandleInput(){CSession::HandleInput();};
 
 	void HandleOupt(){CSession::HandleOupt();};
+
+	virtual void OnDisconnected( int ErrorCode );
 
 private:
 

@@ -58,3 +58,8 @@ void CSession::Disconected( int event )
 		m_SessionCallback->OnDisconnected(event);
 	}
 }
+
+void CSession::RegisterSessionCallback( CSessionCallback* callback )
+{
+	m_SessionCallback = callback;
+}
