@@ -14,12 +14,13 @@ public:
 	DWORD expire;
 };
 
+//生效时间越早的越大
 class CNodeCom
 {
 public:
 	bool operator ()(const CTimerHeapNode& node1, const CTimerHeapNode& node2)
 	{
-		return node1.expire < node1.expire;
+		return node1.expire > node2.expire;
 	}
 };
 /*

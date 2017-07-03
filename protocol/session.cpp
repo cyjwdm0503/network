@@ -45,7 +45,7 @@ void CSession::HandleInput()
 	m_ChannelProtocol->HandleInput();
 }
 
-void CSession::HandleOupt()
+void CSession::HandleOutput()
 {
 	
 	m_ChannelProtocol->HandleOutput();

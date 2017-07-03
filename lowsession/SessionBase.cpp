@@ -25,7 +25,7 @@ void CServerAcceptManager::HandleInput()
 	}
 }
 
-void CServerAcceptManager::HandleOupt()
+void CServerAcceptManager::HandleOutput()
 {
 	;
 }

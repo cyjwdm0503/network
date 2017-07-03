@@ -6,19 +6,20 @@
 #define CONTENTSESSION_H
 #include "session.h"
 #include "contentprotocol.h"
+#include "contentpackage.h"
 
 class CChannelSession:public CSession,public CSessionCallback
 {
 public:
-	CChannelSession(CDispatcher *selecter,CChannel *pChannel,int MaxPackageSize):CSession(selecter,pChannel,MaxPackageSize){};
-	virtual ~CChannelSession(){};
+	CChannelSession(CDispatcher *selecter,CChannel *pChannel,int MaxPackageSize);
+	virtual ~CChannelSession();
 
-	void GetIds( int* readid,int* writeid ){CSession::GetIds(readid,writeid);};
+	void GetIds( int* readid,int* writeid );
 
 
-	void HandleInput(){CSession::HandleInput();};
+	void HandleInput();
 
-	void HandleOupt(){CSession::HandleOupt();};
+	void HandleOutput();
 
 	virtual void OnDisconnected( int ErrorCode );
 
@@ -51,9 +52,11 @@ public:
 
 	//定时向底层发送数据
 	virtual void OnTimer( int event );
+
+	virtual void OnDisconnected( int ErrorCode );
 private:
 	int m_id;
-
+	CContentPackage package;
 };
 #endif
 

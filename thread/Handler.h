@@ -10,7 +10,7 @@ public:
 	virtual ~CHandler();
 	virtual void GetIds(int* readid,int* writeid){};
 	virtual void HandleInput(){};
-	virtual void HandleOupt(){};
+	virtual void HandleOutput(){};
 	virtual void OnTimer(int event){};
 	virtual int HandleEvent(int event,DWORD dwParam,void* pParam);
 	virtual bool PostEvent(int event, DWORD dwParam,void* pParam);

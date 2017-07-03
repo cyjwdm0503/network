@@ -31,7 +31,7 @@ public:
 	virtual void HandleInput();
 
 	//id准备好后，输出的过程
-	virtual void HandleOupt();
+	virtual void HandleOutput();
 
 
 private:

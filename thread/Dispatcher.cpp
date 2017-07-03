@@ -224,7 +224,7 @@ public:
 		//throw std::exception("The method or operation is not implemented.");
 	}
 
-	virtual void HandleOupt() 
+	virtual void HandleOutput() 
 	{
 		cout<<__FILE__<<"\t"<<__LINE__<<"\t"<<__FUNCTION__;
 		cout<<GetCurrentThreadId()<<"\t"<<m_msg<<"\t"<<(void*)this<<endl;

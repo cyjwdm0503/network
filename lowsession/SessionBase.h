@@ -20,7 +20,7 @@ public:
 
 	virtual void HandleInput();
 
-	virtual void HandleOupt();
+	virtual void HandleOutput();
 
 	virtual int HandleEvent( int event,DWORD dwParam,void* pParam );
 

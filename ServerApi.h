@@ -24,7 +24,7 @@ public:
 
 	virtual void HandleInput();
 
-	virtual void HandleOupt();
+	virtual void HandleOutput();
 private:
 	CServer* m_server;
 	CChannel* m_serverchannel;

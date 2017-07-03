@@ -112,7 +112,7 @@ void CChannelProtocol::HandleOutput()
 void CChannelProtocol::OnTimer( int event )
 {//用于发送缓存包---目前不理解为什么不判定select是否准备好，就进行发送
 	if(event == EVENT_CHANNELTIME_ID)
-		HandleOupt();
+		HandleOutput();
 }
 
 CChannelProtocol::CChannelProtocol( CDispatcher* reactor,CChannel* channel,int maxPackageSize ):CProtocol(reactor,NULL,NULL,0),m_channel(channel),m_channelPackage(maxPackageSize)

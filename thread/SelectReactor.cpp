@@ -77,7 +77,7 @@ void CSelectReactor::RunHandler( fd_set& readset,fd_set& writeset,int& maxfd )
 		if(FD_ISSET(writefd,&writeset) && writefd>0)
 		{
 		     //std::cout<<__FILE__<<"\t"<<writefd<<"\t"<<__LINE__<<std::endl;
-			(*it)->HandleOupt();
+			(*it)->HandleOutput();
 		}
 	}
 }

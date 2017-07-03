@@ -91,7 +91,7 @@ void CServerApi::HandleInput()
 	}
 }
 
-void CServerApi::HandleOupt()
+void CServerApi::HandleOutput()
 {
 	CContentPackage contentpackage;
 	contentpackage.ConstructAlloc(1024,128);
