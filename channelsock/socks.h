@@ -6,6 +6,20 @@ SOCK对应的头文件
 
 #ifdef WIN32
 
+#ifndef TEST
+#define TEST
+
+#include "crtdbg.h"
+
+inline void EnableMemLeakCheck()
+{
+	_CrtSetDbgFlag(_CrtSetDbgFlag(_CRTDBG_REPORT_FLAG) | _CRTDBG_LEAK_CHECK_DF);
+}
+#ifdef _DEBUG
+#define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
+#endif
+#endif
+
 #include <WinSock2.h>
 #include <ws2tcpip.h>
 #include <stdio.h>
@@ -20,6 +34,7 @@ SOCK对应的头文件
 
 
 typedef int socklen_t;
+
 #else
 
 #include <cstring>
@@ -35,7 +50,7 @@ typedef int socklen_t;
 #include <sys/ioctl.h>
 #endif
 
-#define TCP
+#define UDP
 
 //注意以下对应BIG_ENDIAN的宏定义。
 //在VMware虚拟机上BIG_ENDIAN被宏定义。网络字节序是BIG_ENDIAN

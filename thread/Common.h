@@ -4,6 +4,19 @@
 #define   WIN32_LEAN_AND_MEAN
 
 #ifdef WIN32
+#ifndef TEST
+#define TEST
+
+#include "crtdbg.h"
+
+inline void EnableMemLeakCheck()
+{
+	_CrtSetDbgFlag(_CrtSetDbgFlag(_CRTDBG_REPORT_FLAG) | _CRTDBG_LEAK_CHECK_DF);
+}
+#ifdef _DEBUG
+#define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
+#endif
+#endif
 #include <WinSock2.h>
 #include <windows.h>
 #include <process.h>

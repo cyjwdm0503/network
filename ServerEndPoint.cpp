@@ -1,3 +1,7 @@
+
+
+
+
 #include "Server.h"
 #include <iostream>
 #include <cstring>
@@ -19,6 +23,7 @@ using namespace std;
 
 int main(int argi ,char*args[])
 {
+	EnableMemLeakCheck();
 	if(argi != 2)
 	{
 		argi = 2;

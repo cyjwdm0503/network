@@ -121,12 +121,15 @@ void CClientContent::OnTimer( int event )
 #ifdef SERVER
 		sprintf(buf,"SERVER:%d",++m_id);
 		package.SetExtHeader(SESSION_EXTTAG,strlen(buf)+1,buf);
-#else
-		sprintf(buf,"CLIENT:%d",++m_id);
-		package.SetExtHeader(SESSION_EXTTAG,strlen(buf)+1,buf);
-#endif
+//#else
+//		sprintf(buf,"CLIENT:%d",++m_id);
+//		package.SetExtHeader(SESSION_EXTTAG,strlen(buf)+1,buf);
+//
 		CLog::GetInstance()->PrintLog("%s\n",buf);
+		_CrtDumpMemoryLeaks();
 		m_ContentProtocol->send(&package);
+		_CrtDumpMemoryLeaks();
+#endif
 	}
 	CContentSession::OnTimer(event);
 }
