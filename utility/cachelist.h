@@ -15,97 +15,37 @@ class CacheNode
 {
 public:
 
-	CacheNode(int maxsize):m_maxSize(maxsize)
-	{
-		m_buf = new char[m_maxSize];
-		m_cur =  m_buf;
-		m_length = 0;
-		m_deleteAll =  false;
-	}
-	~CacheNode()
-	{
-		if(m_buf != NULL)
-		{
-			delete m_buf;
-			m_buf = NULL;
-		}
-		m_cur =  NULL;
-	}
+	CacheNode(int maxsize);
+	~CacheNode();
 	/************************************************************************/
 	/* push  对应的内容。返回起始地址                                            */
 	/************************************************************************/
-	char* push(void* data,int len)
-	{
-		char* tmp = m_buf+m_length;
-		memcpy(tmp,data,len);
-		m_length +=len;
-		return tmp;
-	}
+	char* push(void* data,int len);
 
 	/************************************************************************/
 	/* 返回对应长度的内容，返回实际的长度与指针位置                              */
 	/************************************************************************/
-	void* getdata(int& length)
-	{
-		if(length > size())
-			length = size();
-		char* ptr =  m_cur;
-		return ptr;
-	}
+	void* getdata(int& length);
 
 	/************************************************************************/
 	/* 弹出对应长度的内容，在getdata后调用                                      */
 	/************************************************************************/
-	int pop(int length)
-	{
-		int ret = 0;
-		if(size() < length)
-		{
-			ret = size();
-		}
-		else
-		{
-			ret = length;			
-		}
-		m_cur += ret;
-		//在pop后尝试调用clear
-		clear();
-		return ret;
-
-	}
+	int pop(int length);
 	//剩下可以放数据的长度
-	int avablesize()
-	{
-		return m_maxSize-size();
-	}
+	int avablesize();
 	//剩下未pop的数据长度
-	int size()
-	{
-		return m_length-(m_cur-m_buf);
-	}
+	int size();
 
 private:
 
 
 	//
-	void clear()
-	{
-		if(size()== 0 && (m_cur-m_buf) == m_length && avablesize() == m_maxSize)
-		{	
-			delete m_buf;
-			m_buf = NULL;
-			m_cur = NULL;
-			m_deleteAll = true;
-		}
-	}
+	void clear();
 public:
 	/************************************************************************/
 	/* 在尝试push前调用。                                                                     */
 	/************************************************************************/
-	bool isdeleted()
-	{
-		return m_deleteAll;
-	}
+	bool isdeleted();
 private:
 	char* m_buf;
 	int m_maxSize;
