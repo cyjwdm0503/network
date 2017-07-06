@@ -62,6 +62,7 @@ int CCacheList::pop_front( int maxlength )
 	//如果第一个清空，则删除
 	while(m_nodeList.size()>0 && m_nodeList.front()->isdeleted())
 	{
+		delete *(m_nodeList.begin());
 		m_nodeList.erase(m_nodeList.begin());
 	}
 	return m_nodeList.front()->pop(maxlength);
@@ -74,6 +75,7 @@ int CCacheList::is_empty()
 	{
 		if((*it)->isdeleted())
 		{
+			delete *(m_nodeList.begin());
 			it = m_nodeList.erase(it);
 			continue;
 		}
@@ -91,7 +93,7 @@ void CacheNode::clear()
 {
 	if(size()== 0 && (m_cur-m_buf) == m_length && avablesize() == m_maxSize)
 	{	
-		delete m_buf;
+		delete [] m_buf;
 		m_buf = NULL;
 		m_cur = NULL;
 		m_deleteAll = true;
@@ -145,7 +147,7 @@ CacheNode::~CacheNode()
 {
 	if(m_buf != NULL)
 	{
-		delete m_buf;
+		delete [] m_buf;
 		m_buf = NULL;
 	}
 	m_cur =  NULL;
