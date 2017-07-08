@@ -233,6 +233,7 @@
     <ClCompile Include="..\package\channelpackage.cpp" />
     <ClCompile Include="..\package\contentpackage.cpp" />
     <ClCompile Include="..\package\Package.cpp" />
+    <ClCompile Include="..\protocol\applicationprotocol.cpp" />
     <ClCompile Include="..\protocol\channelprotocol.cpp" />
     <ClCompile Include="..\protocol\contentsession.cpp" />
     <ClCompile Include="..\protocol\session.cpp" />
@@ -272,6 +273,7 @@
     <ClInclude Include="..\package\channelpackage.h" />
     <ClInclude Include="..\package\contentpackage.h" />
     <ClInclude Include="..\package\Package.h" />
+    <ClInclude Include="..\protocol\applicationprotocol.h" />
     <ClInclude Include="..\protocol\channelprotocol.h" />
     <ClInclude Include="..\protocol\contentsession.h" />
     <ClInclude Include="..\protocol\session.h" />

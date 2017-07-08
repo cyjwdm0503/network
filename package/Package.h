@@ -27,7 +27,10 @@ public:
 	CPackage();
 	virtual ~CPackage();
 	virtual void Clear();
+
+	//只做了GetActiveID有点鸡肋
 	virtual int GetActiveID();
+	
 	//返回生成此层package需要剔除的数据长度
 	virtual int ValidPackage();
 
