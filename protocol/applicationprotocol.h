@@ -12,6 +12,7 @@ public:
 	CApplicationProtocol(CDispatcher* dispatcher);
 	virtual ~CApplicationProtocol();
  
+	//处理消息
 	int Pop();
 
 };

@@ -14,5 +14,5 @@ CApplicationProtocol::~CApplicationProtocol()
 
 int CApplicationProtocol::Pop()
 {
-	
+	return 0;
 }
