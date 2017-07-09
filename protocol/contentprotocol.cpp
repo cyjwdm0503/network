@@ -3,13 +3,12 @@
 #include <ctime>
 #include "Log.h"
 
-#define  CONTENTPROTOCOL_CHECKTIME_ID	1
-const EVENT_MSG EVENT_MSG_READTIMEOUT = 201;
-const EVENT_MSG EVENT_MSG_WRITETIMEOUT = 301;
+#define  CONTENTPROTOCOL_CHECKTIME_ID	11
+
 
 int CContentProtocol::Pop( CPackage* package )
 {
-	m_LastReadTime = m_dispatcher->Time();
+	
 	CContentPackage* contentpackage = dynamic_cast<CContentPackage*>(package);
 	if(contentpackage == NULL)
 		return -1;
@@ -18,14 +17,14 @@ int CContentProtocol::Pop( CPackage* package )
 		if(contentpackage->GetExtTag() == CONTENT_HEART_TIMEOUT)
 		{
 			set_timeout(package);
+			CLog::GetInstance()->PrintLog("Recevie Server TimeOut Set Package\n");
 			return 0;
 		}
 		
 		if(contentpackage->GetExtTag() == CONTENT_HEART_TAG)
 		{
-			char info[1024];
-			sprintf(info," Receive Heartbeat, CurrentTime=%d\n",m_dispatcher->Time());
-			CLog::GetInstance()->PrintLog(info);
+			m_LastReadTime = m_dispatcher->Time();
+			CLog::GetInstance()->PrintLog("Receive Heartbeat, CurrentTime=%d\n",m_dispatcher->Time());
 			return 0;
 		}
 	}
@@ -41,7 +40,8 @@ int CContentProtocol::OnRecvErrPackage( CPackage* package )
 
 int CContentProtocol::Push( CPackage* package,CProtocol* protocol )
 {
-	m_LastReadTime = m_dispatcher->Time();
+	//m_LastReadTime = m_dispatcher->Time();
+	//这里的push设定activeID也可以用统一的接口实现的。
 	((CContentPackage*)m_sendPackage)->GetContentHeader()->Type =  protocol->GetActiveID();
 	return CProtocol::Push(package,protocol);
 }
@@ -51,16 +51,15 @@ void CContentProtocol::OnTimer( int event )
 	/***用于检查对应协议下的心跳时间,..如果超过timeout。向外发送心跳包*/
 	if(event == CONTENTPROTOCOL_CHECKTIME_ID)
 	{
-		if(m_dispatcher->Time() - m_LastReadTime >= 2*m_timeOut)
+		if(m_dispatcher->Time() - m_LastReadTime >= 3*m_timeOut)
 		{//离上次读到的时间太远了，可能服务器已经挂掉
-			NotifyErr(EVENT_MSG_READTIMEOUT,0,this);
+			NotifyErr(EVENT_CONTENT_READTIMEOUT,0,this);
 		}
 
 		if(m_dispatcher->Time() -  m_LastWriteTime >= m_timeOut)
-		{//离上次对外写数据的时间已经很远了。发送心跳
-		
+		{//离上次对外写数据的时间已经很远了。发送心跳	
 			if( !SendHeartTag())
-				NotifyErr(EVENT_MSG_WRITETIMEOUT,0,this);
+				NotifyErr(EVENT_CONTENT_WRITETIMEOUT,0,this);
 		}
 
 		
@@ -70,9 +69,10 @@ void CContentProtocol::OnTimer( int event )
 
 CContentProtocol::CContentProtocol( CDispatcher* reactor ):CProtocol(reactor,new CContentPackage(),new CContentPackage(),CONTENTHEADLENGTH+CONTENTEXTHEADLENGTH)
 {
-	m_timeOut = 0;
+	m_timeOut = 9999999;
 	m_LastReadTime = reactor->Time();
 	m_LastWriteTime = reactor->Time();
+	
 }
 
 CContentProtocol::~CContentProtocol()
@@ -89,7 +89,7 @@ void CContentProtocol::send_timeout( int timeout )
 }
 
 void CContentProtocol::set_timeout( CPackage* package )
-{
+{//根据收到的时间超时报文，设定发送心跳的超时时间
 	CContentPackage* contentpkg = dynamic_cast<CContentPackage*>(package);
 	if(contentpkg == NULL)
 		return;
@@ -105,11 +105,13 @@ void CContentProtocol::set_timecheck( bool flag )
 	if(flag)
 	{
 		SetTimer(CONTENTPROTOCOL_CHECKTIME_ID,2000);
+		send_timeout(20);
 	}
 	else
 	{
 		KillTimer(CONTENTPROTOCOL_CHECKTIME_ID);
 	}
+	
 }
 
 bool CContentProtocol::SendHeartTag()

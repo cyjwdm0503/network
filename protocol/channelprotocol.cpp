@@ -1,4 +1,8 @@
 #include "channelprotocol.h"
+
+
+const EVENT_MSG EVENT_CHANNEL_OUTPUT_TIME = 11;
+
 int CChannelProtocol::Push( CPackage* package,CProtocol* protocol )
 {
 	if(m_channel->GetService()->GetNChannel() == SOCK_STREAM && m_cacheList != NULL)
@@ -111,7 +115,7 @@ void CChannelProtocol::HandleOutput()
 
 void CChannelProtocol::OnTimer( int event )
 {//用于发送缓存包---目前不理解为什么不判定select是否准备好，就进行发送
-	if(event == EVENT_CHANNELTIME_ID)
+	if(event == EVENT_CHANNEL_OUTPUT_TIME)
 		HandleOutput();
 }
 
@@ -125,7 +129,7 @@ CChannelProtocol::CChannelProtocol( CDispatcher* reactor,CChannel* channel,int m
 	
 	if (m_cacheList != NULL && m_channel->GetService()->GetNChannel() == SOCK_STREAM)
 	{
-		SetTimer(EVENT_CHANNELTIME_ID, 10);			//打开定时强制刷新定时器
+		SetTimer(EVENT_CHANNEL_OUTPUT_TIME, 10);			//打开定时强制刷新定时器
 	}
 }
 

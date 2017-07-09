@@ -50,7 +50,7 @@ typedef int socklen_t;
 #include <sys/ioctl.h>
 #endif
 
-#define UDP
+#define TCP
 
 //注意以下对应BIG_ENDIAN的宏定义。
 //在VMware虚拟机上BIG_ENDIAN被宏定义。网络字节序是BIG_ENDIAN

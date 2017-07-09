@@ -29,14 +29,7 @@ void CSession::GetIds( int* readid,int* writeid )
 
 int CSession::HandleEvent( int event,DWORD dwParam,void* pParam )
 {
-	switch (event)
-	{
-	case EVENT_CHANNEL_WRITE_ERRO:
-	case EVENT_CHANNEL_READ_ERRO:
-		Disconected(event);
-	default:
-		break;
-	}
+
 	return 0;
 }
 

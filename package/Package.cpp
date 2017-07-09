@@ -140,11 +140,14 @@ void CPackage::AddBuf( CPackage* pPackage )
 	m_pPackageBuf->AddRef();
 }
 
-void CPackage::CopyPackage( CPackage* pPackage )
+bool CPackage::CopyPackage( CPackage* pPackage )
 {
 	AllocMax();
+	if(pPackage->Length() > m_pPackageBuf->Length())
+		return false;
 	memcpy(Address(),pPackage->Address(),pPackage->Length());
 	Truncate(pPackage->Length());
+	return true;
 }
 
 void CPackage::ConstructAlloc( int Capacity, int Reserve )
@@ -195,4 +198,13 @@ void CPackage::BufRelease()
 		m_pPackageBuf=NULL;
 		m_head=m_end=NULL;
 	}
+}
+
+bool CPackage::AppendPackage( CPackage* pPackage )
+{
+	if(m_end+pPackage->Length() > m_pPackageBuf->Data()+m_pPackageBuf->Length())
+		return false;
+	memcpy(m_end,pPackage->Address(),pPackage->Length());
+	m_end +=pPackage->Length();
+	return true;
 }

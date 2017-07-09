@@ -38,14 +38,26 @@ void CChannelSession::OnDisconnected( int ErrorCode )
 	m_Channel->Disconnect();
 }
 
+int CChannelSession::HandleEvent( int event,DWORD dwParam,void* pParam )
+{
+	switch (event)
+	{
+	case EVENT_CHANNEL_WRITE_ERRO:
+	case EVENT_CHANNEL_READ_ERRO:
+		Disconected(event);
+	default:
+		break;
+	}
+	return 0;
+}
+
 CContentSession::CContentSession( CDispatcher *selecter,CChannel *pChannel):
 	CChannelSession(selecter,pChannel,MAX_CONTENT_PACKAGE_LEN+CONTENTHEADLENGTH+CONTENTEXTHEADLENGTH)
 {
 	m_ContentProtocol = new CContentProtocol(selecter);
 	m_ContentProtocol->AttachLower(m_ChannelProtocol);
 	m_ContentProtocol->RegisterErrHandler(this);
-	m_ContentProtocol->RegisterUpperHandler(this);
-	m_ContentProtocol->set_timecheck(false);
+	m_ContentProtocol->set_timecheck(true);
 	RegisterSessionCallback(this);
 }
 
@@ -56,25 +68,25 @@ CContentSession::~CContentSession()
 
 }
 
-int CContentSession::HandlePackage( CPackage* pPackage,CProtocol* protocol )
+ 
+
+int CContentSession::HandleEvent( int event,DWORD dwParam,void* pParam )
+{	
+	switch (event)
+	{
+	case EVENT_CONTENT_READTIMEOUT:
+	case EVENT_CONTENT_WRITETIMEOUT:
+		OnDisconnected(event);
+	default:
+		break;
+	}
+	return CChannelSession::HandleEvent(event,dwParam,pParam);
+}
+
+void CContentSession::OnDisconnected( int ErrorCode )
 {
-	try
-	{
-		CContentPackage* content = dynamic_cast<CContentPackage*>(pPackage);
-		int i=0;
-		if(content != NULL)
-		{
-			 
-#ifdef CLIENT
-			cout<<content->Length()<<"\t"<<content->GetContentHeader()->Type<<endl;
-#endif
-		}
-	}
-	catch(exception &e)
-	{
-		CLog::GetInstance()->PrintLog(e.what());
-	}
-	return 0;
+	 m_ContentProtocol->set_timecheck(false);
+	 CChannelSession::OnDisconnected(ErrorCode);
 
 }
 
@@ -83,7 +95,8 @@ int CContentSession::HandlePackage( CPackage* pPackage,CProtocol* protocol )
 
 CClientContent::CClientContent( CDispatcher* selecter,CChannel* channel ):CContentSession(selecter,channel)
 {	
-	SetTimer(SESSION_MSG,10);
+	m_ContentProtocol->RegisterUpperHandler(this);
+	//SetTimer(SESSION_MSG,10);
 	package.ConstructAlloc(0,CONTENTHEADLENGTH+CONTENTEXTHEADLENGTH);
 	m_id = 0;
 }
@@ -101,7 +114,7 @@ int CClientContent::HandlePackage( CPackage* pPackage,CProtocol* protocol )
 				cout<<content->Length()<<"\t"<<content->GetContentHeader()->Type<<endl;
 				cout<<content->GetExtTag()<<"\t"<<content->GetExtData()<<endl;
 			}
-			
+
 		}
 	}
 	catch(exception &e)
@@ -115,7 +128,7 @@ void CClientContent::OnTimer( int event )
 {
 	if(event == SESSION_MSG)
 	{
-		
+
 		package.AllocMax();
 		char buf[64] ;
 #ifdef SERVER
@@ -136,9 +149,9 @@ void CClientContent::OnTimer( int event )
 
 void CClientContent::OnDisconnected( int ErrorCode )
 {
-	CContentSession::OnDisconnected(ErrorCode);
 	//É¾³ý¶¨Ê±Æ÷
 	KillTimer(SESSION_MSG);
+	CContentSession::OnDisconnected(ErrorCode);
 }
 
 #endif

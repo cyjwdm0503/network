@@ -12,7 +12,9 @@ CApplicationProtocol::~CApplicationProtocol()
 
 }
 
-int CApplicationProtocol::Pop()
+
+int CApplicationProtocol::Pop( CPackage* package )
 {
+
 	return 0;
 }

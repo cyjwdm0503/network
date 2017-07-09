@@ -11,9 +11,12 @@ class CApplicationProtocol:public CProtocol
 public:
 	CApplicationProtocol(CDispatcher* dispatcher);
 	virtual ~CApplicationProtocol();
- 
+
+	virtual int Pop( CPackage* package );
+
+
 	//处理消息
-	int Pop();
+	 
 
 };
 
