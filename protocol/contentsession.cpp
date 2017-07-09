@@ -96,7 +96,7 @@ void CContentSession::OnDisconnected( int ErrorCode )
 CClientContent::CClientContent( CDispatcher* selecter,CChannel* channel ):CContentSession(selecter,channel)
 {	
 	m_ContentProtocol->RegisterUpperHandler(this);
-	//SetTimer(SESSION_MSG,10);
+	SetTimer(SESSION_MSG,1000);
 	package.ConstructAlloc(0,CONTENTHEADLENGTH+CONTENTEXTHEADLENGTH);
 	m_id = 0;
 }
