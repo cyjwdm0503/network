@@ -6,6 +6,8 @@
 class CApplicationSession:public CContentSession,public CProtocolCallback
 {
 public:
+	CApplicationSession(CDispatcher* selecter,CChannel* channel);
+	~CApplicationSession();
 	virtual int HandleEvent( int event,DWORD dwParam,void* pParam );
 
 	virtual void OnDisconnected( int ErrorCode );

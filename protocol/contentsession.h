@@ -7,28 +7,7 @@
 #include "session.h"
 #include "contentprotocol.h"
 #include "contentpackage.h"
-
-class CChannelSession:public CSession,public CSessionCallback
-{
-public:
-	CChannelSession(CDispatcher *selecter,CChannel *pChannel,int MaxPackageSize);
-	virtual ~CChannelSession();
-
-	void GetIds( int* readid,int* writeid );
-
-
-	void HandleInput();
-
-	void HandleOutput();
-
-	virtual void OnDisconnected( int ErrorCode );
-
-	virtual int HandleEvent( int event,DWORD dwParam,void* pParam );
-
-
-private:
-
-};
+#include "channelsession.h"
 
 class CContentSession:public CChannelSession
 {
@@ -38,7 +17,7 @@ public:
 
 	virtual int HandleEvent( int event,DWORD dwParam,void* pParam );
 
-	virtual void OnDisconnected( int ErrorCode );
+	virtual void ContentSessionLost( int ErrorCode );
 
 protected:
 	CContentProtocol* m_ContentProtocol;

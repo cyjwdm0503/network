@@ -9,8 +9,8 @@ session 的input，output沦落为channelprotocol的特例方法
 
 */
 /************************************************************************/
-#ifndef CHAANELSESSION_H
-#define CHANNELSESSION_H
+#ifndef SESSION_H
+#define SESSION_H
 
 #include "channelprotocol.h"
 #include "Handler.h"
@@ -40,6 +40,9 @@ public:
 	virtual void HandleOutput();
 
 	virtual void Disconected( int event );
+	virtual void ReadError(int event){};
+	virtual void WriteError(int event){};
+	virtual void Connected(int event){};
 
 	void RegisterSessionCallback(CSessionCallback* callback);
 protected:
