@@ -9,8 +9,8 @@ session 的input，output沦落为channelprotocol的特例方法
 
 */
 /************************************************************************/
-#ifndef CHAANELSESSION_H
-#define CHANNELSESSION_H
+#ifndef SESSION_H
+#define SESSION_H
 
 #include "channelprotocol.h"
 #include "Handler.h"
@@ -24,7 +24,7 @@ public:
 	virtual void OnConnected(int Code){};
 };
 
-class CSession:public CHandler,public CSessionCallback
+class CSession:public CHandler
 {
 public:
 	CSession(CDispatcher *selecter,CChannel *pChannel,int MaxPackageSize);
