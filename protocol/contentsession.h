@@ -8,7 +8,7 @@
 #include "contentprotocol.h"
 #include "contentpackage.h"
 
-class CChannelSession:public CSession,public CSessionCallback
+class CChannelSession:public CSession
 {
 public:
 	CChannelSession(CDispatcher *selecter,CChannel *pChannel,int MaxPackageSize);

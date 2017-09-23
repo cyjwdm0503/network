@@ -3,6 +3,7 @@
 #include "Package.h"
 #include "fieldset.h"
 
+const unsigned int APPLICATIONPACKAGE_MAXLENGTH = 3096;
 /**应用层报文头结构
 */
 struct	CApplicationPackageHeader
@@ -63,6 +64,8 @@ public:
 	virtual int ValidPackage();
 
 	virtual int MakePackage();
+
+	virtual bool CopyPackage(CPackage* pPackage);
 
 	SETATTR(Type,unsigned char);
 	SETATTR(Chain,unsigned char);

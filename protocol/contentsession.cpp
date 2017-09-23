@@ -36,6 +36,7 @@ void CChannelSession::OnDisconnected( int ErrorCode )
 		m_ChannelProtocol->HandleOutput();
 	}
 	m_Channel->Disconnect();
+	CSessionCallback::OnDisconnected(ErrorCode);
 }
 
 int CChannelSession::HandleEvent( int event,DWORD dwParam,void* pParam )
@@ -43,8 +44,13 @@ int CChannelSession::HandleEvent( int event,DWORD dwParam,void* pParam )
 	switch (event)
 	{
 	case EVENT_CHANNEL_WRITE_ERRO:
+		OnWriteError(event);
+		OnDisconnected(event);
+		break;
 	case EVENT_CHANNEL_READ_ERRO:
-		Disconected(event);
+		OnReadError(event);
+		OnDisconnected(event);
+		break;
 	default:
 		break;
 	}
@@ -58,7 +64,6 @@ CContentSession::CContentSession( CDispatcher *selecter,CChannel *pChannel):
 	m_ContentProtocol->AttachLower(m_ChannelProtocol);
 	m_ContentProtocol->RegisterErrHandler(this);
 	m_ContentProtocol->set_timecheck(true);
-	RegisterSessionCallback(this);
 }
 
 CContentSession::~CContentSession()
@@ -75,7 +80,9 @@ int CContentSession::HandleEvent( int event,DWORD dwParam,void* pParam )
 	switch (event)
 	{
 	case EVENT_CONTENT_READTIMEOUT:
+		OnReadError(event);
 	case EVENT_CONTENT_WRITETIMEOUT:
+		OnWriteError(event);
 		OnDisconnected(event);
 	default:
 		break;

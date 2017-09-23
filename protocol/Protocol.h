@@ -22,6 +22,9 @@ session之间有继承关系。
 #include "Package.h"
 #include <map>
 
+const unsigned int CONTENT_ACTIVE_ID = 0;
+const unsigned int APPLICATION_ACTIVE_ID = 11;
+
 using namespace std;
 
 class CProtocol;

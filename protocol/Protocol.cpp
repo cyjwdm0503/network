@@ -84,7 +84,7 @@ unsigned int CProtocol::GetActiveID()
 int CProtocol::HandlePackage( CPackage* pPackage,CProtocol* protocol )
 {//在Pop会调用上层的协议或者eventhandler，需要在此层protocol进行解包
 	int ret = 0;
-	while (pPackage->Length() > 0)
+	while (pPackage->Length() > 0)//此处可以发现，一个channelpackage只能放一个contentpackage
 	{//上层的package加载此包
 		m_upperPackage->AddBuf(pPackage);
 		int len =  m_upperPackage->ValidPackage();

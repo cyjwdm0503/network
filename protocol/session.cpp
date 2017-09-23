@@ -44,15 +44,3 @@ void CSession::HandleOutput()
 	m_ChannelProtocol->HandleOutput();
 }
 
-void CSession::Disconected( int event )
-{
-	if(m_SessionCallback != NULL)
-	{
-		m_SessionCallback->OnDisconnected(event);
-	}
-}
-
-void CSession::RegisterSessionCallback( CSessionCallback* callback )
-{
-	m_SessionCallback = callback;
-}

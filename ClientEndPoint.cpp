@@ -60,12 +60,12 @@ int main(int argi ,char*args[])
 
 
 #else
-    //signal(SIGABRT,SIG_IGN);
-    signal(SIGPIPE,SIG_IGN);
-    //signal(SIGINT,SIG_IGN);
+	//signal(SIGABRT,SIG_IGN);
+	signal(SIGPIPE,SIG_IGN);
+	//signal(SIGINT,SIG_IGN);
 #endif
 	
-	CClientSession client(args[1],args[2]);
+	ClientApp client(args[1],args[2]);
 	client.Create();
 	client.Join();
 	/*

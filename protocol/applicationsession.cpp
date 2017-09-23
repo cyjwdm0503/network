@@ -1,27 +1,33 @@
 #include "applicationsession.h"
 
-int CApplicationSession::HandlePackage( CPackage* pPackage,CProtocol* protocol )
-{//用来处理对应的命令消息
 
+CApplicationSession::CApplicationSession(CDispatcher* dispatcher,CChannel* channel):
+	CContentSession(dispatcher,channel)
+{
+	m_applicationProtocol = new CApplicationProtocol(dispatcher);
+	m_applicationProtocol->AttachLower(m_ContentProtocol);
+	m_applicationProtocol->RegisterUpperHandler(this);
+}
+int CApplicationSession::HandlePackage( CPackage* pPackage,CProtocol* protocol )
+{//用来处理对应的命令消息--或者对应的数据消息
+	HandlePackage(pPackage);
+	return 0;
 }
 
 void CApplicationSession::OnTimer( int event )
 {
-	throw std::exception("The method or operation is not implemented.");
+	CContentSession::OnTimer(event);
 }
 
-void CApplicationSession::Disconected( int event )
-{
-	CContentSession::Disconected(event);
-}
 
 void CApplicationSession::OnDisconnected( int ErrorCode )
 {
-	throw std::exception("The method or operation is not implemented.");
+	CContentSession::OnDisconnected(ErrorCode);
 }
 
-int CApplicationSession::HandleEvent( int event,DWORD dwParam,void* pParam )
+CProtocol* CApplicationSession::GetProtocol()
 {
-	throw std::exception("The method or operation is not implemented.");
+	return m_applicationProtocol;
 }
+
 

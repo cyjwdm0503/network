@@ -3,6 +3,8 @@
 #include "Client.h"
 #include "channelpackage.h"
 #include "contentpackage.h"
+#include "applicationpackage.h"
+#include "Log.h"
 using namespace  std;
 
 static  int CLIENTVERSION = 0;
@@ -130,12 +132,11 @@ bool CClientSession::InitInstance()
 {
 	if(m_clientchannel != NULL)
 	{
-
 		m_Session = new CClientContent(this,m_clientchannel);
 		AddHandler(m_Session);
 		return CDispatcher::InitInstance();
-
 	}
+	return false;
 }
 
 CClientSession::CClientSession( const char* clientip,const char* serverip )
@@ -145,4 +146,49 @@ CClientSession::CClientSession( const char* clientip,const char* serverip )
 	m_clientchannel = m_client->ConnectServer(serverip);
 }
 
+
+CClientApplicationSession::CClientApplicationSession(CDispatcher* dispatcher,CChannel* channel):
+	CApplicationSession(dispatcher,channel)
+{
+	;
+}
+
+int CClientApplicationSession::HandlePackage( CPackage* pPackage)
+{
+	try
+	{
+		CApplicationPackage* content = dynamic_cast<CApplicationPackage*>(pPackage);
+		int i=0;
+		if(content != NULL)
+		{
+			cout<<"recv applicationpackage from server;seqnum:"<<content->GetSequenceNo()<<endl;
+		}
+	}
+	catch(exception &e)
+	{
+		CLog::GetInstance()->PrintLog(e.what());
+	}
+	return 0;
+}
+
+
+ClientApp::ClientApp( const char* client, const char* server )
+{
+	m_client = new CClient();
+	m_client->CreateClient(client);
+	m_clientchannel = m_client->ConnectServer(server);
+}
+
+bool ClientApp::InitInstance()
+{
+	if(m_clientchannel != NULL)
+	{
+
+		m_Session = new CClientApplicationSession(this,m_clientchannel);
+		AddHandler(m_Session);
+		return CDispatcher::InitInstance();
+
+	}
+	return false;
+}
 

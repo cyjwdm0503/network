@@ -24,7 +24,7 @@ public:
 	virtual void OnConnected(int Code){};
 };
 
-class CSession:public CHandler
+class CSession:public CHandler,public CSessionCallback
 {
 public:
 	CSession(CDispatcher *selecter,CChannel *pChannel,int MaxPackageSize);
@@ -39,9 +39,7 @@ public:
 
 	virtual void HandleOutput();
 
-	virtual void Disconected( int event );
 
-	void RegisterSessionCallback(CSessionCallback* callback);
 protected:
 	CChannelProtocol* m_ChannelProtocol;
 	CChannel* m_Channel;

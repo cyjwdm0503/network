@@ -49,7 +49,7 @@ public:
 	//将其余package引用到当前package。不是复制，只是地址的复制。加了一层引用
 	void AddBuf(CPackage* pPackage);
 	//复制package
-	bool CopyPackage(CPackage* pPackage);
+	virtual bool CopyPackage(CPackage* pPackage);
 	//后面附加package
 	bool AppendPackage(CPackage* pPackage);
 	//构造一个package,可用的大小，以及保留的大小，保留的主要是用来以后Push时，可以往前推地址

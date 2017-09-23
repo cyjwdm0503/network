@@ -2,7 +2,9 @@
 #include "channelpackage.h"
 #include "contentpackage.h"
 #include "contentsession.h"
+#include "applicationpackage.h"
 #include <iostream>
+#include "Log.h"
 
 static int SERVERVERSION = 100;
 CServerApi::CServerApi(CServer* server,CChannel* channel,CDispatcher* reactor):CHandler(reactor)
@@ -78,10 +80,10 @@ void CServerApi::HandleInput()
 			return ;
 		}
 		else
-        {
-           	cout<<"CServerApi::HandleInput:"<<re<<"fp"<<m_serverchannel->Getfd()<<" char content:"<<"\t"<<endl;
-            return ;
-        }
+		{
+			cout<<"CServerApi::HandleInput:"<<re<<"fp"<<m_serverchannel->Getfd()<<" char content:"<<"\t"<<endl;
+			return ;
+		}
 		//从channelpackage中取出来对应的contentpackage
 		CContentPackage contentpackage;
 		contentpackage.AddBuf(&channelpackage);
@@ -123,8 +125,60 @@ CServerSession::~CServerSession()
 CSession* CServerSession::CreateSession( CChannel* channel )
 {
 	 
-	CContentSession*  session = new CClientContent(m_serverreactor,channel);
+	CServerApplicationSession*  session = new CServerApplicationSession(m_serverreactor,channel);
 	m_serverreactor->AddHandler(session);
 	return session;
 	
+}
+
+const int APPLICATIONPACKAGE_TEST_TIMER_ID = 9999;
+CServerApplicationSession::CServerApplicationSession( CDispatcher* dispatcher,CChannel* channel )
+	:CApplicationSession(dispatcher,channel)
+{
+	SetTimer(APPLICATIONPACKAGE_TEST_TIMER_ID,10);
+}
+
+
+
+void CServerApplicationSession::OnTimer( int event )
+{
+	if(event == APPLICATIONPACKAGE_TEST_TIMER_ID)
+	{
+
+		CApplicationPackage contentpackage;
+		contentpackage.ConstructAlloc(1024,128);
+		contentpackage.AllocMax();
+		contentpackage.SetSequenceNo(SERVERVERSION++);
+		//contentpackage.MakePackage();
+
+		if(GetProtocol() != NULL)
+		{
+			for(int i=0;i<100;i++)
+			{
+
+
+				int len = GetProtocol()->send(&contentpackage);
+				//m_leavewritelen --;
+				cout<<"Server send to client applicationpackage:seqnum:" <<  contentpackage.GetSequenceNo()<<endl;
+			}
+		}
+	}
+}
+
+int CServerApplicationSession::HandlePackage( CPackage* pPackage )
+{
+	try
+	{
+		CApplicationPackage* content = dynamic_cast<CApplicationPackage*>(pPackage);
+		int i=0;
+		if(content != NULL)
+		{
+			cout<<"recv applicationpackage from client;seqnum:"<<content->GetSequenceNo()<<endl;
+		}
+	}
+	catch(exception &e)
+	{
+		CLog::GetInstance()->PrintLog(e.what());
+	}
+	return 0;
 }

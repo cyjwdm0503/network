@@ -22,17 +22,17 @@ void CApplicationPackageHeader::FromStream( char *pStream )
 void CApplicationPackageHeader::ToStream( char *pStream )
 {
 	memcpy(pStream, this, sizeof(CApplicationPackageHeader));
-	HostToNetShort(ContentLength);
-	HostToNetShort(CommPhaseNo);
-	HostToNetShort(SubjectID);
-	HostToNetShort(FrontSubjectID);
-	HostToNetShort(Tid);
-	HostToNetDouble(SequenceNo);
-	HostToNetDouble(RequestID);
-	HostToNetDouble(SessionID);
-	HostToNetDouble(FrontSeqNo);
-	HostToNetDouble(CompSeqNo);
-	HostToNetDouble(ActiveID);
+	HostToNetShort(((CApplicationPackageHeader*)pStream)->ContentLength);
+	HostToNetShort(((CApplicationPackageHeader*)pStream)->CommPhaseNo);
+	HostToNetShort(((CApplicationPackageHeader*)pStream)->SubjectID);
+	HostToNetShort(((CApplicationPackageHeader*)pStream)->FrontSubjectID);
+	HostToNetShort(((CApplicationPackageHeader*)pStream)->Tid);
+	HostToNetLong(((CApplicationPackageHeader*)pStream)->SequenceNo);
+	HostToNetLong(((CApplicationPackageHeader*)pStream)->RequestID);
+	HostToNetLong(((CApplicationPackageHeader*)pStream)->SessionID);
+	HostToNetLong(((CApplicationPackageHeader*)pStream)->FrontSeqNo);
+	HostToNetLong(((CApplicationPackageHeader*)pStream)->CompSeqNo);
+	HostToNetLong(((CApplicationPackageHeader*)pStream)->ActiveID);
 }
 
 
@@ -67,4 +67,15 @@ int CApplicationPackage::MakePackage()
 		return -1;
 	m_ApplicationHeader.ToStream(buf);
 	return 0;
+}
+
+bool CApplicationPackage::CopyPackage( CPackage* pPackage )
+{
+	
+	CApplicationPackage* appPackage =  dynamic_cast<CApplicationPackage*>(pPackage);
+	if(appPackage !=  NULL)
+	{
+		m_ApplicationHeader = appPackage->m_ApplicationHeader;
+	}
+	return CFieldSet::CopyPackage(pPackage);
 }

@@ -3,19 +3,30 @@
 
 
 #include "contentsession.h"
-class CApplicationSession:public CContentSession,public CProtocolCallback
+#include "applicationprotocol.h"
+class PackageHandler
 {
 public:
-	virtual int HandleEvent( int event,DWORD dwParam,void* pParam );
+	virtual int HandlePackage(CPackage* pPackage){return 0;};
+};
+
+class CApplicationSession:public CContentSession,public CProtocolCallback,public PackageHandler
+{
+public:
+	CApplicationSession(CDispatcher* dispatcher,CChannel* channel);
+
 
 	virtual void OnDisconnected( int ErrorCode );
 
-	virtual void Disconected( int event );
 
 	virtual void OnTimer( int event );
 
-	virtual int HandlePackage( CPackage* pPackage,CProtocol* protocol );
+	virtual int HandlePackage(CPackage* pPackage,CProtocol* protocol );
+
+	virtual int HandlePackage(CPackage* pPackage){return 0;};
+
+	CProtocol* GetProtocol();;
 private:
-		
+	CApplicationProtocol* m_applicationProtocol;
 };
 #endif

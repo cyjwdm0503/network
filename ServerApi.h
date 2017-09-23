@@ -8,7 +8,7 @@
 #include "Handler.h"
 #include "Server.h"
 #include "SessionBase.h"
- 
+#include "applicationsession.h"
 class CServer;
 class CChannel;
 
@@ -32,6 +32,15 @@ private:
 	int m_leavewritelen;
 	int m_leavereadlen;
 	char* m_buf;
+};
+
+class CServerApplicationSession:public CApplicationSession
+{
+public:
+	CServerApplicationSession(CDispatcher* dispatcher,CChannel* channel);
+	virtual void OnTimer( int event );
+	int HandlePackage( CPackage* pPackage);
+
 };
 
 class CServerSession :public CServerAcceptManager

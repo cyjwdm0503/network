@@ -3,7 +3,8 @@
 #include "SelectReactor.h"
 #include "Client.h"
 
-#include "contentsession.h";
+#include "contentsession.h"
+#include "applicationsession.h"
 
 class CClient;
 class CChannel;
@@ -51,6 +52,23 @@ public:
 	CClientSession(const char* client,const char* server);
 	virtual bool InitInstance();
 	CContentSession* m_Session;
+	CClient* m_client;
+	CChannel* m_clientchannel;
+};
+
+class CClientApplicationSession :public CApplicationSession
+{
+public:
+	CClientApplicationSession(CDispatcher* dispatcher,CChannel* channel);
+	int HandlePackage( CPackage* pPackage);
+};
+
+class ClientApp:public CSelectReactor
+{
+public:
+	ClientApp(const char* client, const char* server);
+	virtual bool InitInstance();
+	CApplicationSession* m_Session;
 	CClient* m_client;
 	CChannel* m_clientchannel;
 };

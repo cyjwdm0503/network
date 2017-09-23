@@ -6,17 +6,20 @@
 
 #include "Protocol.h"
 const int ACTIVEID_APPLICATION = 1001;
+
+
+
 class CApplicationProtocol:public CProtocol
 {
 public:
 	CApplicationProtocol(CDispatcher* dispatcher);
 	virtual ~CApplicationProtocol();
 
+	//将应用层报文全部都交于对应的Session处理
 	virtual int Pop( CPackage* package );
 
-
-	//处理消息
-	 
+	//Session用于发送数据的接口，都通过这个接口发送
+	virtual int send(CPackage* pacakge);
 
 };
 
