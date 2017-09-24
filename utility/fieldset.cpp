@@ -20,7 +20,7 @@ bool CFieldIterator::IsEnd()
 
 bool CFieldIterator::Next()
 {
-	char* m_data =  NULL;
+	m_data =  NULL;
 	while(!m_data)
 	{
 		if(m_end-m_cur < sizeof(m_header))
@@ -31,7 +31,7 @@ bool CFieldIterator::Next()
 			NetToHostShort(m_header.FieldID);
 			NetToHostShort(m_header.FieldLength);
 		}
-		m_cur += m_header.FieldLength+sizeof(m_header);
+		m_cur += sizeof(m_header);
 
 		if(m_end-m_cur < m_header.FieldLength)
 			return false;

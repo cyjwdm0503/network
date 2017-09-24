@@ -23,6 +23,31 @@ void CFieldDescribe::SetupMember( MemberType type,int ClassOffset,int Size,const
 
 }
 
+void CFieldDescribe::SetupMember( CBaseShortType&,int ClassOffset,int Size,const char* name )
+{
+	SetupMember(MT_TWO,  ClassOffset,  Size,    name);
+}
+
+void CFieldDescribe::SetupMember( CBaseCharType&,int ClassOffset,int Size,const char* name )
+{
+	SetupMember(MT_ONE,  ClassOffset,  Size,    name);
+}
+
+void CFieldDescribe::SetupMember( CBaseDoubleType&,int ClassOffset,int Size,const char* name )
+{
+	SetupMember(MT_EIGHT,  ClassOffset,  Size,    name);
+}
+
+void CFieldDescribe::SetupMember( CBaseIntTpye&,int ClassOffset,int Size,const char* name )
+{
+	SetupMember(MT_FOUR,  ClassOffset,  Size,    name);
+}
+
+void CFieldDescribe::SetupMember( CBaseStringType&,int ClassOffset,int Size,const char* name )
+{
+	SetupMember(MT_ONE,  ClassOffset,  Size,    name);
+}
+
 void CFieldDescribe::StreamToClass( char* pField,char* pStream,int streamSize )
 {
 	for(int i=0;i < m_TotalMember;i++)
@@ -39,10 +64,10 @@ void CFieldDescribe::StreamToClass( char* pField,char* pStream,int streamSize )
 		case MT_ONE:
 			break;
 		case MT_TWO:
-			NetToHostShort(*(pField+member->classOffset));
+			NetToHostShort(*((short*)(pField+member->classOffset)));
 			break;
 		case MT_FOUR:
-			NetToHostLong(*(pField+member->classOffset));
+			NetToHostLong(*((int*)(pField+member->classOffset)));
 			break;
 		case MT_EIGHT:
 			NetToHostDouble(*(pField+member->classOffset));
@@ -59,16 +84,16 @@ void CFieldDescribe::ClassToStream( char* pClass,char* pStream )
 	{
 		SMembererDesc* member = m_MemberDesc+i;
 		memset(pStream+member->streamOffset,0,member->size);
-		memcpy(pClass+member->streamOffset,pClass+member->classOffset,member->size);
+		memcpy(pStream+member->streamOffset,pClass+member->classOffset,member->size);
 		switch (member->type)
 		{
 		case MT_ONE:
 			break;
 		case MT_TWO:
-			HostToNetShort(*(pStream+member->streamOffset));
+			HostToNetShort(*((short*)(pStream+member->streamOffset)));
 			break;
 		case MT_FOUR:
-			HostToNetLong(*(pStream+member->streamOffset));
+			HostToNetLong(*((int*)(pStream+member->streamOffset)));
 			break;
 		case MT_EIGHT:
 			HostToNetDouble(*(pStream+member->streamOffset));

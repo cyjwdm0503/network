@@ -145,6 +145,9 @@
     <ClCompile Include="..\protocol\channelsession.cpp">
       <Filter>protocol</Filter>
     </ClCompile>
+    <ClCompile Include="..\userdefine\fielddefine.cpp">
+      <Filter>userdefine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h">

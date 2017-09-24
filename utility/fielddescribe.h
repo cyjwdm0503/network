@@ -34,29 +34,14 @@ public:
 
 
 
-	inline void SetupMember(MemberType type,int ClassOffset,int Size,const char* name);
+	void SetupMember(MemberType type,int ClassOffset,int Size,const char* name);
 	
 	//设置对应数据成员的占位信息等
-	void SetupMember(CBaseStringType&,int ClassOffset,int Size,const char* name )
-	{
-		SetupMember(MT_ONE,  ClassOffset,  Size,    name);
-	}
-	void SetupMember(CBaseIntTpye&,int ClassOffset,int Size,const char* name )
-	{
-		SetupMember(MT_FOUR,  ClassOffset,  Size,    name);
-	}
-	void SetupMember(CBaseDoubleType&,int ClassOffset,int Size,const char* name )
-	{
-		SetupMember(MT_EIGHT,  ClassOffset,  Size,    name);
-	}
-	void SetupMember(CBaseCharType&,int ClassOffset,int Size,const char* name )
-	{
-		SetupMember(MT_ONE,  ClassOffset,  Size,    name);
-	}
-	void SetupMember(CBaseShortType&,int ClassOffset,int Size,const char* name )
-	{
-		SetupMember(MT_TWO,  ClassOffset,  Size,    name);
-	}
+	void SetupMember(CBaseStringType&,int ClassOffset,int Size,const char* name );
+	void SetupMember(CBaseIntTpye&,int ClassOffset,int Size,const char* name );
+	void SetupMember(CBaseDoubleType&,int ClassOffset,int Size,const char* name );
+	void SetupMember(CBaseCharType&,int ClassOffset,int Size,const char* name );
+	void SetupMember(CBaseShortType&,int ClassOffset,int Size,const char* name );
 	
 	void StreamToClass(char* pField,char* pStream,int streamSize);
 	void ClassToStream(char* pClass,char* pStream);

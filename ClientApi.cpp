@@ -4,6 +4,8 @@
 #include "channelpackage.h"
 #include "contentpackage.h"
 #include "applicationpackage.h"
+#include "packagedefine.h"
+#include "fielddefine.h"
 #include "Log.h"
 using namespace  std;
 
@@ -162,6 +164,13 @@ int CClientApplicationSession::HandlePackage( CPackage* pPackage)
 		if(content != NULL)
 		{
 			cout<<"recv applicationpackage from server;seqnum:"<<content->GetSequenceNo()<<endl;
+			if(content->GetTid()== PACKAGE_SendField_ID)
+			{
+				SendField field;;
+				content->GetSingleField(&field.m_Describe,&field);
+				cout<<"recv send Field from server:"<<endl;
+				cout<<field.m_char<<"\t"<<field.m_int<<"\t"<<field.m_string<<"\t"<<field.m_short<<endl;
+			}
 		}
 	}
 	catch(exception &e)

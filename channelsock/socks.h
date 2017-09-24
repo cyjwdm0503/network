@@ -59,25 +59,25 @@ typedef int socklen_t;
 #define NetToHostShort(value) 	\
 	{\
 	u_short s_value = ntohs((u_short)value);\
-	memcpy(&value,&s_value,sizeof(u_short));\
+	memcpy((u_short*)&(value),&s_value,sizeof(u_short));\
 	}
 
 #define NetToHostLong(value) \
 	{\
-		u_long l_value  = ntohl((u_long)value);\
-		memcpy(&value,&l_value,sizeof(u_long));\
+		u_long l_value  = ntohl((u_long)(value));\
+		memcpy((u_long*)(&(value)),&l_value,sizeof(u_long));\
 	}
 
 #define HostToNetShort(value) 	\
 	{\
 		u_short s_value  = htons((u_short)value);\
-		memcpy(&value,&s_value,sizeof(u_short));\
+		memcpy((u_short*)&(value),&s_value,sizeof(u_short));\
 	}
 
 #define HostToNetLong(value)\
 	{\
-		u_long l_value  = htonl((u_long)value);\
-		memcpy(&value,&l_value,sizeof(u_long));\
+		u_long l_value  = htonl((u_long)(value));\
+		memcpy((u_long*)(&(value)),&l_value,sizeof(u_long));\
 	}
 
 #define HostToNetDouble(value) 	\

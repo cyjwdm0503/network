@@ -4,6 +4,8 @@
 #include "contentsession.h"
 #include "applicationpackage.h"
 #include <iostream>
+#include "fielddefine.h"
+#include "packagedefine.h"
 #include "Log.h"
 
 static int SERVERVERSION = 100;
@@ -149,18 +151,22 @@ void CServerApplicationSession::OnTimer( int event )
 		contentpackage.ConstructAlloc(1024,128);
 		contentpackage.AllocMax();
 		contentpackage.SetSequenceNo(SERVERVERSION++);
+		contentpackage.SetTid(PACKAGE_SendField_ID);
+		contentpackage.Truncate(0);
+		SendField field;
+		field.m_char = 's';
+		field.m_int = SERVERVERSION++;
+		field.m_short = SERVERVERSION++;
+		field.m_string = "string";
+		contentpackage.AddField(&field.m_Describe,&field);
 		//contentpackage.MakePackage();
 
 		if(GetProtocol() != NULL)
 		{
-			for(int i=0;i<100;i++)
-			{
+			int len = GetProtocol()->send(&contentpackage);
+			//m_leavewritelen --;
+			cout<<"Server send to client applicationpackage:seqnum:" <<  contentpackage.GetSequenceNo()<<endl;
 
-
-				int len = GetProtocol()->send(&contentpackage);
-				//m_leavewritelen --;
-				cout<<"Server send to client applicationpackage:seqnum:" <<  contentpackage.GetSequenceNo()<<endl;
-			}
 		}
 	}
 }

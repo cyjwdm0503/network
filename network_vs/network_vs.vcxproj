@@ -254,6 +254,7 @@
     <ClCompile Include="..\thread\Semaphore.cpp" />
     <ClCompile Include="..\thread\Thread.cpp" />
     <ClCompile Include="..\thread\TimerHeap.cpp" />
+    <ClCompile Include="..\userdefine\fielddefine.cpp" />
     <ClCompile Include="..\utility\cachelist.cpp" />
     <ClCompile Include="..\utility\fielddescribe.cpp" />
     <ClCompile Include="..\utility\fieldset.cpp" />
