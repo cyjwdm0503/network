@@ -33,7 +33,7 @@ CProtocol::~CProtocol()
 
 void CProtocol::AttachLower( CProtocol* pLower)
 {
-	//µ×²ã±£Áô×Ö½Ú+µ±Ç°²ã±£Áô×Ö½Ú
+	//åº•å±‚ä¿ç•™å­—èŠ‚+å½“å‰å±‚ä¿ç•™å­—èŠ‚
 	m_reserveLen += pLower->GetReserverLen();
 	if(pLower != NULL)
 	{
@@ -82,10 +82,10 @@ unsigned int CProtocol::GetActiveID()
 }
 
 int CProtocol::HandlePackage( CPackage* pPackage,CProtocol* protocol )
-{//ÔÚPop»áµ÷ÓÃÉÏ²ãµÄÐ­Òé»òÕßeventhandler£¬ÐèÒªÔÚ´Ë²ãprotocol½øÐÐ½â°ü
+{//åœ¨Popä¼šè°ƒç”¨ä¸Šå±‚çš„åè®®æˆ–è€…eventhandlerï¼Œéœ€è¦åœ¨æ­¤å±‚protocolè¿›è¡Œè§£åŒ…
 	int ret = 0;
-	while (pPackage->Length() > 0)//´Ë´¦¿ÉÒÔ·¢ÏÖ£¬Ò»¸öchannelpackageÖ»ÄÜ·ÅÒ»¸öcontentpackage
-	{//ÉÏ²ãµÄpackage¼ÓÔØ´Ë°ü
+	while (pPackage->Length() > 0)//æ­¤å¤„å¯ä»¥å‘çŽ°ï¼Œä¸€ä¸ªchannelpackageåªèƒ½æ”¾ä¸€ä¸ªcontentpackage
+	{//ä¸Šå±‚çš„packageåŠ è½½æ­¤åŒ…
 		m_upperPackage->AddBuf(pPackage);
 		int len =  m_upperPackage->ValidPackage();
 
@@ -96,17 +96,17 @@ int CProtocol::HandlePackage( CPackage* pPackage,CProtocol* protocol )
 			{
 				break;
 			}
-			//ÒòÎªÒÑ¾­³É¹¦Éú³ÉÉÏ²ãµÄpackage¡£Òò´ËÕâÀïÒª°Ñµ±Ç°²ãµÄpackage¶àÓàµÄÊý¾Ý¸øPopµô
+			//å› ä¸ºå·²ç»æˆåŠŸç”Ÿæˆä¸Šå±‚çš„packageã€‚å› æ­¤è¿™é‡Œè¦æŠŠå½“å‰å±‚çš„packageå¤šä½™çš„æ•°æ®ç»™PopæŽ‰
 			pPackage->Pop(len);
 		}
 		else if(len == -1)
 		{
-			//Êý¾Ý°üÎ´ÊÕÈ«
+			//æ•°æ®åŒ…æœªæ”¶å…¨
 			break;
 		}
 		else
 		{
-			//´íÎóÊý¾Ý°üÕâÀïÊµ¼Ê½«sessionµÄÖ°ÄÜ·Åµ½ÁËprotocolÀïÃæ
+			//é”™è¯¯æ•°æ®åŒ…è¿™é‡Œå®žé™…å°†sessionçš„èŒèƒ½æ”¾åˆ°äº†protocolé‡Œé¢
 			OnRecvErrPackage(pPackage);
 			ret=len;
 			break;
@@ -155,7 +155,7 @@ int CProtocol::Pop( CPackage* package )
 {
 	int activeID = package->GetActiveID();
 	CProtocol* upper = GetUpper(activeID);
-	//Èç¹ûÃ»ÓÐ¶ÔÓ¦µÄÉÏ²ãÐ­Òé´¦Àí£¬ÔòÀûÓÃÄ¬ÈÏµÄhandler½øÐÐ´¦Àí
+	//å¦‚æžœæ²¡æœ‰å¯¹åº”çš„ä¸Šå±‚åè®®å¤„ç†ï¼Œåˆ™åˆ©ç”¨é»˜è®¤çš„handlerè¿›è¡Œå¤„ç†
 	if(upper != NULL)
 	{
 		return upper->HandlePackage(package,this);

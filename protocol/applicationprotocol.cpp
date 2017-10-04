@@ -17,16 +17,16 @@ CApplicationProtocol::~CApplicationProtocol()
 int CApplicationProtocol::Pop( CPackage* package )
 {
 	/************************************************************************/
-	/*ÔÚ´Ë´¦À´Ä¬ÈÏ´¦Àí¶ÔÓ¦µÄÒµÎñ±¨ÎÄ£¬´æÈëÒ»¸ö´øËøµÄ¶ÓÁÐÖÐ°É¡£                                                                     */
+	/*åœ¨æ­¤å¤„æ¥é»˜è®¤å¤„ç†å¯¹åº”çš„ä¸šåŠ¡æŠ¥æ–‡ï¼Œå­˜å…¥ä¸€ä¸ªå¸¦é”çš„é˜Ÿåˆ—ä¸­å§ã€‚                                                                     */
 	/************************************************************************/
 	
-	//ÓÉÓÚapplicationprotocolÒÑ¾­ÊÇ×îÉÏ²ãÐ­Òé£¬´ËÊ±µÄpopÖ÷ÒªÊÇµ÷ÓÃ¶ÔÓ¦µÄProtocolCallback¡£
-	//Òò´Ë¶ÔÓ¦µÄsessionÐèÒª¼Ì³ÐÓëProtocolCallback
+	//ç”±äºŽapplicationprotocolå·²ç»æ˜¯æœ€ä¸Šå±‚åè®®ï¼Œæ­¤æ—¶çš„popä¸»è¦æ˜¯è°ƒç”¨å¯¹åº”çš„ProtocolCallbackã€‚
+	//å› æ­¤å¯¹åº”çš„sessionéœ€è¦ç»§æ‰¿ä¸ŽProtocolCallback
 	m_uppderHandler->HandlePackage(package,this);
 	return 0;
 }
 
-//SessionÓÃÓÚ·¢ËÍÊý¾ÝµÄ½Ó¿Ú£¬¶¼Í¨¹ýÕâ¸ö½Ó¿Ú·¢ËÍ
+//Sessionç”¨äºŽå‘é€æ•°æ®çš„æŽ¥å£ï¼Œéƒ½é€šè¿‡è¿™ä¸ªæŽ¥å£å‘é€
  int CApplicationProtocol::send(CPackage* pacakge)
 {
 	m_sendPackage->CopyPackage(pacakge);

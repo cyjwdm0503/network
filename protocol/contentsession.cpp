@@ -104,7 +104,7 @@ void CClientContent::OnTimer( int event )
 
 void CClientContent::OnDisconnected( int ErrorCode )
 {
-	//É¾³ý¶¨Ê±Æ÷
+	//åˆ é™¤å®šæ—¶å™¨
 	KillTimer(SESSION_MSG);
 	CContentSession::OnDisconnected(ErrorCode);
 }

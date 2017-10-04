@@ -2,20 +2,20 @@
 #define PROTOCOL_H
 /************************************************************************/
 /* 
-·¢ËÍÊı¾İ¾­ÀúprotocolµÄ¹ı³ÌÎª
+å‘é€æ•°æ®ç»å†protocolçš„è¿‡ç¨‹ä¸º
 contentprotocol.Push()->channelprotocol.Push();
 
-»òÕß
+æˆ–è€…
 contentprotocol.Send()->channelprotocol.Push();
 
-¶ÔÓ¦µÄvilidpackage°üµÄÁ÷³ÌÎª
+å¯¹åº”çš„vilidpackageåŒ…çš„æµç¨‹ä¸º
 channelpackage.ValidPackage()->contentpackage.ValidPackage()
-¶ÔÓ¦makepackageµÄÁ÷³ÌÎª£º
+å¯¹åº”makepackageçš„æµç¨‹ä¸ºï¼š
 contentpackage.MakePackage()->channelpackage.MakePackage()
 
-protocolÖ»ÊÇÌá¹©Ò»×é¶ÔÓ¦µÄ·¢ËÍpackageÓë½ÓÊÕpackageµÄ¹ı³Ì¡£µ«ÊÇÕâ¸ö¹ı³ÌµÄÎ¬»¤¡£
-ÓÉsession½øĞĞ¸ºÔğ¡£Ã¿¸ösession¿ØÖÆºÎÊ±µ÷ÓÃprotocol½øĞĞ±¨ÎÄµÄ·¢ËÍ¡£
-sessionÖ®¼äÓĞ¼Ì³Ğ¹ØÏµ¡£
+protocolåªæ˜¯æä¾›ä¸€ç»„å¯¹åº”çš„å‘é€packageä¸æ¥æ”¶packageçš„è¿‡ç¨‹ã€‚ä½†æ˜¯è¿™ä¸ªè¿‡ç¨‹çš„ç»´æŠ¤ã€‚
+ç”±sessionè¿›è¡Œè´Ÿè´£ã€‚æ¯ä¸ªsessionæ§åˆ¶ä½•æ—¶è°ƒç”¨protocolè¿›è¡ŒæŠ¥æ–‡çš„å‘é€ã€‚
+sessionä¹‹é—´æœ‰ç»§æ‰¿å…³ç³»ã€‚
 */
 /************************************************************************/
 #include "SelectReactor.h"
@@ -29,11 +29,11 @@ using namespace std;
 
 class CProtocol;
 
-//ÊÇÓÃÀ´input->PopÊÇÓÃÀ´´¦Àí£¬µ÷ÓÃÉÏ²ã½â°üpackage»òÕß½«package·Å½øhandlepackageÀïÃæ´¦Àí£¬»òÕßµ÷ÓÃÉÏ²ãĞ­ÒéµÄÄ¬ÈÏ·½Ê½handlepackage£¬¼ÌĞø½â°ü
-//½«½â°üºóµÄÊı¾İ¼ÌĞøÔÚpopÀïÃæ´¦Àí¡¢
+//æ˜¯ç”¨æ¥input->Popæ˜¯ç”¨æ¥å¤„ç†ï¼Œè°ƒç”¨ä¸Šå±‚è§£åŒ…packageæˆ–è€…å°†packageæ”¾è¿›handlepackageé‡Œé¢å¤„ç†ï¼Œæˆ–è€…è°ƒç”¨ä¸Šå±‚åè®®çš„é»˜è®¤æ–¹å¼handlepackageï¼Œç»§ç»­è§£åŒ…
+//å°†è§£åŒ…åçš„æ•°æ®ç»§ç»­åœ¨popé‡Œé¢å¤„ç†ã€
 //
-//ºóĞèÒªÉÏ²ãĞ­Òéhandlepackage->pop->¼ÌĞøhandlepackage ¼ÌĞøpop¡£
-//µ÷ÓÃprotocolÀ´handlepackage,»òÕßÓÃ×î¶¥²ãsession½øĞĞhandlermessage¡£
+//åéœ€è¦ä¸Šå±‚åè®®handlepackage->pop->ç»§ç»­handlepackage ç»§ç»­popã€‚
+//è°ƒç”¨protocolæ¥handlepackage,æˆ–è€…ç”¨æœ€é¡¶å±‚sessionè¿›è¡Œhandlermessageã€‚
 
 class CProtocolCallback
 {
@@ -42,16 +42,16 @@ public:
 };
 
 /************************************************************************/
-/* ¼Ì³ĞÓëCHandlerÊÇÎªÁË¸øCChannelProtocol½øĞĞÊäÈëÊä³ö²Ù×÷                */
+/* ç»§æ‰¿ä¸CHandleræ˜¯ä¸ºäº†ç»™CChannelProtocolè¿›è¡Œè¾“å…¥è¾“å‡ºæ“ä½œ                */
 /************************************************************************/
 class CProtocol:public CHandler,public CProtocolCallback
 {
 public:
 	/************************************************************************/
-	/*µ÷¶ÈµÄractor
-	ÉÏ²ãµÄpackage
-	±¾²ãµÄpackage
-	±£ÁôµÄ³¤¶È
+	/*è°ƒåº¦çš„ractor
+	ä¸Šå±‚çš„package
+	æœ¬å±‚çš„package
+	ä¿ç•™çš„é•¿åº¦
 	*/
 	/************************************************************************/
 	CProtocol(CDispatcher* reactor,CPackage* pUpperPackage,CPackage* pSendPackage,int ReserverLen);
@@ -59,8 +59,8 @@ public:
 	virtual ~CProtocol();
 
 	/************************************************************************/
-	/* ÏÂ²ãĞ­Òé
-	µ±Ç°²ãµÄID,Ğ´ÓÚÏÂ²ãĞ­ÒéµÄheaderÍ·²¿¡£ÓÃÀ´Ö¸¶¨¶ÔÓ¦µÄÉÏ²ãĞ­Òé
+	/* ä¸‹å±‚åè®®
+	å½“å‰å±‚çš„ID,å†™äºä¸‹å±‚åè®®çš„headerå¤´éƒ¨ã€‚ç”¨æ¥æŒ‡å®šå¯¹åº”çš„ä¸Šå±‚åè®®
 	*/
 	/************************************************************************/
 	virtual void AttachLower(CProtocol* pLower);
@@ -69,13 +69,13 @@ public:
 
 	virtual void RegisterUpperHandler(CProtocolCallback* pUpperHandler);
 
-	//ÊÂ¼ş¶ÔÏó
+	//äº‹ä»¶å¯¹è±¡
 	virtual void RegisterErrHandler(CHandler* pHandler);
 
-	//´Ëº¯Êıµ÷ÓÃ¿Ï¶¨ÊÇÀ´×ÔÓÚÓĞ¸ö¹Ì¶¨Ê¹ÓÃ³¡¾°£¬²»È»²»ÄÜ³öÏÖexit;
-	//²»ÊÇÎªchannelprotocol£¬»òÕßcontentprotocol×¼±¸µÄ,ÊÇÉÏ²ãÏòcontentprotocol½øĞĞ·¢ËÍÊ±Ê¹ÓÃ¡£
-	//ÒòÎªsend£¬²»ÊÇ°üÒıÓÃ¡£¶øÊÇÖ±½Ó·¢ËÍ°ü£¬²»°üº¬·â×°ĞÂÍ·²¿µÄ¹ı³Ì¡£ËùÒÔÎª¶¥²ãµÄprotocol(×ÔÉí·¢ËÍÊı¾İ°üµ÷ÓÃ)¡£PushÎªÏìÓ¦ÉÏ²ãÊ¹ÓÃ¡£
-	//»òÕßcontentprotocolÖ±½Ó·¢ËÍ±¾²ãµÄÊı¾İ°ü²ÅÊ¹ÓÃ(×ÔÉí·¢ËÍÊı¾İ°üµ÷ÓÃ)¡£
+	//æ­¤å‡½æ•°è°ƒç”¨è‚¯å®šæ˜¯æ¥è‡ªäºæœ‰ä¸ªå›ºå®šä½¿ç”¨åœºæ™¯ï¼Œä¸ç„¶ä¸èƒ½å‡ºç°exit;
+	//ä¸æ˜¯ä¸ºchannelprotocolï¼Œæˆ–è€…contentprotocolå‡†å¤‡çš„,æ˜¯ä¸Šå±‚å‘contentprotocolè¿›è¡Œå‘é€æ—¶ä½¿ç”¨ã€‚
+	//å› ä¸ºsendï¼Œä¸æ˜¯åŒ…å¼•ç”¨ã€‚è€Œæ˜¯ç›´æ¥å‘é€åŒ…ï¼Œä¸åŒ…å«å°è£…æ–°å¤´éƒ¨çš„è¿‡ç¨‹ã€‚æ‰€ä»¥ä¸ºé¡¶å±‚çš„protocol(è‡ªèº«å‘é€æ•°æ®åŒ…è°ƒç”¨)ã€‚Pushä¸ºå“åº”ä¸Šå±‚ä½¿ç”¨ã€‚
+	//æˆ–è€…contentprotocolç›´æ¥å‘é€æœ¬å±‚çš„æ•°æ®åŒ…æ‰ä½¿ç”¨(è‡ªèº«å‘é€æ•°æ®åŒ…è°ƒç”¨)ã€‚
 	virtual int send(CPackage* package);
 
 	virtual int GetReserverLen() const;
@@ -83,13 +83,13 @@ public:
 	virtual unsigned int GetActiveID();
 
 	/************************************************************************/
-	/* CChannelprotocolÊÇÃ»ÓĞ¶ÔÓ¦handlePackageµÄ£¬ÊÇÎªÉÏ²ãĞ­Òé´¦Àí¶øÉè¶¨µÄ        
-	Òò´ËCChaneelProtocolÔÚHandleInputÊ±ÒÑ¾­Pop£¬·¢ÍùÉÏ²ãĞ­Òé.ÉÏ²ãĞ­ÒéÀûÓÃHandlePackageÔÙ½øĞĞÉÏ²ãµÄPop*/
+	/* CChannelprotocolæ˜¯æ²¡æœ‰å¯¹åº”handlePackageçš„ï¼Œæ˜¯ä¸ºä¸Šå±‚åè®®å¤„ç†è€Œè®¾å®šçš„        
+	å› æ­¤CChaneelProtocolåœ¨HandleInputæ—¶å·²ç»Popï¼Œå‘å¾€ä¸Šå±‚åè®®.ä¸Šå±‚åè®®åˆ©ç”¨HandlePackageå†è¿›è¡Œä¸Šå±‚çš„Pop*/
 	/************************************************************************/
 	virtual int HandlePackage(CPackage* pPackage,CProtocol* protocol);
 
 protected:
-	//Ò»¸öĞ­ÒéÉÏ²ã²»Ó¦¸Ã´æÔÚ¶à¸öactiveIDÒ»ÑùµÄÉÏ²ãĞ­Òé
+	//ä¸€ä¸ªåè®®ä¸Šå±‚ä¸åº”è¯¥å­˜åœ¨å¤šä¸ªactiveIDä¸€æ ·çš„ä¸Šå±‚åè®®
 	void AddUpper(CProtocol* pUpper);
 	
 	CProtocol* GetUpper(unsigned int activeid);
@@ -98,7 +98,7 @@ protected:
 
 	CProtocol* GetLower();
 	
-	//´«Èëµ±Ç°²ãµÄpackage£¬²¢ÕÒµ½´Ëpackage¶ÔÓ¦µÄÉÏ´ÎĞ­Òé¡£ÀûÓÃhandlepackage½øĞĞµ÷ÓÃ
+	//ä¼ å…¥å½“å‰å±‚çš„packageï¼Œå¹¶æ‰¾åˆ°æ­¤packageå¯¹åº”çš„ä¸Šæ¬¡åè®®ã€‚åˆ©ç”¨handlepackageè¿›è¡Œè°ƒç”¨
 	virtual int Pop(CPackage* package);
 
 	virtual int OnRecvErrPackage(CPackage* package);
@@ -108,14 +108,14 @@ protected:
 	virtual int Push(CPackage* package,CProtocol* protocol);
 
 protected:
-	//handler Ò»°ãÊÇprotocol¶ÔÓ¦µÄhandlerµÄsession
+	//handler ä¸€èˆ¬æ˜¯protocolå¯¹åº”çš„handlerçš„session
 	CHandler* m_errHandler;
 	CProtocolCallback* m_uppderHandler;
 
 	CPackage* m_upperPackage;
 	CPackage* m_sendPackage;
 	CProtocol* m_lower;
-	//uppermapÀïÃæÊÇ¶ÔÓ¦µÄĞ­ÒéÕ»
+	//uppermapé‡Œé¢æ˜¯å¯¹åº”çš„åè®®æ ˆ
 	map<unsigned int,CProtocol*> m_upperMap;
 	int m_reserveLen;
 	unsigned int m_activeID;

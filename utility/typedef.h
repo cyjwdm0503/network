@@ -28,54 +28,54 @@ class CBaseShortType
 };
 
 
-///¶¨ÒåÒ»¸öºÜĞ¡µÄ¸¡µãÊı£¬Õâ¸öÊıÓ¦µ±²»Ó°Ïì¼ÆËã½á¹û£¬ÓÖ´óÓÚ¸÷Àà¸¡µã¼ÆËãÎó²î
+///å®šä¹‰ä¸€ä¸ªå¾ˆå°çš„æµ®ç‚¹æ•°ï¼Œè¿™ä¸ªæ•°åº”å½“ä¸å½±å“è®¡ç®—ç»“æœï¼Œåˆå¤§äºå„ç±»æµ®ç‚¹è®¡ç®—è¯¯å·®
 #define SMALL_DOUBLE 0.0000001
 
 
 template <int length> class CStringType: public CBaseStringType
 {
 public:
-	///¹¹Ôìº¯Êı
+	///æ„é€ å‡½æ•°
 	CStringType(void)
 	{
 		//buffer[0] = '\0';
 	}
 
-	///¸´ÖÆ¹¹Ôì×Ó
-	///@param	s	¹¹ÔìµÄÔ´¶ÔÏó
+	///å¤åˆ¶æ„é€ å­
+	///@param	s	æ„é€ çš„æºå¯¹è±¡
 	CStringType(const CStringType<length>& s)
 	{
 		setValue(s.getValue());
 	}
 
-	///¸´ÖÆ¹¹Ôì×Ó
-	///@param	p	¹¹ÔìµÄÔ´¶ÔÏó
+	///å¤åˆ¶æ„é€ å­
+	///@param	p	æ„é€ çš„æºå¯¹è±¡
 	CStringType(const char *p)
 	{
 		setValue(p);
 	}
 
-	///µÈÓÚ²Ù×÷·û
-	///@param	s	µÈÓÚµÄÖµ
-	///@return	ÊäÈëµÄÖµ
+	///ç­‰äºæ“ä½œç¬¦
+	///@param	s	ç­‰äºçš„å€¼
+	///@return	è¾“å…¥çš„å€¼
 	const CStringType & operator =(const CStringType<length>& s)
 	{
 		setValue(s.getValue());
 		return s;
 	}
 
-	///µÈÓÚ²Ù×÷·û£¬´Ó×Ö·û´®ÖĞ»ñÈ¡
-	///@param	p	µÈÓÚµÄ×Ö·û´®
-	///@return	ÊäÈëµÄ×Ö·û´®
+	///ç­‰äºæ“ä½œç¬¦ï¼Œä»å­—ç¬¦ä¸²ä¸­è·å–
+	///@param	p	ç­‰äºçš„å­—ç¬¦ä¸²
+	///@return	è¾“å…¥çš„å­—ç¬¦ä¸²
 	const char * operator =(const char *p)
 	{
 		setValue(p);
 		return p;
 	}
 
-	///µÈÓÚ²Ù×÷·û£¬´ÓÕûÊıÖĞ»ñÈ¡
-	///@param	v	µÈÓÚµÄÕûÊı
-	///@return	ÊäÈëµÄÕûÊı
+	///ç­‰äºæ“ä½œç¬¦ï¼Œä»æ•´æ•°ä¸­è·å–
+	///@param	v	ç­‰äºçš„æ•´æ•°
+	///@return	è¾“å…¥çš„æ•´æ•°
 	const int operator =(const int v)
 	{
 		char tmp[100];
@@ -84,21 +84,21 @@ public:
 		return v;
 	}
 
-	///Çå³ı×Ö·û´®ÄÚÈİ
+	///æ¸…é™¤å­—ç¬¦ä¸²å†…å®¹
 	void clear(void)
 	{
 		buffer[0]='\0';
 	}
 
-	///»ñÈ¡×Ö·û´®µÄÖµ
-	///@return	×Ö·û´®µÄÖµ
+	///è·å–å­—ç¬¦ä¸²çš„å€¼
+	///@return	å­—ç¬¦ä¸²çš„å€¼
 	const char *getValue(void) const
 	{
 		return buffer;
 	}
 
-	///ÉèÖÃ×Ö·û´®µÄÖµ
-	///@param	s	ÒªÉèÖÃµÄ×Ö·û´®
+	///è®¾ç½®å­—ç¬¦ä¸²çš„å€¼
+	///@param	s	è¦è®¾ç½®çš„å­—ç¬¦ä¸²
 	void setValue(const char *s)
 	{
 		if (s==NULL)
@@ -110,8 +110,8 @@ public:
 		}
 	}
 
-	///ÔÚstrBufÖĞµÃµ½±¾ÀàĞÍµÄ×Ö·û´®±íÊ¾	
-	///@param	strBuf	ÓÃÓÚ·ÅÖÃ½á¹ûµÄ×Ö·û´®
+	///åœ¨strBufä¸­å¾—åˆ°æœ¬ç±»å‹çš„å­—ç¬¦ä¸²è¡¨ç¤º	
+	///@param	strBuf	ç”¨äºæ”¾ç½®ç»“æœçš„å­—ç¬¦ä¸²
 	void getString(char *strBuf) const
 	{
 		if (strBuf!=NULL)
@@ -121,8 +121,8 @@ public:
 		}	
 	}
 
-	///ÅĞ¶ÏÊÇ·ñÎª¿Õ
-	///@return	true±íÊ¾Îª¿Õ£¬false±íÊ¾²»Îª¿Õ
+	///åˆ¤æ–­æ˜¯å¦ä¸ºç©º
+	///@return	trueè¡¨ç¤ºä¸ºç©ºï¼Œfalseè¡¨ç¤ºä¸ä¸ºç©º
 	bool isNull(void) const
 	{
 		const char *p=buffer;
@@ -137,21 +137,21 @@ public:
 		return true;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñºÏ·¨
-	///@return	true±íÊ¾ºÏ·¨£¬false±íÊ¾²»ºÏ·¨
+	///åˆ¤æ–­æ˜¯å¦åˆæ³•
+	///@return	trueè¡¨ç¤ºåˆæ³•ï¼Œfalseè¡¨ç¤ºä¸åˆæ³•
 	bool isValid(void) const
 	{
 		return true;
 	}
 
-	///×ª»¯Îª×Ö·û´®
-	///@return	µÃµ½µÄ×Ö·û´®
+	///è½¬åŒ–ä¸ºå­—ç¬¦ä¸²
+	///@return	å¾—åˆ°çš„å­—ç¬¦ä¸²
 	operator const char *(void) const
 	{
 		return buffer;
 	}
 
-	///½«ÓÒ±ßµÄ¿Õ¸ñÉ¾³ı
+	///å°†å³è¾¹çš„ç©ºæ ¼åˆ é™¤
 	void trimRight(void)
 	{
 		char *p = buffer+strlen(buffer)-1;
@@ -166,57 +166,57 @@ public:
 		}
 	}
 
-	///ÅĞ¶ÏÊÇ·ñĞ¡ÓÚÄ³¸ö×Ö·û´®
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦å°äºæŸä¸ªå­—ç¬¦ä¸²
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator < (const char *r) const
 	{
 		return strcmp(buffer,r)<0;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñ´óÓÚÄ³¸ö×Ö·û´®
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦å¤§äºæŸä¸ªå­—ç¬¦ä¸²
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator > (const char *r) const
 	{
 		return strcmp(buffer, r)>0;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñĞ¡ÓÚµÈÓÚÄ³¸ö×Ö·û´®
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦å°äºç­‰äºæŸä¸ªå­—ç¬¦ä¸²
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator <= (const char *r) const
 	{
 		return strcmp(buffer,r)<=0;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñ´óÓÚµÈÓÚÄ³¸ö×Ö·û´®
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦å¤§äºç­‰äºæŸä¸ªå­—ç¬¦ä¸²
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator >= (const char *r) const
 	{
 		return strcmp(buffer, r)>=0;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñµÈÓÚÄ³¸ö×Ö·û´®
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦ç­‰äºæŸä¸ªå­—ç¬¦ä¸²
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator == (const char *r) const
 	{
 		return strcmp(buffer, r)==0;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñ²»µÈÓÚÄ³¸ö×Ö·û´®
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦ä¸ç­‰äºæŸä¸ªå­—ç¬¦ä¸²
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator != (const char *r) const
 	{
 		return strcmp(buffer, r)!=0;
 	}
 	
-	///²úÉúhashÖµ
-	///@param	seed	ÖÖ×Ó
-	///@return	µÃµ½µÄhashÖµ
+	///äº§ç”Ÿhashå€¼
+	///@param	seed	ç§å­
+	///@return	å¾—åˆ°çš„hashå€¼
 	unsigned int hash(unsigned int seed) const
 	{
 		unsigned long ret=seed;
@@ -242,7 +242,7 @@ public:
 
 
 protected:
-	///´æ´¢×Ö·û´®µÄÖµ
+	///å­˜å‚¨å­—ç¬¦ä¸²çš„å€¼
 	char buffer[length+1];
 };
 
@@ -254,47 +254,47 @@ protected:
 template <int length, int precision> class CDoubleType: public CBaseDoubleType
 {
 public:
-	///¹¹Ôìº¯Êı
+	///æ„é€ å‡½æ•°
 	CDoubleType(void)
 	{
 		//clear();
 	}
 
-	///¸´ÖÆ¹¹Ôì×Ó
-	///@param	f	¹¹ÔìµÄÔ´¶ÔÏó
+	///å¤åˆ¶æ„é€ å­
+	///@param	f	æ„é€ çš„æºå¯¹è±¡
 	CDoubleType(const CDoubleType& f)
 	{
 		setValue(f.getValue());
 	}
 
-	///¸´ÖÆ¹¹Ôì×Ó
-	///@param	value	¹¹ÔìµÄÔ´¶ÔÏó
+	///å¤åˆ¶æ„é€ å­
+	///@param	value	æ„é€ çš„æºå¯¹è±¡
 	CDoubleType(const double value)
 	{
 		setValue(value);
 	}
 
-	///µÈÓÚ²Ù×÷·û
-	///@param	f	µÈÓÚµÄÖµ
-	///@return	ÊäÈëµÄÖµ
+	///ç­‰äºæ“ä½œç¬¦
+	///@param	f	ç­‰äºçš„å€¼
+	///@return	è¾“å…¥çš„å€¼
 	const CDoubleType & operator =(const CDoubleType& f)
 	{
 		setValue(f.getValue());
 		return f;
 	}
 
-	///µÈÓÚ²Ù×÷·û£¬´Ó¸¡µãÊıÖĞ»ñÈ¡
-	///@param	v	µÈÓÚµÄ¸¡µãÊı
-	///@return	ÊäÈëµÄ×Ö¸¡µãÊı
+	///ç­‰äºæ“ä½œç¬¦ï¼Œä»æµ®ç‚¹æ•°ä¸­è·å–
+	///@param	v	ç­‰äºçš„æµ®ç‚¹æ•°
+	///@return	è¾“å…¥çš„å­—æµ®ç‚¹æ•°
 	const double operator =(const double value)
 	{
 		setValue(value);
 		return value;
 	}
 
-	///µÈÓÚ²Ù×÷·û£¬´Ó×Ö·û´®ÖĞ»ñÈ¡
-	///@param	v	µÈÓÚµÄ×Ö·û´®
-	///@return	ÊäÈëµÄ×Ö·û´®
+	///ç­‰äºæ“ä½œç¬¦ï¼Œä»å­—ç¬¦ä¸²ä¸­è·å–
+	///@param	v	ç­‰äºçš„å­—ç¬¦ä¸²
+	///@return	è¾“å…¥çš„å­—ç¬¦ä¸²
 	const char * operator = (const char *v)
 	{
 		if (v[0]=='\0')
@@ -308,26 +308,26 @@ public:
 		return v;
 	}
 
-	///Çå³ıÄÚÈİ£¬¾ÍÊÇ½«ÖµÉèÎª0
+	///æ¸…é™¤å†…å®¹ï¼Œå°±æ˜¯å°†å€¼è®¾ä¸º0
 	void clear(void)
 	{
 		value=0.0;
 	}
 
-	///»ñÈ¡Öµ
-	///@return	»ñÈ¡µÄÖµ
+	///è·å–å€¼
+	///@return	è·å–çš„å€¼
 	const double getValue(void) const
 	{
 		return value;
 	}
 
-	///ÉèÖÃÖµ
-	///@param	v	ÒªÉèÖÃµÄÖµ
+	///è®¾ç½®å€¼
+	///@param	v	è¦è®¾ç½®çš„å€¼
 	void setValue(const double v)
 	{
 		if ((v<SMALL_DOUBLE)&&(v>-SMALL_DOUBLE))
 		{
-			///ÕâÑùÊÇÎªÁË·ÀÖ¹³öÏÖ-0.00000µÄÇé¿ö¡£¶ÔÓÚÄ³Ğ©¸¡µã¼ÆËãÆ÷£¬ÔÚ¼ÆËãÀıÈç-31.0+31.0Ê±£¬µÃµ½µÄ½á¹ûÊÇ-0.0£¬¶ø·Ç0.0
+			///è¿™æ ·æ˜¯ä¸ºäº†é˜²æ­¢å‡ºç°-0.00000çš„æƒ…å†µã€‚å¯¹äºæŸäº›æµ®ç‚¹è®¡ç®—å™¨ï¼Œåœ¨è®¡ç®—ä¾‹å¦‚-31.0+31.0æ—¶ï¼Œå¾—åˆ°çš„ç»“æœæ˜¯-0.0ï¼Œè€Œé0.0
 			value=0.0;
 		}
 		else
@@ -336,8 +336,8 @@ public:
 		}
 	}
 
-	///ÔÚstrBufÖĞµÃµ½±¾ÀàĞÍµÄ×Ö·û´®±íÊ¾	
-	///@param	strBuf	ÓÃÓÚ·ÅÖÃ½á¹ûµÄ×Ö·û´®
+	///åœ¨strBufä¸­å¾—åˆ°æœ¬ç±»å‹çš„å­—ç¬¦ä¸²è¡¨ç¤º	
+	///@param	strBuf	ç”¨äºæ”¾ç½®ç»“æœçš„å­—ç¬¦ä¸²
 	void getString(char *strBuf) const
 	{
 		if (strBuf!=NULL)
@@ -353,8 +353,8 @@ public:
 		}	
 	}	
 
-	///ÅĞ¶ÏÊÇ·ñÎª¿Õ
-	///@return	true±íÊ¾Îª¿Õ£¬false±íÊ¾²»Îª¿Õ
+	///åˆ¤æ–­æ˜¯å¦ä¸ºç©º
+	///@return	trueè¡¨ç¤ºä¸ºç©ºï¼Œfalseè¡¨ç¤ºä¸ä¸ºç©º
 	bool isNull(void) const
 	{
 		if (value==DBL_MAX)
@@ -363,8 +363,8 @@ public:
 			return false;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñºÏ·¨
-	///@return	true±íÊ¾ºÏ·¨£¬false±íÊ¾²»ºÏ·¨
+	///åˆ¤æ–­æ˜¯å¦åˆæ³•
+	///@return	trueè¡¨ç¤ºåˆæ³•ï¼Œfalseè¡¨ç¤ºä¸åˆæ³•
 	bool isValid(void) const
 	{
 		if (value==DBL_MAX)
@@ -376,157 +376,157 @@ public:
 		return true;
 	}
 
-	///×ª»¯ÎªÊµÊı
-	///@return	µÃµ½µÄÊµÊı
+	///è½¬åŒ–ä¸ºå®æ•°
+	///@return	å¾—åˆ°çš„å®æ•°
 	operator const double (void) const
 	{
 		return value;
 	}
 	
-	///¼ÓÉÏÄ³¸öÖµ
-	///@param	v	Òª¼ÓµÄÖµ
-	///@return	ÔËËãÒÔºóµÄ½á¹û
+	///åŠ ä¸ŠæŸä¸ªå€¼
+	///@param	v	è¦åŠ çš„å€¼
+	///@return	è¿ç®—ä»¥åçš„ç»“æœ
 	const double operator += (const double v)
 	{
 		setValue(value+v);
 		return v;
 	}
 
-	///¼õÈ¥Ä³¸öÖµ
-	///@param	v	Òª¼õµÄÖµ
-	///@return	ÔËËãÒÔºóµÄ½á¹û
+	///å‡å»æŸä¸ªå€¼
+	///@param	v	è¦å‡çš„å€¼
+	///@return	è¿ç®—ä»¥åçš„ç»“æœ
 	const double operator -= (double v)
 	{
 		setValue(value-v);
 		return v;
 	}
 
-	///³ËÉÏÄ³¸öÖµ
-	///@param	v	Òª³ËµÄÖµ
-	///@return	ÔËËãÒÔºóµÄ½á¹û
+	///ä¹˜ä¸ŠæŸä¸ªå€¼
+	///@param	v	è¦ä¹˜çš„å€¼
+	///@return	è¿ç®—ä»¥åçš„ç»“æœ
 	const double operator *= (const double v)
 	{
 		setValue(value*v);
 		return v;
 	}
 
-	///³ıÒÔÄ³¸öÖµ
-	///@param	v	Òª³ıµÄÖµ
-	///@return	ÔËËãÒÔºóµÄ½á¹û
+	///é™¤ä»¥æŸä¸ªå€¼
+	///@param	v	è¦é™¤çš„å€¼
+	///@return	è¿ç®—ä»¥åçš„ç»“æœ
 	const double operator /= (const double v)
 	{
 		setValue(value/v);
 		return v;
 	}
 	
-	///Õû³ıÄ³¸öÖµ
-	///@param	v	Òª³ıµÄÖµ
-	///@return	ÔËËãÒÔºóµÄ½á¹û
+	///æ•´é™¤æŸä¸ªå€¼
+	///@param	v	è¦é™¤çš„å€¼
+	///@return	è¿ç®—ä»¥åçš„ç»“æœ
 	const int operator &(const double v) const
 	{
 		
 		return (int)(floor(value/v+SMALL_DOUBLE));
 	}
 
-	///ÅĞ¶ÏÊÇ·ñĞ¡ÓÚÄ³¸öÖµ
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦å°äºæŸä¸ªå€¼
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator < (double r) const
 	{
 		return value < r-SMALL_DOUBLE;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñ´óÓÚÄ³¸öÖµ
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦å¤§äºæŸä¸ªå€¼
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator > (double r) const
 	{
 		return value > r+SMALL_DOUBLE;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñĞ¡ÓÚµÈÓÚÄ³¸öÖµ
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦å°äºç­‰äºæŸä¸ªå€¼
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator <= (double r) const
 	{
 		return value <= r+SMALL_DOUBLE;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñ´óÓÚµÈÓÚÄ³¸öÖµ
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦å¤§äºç­‰äºæŸä¸ªå€¼
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator >= (double r) const
 	{
 		return value >= r-SMALL_DOUBLE;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñµÈÓÚÄ³¸öÖµ
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦ç­‰äºæŸä¸ªå€¼
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator == (double r) const
 	{
 		return fabs(value-r)<=SMALL_DOUBLE;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñ²»µÈÓÚÄ³¸öÖµ
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦ä¸ç­‰äºæŸä¸ªå€¼
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator != (double r) const
 	{
 		return fabs(value-r)>SMALL_DOUBLE;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñĞ¡ÓÚÄ³¸öÖµ
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦å°äºæŸä¸ªå€¼
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator < (int r) const
 	{
 		return value < r-SMALL_DOUBLE;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñ´óÓÚÄ³¸öÖµ
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦å¤§äºæŸä¸ªå€¼
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator > (int r) const
 	{
 		return value > r+SMALL_DOUBLE;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñĞ¡ÓÚµÈÓÚÄ³¸öÖµ
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦å°äºç­‰äºæŸä¸ªå€¼
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator <= (int r) const
 	{
 		return value <= r+SMALL_DOUBLE;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñ´óÓÚµÈÓÚÄ³¸öÖµ
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦å¤§äºç­‰äºæŸä¸ªå€¼
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator >= (int r) const
 	{
 		return value >= r-SMALL_DOUBLE;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñµÈÓÚÄ³¸öÖµ
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦ç­‰äºæŸä¸ªå€¼
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator == (int r) const
 	{
 		return fabs(value-r)<=SMALL_DOUBLE;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñ²»µÈÓÚÄ³¸öÖµ
-	///@param	r	ÓÒ±ßÏî
-	///@return	true±íÊ¾ÊÇ£¬false±íÊ¾·ñ
+	///åˆ¤æ–­æ˜¯å¦ä¸ç­‰äºæŸä¸ªå€¼
+	///@param	r	å³è¾¹é¡¹
+	///@return	trueè¡¨ç¤ºæ˜¯ï¼Œfalseè¡¨ç¤ºå¦
 	bool operator != (int r) const
 	{
 		return fabs(value-r)>SMALL_DOUBLE;
 	}
 
-	///²úÉúhashÖµ
-	///@param	seed	ÖÖ×Ó
-	///@return	µÃµ½µÄhashÖµ
+	///äº§ç”Ÿhashå€¼
+	///@param	seed	ç§å­
+	///@return	å¾—åˆ°çš„hashå€¼
 	unsigned int hash(unsigned int seed) const
 	{
 		unsigned long ret=seed;
@@ -548,7 +548,7 @@ public:
 	}
 
 protected:
-	///´æ´¢¸¡µãÊıµÄÖµ
+	///å­˜å‚¨æµ®ç‚¹æ•°çš„å€¼
 	double value;
 };
 
@@ -560,75 +560,75 @@ protected:
 class CIntType: public CBaseIntTpye
 {
 public:
-	///¹¹Ôìº¯Êı
+	///æ„é€ å‡½æ•°
 	CIntType(void)
 	{
 		//clear();
 	}
 
-	///¸´ÖÆ¹¹Ôì×Ó
-	///@param	i	¹¹ÔìµÄÔ´¶ÔÏó
+	///å¤åˆ¶æ„é€ å­
+	///@param	i	æ„é€ çš„æºå¯¹è±¡
 	CIntType(const CIntType& i)
 	{
 		setValue(i.getValue());
 	}
 
-	///¸´ÖÆ¹¹Ôì×Ó
-	///@param	i	¹¹ÔìµÄÔ´¶ÔÏó
+	///å¤åˆ¶æ„é€ å­
+	///@param	i	æ„é€ çš„æºå¯¹è±¡
 	CIntType(const int i)
 	{
 		setValue(i);
 	}
 
-	///µÈÓÚ²Ù×÷·û
-	///@param	i	µÈÓÚµÄÖµ
-	///@return	ÊäÈëµÄÖµ
+	///ç­‰äºæ“ä½œç¬¦
+	///@param	i	ç­‰äºçš„å€¼
+	///@return	è¾“å…¥çš„å€¼
 	const CIntType & operator =(const CIntType& i)
 	{
 		setValue(i.getValue());
 		return i;
 	}
 
-	///µÈÓÚ²Ù×÷·û£¬´ÓÕûÊıÖĞ»ñÈ¡
-	///@param	i	µÈÓÚµÄÕûÊı
-	///@return	ÊäÈëµÄÕûÊı
+	///ç­‰äºæ“ä½œç¬¦ï¼Œä»æ•´æ•°ä¸­è·å–
+	///@param	i	ç­‰äºçš„æ•´æ•°
+	///@return	è¾“å…¥çš„æ•´æ•°
 	const int operator =(const int i)
 	{
 		setValue(i);
 		return i;
 	}
 
-	///µÈÓÚ²Ù×÷·û£¬´Ó×Ö·û´®ÖĞ»ñÈ¡
-	///@param	v	µÈÓÚµÄ×Ö·û´®
-	///@return	ÊäÈëµÄ×Ö·û´®
+	///ç­‰äºæ“ä½œç¬¦ï¼Œä»å­—ç¬¦ä¸²ä¸­è·å–
+	///@param	v	ç­‰äºçš„å­—ç¬¦ä¸²
+	///@return	è¾“å…¥çš„å­—ç¬¦ä¸²
 	const char * operator =(const char *v)
 	{
 		setValue(atoi(v));
 		return v;
 	}
 
-	///Çå³ıÄÚÈİ£¬¾ÍÊÇ½«ÖµÉèÎª0
+	///æ¸…é™¤å†…å®¹ï¼Œå°±æ˜¯å°†å€¼è®¾ä¸º0
 	void clear(void)
 	{
 		value=0;
 	}
 	
-	///»ñÈ¡Öµ
-	///@return	»ñÈ¡µÄÖµ
+	///è·å–å€¼
+	///@return	è·å–çš„å€¼
 	const int getValue(void) const
 	{
 		return value;
 	}
 
-	///ÉèÖÃÖµ
-	///@param	v	ÒªÉèÖÃµÄÖµ
+	///è®¾ç½®å€¼
+	///@param	v	è¦è®¾ç½®çš„å€¼
 	void setValue(const int v)
 	{
 		value=v;
 	}
 
-	///ÔÚstrBufÖĞµÃµ½±¾ÀàĞÍµÄ×Ö·û´®±íÊ¾	
-	///@param	strBuf	ÓÃÓÚ·ÅÖÃ½á¹ûµÄ×Ö·û´®
+	///åœ¨strBufä¸­å¾—åˆ°æœ¬ç±»å‹çš„å­—ç¬¦ä¸²è¡¨ç¤º	
+	///@param	strBuf	ç”¨äºæ”¾ç½®ç»“æœçš„å­—ç¬¦ä¸²
 	void getString(char *strBuf) const
 	{
 		if (strBuf!=NULL)
@@ -637,75 +637,75 @@ public:
 		}	
 	}	
 
-	///ÅĞ¶ÏÊÇ·ñÎª¿Õ
-	///@return	true±íÊ¾Îª¿Õ£¬false±íÊ¾²»Îª¿Õ
+	///åˆ¤æ–­æ˜¯å¦ä¸ºç©º
+	///@return	trueè¡¨ç¤ºä¸ºç©ºï¼Œfalseè¡¨ç¤ºä¸ä¸ºç©º
 	bool isNull(void) const
 	{
 		return false;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñºÏ·¨
-	///@return	true±íÊ¾ºÏ·¨£¬false±íÊ¾²»ºÏ·¨
+	///åˆ¤æ–­æ˜¯å¦åˆæ³•
+	///@return	trueè¡¨ç¤ºåˆæ³•ï¼Œfalseè¡¨ç¤ºä¸åˆæ³•
 	bool isValid(void) const
 	{
 		return true;
 	}
 
-	///×ª»¯ÎªÕûÊı
-	///@return	µÃµ½µÄÕûÊı
+	///è½¬åŒ–ä¸ºæ•´æ•°
+	///@return	å¾—åˆ°çš„æ•´æ•°
 	operator const int (void) const
 	{
 		return value;
 	}
 
-	///±¾¶ÔÏó¼ÓÉÏÄ³¸öÖµ
-	///@param	v	Òª¼ÓµÄÖµ
-	///@return	µÃµ½µÄÖµ
+	///æœ¬å¯¹è±¡åŠ ä¸ŠæŸä¸ªå€¼
+	///@param	v	è¦åŠ çš„å€¼
+	///@return	å¾—åˆ°çš„å€¼
 	const int operator += (const int v)
 	{
 		setValue(value+v);
 		return value;
 	}
 	
-	///±¾¶ÔÏó¼õÈ¥Ä³¸öÖµ
-	///@param	v	Òª¼õµÄÖµ
-	///@return	µÃµ½µÄÖµ
+	///æœ¬å¯¹è±¡å‡å»æŸä¸ªå€¼
+	///@param	v	è¦å‡çš„å€¼
+	///@return	å¾—åˆ°çš„å€¼
 	const int operator -= (const int v)
 	{
 		setValue(value-v);
 		return value;
 	}
 
-	///±¾¶ÔÏó³ËÒÔÄ³¸öÖµ
-	///@param	v	Òª³ËµÄÖµ
-	///@return	µÃµ½µÄÖµ
+	///æœ¬å¯¹è±¡ä¹˜ä»¥æŸä¸ªå€¼
+	///@param	v	è¦ä¹˜çš„å€¼
+	///@return	å¾—åˆ°çš„å€¼
 	const int operator *= (const int v)
 	{
 		setValue(value*v);
 		return value;
 	}
 
-	///±¾¶ÔÏó³ıÒÔÄ³¸öÖµ
-	///@param	v	Òª³ıµÄÖµ
-	///@return	µÃµ½µÄÖµ
+	///æœ¬å¯¹è±¡é™¤ä»¥æŸä¸ªå€¼
+	///@param	v	è¦é™¤çš„å€¼
+	///@return	å¾—åˆ°çš„å€¼
 	const int operator /= (const int v)
 	{
 		setValue(value/v);
 		return value;
 	}
 
-	///±¾¶ÔÏóÄ£Ä³¸öÖµ
-	///@param	v	ÒªÄ£µÄÖµ
-	///@return	µÃµ½µÄÖµ
+	///æœ¬å¯¹è±¡æ¨¡æŸä¸ªå€¼
+	///@param	v	è¦æ¨¡çš„å€¼
+	///@return	å¾—åˆ°çš„å€¼
 	const int operator %= (const int v)
 	{
 		setValue(value%v);
 		return value;
 	}
 
-	///²úÉúhashÖµ
-	///@param	seed	ÖÖ×Ó
-	///@return	µÃµ½µÄhashÖµ
+	///äº§ç”Ÿhashå€¼
+	///@param	seed	ç§å­
+	///@return	å¾—åˆ°çš„hashå€¼
 	unsigned int hash(unsigned int seed) const
 	{
 		unsigned long ret=seed;
@@ -718,7 +718,7 @@ public:
 	}
 
 protected:
-	///´æ´¢ÕûÊıµÄÖµ
+	///å­˜å‚¨æ•´æ•°çš„å€¼
 	int value;
 };
 
@@ -728,69 +728,69 @@ typedef const CIntType CReadOnlyIntType;
 template <int from, int to> class CRangeIntType: public CBaseIntTpye
 {
 public:
-	///¹¹Ôìº¯Êı
+	///æ„é€ å‡½æ•°
 	CRangeIntType(void)
 	{
 		//clear();
 	}
 
-	///¸´ÖÆ¹¹Ôì×Ó
-	///@param	i	¹¹ÔìµÄÔ´¶ÔÏó
+	///å¤åˆ¶æ„é€ å­
+	///@param	i	æ„é€ çš„æºå¯¹è±¡
 	CRangeIntType(const CRangeIntType<from,to>& i)
 	{
 		setValue(i.getValue());
 	}
 
-	///¸´ÖÆ¹¹Ôì×Ó
-	///@param	i	¹¹ÔìµÄÔ´¶ÔÏó
+	///å¤åˆ¶æ„é€ å­
+	///@param	i	æ„é€ çš„æºå¯¹è±¡
 	CRangeIntType(const int i)
 	{
 		setValue(i);
 	}
 
-	///µÈÓÚ²Ù×÷·û
-	///@param	i	µÈÓÚµÄÖµ
-	///@return	ÊäÈëµÄÖµ
+	///ç­‰äºæ“ä½œç¬¦
+	///@param	i	ç­‰äºçš„å€¼
+	///@return	è¾“å…¥çš„å€¼
 	const CRangeIntType<from,to> & operator =(const CRangeIntType<from,to>& i)
 	{
 		setValue(i.getValue());
 		return i;
 	}
 
-	///µÈÓÚ²Ù×÷·û£¬´ÓÕûÊıÖĞ»ñÈ¡
-	///@param	i	µÈÓÚµÄÕûÊı
-	///@return	ÊäÈëµÄÕûÊı
+	///ç­‰äºæ“ä½œç¬¦ï¼Œä»æ•´æ•°ä¸­è·å–
+	///@param	i	ç­‰äºçš„æ•´æ•°
+	///@return	è¾“å…¥çš„æ•´æ•°
 	const int operator =(const int i)
 	{
 		setValue(i);
 		return i;
 	}
 
-	///µÈÓÚ²Ù×÷·û£¬´Ó×Ö·û´®ÖĞ»ñÈ¡
-	///@param	v	µÈÓÚµÄ×Ö·û´®
-	///@return	ÊäÈëµÄ×Ö·û´®
+	///ç­‰äºæ“ä½œç¬¦ï¼Œä»å­—ç¬¦ä¸²ä¸­è·å–
+	///@param	v	ç­‰äºçš„å­—ç¬¦ä¸²
+	///@return	è¾“å…¥çš„å­—ç¬¦ä¸²
 	const char * operator =(const char *v)
 	{
 		setValue(atoi(v));
 		return v;
 	}
 
-	///Çå³ıÄÚÈİ£¬¾ÍÊÇ½«ÖµÉèÎªfrom
+	///æ¸…é™¤å†…å®¹ï¼Œå°±æ˜¯å°†å€¼è®¾ä¸ºfrom
 	void clear(void)
 	{
 		value=from;
 	}
 
-	///»ñÈ¡Öµ
-	///@return	»ñÈ¡µÄÖµ
+	///è·å–å€¼
+	///@return	è·å–çš„å€¼
 	const int getValue(void) const
 	{
 		return value;
 	}
 
-	///ÉèÖÃÖµ
-	///@param	v	ÒªÉèÖÃµÄÖµ
-	///@exception	CRuntimeError	·¢ÏÖÊıÖµÔ½½ç£¬ÔòÅ×³ö´ËÒì³£
+	///è®¾ç½®å€¼
+	///@param	v	è¦è®¾ç½®çš„å€¼
+	///@exception	CRuntimeError	å‘ç°æ•°å€¼è¶Šç•Œï¼Œåˆ™æŠ›å‡ºæ­¤å¼‚å¸¸
 	void setValue(const int v)
 	{
 		/*
@@ -802,8 +802,8 @@ public:
 		value=v;
 	}
 
-	///ÔÚstrBufÖĞµÃµ½±¾ÀàĞÍµÄ×Ö·û´®±íÊ¾	
-	///@param	strBuf	ÓÃÓÚ·ÅÖÃ½á¹ûµÄ×Ö·û´®
+	///åœ¨strBufä¸­å¾—åˆ°æœ¬ç±»å‹çš„å­—ç¬¦ä¸²è¡¨ç¤º	
+	///@param	strBuf	ç”¨äºæ”¾ç½®ç»“æœçš„å­—ç¬¦ä¸²
 	void getString(char *strBuf) const
 	{
 		if (strBuf!=NULL)
@@ -812,15 +812,15 @@ public:
 		}	
 	}
 
-	///ÅĞ¶ÏÊÇ·ñÎª¿Õ
-	///@return	true±íÊ¾Îª¿Õ£¬false±íÊ¾²»Îª¿Õ
+	///åˆ¤æ–­æ˜¯å¦ä¸ºç©º
+	///@return	trueè¡¨ç¤ºä¸ºç©ºï¼Œfalseè¡¨ç¤ºä¸ä¸ºç©º
 	bool isNull(void) const
 	{
 		return false;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñºÏ·¨
-	///@return	true±íÊ¾ºÏ·¨£¬false±íÊ¾²»ºÏ·¨
+	///åˆ¤æ–­æ˜¯å¦åˆæ³•
+	///@return	trueè¡¨ç¤ºåˆæ³•ï¼Œfalseè¡¨ç¤ºä¸åˆæ³•
 	bool isValid(void) const
 	{
 		if ((value>to)||(value<from))
@@ -829,61 +829,61 @@ public:
 			return true;
 	}
 
-	///×ª»¯ÎªÕûÊı
-	///@return	µÃµ½µÄÕûÊı
+	///è½¬åŒ–ä¸ºæ•´æ•°
+	///@return	å¾—åˆ°çš„æ•´æ•°
 	operator const int (void) const
 	{
 		return value;
 	}
 
-	///±¾¶ÔÏó¼ÓÉÏÄ³¸öÖµ
-	///@param	v	Òª¼ÓµÄÖµ
-	///@return	µÃµ½µÄÖµ
+	///æœ¬å¯¹è±¡åŠ ä¸ŠæŸä¸ªå€¼
+	///@param	v	è¦åŠ çš„å€¼
+	///@return	å¾—åˆ°çš„å€¼
 	const int operator += (const int v)
 	{
 		setValue(value+v);
 		return value;
 	}
 	
-	///±¾¶ÔÏó¼õÈ¥Ä³¸öÖµ
-	///@param	v	Òª¼õµÄÖµ
-	///@return	µÃµ½µÄÖµ
+	///æœ¬å¯¹è±¡å‡å»æŸä¸ªå€¼
+	///@param	v	è¦å‡çš„å€¼
+	///@return	å¾—åˆ°çš„å€¼
 	const int operator -= (const int v)
 	{
 		setValue(value-v);
 		return value;
 	}
 
-	///±¾¶ÔÏó³ËÒÔÄ³¸öÖµ
-	///@param	v	Òª³ËµÄÖµ
-	///@return	µÃµ½µÄÖµ
+	///æœ¬å¯¹è±¡ä¹˜ä»¥æŸä¸ªå€¼
+	///@param	v	è¦ä¹˜çš„å€¼
+	///@return	å¾—åˆ°çš„å€¼
 	const int operator *= (const int v)
 	{
 		setValue(value*v);
 		return value;
 	}
 
-	///±¾¶ÔÏó³ıÒÔÄ³¸öÖµ
-	///@param	v	Òª³ıµÄÖµ
-	///@return	µÃµ½µÄÖµ
+	///æœ¬å¯¹è±¡é™¤ä»¥æŸä¸ªå€¼
+	///@param	v	è¦é™¤çš„å€¼
+	///@return	å¾—åˆ°çš„å€¼
 	const int operator /= (const int v)
 	{
 		setValue(value/v);
 		return value;
 	}
 
-	///±¾¶ÔÏóÄ£Ä³¸öÖµ
-	///@param	v	ÒªÄ£µÄÖµ
-	///@return	µÃµ½µÄÖµ
+	///æœ¬å¯¹è±¡æ¨¡æŸä¸ªå€¼
+	///@param	v	è¦æ¨¡çš„å€¼
+	///@return	å¾—åˆ°çš„å€¼
 	const int operator %= (const int v)
 	{
 		setValue(value%v);
 		return value;
 	}
 
-	///²úÉúhashÖµ
-	///@param	seed	ÖÖ×Ó
-	///@return	µÃµ½µÄhashÖµ
+	///äº§ç”Ÿhashå€¼
+	///@param	seed	ç§å­
+	///@return	å¾—åˆ°çš„hashå€¼
 	unsigned int hash(unsigned int seed) const
 	{
 		unsigned long ret=seed;
@@ -895,7 +895,7 @@ public:
 		return ((ret>>16)^ret);
 	}
 protected:
-	///´æ´¢ÕûÊıµÄÖµ
+	///å­˜å‚¨æ•´æ•°çš„å€¼
 	int value;
 };
 
@@ -907,75 +907,75 @@ protected:
 class CCharType: public CBaseCharType
 {
 public:
-	///¹¹Ôìº¯Êı
+	///æ„é€ å‡½æ•°
 	CCharType(void)
 	{
 		//clear();
 	}
 
-	///¸´ÖÆ¹¹Ôì×Ó
-	///@param	c	¹¹ÔìµÄÔ´¶ÔÏó
+	///å¤åˆ¶æ„é€ å­
+	///@param	c	æ„é€ çš„æºå¯¹è±¡
 	CCharType(const CCharType& c)
 	{
 		setValue(c.getValue());
 	}
 
-	///¸´ÖÆ¹¹Ôì×Ó
-	///@param	c	¹¹ÔìµÄÔ´¶ÔÏó
+	///å¤åˆ¶æ„é€ å­
+	///@param	c	æ„é€ çš„æºå¯¹è±¡
 	CCharType(const char c)
 	{
 		setValue(c);
 	}
 
-	///µÈÓÚ²Ù×÷·û
-	///@param	c	µÈÓÚµÄÖµ
-	///@return	ÊäÈëµÄÖµ
+	///ç­‰äºæ“ä½œç¬¦
+	///@param	c	ç­‰äºçš„å€¼
+	///@return	è¾“å…¥çš„å€¼
 	const CCharType & operator =(const CCharType& c)
 	{
 		setValue(c.getValue());
 		return c;
 	}
 
-	///µÈÓÚ²Ù×÷·û£¬´Ó×Ö·ûÖĞ»ñÈ¡
-	///@param	c	µÈÓÚµÄ×Ö·û
-	///@return	ÊäÈëµÄ×Ö·û
+	///ç­‰äºæ“ä½œç¬¦ï¼Œä»å­—ç¬¦ä¸­è·å–
+	///@param	c	ç­‰äºçš„å­—ç¬¦
+	///@return	è¾“å…¥çš„å­—ç¬¦
 	const char operator =(const char c)
 	{
 		setValue(c);
 		return c;
 	}
 
-	///µÈÓÚ²Ù×÷·û£¬´Ó×Ö·û´®ÖĞ»ñÈ¡
-	///@param	v	µÈÓÚµÄ×Ö·û´®
-	///@return	ÊäÈëµÄ×Ö·û´®
+	///ç­‰äºæ“ä½œç¬¦ï¼Œä»å­—ç¬¦ä¸²ä¸­è·å–
+	///@param	v	ç­‰äºçš„å­—ç¬¦ä¸²
+	///@return	è¾“å…¥çš„å­—ç¬¦ä¸²
 	const char * operator =(const char *v)
 	{
 		setValue(*v);
 		return v;
 	}
 
-	///Çå³ıÄÚÈİ£¬¾ÍÊÇ½«ÖµÉèÎª'\0'
+	///æ¸…é™¤å†…å®¹ï¼Œå°±æ˜¯å°†å€¼è®¾ä¸º'\0'
 	void clear(void)
 	{
 		value='\0';
 	}
 	
-	///»ñÈ¡Öµ
-	///@return	»ñÈ¡µÄÖµ
+	///è·å–å€¼
+	///@return	è·å–çš„å€¼
 	char getValue(void) const
 	{
 		return value;
 	}
 
-	///ÉèÖÃÖµ
-	///@param	v	ÒªÉèÖÃµÄÖµ
+	///è®¾ç½®å€¼
+	///@param	v	è¦è®¾ç½®çš„å€¼
 	void setValue(const char v)
 	{
 		value=v;
 	}
 
-	///ÔÚstrBufÖĞµÃµ½±¾ÀàĞÍµÄ×Ö·û´®±íÊ¾	
-	///@param	strBuf	ÓÃÓÚ·ÅÖÃ½á¹ûµÄ×Ö·û´®
+	///åœ¨strBufä¸­å¾—åˆ°æœ¬ç±»å‹çš„å­—ç¬¦ä¸²è¡¨ç¤º	
+	///@param	strBuf	ç”¨äºæ”¾ç½®ç»“æœçš„å­—ç¬¦ä¸²
 	void getString(char *strBuf) const
 	{
 		if (strBuf!=NULL)
@@ -984,30 +984,30 @@ public:
 		}	
 	}	
 
-	///ÅĞ¶ÏÊÇ·ñÎª¿Õ
-	///@return	true±íÊ¾Îª¿Õ£¬false±íÊ¾²»Îª¿Õ
+	///åˆ¤æ–­æ˜¯å¦ä¸ºç©º
+	///@return	trueè¡¨ç¤ºä¸ºç©ºï¼Œfalseè¡¨ç¤ºä¸ä¸ºç©º
 	bool isNull(void) const
 	{
 		return false;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñºÏ·¨
-	///@return	true±íÊ¾ºÏ·¨£¬false±íÊ¾²»ºÏ·¨
+	///åˆ¤æ–­æ˜¯å¦åˆæ³•
+	///@return	trueè¡¨ç¤ºåˆæ³•ï¼Œfalseè¡¨ç¤ºä¸åˆæ³•
 	bool isValid(void) const
 	{
 		return true;
 	}
 
-	///×ª»¯Îª×Ö·û
-	///@return	µÃµ½µÄ×Ö·û
+	///è½¬åŒ–ä¸ºå­—ç¬¦
+	///@return	å¾—åˆ°çš„å­—ç¬¦
 	operator const char (void) const
 	{
 		return value;
 	}
 
-	///²úÉúhashÖµ
-	///@param	seed	ÖÖ×Ó
-	///@return	µÃµ½µÄhashÖµ
+	///äº§ç”Ÿhashå€¼
+	///@param	seed	ç§å­
+	///@return	å¾—åˆ°çš„hashå€¼
 	unsigned int hash(unsigned int seed) const
 	{
 		unsigned long ret=seed;
@@ -1019,7 +1019,7 @@ public:
 		return ((ret>>16)^ret);
 	}
 protected:
-	///´æ´¢×Ö·ûµÄÖµ
+	///å­˜å‚¨å­—ç¬¦çš„å€¼
 	char value;
 };
 
@@ -1027,9 +1027,9 @@ typedef const CCharType CReadOnlyCharType;
 
 #define EnumNull ' '
 
-///ÓÃÓÚ¶¨ÒåÒ»¸ö´øÓĞ¼ì²éµÄ×Ö·ûÀàĞÍ
-///@param	typename	Òª¶¨ÒåµÄÀàĞÍ
-///@param	validString	ËùÓĞÔÊĞíÈ¡ÖµµÄ×Ö·û¹¹³ÉµÄ×Ö·û´®
+///ç”¨äºå®šä¹‰ä¸€ä¸ªå¸¦æœ‰æ£€æŸ¥çš„å­—ç¬¦ç±»å‹
+///@param	typename	è¦å®šä¹‰çš„ç±»å‹
+///@param	validString	æ‰€æœ‰å…è®¸å–å€¼çš„å­—ç¬¦æ„æˆçš„å­—ç¬¦ä¸²
 #define DefineEnumCharType(typename,validString)				\
 	class C ## typename: public CCharType						\
 	{															\
@@ -1110,75 +1110,75 @@ typedef  unsigned short WORD ;
 class CWordType : public CBaseShortType
 {
 public:
-	///¹¹Ôìº¯Êı
+	///æ„é€ å‡½æ•°
 	CWordType(void)
 	{
 //		clear();
 	}
 
-	///¸´ÖÆ¹¹Ôì×Ó
-	///@param	w	¹¹ÔìµÄÔ´¶ÔÏó
+	///å¤åˆ¶æ„é€ å­
+	///@param	w	æ„é€ çš„æºå¯¹è±¡
 	CWordType(const CWordType& w)
 	{
 		setValue(w.getValue());
 	}
 
-	///¸´ÖÆ¹¹Ôì×Ó
-	///@param	w	¹¹ÔìµÄÔ´¶ÔÏó
+	///å¤åˆ¶æ„é€ å­
+	///@param	w	æ„é€ çš„æºå¯¹è±¡
 	CWordType(WORD w)
 	{
 		setValue(w);
 	}
 	
-	///µÈÓÚ²Ù×÷·û
-	///@param	w	µÈÓÚµÄÖµ
-	///@return	ÊäÈëµÄÖµ
+	///ç­‰äºæ“ä½œç¬¦
+	///@param	w	ç­‰äºçš„å€¼
+	///@return	è¾“å…¥çš„å€¼
 	const CWordType & operator =(const CWordType& w)
 	{
 		setValue(w.getValue());
 		return w;
 	}
 
-	///µÈÓÚ²Ù×÷·û£¬´Ó×ÖÖĞ»ñÈ¡
-	///@param	w	µÈÓÚµÄ×Ö
-	///@return	ÊäÈëµÄ×Ö
+	///ç­‰äºæ“ä½œç¬¦ï¼Œä»å­—ä¸­è·å–
+	///@param	w	ç­‰äºçš„å­—
+	///@return	è¾“å…¥çš„å­—
 	const WORD operator =(const WORD w)
 	{
 		setValue(w);
 		return w;
 	}
 
-	///µÈÓÚ²Ù×÷·û£¬´Ó×Ö·û´®ÖĞ»ñÈ¡
-	///@param	v	µÈÓÚµÄ×Ö·û´®
-	///@return	ÊäÈëµÄ×Ö·û´®
+	///ç­‰äºæ“ä½œç¬¦ï¼Œä»å­—ç¬¦ä¸²ä¸­è·å–
+	///@param	v	ç­‰äºçš„å­—ç¬¦ä¸²
+	///@return	è¾“å…¥çš„å­—ç¬¦ä¸²
 	const char * operator =(const char *v)
 	{
 		setValue(atoi(v));
 		return v;
 	}
 
-	///Çå³ıÄÚÈİ£¬¾ÍÊÇ½«ÖµÉèÎª0
+	///æ¸…é™¤å†…å®¹ï¼Œå°±æ˜¯å°†å€¼è®¾ä¸º0
 	void clear(void)
 	{
 		value=0;
 	}
 
-	///»ñÈ¡Öµ
-	///@return	»ñÈ¡µÄÖµ
+	///è·å–å€¼
+	///@return	è·å–çš„å€¼
 	WORD getValue(void) const
 	{
 		return value;
 	}
 
-	///ÉèÖÃÖµ
-	///@param	v	ÒªÉèÖÃµÄÖµ
+	///è®¾ç½®å€¼
+	///@param	v	è¦è®¾ç½®çš„å€¼
 	void setValue(WORD v)
 	{
 		value=v;
 	}
 
-	///ÔÚstrBufÖĞµÃµ½±¾ÀàĞÍµÄ×Ö·û´®±íÊ¾	
-	///@param	strBuf	ÓÃÓÚ·ÅÖÃ½á¹ûµÄ×Ö·û´®
+	///åœ¨strBufä¸­å¾—åˆ°æœ¬ç±»å‹çš„å­—ç¬¦ä¸²è¡¨ç¤º	
+	///@param	strBuf	ç”¨äºæ”¾ç½®ç»“æœçš„å­—ç¬¦ä¸²
 	void getString(char *strBuf) const
 	{
 		if (strBuf!=NULL)
@@ -1187,30 +1187,30 @@ public:
 		}	
 	}	
 
-	///ÅĞ¶ÏÊÇ·ñÎª¿Õ
-	///@return	true±íÊ¾Îª¿Õ£¬false±íÊ¾²»Îª¿Õ
+	///åˆ¤æ–­æ˜¯å¦ä¸ºç©º
+	///@return	trueè¡¨ç¤ºä¸ºç©ºï¼Œfalseè¡¨ç¤ºä¸ä¸ºç©º
 	bool isNull(void) const
 	{
 		return false;
 	}
 
-	///ÅĞ¶ÏÊÇ·ñºÏ·¨
-	///@return	true±íÊ¾ºÏ·¨£¬false±íÊ¾²»ºÏ·¨
+	///åˆ¤æ–­æ˜¯å¦åˆæ³•
+	///@return	trueè¡¨ç¤ºåˆæ³•ï¼Œfalseè¡¨ç¤ºä¸åˆæ³•
 	bool isValid(void) const
 	{
 		return true;
 	}
 
-	///×ª»¯Îª×Ö
-	///@return	µÃµ½µÄ×Ö
+	///è½¬åŒ–ä¸ºå­—
+	///@return	å¾—åˆ°çš„å­—
 	operator const WORD (void)
 	{
 		return value;
 	}
 
-	///²úÉúhashÖµ
-	///@param	seed	ÖÖ×Ó
-	///@return	µÃµ½µÄhashÖµ
+	///äº§ç”Ÿhashå€¼
+	///@param	seed	ç§å­
+	///@return	å¾—åˆ°çš„hashå€¼
 	unsigned int hash(unsigned int seed) const
 	{
 		unsigned long ret=seed;
@@ -1222,7 +1222,7 @@ public:
 		return ((ret>>16)^ret);
 	}
 protected:
-	///´æ´¢×Ö·ûµÄÖµ
+	///å­˜å‚¨å­—ç¬¦çš„å€¼
 	WORD value;
 };
 

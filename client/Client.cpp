@@ -19,7 +19,7 @@ CChannel* CClient::ConnectServer(const char* location)
 {
 	CServiceName* name = new CServiceName(location);
 	int re = m_clientsock->Connect(name);
-	/*´¦ÀíÔÚ·Ç×èÈûÄ£Ê½ÏÂ·µ»Ø-1µÄÈ±Ïİ*/
+	/*å¤„ç†åœ¨éé˜»å¡æ¨¡å¼ä¸‹è¿”å›-1çš„ç¼ºé™·*/
 	fd_set connectfd;
 	FD_ZERO(&connectfd);
 	timeval tv;

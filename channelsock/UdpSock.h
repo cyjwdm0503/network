@@ -1,5 +1,5 @@
 /**
-对外提供的updsock 由CInetSock继承而来
+瀵瑰鎻愪緵鐨剈pdsock 鐢盋InetSock缁ф壙鑰屾潵
 **/
 #ifndef UDPSOCK_H
 #define UDPSOCK_H

@@ -14,7 +14,7 @@ void* CCacheList::get_data( int& length )
 {
 	void* ptr = NULL;
 
-	//Èç¹ûµÚÒ»¸öÇå¿Õ£¬ÔòÉ¾³ı
+	//å¦‚æœç¬¬ä¸€ä¸ªæ¸…ç©ºï¼Œåˆ™åˆ é™¤
 	if(m_nodeList.size()>0 && m_nodeList.front()->isdeleted())
 	{
 		m_nodeList.erase(m_nodeList.begin());
@@ -36,19 +36,19 @@ void* CCacheList::get_data( int& length )
 void* CCacheList::push_back( void* data, int length )
 {
 	char* ptr =  NULL;
-	//Èç¹ûµÚÒ»¸öÇå¿Õ£¬ÔòÉ¾³ı
+	//å¦‚æœç¬¬ä¸€ä¸ªæ¸…ç©ºï¼Œåˆ™åˆ é™¤
 	while(m_nodeList.size()>0 && m_nodeList.front()->isdeleted())
 	{
 		m_nodeList.erase(m_nodeList.begin());
 	}
 
 	if(m_nodeList.empty() || m_nodeList.back()->avablesize() < length)
-	{//²åÈëÒ»¸öĞÂµÄnode
+	{//æ’å…¥ä¸€ä¸ªæ–°çš„node
 		CacheNode *node = new CacheNode(length);
 		ptr = node->push((char*)data,length);
 		m_nodeList.push_back(node);
 	}
-	//ÀûÓÃÒÔÇ°µÄnode¼ÓÊı¾İ
+	//åˆ©ç”¨ä»¥å‰çš„nodeåŠ æ•°æ®
 	else if(m_nodeList.back()->avablesize() >= length)
 	{
 		ptr = m_nodeList.back()->push(data,length);
@@ -59,7 +59,7 @@ void* CCacheList::push_back( void* data, int length )
 
 int CCacheList::pop_front( int maxlength )
 {
-	//Èç¹ûµÚÒ»¸öÇå¿Õ£¬ÔòÉ¾³ı
+	//å¦‚æœç¬¬ä¸€ä¸ªæ¸…ç©ºï¼Œåˆ™åˆ é™¤
 	while(m_nodeList.size()>0 && m_nodeList.front()->isdeleted())
 	{
 		delete *(m_nodeList.begin());
@@ -122,7 +122,7 @@ int CacheNode::pop( int length )
 		ret = length;			
 	}
 	m_cur += ret;
-	//ÔÚpopºó³¢ÊÔµ÷ÓÃclear
+	//åœ¨popåå°è¯•è°ƒç”¨clear
 	clear();
 	return ret;
 }

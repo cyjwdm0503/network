@@ -1,5 +1,5 @@
 /**
-Ö´ĞĞapplicationµÄĞ­Òé£¬Ö÷ÒªÎªÓ¦ÓÃ²ãĞ­Òé¡£Òò´ËÎŞµ×²ãÂß¼­µÄĞ­Òé
+æ‰§è¡Œapplicationçš„åè®®ï¼Œä¸»è¦ä¸ºåº”ç”¨å±‚åè®®ã€‚å› æ­¤æ— åº•å±‚é€»è¾‘çš„åè®®
 **/
 #ifndef APPLICATIONPROTOCOL_H
 #define APPLICATIONPROTOCOL_H
@@ -15,10 +15,10 @@ public:
 	CApplicationProtocol(CDispatcher* dispatcher);
 	virtual ~CApplicationProtocol();
 
-	//½«Ó¦ÓÃ²ã±¨ÎÄÈ«²¿¶¼½»ÓÚ¶ÔÓ¦µÄSession´¦Àí
+	//å°†åº”ç”¨å±‚æŠ¥æ–‡å…¨éƒ¨éƒ½äº¤äºå¯¹åº”çš„Sessionå¤„ç†
 	virtual int Pop( CPackage* package );
 
-	//SessionÓÃÓÚ·¢ËÍÊı¾İµÄ½Ó¿Ú£¬¶¼Í¨¹ıÕâ¸ö½Ó¿Ú·¢ËÍ
+	//Sessionç”¨äºå‘é€æ•°æ®çš„æ¥å£ï¼Œéƒ½é€šè¿‡è¿™ä¸ªæ¥å£å‘é€
 	virtual int send(CPackage* pacakge);
 
 };

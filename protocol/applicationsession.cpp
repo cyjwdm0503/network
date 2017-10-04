@@ -9,7 +9,7 @@ CApplicationSession::CApplicationSession(CDispatcher* dispatcher,CChannel* chann
 	m_applicationProtocol->RegisterUpperHandler(this);
 }
 int CApplicationSession::HandlePackage( CPackage* pPackage,CProtocol* protocol )
-{//ÓÃÀ´´¦Àí¶ÔÓ¦µÄÃüÁîÏûÏ¢--»òÕß¶ÔÓ¦µÄÊı¾İÏûÏ¢
+{//ç”¨æ¥å¤„ç†å¯¹åº”çš„å‘½ä»¤æ¶ˆæ¯--æˆ–è€…å¯¹åº”çš„æ•°æ®æ¶ˆæ¯
 	HandlePackage(pPackage);
 	return 0;
 }

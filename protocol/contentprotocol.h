@@ -1,22 +1,22 @@
 /************************************************************************/
 /* 
-¾ßÓĞÒ»¸öÍêÕûpackageµÄprotocol 
-´Ë³É»áÎ¬»¤¶ÔÓ¦µÄcontentpackage.Í¬Ìá¹©¸øÉÏ²ãÓ¦ÓÃ²ãµÄ½Ó¿Ú;
-Ö÷ÒªÊÇÉÏ²ãĞ­ÒéXXXXProtocolÀûÓÃProtocol.Send()Ğ´Èëµ½CContentProtocol²ã¡£
-CContentProtocol.Push()»áĞ´Èëµ½CChannelProtocol
-½øĞĞ»º´æ£¬»òÕßÖ±½Ó·¢ËÍ¡£
+å…·æœ‰ä¸€ä¸ªå®Œæ•´packageçš„protocol 
+æ­¤æˆä¼šç»´æŠ¤å¯¹åº”çš„contentpackage.åŒæä¾›ç»™ä¸Šå±‚åº”ç”¨å±‚çš„æ¥å£;
+ä¸»è¦æ˜¯ä¸Šå±‚åè®®XXXXProtocolåˆ©ç”¨Protocol.Send()å†™å…¥åˆ°CContentProtocolå±‚ã€‚
+CContentProtocol.Push()ä¼šå†™å…¥åˆ°CChannelProtocol
+è¿›è¡Œç¼“å­˜ï¼Œæˆ–è€…ç›´æ¥å‘é€ã€‚
 
-¼ûcontentprotocolµÄsendÓëpushµÄÃèÊö
+è§contentprotocolçš„sendä¸pushçš„æè¿°
 
 /************************************************************************/
 /*
-´ËĞ­ÒéĞèÒª±£Ö¤»á»°ºÍÊı¾İ°üµÄÒ»ÖÂĞÔ
-ÔÚpopÊ±¾ÍÒÑ¾­ÄÜ¹»»ñÈ¡µ½ÕıÈ·µÄ°ü¡£
-Í¬Ê±ĞèÒªÖ¸¶¨protocolµÄ»á»°×´Ì¬¡£
-Ö÷ÒªÊÇÍ¨¹ı±¨ÎÄÊ±¼ä½øĞĞÈ·¶¨¡£
-·şÎñÆ÷ºÍ¿Í·ş¶Ë²ÉÓÃµãµ½µãÍ¨ĞÅ¡£
-ÔÚÒ»¸öĞ­ÒéÁ¬½ÓÆğÀ´ºó¡£Èç¹ûÉèÖÃ½øĞĞĞÄÌøÑéÖ¤
-·şÎñÆ÷ºÍ¿Í·ş¶Ë»á½øĞĞĞÄÌø°üµÄÍ¨ĞÅ¡£
+æ­¤åè®®éœ€è¦ä¿è¯ä¼šè¯å’Œæ•°æ®åŒ…çš„ä¸€è‡´æ€§
+åœ¨popæ—¶å°±å·²ç»èƒ½å¤Ÿè·å–åˆ°æ­£ç¡®çš„åŒ…ã€‚
+åŒæ—¶éœ€è¦æŒ‡å®šprotocolçš„ä¼šè¯çŠ¶æ€ã€‚
+ä¸»è¦æ˜¯é€šè¿‡æŠ¥æ–‡æ—¶é—´è¿›è¡Œç¡®å®šã€‚
+æœåŠ¡å™¨å’Œå®¢æœç«¯é‡‡ç”¨ç‚¹åˆ°ç‚¹é€šä¿¡ã€‚
+åœ¨ä¸€ä¸ªåè®®è¿æ¥èµ·æ¥åã€‚å¦‚æœè®¾ç½®è¿›è¡Œå¿ƒè·³éªŒè¯
+æœåŠ¡å™¨å’Œå®¢æœç«¯ä¼šè¿›è¡Œå¿ƒè·³åŒ…çš„é€šä¿¡ã€‚
 */
 #ifndef CONTENTPROTOCOL_H 
 #define CONTENTPROTOCOL_H
@@ -35,18 +35,18 @@ public:
 
 	virtual int OnRecvErrPackage( CPackage* package );
 
-	//Ïòchannelprotocol´«ËÍpackageÊ±£¬Ìí¼Ócontent²ãµÄÍ·²¿¡£
+	//å‘channelprotocolä¼ é€packageæ—¶ï¼Œæ·»åŠ contentå±‚çš„å¤´éƒ¨ã€‚
 	virtual int Push( CPackage* package,CProtocol* protocol );
 
 	virtual void OnTimer( int event );
 	
-	//·¢ËÍtimeoutµ½¶Ô·½£¬½øĞĞÉèÖÃ
+	//å‘é€timeoutåˆ°å¯¹æ–¹ï¼Œè¿›è¡Œè®¾ç½®
 	void send_timeout(int timeout);
 
-	//ÀûÓÃÊÕµ½µÄCContentPackageÉèÖÃ¶ÔÓ¦µÄĞÄÌø³¬Ê±Ê±¼ä
+	//åˆ©ç”¨æ”¶åˆ°çš„CContentPackageè®¾ç½®å¯¹åº”çš„å¿ƒè·³è¶…æ—¶æ—¶é—´
 	void set_timeout(CPackage* package);
 
-	//²»½øĞĞĞÄÌøµÄ²âÊÔ
+	//ä¸è¿›è¡Œå¿ƒè·³çš„æµ‹è¯•
 	void set_timecheck(bool flag);
 
 	bool SendHeartTag();

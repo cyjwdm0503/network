@@ -19,11 +19,11 @@ CEventQueue::~CEventQueue()
 	m_pPostEvent =  NULL;
 }
 
-//Òì²½µÄevent
+//å¼‚æ­¥çš„event
 bool CEventQueue::AddPostEvent( CHandler* handler,EVENT_MSG nEventID, DWORD dwParam, void *pParam )
 {
 	m_mtx.Lock();
-	//Ô¤ÁôÒ»¸ö¿ÕÎ»
+	//é¢„ç•™ä¸€ä¸ªç©ºä½
 	if( (m_writepos+1)%m_eventSize == m_readpos)
 	{
 		m_mtx.UnLock();
@@ -36,7 +36,7 @@ bool CEventQueue::AddPostEvent( CHandler* handler,EVENT_MSG nEventID, DWORD dwPa
 	//event->pThisAddr = handler;
 	event->event_msg = nEventID;
 	event->retValue = 0;
-	//ÉèÖÃÎª¿ÕÊÇÓÃÀ´È·¶¨ÊÇSend»¹ÊÇPost
+	//è®¾ç½®ä¸ºç©ºæ˜¯ç”¨æ¥ç¡®å®šæ˜¯Sendè¿˜æ˜¯Post
 	event->pThisAddr =  NULL;
 	m_writepos++;
 	if(m_writepos >= m_eventSize )
@@ -48,7 +48,7 @@ bool CEventQueue::AddPostEvent( CHandler* handler,EVENT_MSG nEventID, DWORD dwPa
 	return true;
 }
 
-//Í¬²½µÄevent
+//åŒæ­¥çš„event
 EventType* CEventQueue::AddSyncEvent( CHandler* handler,EVENT_MSG nEventID, DWORD dwParam, void *pParam )
 {
 	m_mtx.Lock();
@@ -81,7 +81,7 @@ EventType* CEventQueue::AddSyncEvent( CHandler* handler,EVENT_MSG nEventID, DWOR
 	return syncevent->event;
 }
 
-//È¡³öevent
+//å–å‡ºevent
 bool CEventQueue::PeekEvent( EventType& event )
 {
 	m_mtx.Lock();
@@ -92,7 +92,7 @@ bool CEventQueue::PeekEvent( EventType& event )
 		m_mtx.UnLock();
 		return true;
 	}
-	//Ô¤ÁôÒ»¸ö¿ÕÎ»
+	//é¢„ç•™ä¸€ä¸ªç©ºä½
 	if(m_readpos != m_writepos)
 	{
 		event = m_pPostEvent[m_readpos];

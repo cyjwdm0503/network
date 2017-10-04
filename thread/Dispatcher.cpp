@@ -48,7 +48,7 @@ bool CDispatcher::PostEvent( CHandler* handler,EVENT_MSG event,DWORD dwParam,voi
 int CDispatcher::SendEvent( CHandler* handler,EVENT_MSG event,DWORD dwParam,void* pParam )
 {
 	m_mtx.Lock();
-	//µ¥Ïß³ÌµÄÍ¬²½event
+	//å•çº¿ç¨‹çš„åŒæ­¥event
 	if(IsCurrentThread())
 	{
 		m_mtx.UnLock();
@@ -58,11 +58,11 @@ int CDispatcher::SendEvent( CHandler* handler,EVENT_MSG event,DWORD dwParam,void
 			return HandleEvent(event,dwParam,pParam);
 	}
 
-	//ÒÔÏÂÎª¶àÏß³ÌÊ±µÄÍ¬²½event
-	//´«Èë
+	//ä»¥ä¸‹ä¸ºå¤šçº¿ç¨‹æ—¶çš„åŒæ­¥event
+	//ä¼ å…¥
 	EventType *ev = m_EventQueue->AddSyncEvent(handler,event,dwParam,pParam);
 	m_mtx.UnLock();
-	//µÈ´ı½âËø
+	//ç­‰å¾…è§£é”
 	ev->sem.Lock();
 	
 	return ev->retValue;
@@ -141,7 +141,7 @@ void CDispatcher::AddHandler( CHandler* handler )
 
 void CDispatcher::RemoveHandler( CHandler* handler )
 {
-	//²»ÄÜÖ±½ÓÔÚÄÚ²¿ÓÃsetµÄerase¡£²»»áÕıÈ·É¾³ı
+	//ä¸èƒ½ç›´æ¥åœ¨å†…éƒ¨ç”¨setçš„eraseã€‚ä¸ä¼šæ­£ç¡®åˆ é™¤
 	CMutexGuard guard(m_mtx);
 	for (ChandlerList::iterator i = m_IOlist.begin(); i != m_IOlist.end(); i++)
 	{

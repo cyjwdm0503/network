@@ -1,7 +1,7 @@
 #include "TimerHeap.h"
 
 const DWORD MAX_TIMER_HEAP_TIMEOUT = 3600*24*1000; 
-//��ʱ����������
+//定时器调度上线
 
 void CTimerHeap::RegisterTimer( CHandler* handler,DWORD event,DWORD elapse )
 {
@@ -20,7 +20,7 @@ void CTimerHeap::RemoverTime( CHandler* handler,DWORD event )
 	{
 		if(c[index].handler == handler &&
 			(c[index].event == event || event == 0))
-		{//ɾ��ĳ��handler���Ӧ��event.���߶�Ӧhandler��Ӧ��ȫ��event
+		{//删除某个handler与对应的event.或者对应handler对应的全部event
 			c[index].handler = NULL;
 		}
 	}
@@ -28,18 +28,18 @@ void CTimerHeap::RemoverTime( CHandler* handler,DWORD event )
 
 void CTimerHeap::Expire( DWORD curclock )
 {
-	//�޸����ƫ��ʱ��
+	//修改起点偏移时间
 	SyncTime(curclock);
 
 	while(size()>0)
 	{
 		CTimerHeapNode node = top();
 		if(node.expire > m_curclock)
-		{//���µ���Ӧ�ڵ��ʱ�����ڵ�ǰʱ��
+		{//最新的响应节点的时间晚于当前时间
 			break;
 		}
 		
-		//ȡ���Ľڵ�
+		//取出改节点
 		pop();
 		if(node.handler != NULL)
 		{

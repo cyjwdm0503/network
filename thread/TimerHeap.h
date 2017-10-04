@@ -14,7 +14,7 @@ public:
 	DWORD expire;
 };
 
-//ÉúĞ§Ê±¼äÔ½ÔçµÄÔ½´ó
+//ç”Ÿæ•ˆæ—¶é—´è¶Šæ—©çš„è¶Šå¤§
 class CNodeCom
 {
 public:
@@ -33,9 +33,9 @@ bool NodeCom(const CTimerHeapNode &node1, const  CTimerHeapNode& node2)
 }
 typedef bool (*Com)(const CTimerHeapNode& node1, const CTimerHeapNode& node2);
 class CTimerHeap:public CTimerQueue,public priority_queue<CTimerHeapNode,vector<CTimerHeapNode>,Com>
-ÕâÀïÖ»ÄÜ´«ÈëÒ»¸öº¯ÊıÖ¸ÕëÀàĞÍ£¬ÔÚÊ¹ÓÃÊ±²ÅÄÜ´«ÈëÒ»¸ö¾ßÌåµÄº¯ÊıÖ¸Õë¡£
-µ«ÊÇÖ»ÄÜÍ¨¹ıÖØÔØ¹¹Ôìº¯Êı£¬´«Èë¶ÔÓ¦µÄº¯ÊıÖ¸Õë
-Òò´ËÒ»¸öºÃµÄ·½·¨ÊÇ´«Èëº¯Êı¶ÔÏó
+è¿™é‡Œåªèƒ½ä¼ å…¥ä¸€ä¸ªå‡½æ•°æŒ‡é’ˆç±»å‹ï¼Œåœ¨ä½¿ç”¨æ—¶æ‰èƒ½ä¼ å…¥ä¸€ä¸ªå…·ä½“çš„å‡½æ•°æŒ‡é’ˆã€‚
+ä½†æ˜¯åªèƒ½é€šè¿‡é‡è½½æ„é€ å‡½æ•°ï¼Œä¼ å…¥å¯¹åº”çš„å‡½æ•°æŒ‡é’ˆ
+å› æ­¤ä¸€ä¸ªå¥½çš„æ–¹æ³•æ˜¯ä¼ å…¥å‡½æ•°å¯¹è±¡
 */
 class CTimerHeap:public CTimerQueue,public priority_queue<CTimerHeapNode,vector<CTimerHeapNode>,CNodeCom>
 {
@@ -48,7 +48,7 @@ public:
 	virtual void Expire( DWORD curmsclock );
 	
 	//
-	//¸ù¾İÏÖÔÚµÄÊ±¼äÍ¬²½
+	//æ ¹æ®ç°åœ¨çš„æ—¶é—´åŒæ­¥
 	virtual void SyncTime(DWORD curmsclock);
 	virtual ~CTimerHeap();
 	CTimerHeap(DWORD curmsclock);

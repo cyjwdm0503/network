@@ -1,8 +1,8 @@
 /************************************************************************/
 /* 
-ÓÃÓÚÃèÊöfieldµÄÀà¡£´Ó×Ö½ÚÁ÷ÀïÃæÈ¡Êı¾İ£¬ĞèÒªÖªµÀÃ¿¸öfieldµÄÃèÊö×´¿ö£¬²ÅÄÜ´ÓÖĞÈ¡³öÊı¾İ*/
-//Ö÷ÒªÄ¿µÄÊÇÎªÁË±ÜÃâ¶ÔÆëµ¼ÖÂµÄ´íÎó¡£Òò´ËĞèÒªÍ³¼ÆÃ¿¸ömemberµÄÊµ¼Ê³¤¶È¡£ÒÔ¼°ÀàºÍpackageÁ÷ÖĞ¸÷×ÔµÄÆ«ÒÆÎ»ÖÃ
-//fieldµÄ´æÈ¡¹æÔò¡£¡£ÓÃÓÚÃèÊöfield. fieldÔÚ´´½¨Ê±¾ÍÒªÉú³É¶ÔÓ¦µÄµÄfielddescribe¡£¡£¶ÔÓ¦packageÍ¨¹ıÃèÊö´æÈ¡¶ÔÓ¦µÄÄÚÈİµ½Ò»¸öfieldÖ¸ÕëÖĞ
+ç”¨äºæè¿°fieldçš„ç±»ã€‚ä»å­—èŠ‚æµé‡Œé¢å–æ•°æ®ï¼Œéœ€è¦çŸ¥é“æ¯ä¸ªfieldçš„æè¿°çŠ¶å†µï¼Œæ‰èƒ½ä»ä¸­å–å‡ºæ•°æ®*/
+//ä¸»è¦ç›®çš„æ˜¯ä¸ºäº†é¿å…å¯¹é½å¯¼è‡´çš„é”™è¯¯ã€‚å› æ­¤éœ€è¦ç»Ÿè®¡æ¯ä¸ªmemberçš„å®é™…é•¿åº¦ã€‚ä»¥åŠç±»å’Œpackageæµä¸­å„è‡ªçš„åç§»ä½ç½®
+//fieldçš„å­˜å–è§„åˆ™ã€‚ã€‚ç”¨äºæè¿°field. fieldåœ¨åˆ›å»ºæ—¶å°±è¦ç”Ÿæˆå¯¹åº”çš„çš„fielddescribeã€‚ã€‚å¯¹åº”packageé€šè¿‡æè¿°å­˜å–å¯¹åº”çš„å†…å®¹åˆ°ä¸€ä¸ªfieldæŒ‡é’ˆä¸­
 /************************************************************************/
 #ifndef FIELDDESCRIBE_H
 #define FIELDDESCRIBE_H
@@ -19,11 +19,11 @@ enum MemberType
 };
 struct SMembererDesc
 {
-	MemberType type;//³ÉÔ±±äÁ¿µÄÀàĞÍ---ÓÃÀ´×ö×Ö½ÚĞò×ª»»
-	int classOffset;//ÔÚÀàÖĞµÄÆ«ÒÆÁ¿
-	int streamOffset;//ÔÚpackageÖĞµÄÆ«ÒÆÁ¿
-	int size;//Êı¾İ³¤¶È
-	char name[30];//Êı¾İÃû³Æ³¤¶È
+	MemberType type;//æˆå‘˜å˜é‡çš„ç±»å‹---ç”¨æ¥åšå­—èŠ‚åºè½¬æ¢
+	int classOffset;//åœ¨ç±»ä¸­çš„åç§»é‡
+	int streamOffset;//åœ¨packageä¸­çš„åç§»é‡
+	int size;//æ•°æ®é•¿åº¦
+	char name[30];//æ•°æ®åç§°é•¿åº¦
 };
 
 class CFieldDescribe
@@ -36,7 +36,7 @@ public:
 
 	void SetupMember(MemberType type,int ClassOffset,int Size,const char* name);
 	
-	//ÉèÖÃ¶ÔÓ¦Êı¾İ³ÉÔ±µÄÕ¼Î»ĞÅÏ¢µÈ
+	//è®¾ç½®å¯¹åº”æ•°æ®æˆå‘˜çš„å ä½ä¿¡æ¯ç­‰
 	void SetupMember(CBaseStringType&,int ClassOffset,int Size,const char* name );
 	void SetupMember(CBaseIntTpye&,int ClassOffset,int Size,const char* name );
 	void SetupMember(CBaseDoubleType&,int ClassOffset,int Size,const char* name );
@@ -78,18 +78,18 @@ public:
 	
 };
 static void Make_TESTField(){TESTField field;field.DescriberMember();};
-CFieldDescribe TESTField::m_Describe(1,sizeof(TESTField),"²âÊÔÀà",0,"TestField",Make_TESTField);
-//CFieldDescribe TESTField::m_Describe(12,sizeof(TESTField),"ÀàÃûµÄ½âÊÍ",0,"ÀàÃû",Make_TESTField);
+CFieldDescribe TESTField::m_Describe(1,sizeof(TESTField),"æµ‹è¯•ç±»",0,"TestField",Make_TESTField);
+//CFieldDescribe TESTField::m_Describe(12,sizeof(TESTField),"ç±»åçš„è§£é‡Š",0,"ç±»å",Make_TESTField);
 #endif
 
 #define  TYPE_DESC(member)  m_Describe.SetupMember(member,(char*)&member-(char*)this,sizeof(member), #member)
 #define	 FIELD_DESC(member)	void DescriberMember(){ member; }	static CFieldDescribe m_Describe
 
 
-// È«¾Ö¾²Ì¬±äÁ¿¡£ÓÃÓÚÉú³É¶ÔÓ¦µÄÃèÊöµÄĞÅÏ¢
+// å…¨å±€é™æ€å˜é‡ã€‚ç”¨äºç”Ÿæˆå¯¹åº”çš„æè¿°çš„ä¿¡æ¯
 #define  MAKGE_FIELD_DESC(FIELD,FIELDID,NAME) static void Make_##FIELD() {FIELD field; field.DescriberMember();} CFieldDescribe FIELD::m_Describe(FIELDID,sizeof(FIELD), NAME ,0, #FIELD ,Make_##FIELD);
 
-//µ÷ÓÃ·½Ê½ÎªFILED_DESC(TYPE(m_int); TYPE(m_short);......);//³ÉÔ±ÀàĞÍĞèÒª¼Ì³ĞÓë»ù´¡ÀàĞÍ
+//è°ƒç”¨æ–¹å¼ä¸ºFILED_DESC(TYPE(m_int); TYPE(m_short);......);//æˆå‘˜ç±»å‹éœ€è¦ç»§æ‰¿ä¸åŸºç¡€ç±»å‹
 
 
 

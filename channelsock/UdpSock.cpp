@@ -29,7 +29,7 @@ int CUdpSock::CreateSocket()
 	setsockopt(m_fd,SOL_SOCKET,SO_BROADCAST,(char*)&on,sizeof(on));
 #ifdef WIN32
 	/*
-	ÓÃÓÚ½â¾ö·¢ËÍUDP±¨ÎÄµ½²»¿É´ïµÄUDP·şÎñÆ÷Ê±»á·µ»Ø-1µÄ´íÎó´íÎó´úÂë10054
+	ç”¨äºè§£å†³å‘é€UDPæŠ¥æ–‡åˆ°ä¸å¯è¾¾çš„UDPæœåŠ¡å™¨æ—¶ä¼šè¿”å›-1çš„é”™è¯¯é”™è¯¯ä»£ç 10054
 	*/
 	BOOL bNewBehavior = FALSE;
 	DWORD dwBytesReturned = 0;
@@ -60,14 +60,14 @@ int CUdpSock::Connect( CServiceName* server )
 	return re;
 	*/
 	/*
-	UDP¹ã²¥Ê±£¬²»ÔÙ°ó¶¨¿Í»§¶ËµÄIP£¬£¬·ñÔò¿Í»§¶Ë,ºÍ·şÎñÆ÷Ö»ÄÜ½ÓÊÕÄ¿µÄµØÖ·=ÒÑ¾­°ó¶¨µÄIPµÄÊı¾İ°ü¡£
+	UDPå¹¿æ’­æ—¶ï¼Œä¸å†ç»‘å®šå®¢æˆ·ç«¯çš„IPï¼Œï¼Œå¦åˆ™å®¢æˆ·ç«¯,å’ŒæœåŠ¡å™¨åªèƒ½æ¥æ”¶ç›®çš„åœ°å€=å·²ç»ç»‘å®šçš„IPçš„æ•°æ®åŒ…ã€‚
 	*/
 	Bind();
 	if(m_channel == NULL)
 		m_channel = new CUdpChannel(m_fd);
 	m_channel->SetService(*server);
 	
-	/*UDP ²»ĞèÒªÑéÖ¤ÊÇ·ñÄÜ¹»Á¬½ÓÉÏ·şÎñÆ÷
+	/*UDP ä¸éœ€è¦éªŒè¯æ˜¯å¦èƒ½å¤Ÿè¿æ¥ä¸ŠæœåŠ¡å™¨
 	char buf[2] = "0";
 	int re = m_channel->Write(2,buf);
 	if(re <= 0 )
@@ -89,7 +89,7 @@ int CUdpSock::Accept()
 	service.SetChannel(m_service->GetChannel());
 	m_channel->SetService(service);
 	return 0;
-	/* UDP²»ĞèÒªÑéÖ¤·şÎñÆ÷ÊÇ·ñÓĞ¿Í»§Á¬½ÓÉÏ
+	/* UDPä¸éœ€è¦éªŒè¯æœåŠ¡å™¨æ˜¯å¦æœ‰å®¢æˆ·è¿æ¥ä¸Š
 	sockaddr_in addr;
 	memset(&addr,0,sizeof(addr));
 	socklen_t len = sizeof(addr);

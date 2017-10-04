@@ -7,7 +7,7 @@ CFieldDescribe::CFieldDescribe( unsigned short FieldID,int StructSize,const char
 	m_ClassSize = StructSize;
 	m_StreamSize = 0;
 	m_TotalMember = 0;
-	fun();//执行一次内部数据位置的基础数据
+	fun();//鎵ц涓�娆″唴閮ㄦ暟鎹綅缃殑鍩虹鏁版嵁
 }
 
 void CFieldDescribe::SetupMember( MemberType type,int ClassOffset,int Size,const char* name )
@@ -15,7 +15,7 @@ void CFieldDescribe::SetupMember( MemberType type,int ClassOffset,int Size,const
 	SMembererDesc* desc = (m_MemberDesc+m_TotalMember);
 	strcpy(desc->name,name);
 	desc->classOffset = ClassOffset;
-	desc->streamOffset = m_StreamSize;//前一个字节结束是的package，字节流位置
+	desc->streamOffset = m_StreamSize;//鍓嶄竴涓瓧鑺傜粨鏉熸槸鐨刾ackage锛屽瓧鑺傛祦浣嶇疆
 	desc->size = Size;
 	desc->type = type;
 	m_StreamSize +=Size;

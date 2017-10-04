@@ -5,7 +5,7 @@
 class CSemaphore
 {
 public:
-	//1�˻�Ϊmutex?
+	//1退化为mutex?
 	CSemaphore(int count = 1, const char* name = NULL);
 	virtual ~CSemaphore();
 	void Lock(int* pCount= NULL);

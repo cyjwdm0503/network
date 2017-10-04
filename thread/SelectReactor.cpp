@@ -23,7 +23,7 @@ void CSelectReactor::SyncRun()
 	//SleepMs(100);
 	timeval t;
 	t.tv_sec = 0;
-	t.tv_usec = 10000;//windows×îµÍÎª10ms
+	t.tv_usec = 10000;//windowsæœ€ä½ä¸º10ms
 	select(maxfd+1,&readset,&writeset,NULL,&t);
 
 	//
@@ -41,7 +41,7 @@ void CSelectReactor::PrepareIds( fd_set& readset,fd_set& writeset,int& maxfd)
 	ChandlerList::iterator it= m_IOlist.begin();
 	for(; it!= m_IOlist.end(); it++)
 	{
-		//Ê×ÏÈ»ñÈ¡ËùÓĞµÄids Ğ´Èëfd_set;´Ó¶øÀûÓÃfd_set ½øĞĞÊäÈëÓëÊä³ö
+		//é¦–å…ˆè·å–æ‰€æœ‰çš„ids å†™å…¥fd_set;ä»è€Œåˆ©ç”¨fd_set è¿›è¡Œè¾“å…¥ä¸è¾“å‡º
 		int readfd = 0,writefd= 0;
 		(*it)->GetIds(&readfd,&writefd);
 		if(readfd >0)
@@ -66,9 +66,9 @@ void CSelectReactor::RunHandler( fd_set& readset,fd_set& writeset,int& maxfd )
 	{
 		int readfd = 0,writefd= 0;
 		if((*it) == NULL)
-			continue;//±ÜÃâÔÚÄÚ²¿±»removehandler;
+			continue;//é¿å…åœ¨å†…éƒ¨è¢«removehandler;
 		(*it)->GetIds(&readfd,&writefd);
-		//Ê×ÏÈ»ñÈ¡ËùÓĞµÄids Ğ´Èëfd_set;´Ó¶øÀûÓÃfd_set ½øĞĞÊäÈëÓëÊä³ö
+		//é¦–å…ˆè·å–æ‰€æœ‰çš„ids å†™å…¥fd_set;ä»è€Œåˆ©ç”¨fd_set è¿›è¡Œè¾“å…¥ä¸è¾“å‡º
 		if(FD_ISSET(readfd,&readset) && readfd>0)
 		{
 		   //std::cout<<__FILE__<<"\t"<<readfd<<"\t"<<__LINE__<<std::endl;

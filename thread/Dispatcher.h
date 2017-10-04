@@ -17,10 +17,10 @@ public:
 
 	void RegisterTimer(CHandler* handler,int event,int ms);
 	void RemoveTimer(CHandler* handler,int event);
-	//异步event
-	bool PostEvent(CHandler* handler,EVENT_MSG event,DWORD dwParam,void* pParam);//异步
-	//同步event
-	int SendEvent(CHandler* handler,EVENT_MSG event,DWORD dwParam,void* pParam);//同步
+	//寮傛event
+	bool PostEvent(CHandler* handler,EVENT_MSG event,DWORD dwParam,void* pParam);//寮傛
+	//鍚屾event
+	int SendEvent(CHandler* handler,EVENT_MSG event,DWORD dwParam,void* pParam);//鍚屾
 
 	virtual int HandleEvent(int nEventID, DWORD dwParam, void *pParam){return 0;};
 	

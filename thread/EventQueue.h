@@ -1,5 +1,5 @@
 /**
-Ìá¹©·ÅÈëeventºÍÈ¡³öeventµÄĞòÁĞ
+æä¾›æ”¾å…¥eventå’Œå–å‡ºeventçš„åºåˆ—
 */
 #ifndef EVENTQUEUE_H
 #define EVENTQUEUE_H
@@ -18,7 +18,7 @@ struct EventType
 	void* pParam;
 	int retValue;
 	CSemaphore sem;
-	void* pThisAddr;//ÓÃÓÚ»Ø´«
+	void* pThisAddr;//ç”¨äºå›ä¼ 
 	void* pNext;
 };
 struct SyncEventType
@@ -32,7 +32,7 @@ public:
 	CEventQueue(int size);
 	virtual ~CEventQueue();
 	bool AddPostEvent(CHandler* handler,EVENT_MSG nEventID, DWORD dwParam, void *pParam);
-	//ÒòÎªÕâÀïÒªÏòÍâ²¿´«µİ½á¹ûÖµ¡£Òò´Ë´ÓÍâ²¿´«Èëeventtype¡£»òÕß·µ»Øeventtype
+	//å› ä¸ºè¿™é‡Œè¦å‘å¤–éƒ¨ä¼ é€’ç»“æœå€¼ã€‚å› æ­¤ä»å¤–éƒ¨ä¼ å…¥eventtypeã€‚æˆ–è€…è¿”å›eventtype
 	EventType* AddSyncEvent(CHandler* handler,EVENT_MSG nEventID, DWORD dwParam, void *pParam);
 	bool PeekEvent(EventType& event);
 protected:

@@ -6,15 +6,15 @@ const EVENT_MSG EVENT_CHANNEL_OUTPUT_TIME = 11;
 int CChannelProtocol::Push( CPackage* package,CProtocol* protocol )
 {
 	if(m_channel->GetService()->GetNChannel() == SOCK_STREAM && m_cacheList != NULL)
-	{//TCP Ö»ÄÜ·Ö×é×ª·¢ÏÈ´æ´¢ÔÙselect ×¼±¸ºÃºó£¬²ÅÈ¡³öÀ´½øĞĞ·¢ËÍ
+	{//TCP åªèƒ½åˆ†ç»„è½¬å‘å…ˆå­˜å‚¨å†select å‡†å¤‡å¥½åï¼Œæ‰å–å‡ºæ¥è¿›è¡Œå‘é€
 		m_cacheList->push_back(package->Address(),package->Length());
 		return 0;
 	}
-	else //UDPÒ»´ÎĞÔ·¢ËÍÍê±Ï¡£
+	else //UDPä¸€æ¬¡æ€§å‘é€å®Œæ¯•ã€‚
 	{
 		int len =  m_channel->Write(package->Length(),package->Address());
 		if(len != package->Length())
-		{//´íÎó
+		{//é”™è¯¯
 			return -1;
 		}
 	}
@@ -40,7 +40,7 @@ void CChannelProtocol::GetIds( int* readid,int* writeid )
 
 	if(m_cacheList == NULL)
 		*writeid = m_channel->Getfd();
-	//ÓÃÓÚTCPĞ­Òé...ÒòÎªUDPÊÇÎŞÁ¬½ÓĞ­Òé£¬ÈÎºÎÊ±ºò¶¼ÄÜĞ´Èë¡£TCPĞèÒªÔÚÏÈÅĞ¶¨ÔÚĞ´Èë
+	//ç”¨äºTCPåè®®...å› ä¸ºUDPæ˜¯æ— è¿æ¥åè®®ï¼Œä»»ä½•æ—¶å€™éƒ½èƒ½å†™å…¥ã€‚TCPéœ€è¦åœ¨å…ˆåˆ¤å®šåœ¨å†™å…¥
 	else
 	{
 		if( !m_cacheList->is_empty())
@@ -56,7 +56,7 @@ void CChannelProtocol::GetIds( int* readid,int* writeid )
 }
 
 void CChannelProtocol::HandleInput()
-{//ÔÚid×¼±¸ºÃºó¡£¶ÁÈëÊı¾İ
+{//åœ¨idå‡†å¤‡å¥½åã€‚è¯»å…¥æ•°æ®
 	int ret = 0;
 	for(int i=0;i <10; i++)
 	{
@@ -72,7 +72,7 @@ void CChannelProtocol::HandleInput()
 		}
 		ret = Pop(&m_channelPackage);
 		if(ret != 0)
-		{//±íÊ¾ÕıÈ·Pop³öÀ´Ò»¸öÉÏ²ãPackage
+		{//è¡¨ç¤ºæ­£ç¡®Popå‡ºæ¥ä¸€ä¸ªä¸Šå±‚Package
 			return;
 		}
 	}
@@ -81,7 +81,7 @@ void CChannelProtocol::HandleInput()
 }
 
 void CChannelProtocol::HandleOutput()
-{//È¡³ö»º´æµÄÊı¾İ½øĞĞ·¢ËÍ
+{//å–å‡ºç¼“å­˜çš„æ•°æ®è¿›è¡Œå‘é€
 
 	if(!m_channel->Available())
 	{
@@ -114,7 +114,7 @@ void CChannelProtocol::HandleOutput()
 }
 
 void CChannelProtocol::OnTimer( int event )
-{//ÓÃÓÚ·¢ËÍ»º´æ°ü---Ä¿Ç°²»Àí½âÎªÊ²Ã´²»ÅĞ¶¨selectÊÇ·ñ×¼±¸ºÃ£¬¾Í½øĞĞ·¢ËÍ
+{//ç”¨äºå‘é€ç¼“å­˜åŒ…---ç›®å‰ä¸ç†è§£ä¸ºä»€ä¹ˆä¸åˆ¤å®šselectæ˜¯å¦å‡†å¤‡å¥½ï¼Œå°±è¿›è¡Œå‘é€
 	if(event == EVENT_CHANNEL_OUTPUT_TIME)
 		HandleOutput();
 }
@@ -129,7 +129,7 @@ CChannelProtocol::CChannelProtocol( CDispatcher* reactor,CChannel* channel,int m
 	
 	if (m_cacheList != NULL && m_channel->GetService()->GetNChannel() == SOCK_STREAM)
 	{
-		SetTimer(EVENT_CHANNEL_OUTPUT_TIME, 10);			//´ò¿ª¶¨Ê±Ç¿ÖÆË¢ĞÂ¶¨Ê±Æ÷
+		SetTimer(EVENT_CHANNEL_OUTPUT_TIME, 10);			//æ‰“å¼€å®šæ—¶å¼ºåˆ¶åˆ·æ–°å®šæ—¶å™¨
 	}
 }
 

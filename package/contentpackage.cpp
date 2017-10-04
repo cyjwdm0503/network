@@ -30,7 +30,7 @@ int CContentPackage::ValidPackage()
 	if(CONTENTHEADLENGTH > Length())
 		return -1;
 	
-	//¶ÁÈ¡head
+	//è¯»å–head
 	m_contenthead.FromStream(m_head);
 	if(m_contenthead.Length < 0 || m_contenthead.Length > MAX_CONTENT_PACKAGE_LEN )
 		return -2;
@@ -38,13 +38,13 @@ int CContentPackage::ValidPackage()
 	if(m_contenthead.ExtensionLen <0 || (m_contenthead.ExtensionLen >0 && m_contenthead.ExtensionLen>CONTENTEXTHEADLENGTH))
 		return -3;
 
-	//×é×°exthead
+	//ç»„è£…exthead
 	if(m_contenthead.ExtensionLen >0)
 		memcpy(&m_contentexthead,m_head+CONTENTHEADLENGTH,m_contenthead.ExtensionLen);
 	else
 		m_contentexthead.Init();
 	
-	//×é×°¶ÔÓ¦µÄÄÚÈİ±¨ÎÄ
+	//ç»„è£…å¯¹åº”çš„å†…å®¹æŠ¥æ–‡
 	if(m_contenthead.ExtensionLen+m_contenthead.Length+CONTENTHEADLENGTH <= Length())
 	{
 		m_end = m_head+m_contenthead.ExtensionLen+m_contenthead.Length+CONTENTHEADLENGTH;
@@ -59,7 +59,7 @@ int CContentPackage::MakePackage()
 {
 	char *buf;
 	m_contenthead.Length = Length();
-	//ÏÈ°ÑÀ©Õ¹±¨ÎÄÍ·Ğ´½øÈ¥
+	//å…ˆæŠŠæ‰©å±•æŠ¥æ–‡å¤´å†™è¿›å»
 	if(m_contentexthead.Tag != CONTENTEXTTAGNANO)
 	{
 		m_contenthead.ExtensionLen = CONTENTEXTHEADLENGTH /*+ m_contentexthead.TagLen*/;
@@ -71,7 +71,7 @@ int CContentPackage::MakePackage()
 		m_contenthead.ExtensionLen = 0;
 	}
 
-	//¿ªÊ¼Ğ´±¨ÎÄÍ·
+	//å¼€å§‹å†™æŠ¥æ–‡å¤´
 	buf = Push(CONTENTHEADLENGTH);
 	if(buf == NULL)
 	{

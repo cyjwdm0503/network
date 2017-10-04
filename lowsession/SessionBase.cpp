@@ -11,7 +11,7 @@ void CServerAcceptManager::GetIds( int* readid,int* writeid )
 
 void CServerAcceptManager::HandleInput()
 {
-	//内部生成channel方式有待考验，因为涉及到serverapi多线程读取channel
+	//鍐呴儴鐢熸垚channel鏂瑰紡鏈夊緟鑰冮獙锛屽洜涓烘秹鍙婂埌serverapi澶氱嚎绋嬭鍙朿hannel
 	CChannel* channel = m_server->AcceptClient();
 	if(channel != NULL)
 	{
@@ -19,7 +19,7 @@ void CServerAcceptManager::HandleInput()
 		//CServerApi* serverapi= new CServerApi(m_server,channel,m_serverreactor);
 		CreateSession(channel);
 		if(channel->GetService()->GetNChannel() == SOCK_DGRAM)
-		{//自我不在进行自我调度
+		{//鑷垜涓嶅湪杩涜鑷垜璋冨害
 			this->RemoveHandler(this);
 		}
 	}

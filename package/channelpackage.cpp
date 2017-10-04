@@ -18,7 +18,7 @@ int CChannelPackage::ReadFromChannel( CChannel* channel )
 	if(channel->GetService()->GetNChannel() == SOCK_STREAM)
 	{
 		int len =  m_head-m_pPackageBuf->Data();
-		//½«Êý¾ÝÒÆ¶¯µ½Data´¦
+		//å°†æ•°æ®ç§»åŠ¨åˆ°Dataå¤„
 		memmove(m_pPackageBuf->Data(),m_head,Length());
 		m_head -=len;
 		m_end -= len;
@@ -29,7 +29,7 @@ int CChannelPackage::ReadFromChannel( CChannel* channel )
 			m_end += ret;
 
 	}
-	else///UDPÐ­ÒéÊÇ»ùÓÚ±¨ÎÄµÄ¡£ËùÒÔÃ¿´ÎÖ»ÄÜ¶ÁÈ¡Ò»¸öÍêÕûµÄpackage
+	else///UDPåè®®æ˜¯åŸºäºŽæŠ¥æ–‡çš„ã€‚æ‰€ä»¥æ¯æ¬¡åªèƒ½è¯»å–ä¸€ä¸ªå®Œæ•´çš„package
 	{
 		m_end = m_head =  m_pPackageBuf->Data();///?????
 		ret =  channel->Read(m_pPackageBuf->Length(),m_end);

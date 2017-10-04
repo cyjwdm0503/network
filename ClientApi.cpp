@@ -80,7 +80,7 @@ void CClientApi::HandleInput()
 
 
 		//m_leavewritelen = len;
-		//从channelpackage中取出来对应的contentpackage
+		//浠巆hannelpackage涓彇鍑烘潵瀵瑰簲鐨刢ontentpackage
 		CContentPackage contentpackage;
 		contentpackage.AddBuf(&channelpackage);
 		if(contentpackage.ValidPackage()>0)

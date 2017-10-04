@@ -14,7 +14,7 @@ CServerApi::CServerApi(CServer* server,CChannel* channel,CDispatcher* reactor):C
 	reactor->AddHandler(this);
 	//m_server =  new CServer();
 	//m_server->CreateServer(server);
-	////Êµ¼ÊÎªclientÓëserverÍ¨ÐÅµÄchanel
+	////å®žé™…ä¸ºclientä¸Žserveré€šä¿¡çš„chanel
 	//m_serverchannel = m_server->AcceptClient();
 	m_server = server;
 	m_serverchannel = channel;
@@ -77,7 +77,7 @@ void CServerApi::HandleInput()
 			cout<<"package:len"<<channelpackage.Length();
 		}
 		else if(re < 0)
-		{//channelÔÚ¶ÏÏßºóÓ¦¸ÃÍ¨Öªserver.ÖØÐÂ½øÈëacceptÁ÷³Ì¡£
+		{//channelåœ¨æ–­çº¿åŽåº”è¯¥é€šçŸ¥server.é‡æ–°è¿›å…¥acceptæµç¨‹ã€‚
 			m_serverchannel->Disconnect();
 			return ;
 		}
@@ -86,7 +86,7 @@ void CServerApi::HandleInput()
 			cout<<"CServerApi::HandleInput:"<<re<<"fp"<<m_serverchannel->Getfd()<<" char content:"<<"\t"<<endl;
 			return ;
 		}
-		//´ÓchannelpackageÖÐÈ¡³öÀ´¶ÔÓ¦µÄcontentpackage
+		//ä»Žchannelpackageä¸­å–å‡ºæ¥å¯¹åº”çš„contentpackage
 		CContentPackage contentpackage;
 		contentpackage.AddBuf(&channelpackage);
 		if(contentpackage.ValidPackage() >0)

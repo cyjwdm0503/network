@@ -18,20 +18,20 @@ public:
 	virtual ~CClientApi();
 	CClientApi();
 
-	//被调度的过程
+	//琚皟搴︾殑杩囩▼
 	virtual void SyncRun();
 
 	virtual bool ExitInstance();
 
 	virtual bool InitInstance();
 
-	//获取对应的文件套接字
+	//鑾峰彇瀵瑰簲鐨勬枃浠跺鎺ュ瓧
 	virtual void GetIds( int* readid,int* writeid );
 
-	//id准备好后，输入的过程
+	//id鍑嗗濂藉悗锛岃緭鍏ョ殑杩囩▼
 	virtual void HandleInput();
 
-	//id准备好后，输出的过程
+	//id鍑嗗濂藉悗锛岃緭鍑虹殑杩囩▼
 	virtual void HandleOutput();
 
 

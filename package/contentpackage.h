@@ -1,7 +1,7 @@
 /************************************************************************/
-/*���ݱ�֤���package,�²�ӦΪchannelpackage���Ӧ��Э��
-�����²��յ��������ַ���ȡ����Ӧ��contentpackage����ȡ����Ӧ���ϲ�Ӧ�����ݰ�
-/**��package��Ҫ��������֤��·�ܹ���ȷ���ӡ�������������Ӧ�����ݰ����ϲ㡣
+/*数据保证层的package,下层应为channelpackage与对应的协议
+利用下层收到的数据字符，取出对应的contentpackage。并取出对应的上层应用数据包
+/**该package主要是用来保证链路能够正确连接。并返回完整的应用数据包给上层。
 /************************************************************************/
 
 #ifndef CONTENTPACKAGE_H
@@ -12,14 +12,14 @@
 #define  MAX_CONTENT_LEN 127
 #define  MAX_CONTENT_PACKAGE_LEN 4096
 
-//����û����չ����
+//表明没有扩展报文
 #define CONTENTEXTTAGNANO				0x00 
 
-//����û���ϲ㱨��
+//表明没有上层报文
 #define CONTENTTYPENANO				0x00 
 
 
-//���ڲ��Եı���
+//用于测试的报文
 #define CONTENT_HEART_TIMEOUT		0x01
 #define CONTENT_HEART_TAG		0x02
 #define CONTENT_ANSWER_TAG		0x03
@@ -27,12 +27,12 @@
 
 
 
-//���ڶ�ӦCContentPackage�����ݰ����ȡ��Լ���Ӧ���ϲ�Э��
+//用于对应CContentPackage的数据包长度。以及对应的上层协议
 struct CContentHeadType
 {
-	unsigned int Type;			/**< ��ʾ�ϲ�Э���Э��ID */	
-	unsigned int ExtensionLen;	/**< ��չ���ĳ��� */
-	unsigned int Length;		/**< ���峤�� */
+	unsigned int Type;			/**< 标示上层协议的协议ID */	
+	unsigned int ExtensionLen;	/**< 扩展报文长度 */
+	unsigned int Length;		/**< 包体长度 */
 
 	inline void Init();
 	inline void ToStream(char *pStream);
@@ -42,17 +42,17 @@ struct CContentHeadType
 };
 
 
-/**���ڱ�Ǳ���ı������ݡ��յ��ò㱨�ģ����ж��ǲ��Ǳ������ݡ�Ȼ�������ϲ���������
+/**用于标记本层的报文内容。收到该层报文，先判定是不是本层内容。然后再向上层推送数据
 */
 struct CContentExtHeadType
 {
 	/************************************************************************/
-	// ��������127 �Ǹոպ�char���Ա�ʾ�ꡣ
-	//�ܹ�ֱ�Ӵ������ֽ����ж������������ٽ��д�С���˵�ת��                                                                     */
+	// 这里设置127 是刚刚好char可以表示完。
+	//能够直接从网络字节序中读出来。不用再进行大小跟端的转换                                                                     */
 	/************************************************************************/
-	unsigned char Tag;		/**< ״̬��ʾ��*/
-	unsigned char TagLen;	/**< ��չ���ĳ��� */
-	char Data[MAX_CONTENT_LEN];	/**< ��չ������ */
+	unsigned char Tag;		/**< 状态标示　*/
+	unsigned char TagLen;	/**< 扩展包的长度 */
+	char Data[MAX_CONTENT_LEN];	/**< 扩展包包体 */
 	inline void Init();
 };
 
@@ -76,35 +76,35 @@ public:
 	virtual int MakePackage();
 
 	CContentHeadType *GetContentHeader();
-	/**��ð���ĳ��ȣ�����XTP��ͷ
-	* @return ����ĳ��ȣ�����XTP��ͷ
+	/**获得包体的长度，包括XTP报头
+	* @return 包体的长度，包括XTP报头
 	*/
 	int GetBodyLength();
 
-	/**�����չ��ͷ�ĳ���
-	* @return ��չ��ͷ�ĳ���
+	/**获得扩展报头的长度
+	* @return 扩展报头的长度
 	*/
 	unsigned int GetExtensionLen();
 
-	/**�����չ��ͷ�ı�ʾ
-	* @return ��չ��ͷ�ı�ʾ
+	/**获得扩展报头的标示
+	* @return 扩展报头的标示
 	*/
 	unsigned int GetExtTag();
 
-	/**�����չ��ͷ���ݵĳ���
-	* @return ��չ��ͷ���ݵĳ���
+	/**获得扩展报头内容的长度
+	* @return 扩展报头内容的长度
 	*/
 	unsigned int GetExtTagLen();
 
-	/**�����չ��ͷ������
-	*@return ��չ��ͷ������
+	/**获得扩展报头的内容
+	*@return 扩展报头的内容
 	*/
 	char* GetExtData();
 
-	/**������չ��ͷ����
-	*@param Tag ��չ��ͷ�ı�ʾ
-	*@param TagLen ��չ��ͷ���ݵĳ���
-	*@param pData ��չ��ͷ������
+	/**设置扩展报头内容
+	*@param Tag 扩展报头的标示
+	*@param TagLen 扩展报头内容的长度
+	*@param pData 扩展报头的内容
 	*/
 	void SetExtHeader(unsigned int Tag, unsigned int TagLen, char *pData );
 

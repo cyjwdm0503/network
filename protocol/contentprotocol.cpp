@@ -13,7 +13,7 @@ int CContentProtocol::Pop( CPackage* package )
 	if(contentpackage == NULL)
 		return -1;
 	if(contentpackage->GetActiveID() == CONTENTTYPENANO)
-	{//µ±Ç°Ğ­ÒéµÄ±¨ÎÄ
+	{//å½“å‰åè®®çš„æŠ¥æ–‡
 		if(contentpackage->GetExtTag() == CONTENT_HEART_TIMEOUT)
 		{
 			set_timeout(package);
@@ -29,7 +29,7 @@ int CContentProtocol::Pop( CPackage* package )
 		}
 	}
 	
-	//Èç¹û²»ÊÇ¸Ã²ãµÄ±¨ÎÄ£¬ÔòÏßÉÏ½øĞĞPop
+	//å¦‚æœä¸æ˜¯è¯¥å±‚çš„æŠ¥æ–‡ï¼Œåˆ™çº¿ä¸Šè¿›è¡ŒPop
 	return CProtocol::Pop(package);
 }
 
@@ -41,23 +41,23 @@ int CContentProtocol::OnRecvErrPackage( CPackage* package )
 int CContentProtocol::Push( CPackage* package,CProtocol* protocol )
 {
 	//m_LastReadTime = m_dispatcher->Time();
-	//ÕâÀïµÄpushÉè¶¨activeIDÒ²¿ÉÒÔÓÃÍ³Ò»µÄ½Ó¿ÚÊµÏÖµÄ¡£
+	//è¿™é‡Œçš„pushè®¾å®šactiveIDä¹Ÿå¯ä»¥ç”¨ç»Ÿä¸€çš„æ¥å£å®ç°çš„ã€‚
 	((CContentPackage*)m_sendPackage)->GetContentHeader()->Type =  protocol->GetActiveID();
 	return CProtocol::Push(package,protocol);
 }
 
 void CContentProtocol::OnTimer( int event )
 {
-	/***ÓÃÓÚ¼ì²é¶ÔÓ¦Ğ­ÒéÏÂµÄĞÄÌøÊ±¼ä,..Èç¹û³¬¹ıtimeout¡£ÏòÍâ·¢ËÍĞÄÌø°ü*/
+	/***ç”¨äºæ£€æŸ¥å¯¹åº”åè®®ä¸‹çš„å¿ƒè·³æ—¶é—´,..å¦‚æœè¶…è¿‡timeoutã€‚å‘å¤–å‘é€å¿ƒè·³åŒ…*/
 	if(event == CONTENTPROTOCOL_CHECKTIME_ID)
 	{
 		if(m_dispatcher->Time() - m_LastReadTime >= 3*m_timeOut)
-		{//ÀëÉÏ´Î¶Áµ½µÄÊ±¼äÌ«Ô¶ÁË£¬¿ÉÄÜ·şÎñÆ÷ÒÑ¾­¹Òµô
+		{//ç¦»ä¸Šæ¬¡è¯»åˆ°çš„æ—¶é—´å¤ªè¿œäº†ï¼Œå¯èƒ½æœåŠ¡å™¨å·²ç»æŒ‚æ‰
 			NotifyErr(EVENT_CONTENT_READTIMEOUT,0,this);
 		}
 
 		if(m_dispatcher->Time() -  m_LastWriteTime >= m_timeOut)
-		{//ÀëÉÏ´Î¶ÔÍâĞ´Êı¾İµÄÊ±¼äÒÑ¾­ºÜÔ¶ÁË¡£·¢ËÍĞÄÌø	
+		{//ç¦»ä¸Šæ¬¡å¯¹å¤–å†™æ•°æ®çš„æ—¶é—´å·²ç»å¾ˆè¿œäº†ã€‚å‘é€å¿ƒè·³	
 			if( !SendHeartTag())
 				NotifyErr(EVENT_CONTENT_WRITETIMEOUT,0,this);
 		}
@@ -89,7 +89,7 @@ void CContentProtocol::send_timeout( int timeout )
 }
 
 void CContentProtocol::set_timeout( CPackage* package )
-{//¸ù¾İÊÕµ½µÄÊ±¼ä³¬Ê±±¨ÎÄ£¬Éè¶¨·¢ËÍĞÄÌøµÄ³¬Ê±Ê±¼ä
+{//æ ¹æ®æ”¶åˆ°çš„æ—¶é—´è¶…æ—¶æŠ¥æ–‡ï¼Œè®¾å®šå‘é€å¿ƒè·³çš„è¶…æ—¶æ—¶é—´
 	CContentPackage* contentpkg = dynamic_cast<CContentPackage*>(package);
 	if(contentpkg == NULL)
 		return;

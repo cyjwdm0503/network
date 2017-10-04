@@ -33,10 +33,10 @@ class CClientContent:public CContentSession,public CProtocolCallback
 public:
 	CClientContent(CDispatcher* selecter,CChannel* channel);
 
-	//ÊÕµ½Êı¾İ½øĞĞÕ¹Ê¾
+	//æ”¶åˆ°æ•°æ®è¿›è¡Œå±•ç¤º
 	virtual int HandlePackage( CPackage* pPackage,CProtocol* protocol );
 
-	//¶¨Ê±Ïòµ×²ã·¢ËÍÊı¾İ
+	//å®šæ—¶å‘åº•å±‚å‘é€æ•°æ®
 	virtual void OnTimer( int event );
 
 	virtual void OnDisconnected( int ErrorCode );

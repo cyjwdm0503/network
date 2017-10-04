@@ -1,11 +1,11 @@
-///channelpackage���������udp����tcpЭ�����յ��������ַ�
-//���Ա�֤�����ܹ���ȷ�յ�
-//��װ��Ӧ���ݰ���Ϊ�ϲ�Э��Ĺ���
-//�ڶ�Ӧ��·��TCPʱ�����ڲ��ܱ�֤ÿ�ζ�����ȷ������package����Ҫ�и�Protocol������channelpackage�Ļ�����������𷢳������
-//��UDP�£�����Ҫ���иû���Ĺ���
+///channelpackage用来缓存从udp或者tcp协议中收到的数据字符
+//用以保证数据能够正确收到
+//组装对应数据包，为上层协议的功能
+//在对应链路是TCP时，由于不能保证每次都能正确发送完package。需要有个Protocol来进行channelpackage的缓存管理。负责发出与读入
+//在UDP下，不需要进行该缓存的管理
 /////http://www.linuxidc.com/Linux/2014-11/109545.htm
-////���д�ò����ݰ�ʱ��Ӧ��д�뻺�棬��ӻ���ȡ����д���²㡣
-//UDP�����ֱ��д
+////因此写该层数据包时，应先写入缓存，后从缓存取出，写入下层。
+//UDP则可以直接写
 
 
 #ifndef CHANNELPACKAGE_H

@@ -5,7 +5,7 @@
 
 CHandler::CHandler( CDispatcher* selecter ) :m_dispatcher(selecter)
 {
-	//不再默认加入事件中，让子类自己选择被谁调度
+	//涓嶅啀榛樿鍔犲叆浜嬩欢涓紝璁╁瓙绫昏嚜宸遍�夋嫨琚皝璋冨害
 	//m_dispatcher->AddHandler(this);
 }
 

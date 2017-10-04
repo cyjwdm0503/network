@@ -1,11 +1,11 @@
 /************************************************************************/
-/* ���ڴ���channelprotocol�����Ϣ�����Լ�������Ϣ������session
-��ΪsessionҲ�Ǳ��¼����ȵ��࣬���Ҫ�̳���CHandler
-��Ϊ�Ժ�����ṩ�Ķ���session����������ӿڣ����Ҫ��channel���з�װ
+/* 用于处理channelprotocol层的消息发送以及错误消息处理的session
+因为session也是被事件调度的类，因此要继承与CHandler
+因为以后对外提供的都是session的输入输出接口，因此要将channel进行封装
 
-Ϊ�����ṩ�Զ���Ļص��������ṩһ���ص�������
+为方便提供自定义的回调处理。提供一个回调参数类
 
-session ��input��output����Ϊchannelprotocol����������
+session 的input，output沦落为channelprotocol的特例方法
 
 */
 /************************************************************************/

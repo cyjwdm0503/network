@@ -26,7 +26,7 @@
 #include <sys/time.h>
 #endif
 
-//如果写const int 会在类和结构体中报错
+//濡傛灉鍐檆onst int 浼氬湪绫诲拰缁撴瀯浣撲腑鎶ラ敊
 typedef int EVENT_MSG;
 
 const EVENT_MSG	EVENT_NULL = 0;
