@@ -1,4 +1,4 @@
-#include "Handler.h"
+﻿#include "Handler.h"
 #include <cstdlib>
 
 #include "Dispatcher.h"

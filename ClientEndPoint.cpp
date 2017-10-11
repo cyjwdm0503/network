@@ -1,4 +1,4 @@
-#include "ClientApi.h"
+﻿#include "ClientApi.h"
 #include "Log.h"
 
 #include <iostream>

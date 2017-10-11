@@ -1,4 +1,4 @@
-#ifndef PACKAGE_H
+﻿#ifndef PACKAGE_H
 #define PACKAGE_H
 
 class  CPackageBuffer

@@ -1,4 +1,4 @@
-#include "MutexGuard.h"
+﻿#include "MutexGuard.h"
 
 CMutexGuard::CMutexGuard( CMutex& mtx ):m_mtx(mtx)
 {

@@ -1,4 +1,4 @@
-#include "Protocol.h"
+﻿#include "Protocol.h"
 
 CProtocol::CProtocol( CDispatcher* reactor,CPackage* pUpperPackage,CPackage* pSendPackage,int ReserverLen ):CHandler(reactor)
 {

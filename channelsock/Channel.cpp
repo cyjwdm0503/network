@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include "Channel.h"
 #include "Log.h"
 CChannel::~CChannel()

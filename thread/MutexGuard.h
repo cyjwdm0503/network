@@ -1,4 +1,4 @@
-#ifndef MUTEXGUARD_H
+﻿#ifndef MUTEXGUARD_H
 #define MUTEXGUARD_H
 
 #include "Mutex.h"

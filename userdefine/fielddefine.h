@@ -1,4 +1,4 @@
-//用代码生成工具生成对应的代码
+﻿//用代码生成工具生成对应的代码
 #ifndef FIELDDEFINE_H
 #define FIELDDEFINE_H
 

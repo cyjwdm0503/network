@@ -1,4 +1,4 @@
-#include "InetSock.h"
+ï»¿#include "InetSock.h"
 #include "UdpChannel.h"
 #include <map>
 
@@ -31,7 +31,7 @@ CInetSock::~CInetSock()
 int CInetSock::CreateSocket()
 {
 	m_fd = socket(AF_INET,m_service->GetNChannel(),0);
-	//ÔÊĞí¶à´ÎÁ¬½Ó
+	//å…è®¸å¤šæ¬¡è¿æ¥
 	int on=1;
 	setsockopt(m_fd, SOL_SOCKET, SO_REUSEADDR, (char *)&on, sizeof(on));
 	return m_fd;

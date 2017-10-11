@@ -1,4 +1,4 @@
-#include "contentsession.h"
+﻿#include "contentsession.h"
 
 #include "Log.h"
 

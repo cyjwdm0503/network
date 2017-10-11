@@ -1,4 +1,4 @@
-#include "Semaphore.h"
+﻿#include "Semaphore.h"
 CSemaphore::CSemaphore( int count,const char* name)
 {
 #ifdef WIN32

@@ -1,4 +1,4 @@
-#include "channelprotocol.h"
+﻿#include "channelprotocol.h"
 
 
 const EVENT_MSG EVENT_CHANNEL_OUTPUT_TIME = 11;

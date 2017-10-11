@@ -1,4 +1,4 @@
-
+﻿
 #include "cachelist.h"
 
 CCacheList::CCacheList( )

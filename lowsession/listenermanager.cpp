@@ -1,4 +1,4 @@
-#include "listenermanager.h"
+ï»¿#include "listenermanager.h"
 void CListenerManager::GetIds( int* readid,int* writeid )
 {
 	if(m_serverchannel != NULL)
@@ -8,12 +8,12 @@ void CListenerManager::GetIds( int* readid,int* writeid )
 
 void CListenerManager::HandleInput()
 {
-	//ÄÚ²¿Éú³Échannel·½Ê½ÓÐ´ý¿¼Ñé£¬ÒòÎªÉæ¼°µ½serverapi¶àÏß³Ì¶ÁÈ¡channel
+	//å†…éƒ¨ç”Ÿæˆchannelæ–¹å¼æœ‰å¾…è€ƒéªŒï¼Œå› ä¸ºæ¶‰åŠåˆ°serverapiå¤šçº¿ç¨‹è¯»å–channel
 	CChannel* channel = AccpetConnecter();
 	if(channel != NULL)
 	{
 		if(channel->GetService()->GetNChannel() == SOCK_DGRAM)
-		{//×ÔÎÒ²»ÔÚ½øÐÐ×ÔÎÒµ÷¶È
+		{//è‡ªæˆ‘ä¸åœ¨è¿›è¡Œè‡ªæˆ‘è°ƒåº¦
 			this->RemoveHandler(this);
 		}
 	}

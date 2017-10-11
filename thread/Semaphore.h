@@ -1,4 +1,4 @@
-#ifndef SEMAPHORE_H
+﻿#ifndef SEMAPHORE_H
 #define SEMAPHORE_H
 
 #include "Common.h"

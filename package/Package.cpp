@@ -1,4 +1,4 @@
-#include "Package.h"
+ï»¿#include "Package.h"
 #include <cstdlib>
 #include <cstring>
 #include <cstdio>
@@ -155,7 +155,7 @@ void CPackage::ConstructAlloc( int Capacity, int Reserve )
 	delete m_pPackageBuf;
 	m_pPackageBuf = new CPackageBuffer(Capacity+Reserve);
 	m_Reserve = Reserve;
-	Clear();//ÉèÖÃÊ×Î²½ÚµãÔÚÄ©Î»
+	Clear();//è®¾ç½®é¦–å°¾èŠ‚ç‚¹åœ¨æœ«ä½
 }
 
 char* CPackage::AllocMax()

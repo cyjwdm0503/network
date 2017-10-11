@@ -1,4 +1,4 @@
-#ifndef HANDLER_H
+﻿#ifndef HANDLER_H
 #define HANDLER_H
 //#include "Dispatcher.h"
 typedef unsigned long       DWORD;

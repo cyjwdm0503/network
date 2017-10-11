@@ -1,4 +1,4 @@
-#ifndef TIMERQUEUE_H
+﻿#ifndef TIMERQUEUE_H
 #define TIMERQUEUE_H
 
 #include "Handler.h"

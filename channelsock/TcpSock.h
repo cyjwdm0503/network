@@ -1,4 +1,4 @@
-/**
+﻿/**
 对外提供的tcpsock 由CInetSock继承而来
 **/
 #ifndef TCPSOCK_H

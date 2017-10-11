@@ -1,4 +1,4 @@
-#include "channelpackage.h"
+﻿#include "channelpackage.h"
 #include "Log.h"
 
 CChannelPackage::CChannelPackage( int maxlength )

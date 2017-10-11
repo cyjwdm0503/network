@@ -1,4 +1,4 @@
-#include "fielddescribe.h"
+﻿#include "fielddescribe.h"
 #include "socks.h"
 
 CFieldDescribe::CFieldDescribe( unsigned short FieldID,int StructSize,const char* Comment,int TotalMember,const char* FieldName,fun_callback fun)

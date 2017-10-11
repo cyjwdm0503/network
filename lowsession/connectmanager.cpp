@@ -1,4 +1,4 @@
-#include "connectmanager.h"
+﻿#include "connectmanager.h"
 #include "Client.h"
 
 

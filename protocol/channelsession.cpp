@@ -1,4 +1,4 @@
-#include "channelsession.h"
+﻿#include "channelsession.h"
 
 
 void CChannelSession::HandleOutput()

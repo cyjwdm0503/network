@@ -1,4 +1,4 @@
-#ifndef CLIENTBASE_H
+﻿#ifndef CLIENTBASE_H
 #define CLIENTBASE_H
 
 #include "Channel.h"

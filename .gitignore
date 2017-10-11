@@ -1,0 +1,8 @@
+ServerApi.cpp1
+*.exe
+*.log
+*.vsp
+*.sdf
+*.obj
+*.o
+*.unsuccessfulbuild

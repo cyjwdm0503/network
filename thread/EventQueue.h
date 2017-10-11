@@ -1,4 +1,4 @@
-/**
+﻿/**
 提供放入event和取出event的序列
 */
 #ifndef EVENTQUEUE_H

@@ -1,4 +1,4 @@
-#ifndef CHANNELSESSION_H
+﻿#ifndef CHANNELSESSION_H
 #define CHANNELSESSION_H
 #include "session.h"
 class CChannelSession:public CSession,public CSessionCallback

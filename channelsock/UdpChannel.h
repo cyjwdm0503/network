@@ -1,4 +1,4 @@
-/*
+﻿/*
 */
 #ifndef UDPCHANNEL_H
 #define UDPCHANNEL_H

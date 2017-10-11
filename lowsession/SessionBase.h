@@ -1,4 +1,4 @@
-#ifndef SESSIONBASE_H
+ï»¿#ifndef SESSIONBASE_H
 #define SESSIONBASE_H
 
 
@@ -31,7 +31,7 @@ public:
 protected:
 	CServer* m_server;
 	CChannel* m_channel;
-	//ÓÃÓÚµ÷¶ÈsessionµÄreactor
+	//ç”¨äºŽè°ƒåº¦sessionçš„reactor
 	CSelectReactor* m_serverreactor;
 };
 

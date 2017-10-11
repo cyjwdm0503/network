@@ -1,4 +1,4 @@
-#ifndef PACKAGEDEFINE_H
+﻿#ifndef PACKAGEDEFINE_H
 #define PACKAGEDEFINE_H
 
 const unsigned int  PACKAGE_SendField_ID = 0x01;

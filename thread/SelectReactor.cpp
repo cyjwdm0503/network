@@ -1,4 +1,4 @@
-#include "SelectReactor.h"
+﻿#include "SelectReactor.h"
 #include <iostream>
 #ifdef WIN32
 

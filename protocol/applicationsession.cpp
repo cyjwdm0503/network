@@ -1,4 +1,4 @@
-#include "applicationsession.h"
+﻿#include "applicationsession.h"
 
 
 CApplicationSession::CApplicationSession(CDispatcher* dispatcher,CChannel* channel):

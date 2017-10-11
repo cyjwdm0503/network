@@ -1,4 +1,4 @@
-/**
+﻿/**
 对外提供的updsock 由CInetSock继承而来
 **/
 #ifndef UDPSOCK_H

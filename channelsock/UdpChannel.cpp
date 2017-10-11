@@ -1,4 +1,4 @@
-#include "Log.h"
+ï»¿#include "Log.h"
 #include "UdpChannel.h"
 
 
@@ -52,7 +52,7 @@ int CUdpChannel::Read( size_t max ,char* buf )
 		if(errnum == EWOULDBLOCK)
 			return 0;
 
-		//×¢ÒâÔÚUDP·¢ËÍµÚÒ»¸öÊı¾İÊ±£¬ÇÒÃ»ÓĞUDP·şÎñÆ÷Ê±£¬ÄÜselect Ê±ÊÕµ½-1µÄ½á¹û
+		//æ³¨æ„åœ¨UDPå‘é€ç¬¬ä¸€ä¸ªæ•°æ®æ—¶ï¼Œä¸”æ²¡æœ‰UDPæœåŠ¡å™¨æ—¶ï¼Œèƒ½select æ—¶æ”¶åˆ°-1çš„ç»“æœ
 		/*10054
 		//https://support.microsoft.com/zh-cn/help/263823/winsock-recvfrom-now-returns-wsaeconnreset-instead-of-blocking-or-timing-out
 		*/

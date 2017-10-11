@@ -1,4 +1,4 @@
-#ifndef LISTENERMANAGER_H
+﻿#ifndef LISTENERMANAGER_H
 #define LISTENERMANAGER_H
 
 #include "SelectReactor.h"

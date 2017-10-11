@@ -1,4 +1,4 @@
-#ifndef SELECTREACTOR_H
+﻿#ifndef SELECTREACTOR_H
 #define SELECTREACTOR_H
 
 #include "Dispatcher.h"

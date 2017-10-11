@@ -1,4 +1,4 @@
-#ifndef SERVERBASE_H
+﻿#ifndef SERVERBASE_H
 #define SERVERBASE_H
 
 #include "Channel.h"

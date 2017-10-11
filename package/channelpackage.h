@@ -1,4 +1,4 @@
-///channelpackage用来缓存从udp或者tcp协议中收到的数据字符
+﻿///channelpackage用来缓存从udp或者tcp协议中收到的数据字符
 //用以保证数据能够正确收到
 //组装对应数据包，为上层协议的功能
 //在对应链路是TCP时，由于不能保证每次都能正确发送完package。需要有个Protocol来进行channelpackage的缓存管理。负责发出与读入

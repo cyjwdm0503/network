@@ -1,4 +1,4 @@
-#include "contentprotocol.h"
+﻿#include "contentprotocol.h"
 #include "contentpackage.h"
 #include <ctime>
 #include "Log.h"
