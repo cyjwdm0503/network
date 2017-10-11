@@ -54,7 +54,7 @@ int CUdpChannel::Read( size_t max ,char* buf )
 
 		//注意在UDP发送第一个数据时，且没有UDP服务器时，能select 时收到-1的结果
 		/*10054
-		https://support.microsoft.com/zh-cn/help/263823/winsock-recvfrom-now-returns-wsaeconnreset-instead-of-blocking-or-timing-out
+		//https://support.microsoft.com/zh-cn/help/263823/winsock-recvfrom-now-returns-wsaeconnreset-instead-of-blocking-or-timing-out
 		*/
 		else
 		{

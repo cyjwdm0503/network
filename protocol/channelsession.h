@@ -18,9 +18,9 @@ public:
 
 	virtual int HandleEvent( int event,DWORD dwParam,void* pParam );
 
-
+	 void RegisterConnectCallback(CConnectCallback* callback);
 private:
-
+	CConnectCallback* m_ConnectCallback;
 };
 
 #endif

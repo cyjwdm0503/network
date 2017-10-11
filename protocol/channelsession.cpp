@@ -24,6 +24,7 @@ CChannelSession::~CChannelSession()
 CChannelSession::CChannelSession( CDispatcher *selecter,CChannel *pChannel,int MaxPackageSize ) :CSession(selecter,pChannel,MaxPackageSize)
 {
 	m_ChannelProtocol->RegisterErrHandler(this);
+	m_ConnectCallback =  NULL;
 }
 
 void CChannelSession::OnDisconnected( int ErrorCode )
@@ -34,6 +35,11 @@ void CChannelSession::OnDisconnected( int ErrorCode )
 	}
 	m_Channel->Disconnect();
 	CSessionCallback::OnDisconnected(ErrorCode);
+
+	if(m_ConnectCallback != NULL && m_Channel->GetService()->GetNChannel() != SOCK_DGRAM)
+	{
+		m_ConnectCallback->OnDisConnected(ErrorCode);
+	}
 }
 
 int CChannelSession::HandleEvent( int event,DWORD dwParam,void* pParam )
@@ -52,4 +58,9 @@ int CChannelSession::HandleEvent( int event,DWORD dwParam,void* pParam )
 		break;
 	}
 	return 0;
+}
+
+void CSession::RegisterConnectCallback(CConnectCallback* callback)
+{
+	m_ConnectCallback = callback;
 }

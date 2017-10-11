@@ -1,62 +1,69 @@
 #ifndef APPLICATIONPACKAGE_H 
 #define APPLICATIONPACKAGE_H
+
 #include "Package.h"
 #include "fieldset.h"
 
 const unsigned int APPLICATIONPACKAGE_MAXLENGTH = 3096;
-/**åº”ç”¨å±‚æŠ¥æ–‡å¤´ç»“æž„
+/**Ó¦ÓÃ²ã±¨ÎÄÍ·½á¹¹
 */
 struct	CApplicationPackageHeader
 {
-	unsigned char	Type;				/**< åŒ…ç±»åž‹ï¼ˆ'P'å‘å¸ƒï¼Œ'R'è¯·æ±‚ï¼Œ'O'åº”ç­”ï¼‰ */
-	unsigned char	Chain;				/**< æŠ¥æ–‡çš„è¿žç»­æ ‡å¿— */
-	unsigned char	PubSession;		    /**< å‘å¸ƒä¼šè¯å·,æ¯æ¬¡æ›´æ¢ä¼šè¯ï¼Œå°äºŽæ­¤ä¼šè¯å·çš„æ•°æ®å°†ä¼šä¸¢å¼ƒ */
-	unsigned char	FrontID;			/**< äº¤æ˜“å‰ç½®çš„æ ‡è¯† */
-	unsigned short	ContentLength;		/**< é™¤æŠ¥å¤´ä¹‹å¤–ï¼Œå„fieldé•¿åº¦å’Œ */
-	unsigned short	CommPhaseNo;		/**< é€šè®¯é˜¶æ®µåºå·,æ¯æ¬¡æ›´æ¢åºå·ï¼ŒSequenceNoéƒ½ä»Ž1é‡æ–°å¼€å§‹ */
-	unsigned short	SubjectID;			/**< ä¸»é¢˜ */
-	unsigned short    FrontSubjectID;	    /**< å‰ç½®ä¸»é¢˜ä»£ç */
-	unsigned int 	Tid;				/**< æŠ¥æ–‡çš„id	*/
-	unsigned int 	SequenceNo;			/**< æŠ¥æ–‡çš„åºå· */
-	unsigned int 	RequestID;			/**< è¯·æ±‚ID*/
-	unsigned int 	SessionID;			/**< è¯·æ±‚å‘èµ·è€…åœ¨å‰ç½®çš„ä¼šè¯ID*/
-	unsigned int    FrontSeqNo;		    /**< åœ¨å‰ç½®ä¸»é¢˜ä¸­çš„åºå·*/
-	unsigned int    CompSeqNo;		    /**< æŽ’é˜Ÿæœºäº§ç”Ÿçš„åºå·*/
+	unsigned char	Type;				/**< °üÀàÐÍ£¨'P'·¢²¼£¬'R'ÇëÇó£¬'O'Ó¦´ð£© */
+	unsigned char	Chain;				/**< ±¨ÎÄµÄÁ¬Ðø±êÖ¾ */
+	unsigned char	PubSession;		    /**< ·¢²¼»á»°ºÅ,Ã¿´Î¸ü»»»á»°£¬Ð¡ÓÚ´Ë»á»°ºÅµÄÊý¾Ý½«»á¶ªÆú */
+	unsigned char	FrontID;			/**< ½»Ò×Ç°ÖÃµÄ±êÊ¶ */
+	unsigned short	ContentLength;		/**< ³ý±¨Í·Ö®Íâ£¬¸÷field³¤¶ÈºÍ */
+	unsigned short	CommPhaseNo;		/**< Í¨Ñ¶½×¶ÎÐòºÅ,Ã¿´Î¸ü»»ÐòºÅ£¬SequenceNo¶¼´Ó1ÖØÐÂ¿ªÊ¼ */
+	unsigned short	SubjectID;			/**< Ö÷Ìâ */
+	unsigned short    FrontSubjectID;	    /**< Ç°ÖÃÖ÷Ìâ´úÂë*/
+	unsigned int 	Tid;				/**< ±¨ÎÄµÄid	*/
+	unsigned int 	SequenceNo;			/**< ±¨ÎÄµÄÐòºÅ */
+	unsigned int 	RequestID;			/**< ÇëÇóID*/
+	unsigned int 	SessionID;			/**< ÇëÇó·¢ÆðÕßÔÚÇ°ÖÃµÄ»á»°ID*/
+	unsigned int    FrontSeqNo;		    /**< ÔÚÇ°ÖÃÖ÷ÌâÖÐµÄÐòºÅ*/
+	unsigned int    CompSeqNo;
 	unsigned int	ActiveID;
-	/**å°†æˆå‘˜å˜é‡çš„å†…å®¹æ¸…0
+	/**½«³ÉÔ±±äÁ¿µÄÄÚÈÝÇå0
 	*/
 	CApplicationPackageHeader();
  
 
-	/**å°†æœ¬å¯¹è±¡çš„å†…å®¹æ”¾å…¥pStreamï¼Œå¹¶æ”¹å˜å­—èŠ‚åº
-	*@param pStream å­˜è´®æ”¹å˜å­—èŠ‚åºåŽæ•°æ®çš„ç¼“å†²åŒº
+	/**½«±¾¶ÔÏóµÄÄÚÈÝ·ÅÈëpStream£¬²¢¸Ä±ä×Ö½ÚÐò
+	*@param pStream ´æÖü¸Ä±ä×Ö½ÚÐòºóÊý¾ÝµÄ»º³åÇø
 	*/
 	  void ToStream(char *pStream);
 
-	/**å°†pStreamçš„æ•°æ®æ”¾å…¥æœ¬å¯¹è±¡ï¼Œå¹¶æ”¹å˜å­—èŠ‚åº
-	*@param pStream å­˜è´®æ”¹å˜å­—èŠ‚åºå‰æ•°æ®çš„ç¼“å†²åŒº
+	/**½«pStreamµÄÊý¾Ý·ÅÈë±¾¶ÔÏó£¬²¢¸Ä±ä×Ö½ÚÐò
+	*@param pStream ´æÖü¸Ä±ä×Ö½ÚÐòÇ°Êý¾ÝµÄ»º³åÇø
 	*/
 	  void FromStream(char *pStream);
 };
 
 const int  APPLICATIONHEADERLENGTH	= sizeof(CApplicationPackageHeader);
 
+#ifndef SETATTR
+#define  SETATTR(Name,ValueType)\
+	void Set##Name(ValueType value)\
+{\
+	m_ApplicationHeader.##Name = (##value);\
+}
 
+#endif
+
+#ifndef GETATTR
+#define  GETATTR(Name,ValueType)\
+	ValueType Get##Name()\
+{\
+	return m_ApplicationHeader.##Name;\
+}
+
+#endif
 
 class CApplicationPackage:public CFieldSet
 {
 
-#define  SETATTR(Name,ValueType)\
-	void Set##Name(ValueType value)\
-	{\
-	m_ApplicationHeader.##Name = (##value);\
-}
 
-#define  GETATTR(Name,ValueType)\
-	ValueType Get##Name()\
-	{\
-	return m_ApplicationHeader.##Name;\
-	}
 
 public:
 	virtual int GetActiveID();

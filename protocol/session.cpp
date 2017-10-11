@@ -6,7 +6,7 @@ CSession::CSession(CDispatcher *pReactor,CChannel *pChannel,int MaxPackageSize )
 {
 	m_ChannelProtocol =  new CChannelProtocol(pReactor,m_Channel,MaxPackageSize);
 	m_ChannelProtocol->RegisterErrHandler(this);
-	m_SessionCallback = NULL;
+	m_ConnectCallback = NULL;
 	m_SessionID = ++SESSION_ID + time(NULL)<<16;
 }
 

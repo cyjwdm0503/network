@@ -228,6 +228,8 @@
     <ClCompile Include="..\ClientEndPoint.cpp" />
     <ClCompile Include="..\client\ClientBase.cpp" />
     <ClCompile Include="..\client\Client.cpp" />
+    <ClCompile Include="..\lowsession\connectmanager.cpp" />
+    <ClCompile Include="..\lowsession\listenermanager.cpp" />
     <ClCompile Include="..\lowsession\SessionBase.cpp" />
     <ClCompile Include="..\package\applicationpackage.cpp" />
     <ClCompile Include="..\package\channelpackage.cpp" />
@@ -271,6 +273,8 @@
     <ClInclude Include="..\ClientApi.h" />
     <ClInclude Include="..\client\ClientBase.h" />
     <ClInclude Include="..\client\Client.h" />
+    <ClInclude Include="..\lowsession\connectmanager.h" />
+    <ClInclude Include="..\lowsession\listenermanager.h" />
     <ClInclude Include="..\lowsession\SessionBase.h" />
     <ClInclude Include="..\package\applicationpackage.h" />
     <ClInclude Include="..\package\channelpackage.h" />

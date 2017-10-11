@@ -148,6 +148,12 @@
     <ClCompile Include="..\userdefine\fielddefine.cpp">
       <Filter>userdefine</Filter>
     </ClCompile>
+    <ClCompile Include="..\lowsession\connectmanager.cpp">
+      <Filter>lowsession</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lowsession\listenermanager.cpp">
+      <Filter>lowsession</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h">
@@ -277,6 +283,12 @@
     </ClInclude>
     <ClInclude Include="..\protocol\channelsession.h">
       <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lowsession\connectmanager.h">
+      <Filter>lowsession</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lowsession\listenermanager.h">
+      <Filter>lowsession</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

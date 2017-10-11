@@ -22,6 +22,14 @@ public:
 	virtual void OnWriteError(int ErrorCode){};
 	virtual void OnDisconnected(int ErrorCode){};
 	virtual void OnConnected(int Code){};
+	
+};
+
+class CConnectCallback
+{
+public:
+	virtual void OnConnected(int code);
+	virtual void OnDisConnected(int code);
 };
 
 class CSession:public CHandler
@@ -39,11 +47,11 @@ public:
 
 	virtual void HandleOutput();
 
-
+	void RegisterConnectCallback(CConnectCallback* callback);
 protected:
 	CChannelProtocol* m_ChannelProtocol;
 	CChannel* m_Channel;
-	CSessionCallback* m_SessionCallback;
+	CConnectCallback* m_ConnectCallback;
 	unsigned int m_SessionID;
 
 };

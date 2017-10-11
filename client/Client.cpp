@@ -1,4 +1,4 @@
-#include "Client.h"
+﻿#include "Client.h"
 #include "TcpSock.h"
 #include "UdpSock.h"
 CChannel* CClient::CreateClient( CServiceName* server )

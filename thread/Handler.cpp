@@ -47,3 +47,23 @@ void CHandler::KillTimer( int event )
 	if(m_dispatcher != NULL)
 		m_dispatcher->RemoveTimer(this,event);
 }
+
+void CHandler::OnTimer( int event )
+{
+
+}
+
+void CHandler::HandleOutput()
+{
+
+}
+
+void CHandler::HandleInput()
+{
+
+}
+
+void CHandler::GetIds( int* readid,int* writeid )
+{
+
+}
