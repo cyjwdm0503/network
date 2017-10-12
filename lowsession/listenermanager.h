@@ -24,6 +24,8 @@ public:
 
 	virtual void HandleInput();
 
+	void SetListenLocation(string connectLocation);
+
 public:
 	CSelectReactor* m_outReactor;
 	string m_listenLocation;

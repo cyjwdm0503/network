@@ -231,6 +231,7 @@
     <ClCompile Include="..\lowsession\connectmanager.cpp" />
     <ClCompile Include="..\lowsession\listenermanager.cpp" />
     <ClCompile Include="..\lowsession\SessionBase.cpp" />
+    <ClCompile Include="..\lowsession\sessionfactory.cpp" />
     <ClCompile Include="..\package\applicationpackage.cpp" />
     <ClCompile Include="..\package\channelpackage.cpp" />
     <ClCompile Include="..\package\contentpackage.cpp" />
@@ -276,6 +277,7 @@
     <ClInclude Include="..\lowsession\connectmanager.h" />
     <ClInclude Include="..\lowsession\listenermanager.h" />
     <ClInclude Include="..\lowsession\SessionBase.h" />
+    <ClInclude Include="..\lowsession\sessionfactory.h" />
     <ClInclude Include="..\package\applicationpackage.h" />
     <ClInclude Include="..\package\channelpackage.h" />
     <ClInclude Include="..\package\contentpackage.h" />

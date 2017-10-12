@@ -2,7 +2,13 @@
 void CListenerManager::GetIds( int* readid,int* writeid )
 {
 	if(m_serverchannel != NULL)
+	{
 		*readid = m_serverchannel->Getfd();
+	}
+	else
+	{
+		*readid = 0;
+	}
 	*writeid = 0;
 }
 
@@ -25,7 +31,10 @@ CListenerManager::CListenerManager( CSelectReactor* outReactor,string listenLoca
 	m_listenLocation = listenLocation;
 	m_server =  new CServer();
 	m_serverchannel = NULL;
-	m_serverchannel =  m_server->CreateServer(m_listenLocation.c_str());
+	
+	if(!m_listenLocation.empty())
+		m_serverchannel =  m_server->CreateServer(m_listenLocation.c_str());
+	
 	AddHandler(this);
 }
 
@@ -65,5 +74,15 @@ void CListenerManager::SendAccepted( CChannel* channel )
 void CListenerManager::OnTimer( int event )
 {
 
+}
+
+void CListenerManager::SetListenLocation(string connectLocation)
+{
+	m_listenLocation =  connectLocation;
+	if(m_serverchannel == NULL)
+		{
+		if(!m_listenLocation.empty())
+		m_serverchannel =  m_server->CreateServer(m_listenLocation.c_str());
+		}
 }
 

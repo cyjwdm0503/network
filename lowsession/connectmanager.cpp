@@ -40,6 +40,9 @@ int CConnectManager::HandleEvent( int event,DWORD dwParam,void* pParam )
 
 int CConnectManager::TryConnect()
 {
+	if(m_ConnectLocation.empty())
+		return 0;
+
 	CClient* client =  new CClient();
 	client->CreateClient("127.0.0.1:1234");
 	CChannel* channel = client->ConnectServer(m_ConnectLocation.c_str());
@@ -58,4 +61,10 @@ void CConnectManager::SendConnected(CChannel* channel)
 		m_outReactor->PostEvent(this,EVENT_CONNECT_SUCCESS,0,(void*)channel);
 	}
 }
+
+void CConnectManager::SetConnectLocation(string connectLocation)
+{
+	m_ConnectLocation = connectLocation;
+}
+
 

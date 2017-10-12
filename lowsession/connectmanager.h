@@ -18,6 +18,7 @@ class CConnectManager:public CHandler,public CSelectReactor
 public:
 	CConnectManager(CSelectReactor* outReactor,string connectLocation);
 
+	void SetConnectLocation(string connectLocation);
 	virtual int HandleEvent(int event,DWORD dwParam,void* pParam);
 
 	virtual void OnTimer( int event );
