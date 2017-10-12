@@ -6,3 +6,5 @@ ServerApi.cpp1
 *.obj
 *.o
 *.unsuccessfulbuild
+*.tlog
+*.pdb
