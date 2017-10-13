@@ -21,6 +21,8 @@ public:
 	void SetConnectLocation(string connectLocation);
 	virtual int HandleEvent(int event,DWORD dwParam,void* pParam);
 
+	virtual void PostEvent(int event, DWORD dwParam,void* pParam);
+
 	virtual void OnTimer( int event );
 private:
 

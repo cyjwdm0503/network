@@ -23,6 +23,7 @@ public:
 
 	void SetListenLocation(string connectLocation);
 
+	void PostEvent( int event, DWORD dwParam,void* pParam );
 private:
 
 

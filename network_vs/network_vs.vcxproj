@@ -246,9 +246,10 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);SERVER;SESSION_DEBUG</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);SERVER;SESSION_DEBUG</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../protocol;../utility;%(AdditionalIncludeDirectories);../userdefine</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/D _CRT_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -263,9 +264,10 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);SERVER;SESSION_DEBUG</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);SERVER;SESSION_DEBUG</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../protocol;../utility;%(AdditionalIncludeDirectories);../userdefine</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/D _CRT_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -352,9 +354,10 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);SERVER;SESSION_DEBUG</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);SERVER;SESSION_DEBUG</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../protocol;../utility;%(AdditionalIncludeDirectories);../userdefine</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/D _CRT_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -372,9 +375,10 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);SERVER;SESSION_DEBUG</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);SERVER;SESSION_DEBUG</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../protocol;../utility;%(AdditionalIncludeDirectories);../userdefine</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/D _CRT_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -392,9 +396,10 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);CLIENT;SESSION_DEBUG</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);CLIENT;SESSION_DEBUG</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../protocol;../utility;%(AdditionalIncludeDirectories);../userdefine</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/D _CRT_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -412,9 +417,10 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);CLIENT;SESSION_DEBUG</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);CLIENT;SESSION_DEBUG</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../lowsession;../package;../thread;../server;../channelsock;../;../client;../protocol;../utility;%(AdditionalIncludeDirectories);../userdefine</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/D _CRT_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

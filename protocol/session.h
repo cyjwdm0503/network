@@ -28,8 +28,8 @@ public:
 class CConnectCallback
 {
 public:
-	virtual void OnConnected(int code);
-	virtual void OnDisConnected(int code);
+	virtual void OnConnected(int code){};
+	virtual void OnDisConnected(int code){};
 };
 
 class CSession:public CHandler

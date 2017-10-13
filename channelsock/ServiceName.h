@@ -17,7 +17,7 @@ public:
 	const char* GetChannel() const;
 	const char* GetHost() const;
 	int GetPort() const;
-	const char* GetLocation();
+	char* GetLocation();
 	void SetLocation(const char* loc);
 	channel_t GetNChannel() const;
 	port_t GetNPort() const;

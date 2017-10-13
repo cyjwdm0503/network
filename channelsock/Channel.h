@@ -22,7 +22,7 @@ public:
     int Getfd() const;
 	bool Available();
 	bool Disconnect();
-
+	const char* GetRemoteName();
 protected:
     int m_fd;
     CServiceName* m_service;

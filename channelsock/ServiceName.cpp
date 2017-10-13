@@ -178,7 +178,7 @@ void CServiceName::SetLocation( const char* loc )
 	strncpy(m_location,loc,sizeof(m_location));
 }
 
-const char* CServiceName::GetLocation()
+ char* CServiceName::GetLocation()
 {
 	MakeLocation();
 	return m_location;

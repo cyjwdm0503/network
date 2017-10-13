@@ -67,4 +67,9 @@ void CConnectManager::SetConnectLocation(string connectLocation)
 	m_ConnectLocation = connectLocation;
 }
 
+void CConnectManager::PostEvent( int event, DWORD dwParam,void* pParam )
+{
+	CHandler::PostEvent(event,dwParam,pParam);
+}
+
 

@@ -127,3 +127,16 @@ bool CChannel::Disconnect()
 #endif
 	return m_bConnected;
 }
+
+const char* CChannel::GetRemoteName()
+{
+	sockaddr_in name;
+	socklen_t nameLen = sizeof(sockaddr_in);
+	if (getpeername(m_fd,(sockaddr*)&name,&nameLen)==0)
+	{
+		CServiceName service;
+		service.SetSockaddr_in(name);
+		return service.GetLocation();
+	}
+	return NULL;
+}

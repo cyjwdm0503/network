@@ -44,7 +44,7 @@ int CListenerManager::HandleEvent( int event,DWORD dwParam,void* pParam )
 {
 	switch (event)
 	{
-	case EVENT_LISTEN_FAILED:
+	case EVENT_ACCEPT_FAILED:
 		break;
 	default:
 		break;
@@ -67,7 +67,7 @@ void CListenerManager::SendAccepted( CChannel* channel )
 {
 	if(m_outReactor != NULL)
 	{
-		m_outReactor->PostEvent(this,EVENT_LISTEN_SUCCESS,0,(void*)channel);
+		m_outReactor->PostEvent(this,EVENT_ACCEPT_SUCCESS,0,(void*)channel);
 	}
 }
 
@@ -80,9 +80,14 @@ void CListenerManager::SetListenLocation(string connectLocation)
 {
 	m_listenLocation =  connectLocation;
 	if(m_serverchannel == NULL)
-		{
+	{
 		if(!m_listenLocation.empty())
-		m_serverchannel =  m_server->CreateServer(m_listenLocation.c_str());
-		}
+			m_serverchannel =  m_server->CreateServer(m_listenLocation.c_str());
+	}
 }
 
+
+void CListenerManager::PostEvent( int event, DWORD dwParam,void* pParam )
+{
+	CHandler::PostEvent(event,dwParam,pParam);
+}
