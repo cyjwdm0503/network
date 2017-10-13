@@ -1,0 +1,971 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		44DEC1771F90F8E700ADBDA9 /* cachelist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1741F90F89400ADBDA9 /* cachelist.cpp */; };
+		44DEC1781F90F8E700ADBDA9 /* cachelist.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16D1F90F89300ADBDA9 /* cachelist.h */; };
+		44DEC1791F90F8E700ADBDA9 /* fielddescribe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16E1F90F89400ADBDA9 /* fielddescribe.cpp */; };
+		44DEC17A1F90F8E700ADBDA9 /* fielddescribe.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1761F90F89400ADBDA9 /* fielddescribe.h */; };
+		44DEC17B1F90F8E700ADBDA9 /* fieldset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1731F90F89400ADBDA9 /* fieldset.cpp */; };
+		44DEC17C1F90F8E700ADBDA9 /* fieldset.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16F1F90F89400ADBDA9 /* fieldset.h */; };
+		44DEC17D1F90F8E700ADBDA9 /* lock_queue in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1721F90F89400ADBDA9 /* lock_queue */; };
+		44DEC17E1F90F8E700ADBDA9 /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1751F90F89400ADBDA9 /* Log.cpp */; };
+		44DEC17F1F90F8E700ADBDA9 /* Log.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1701F90F89400ADBDA9 /* Log.h */; };
+		44DEC1801F90F8E700ADBDA9 /* typedef.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1711F90F89400ADBDA9 /* typedef.h */; };
+		44DEC1811F90F8E700ADBDA9 /* fielddefine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC12F1F90F7EB00ADBDA9 /* fielddefine.cpp */; };
+		44DEC1821F90F8E700ADBDA9 /* fielddefine.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC12D1F90F7EB00ADBDA9 /* fielddefine.h */; };
+		44DEC1831F90F8E700ADBDA9 /* packagedefine.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC12E1F90F7EB00ADBDA9 /* packagedefine.h */; };
+		44DEC1841F90F8E700ADBDA9 /* Common.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1621F90F88400ADBDA9 /* Common.h */; };
+		44DEC1851F90F8E700ADBDA9 /* Dispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16A1F90F88400ADBDA9 /* Dispatcher.cpp */; };
+		44DEC1861F90F8E700ADBDA9 /* Dispatcher.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1631F90F88400ADBDA9 /* Dispatcher.h */; };
+		44DEC1871F90F8E700ADBDA9 /* EventQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15E1F90F88300ADBDA9 /* EventQueue.cpp */; };
+		44DEC1881F90F8E700ADBDA9 /* EventQueue.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1641F90F88400ADBDA9 /* EventQueue.h */; };
+		44DEC1891F90F8E700ADBDA9 /* Handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1591F90F88300ADBDA9 /* Handler.cpp */; };
+		44DEC18A1F90F8E700ADBDA9 /* Handler.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16B1F90F88400ADBDA9 /* Handler.h */; };
+		44DEC18B1F90F8E700ADBDA9 /* Mutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15C1F90F88300ADBDA9 /* Mutex.cpp */; };
+		44DEC18C1F90F8E700ADBDA9 /* Mutex.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15F1F90F88300ADBDA9 /* Mutex.h */; };
+		44DEC18D1F90F8E700ADBDA9 /* MutexGuard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1671F90F88400ADBDA9 /* MutexGuard.cpp */; };
+		44DEC18E1F90F8E700ADBDA9 /* MutexGuard.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1681F90F88400ADBDA9 /* MutexGuard.h */; };
+		44DEC18F1F90F8E700ADBDA9 /* SelectReactor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1691F90F88400ADBDA9 /* SelectReactor.cpp */; };
+		44DEC1901F90F8E700ADBDA9 /* SelectReactor.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1651F90F88400ADBDA9 /* SelectReactor.h */; };
+		44DEC1911F90F8E700ADBDA9 /* Semaphore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15A1F90F88300ADBDA9 /* Semaphore.cpp */; };
+		44DEC1921F90F8E700ADBDA9 /* Semaphore.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1601F90F88300ADBDA9 /* Semaphore.h */; };
+		44DEC1931F90F8E700ADBDA9 /* Thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15D1F90F88300ADBDA9 /* Thread.cpp */; };
+		44DEC1941F90F8E700ADBDA9 /* Thread.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1611F90F88400ADBDA9 /* Thread.h */; };
+		44DEC1951F90F8E700ADBDA9 /* TimerHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1661F90F88400ADBDA9 /* TimerHeap.cpp */; };
+		44DEC1961F90F8E700ADBDA9 /* TimerHeap.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15B1F90F88300ADBDA9 /* TimerHeap.h */; };
+		44DEC1971F90F8E700ADBDA9 /* TimerQueue.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16C1F90F88400ADBDA9 /* TimerQueue.h */; };
+		44DEC1981F90F8E700ADBDA9 /* Server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1551F90F87000ADBDA9 /* Server.cpp */; };
+		44DEC1991F90F8E700ADBDA9 /* Server.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1561F90F87000ADBDA9 /* Server.h */; };
+		44DEC19A1F90F8E700ADBDA9 /* ServerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1571F90F87000ADBDA9 /* ServerBase.cpp */; };
+		44DEC19B1F90F8E700ADBDA9 /* ServerBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1581F90F87000ADBDA9 /* ServerBase.h */; };
+		44DEC19C1F90F8E700ADBDA9 /* applicationprotocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1501F90F85A00ADBDA9 /* applicationprotocol.cpp */; };
+		44DEC19D1F90F8E700ADBDA9 /* applicationprotocol.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14C1F90F85A00ADBDA9 /* applicationprotocol.h */; };
+		44DEC19E1F90F8E700ADBDA9 /* applicationsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14F1F90F85A00ADBDA9 /* applicationsession.cpp */; };
+		44DEC19F1F90F8E700ADBDA9 /* applicationsession.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1511F90F85A00ADBDA9 /* applicationsession.h */; };
+		44DEC1A01F90F8E700ADBDA9 /* channelprotocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1491F90F85900ADBDA9 /* channelprotocol.cpp */; };
+		44DEC1A11F90F8E700ADBDA9 /* channelprotocol.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1461F90F85900ADBDA9 /* channelprotocol.h */; };
+		44DEC1A21F90F8E700ADBDA9 /* channelsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14A1F90F85A00ADBDA9 /* channelsession.cpp */; };
+		44DEC1A31F90F8E700ADBDA9 /* channelsession.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1541F90F85A00ADBDA9 /* channelsession.h */; };
+		44DEC1A41F90F8E700ADBDA9 /* contentprotocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14D1F90F85A00ADBDA9 /* contentprotocol.cpp */; };
+		44DEC1A51F90F8E700ADBDA9 /* contentprotocol.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1471F90F85900ADBDA9 /* contentprotocol.h */; };
+		44DEC1A61F90F8E700ADBDA9 /* contentsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1521F90F85A00ADBDA9 /* contentsession.cpp */; };
+		44DEC1A71F90F8E700ADBDA9 /* contentsession.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14B1F90F85A00ADBDA9 /* contentsession.h */; };
+		44DEC1A81F90F8E700ADBDA9 /* Protocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1531F90F85A00ADBDA9 /* Protocol.cpp */; };
+		44DEC1A91F90F8E700ADBDA9 /* Protocol.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14E1F90F85A00ADBDA9 /* Protocol.h */; };
+		44DEC1AA1F90F8E700ADBDA9 /* session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1481F90F85900ADBDA9 /* session.cpp */; };
+		44DEC1AB1F90F8E700ADBDA9 /* session.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1451F90F85900ADBDA9 /* session.h */; };
+		44DEC1AC1F90F8E700ADBDA9 /* applicationpackage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13C1F90F84400ADBDA9 /* applicationpackage.cpp */; };
+		44DEC1AD1F90F8E700ADBDA9 /* applicationpackage.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1431F90F84400ADBDA9 /* applicationpackage.h */; };
+		44DEC1AE1F90F8E700ADBDA9 /* channelpackage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13F1F90F84400ADBDA9 /* channelpackage.cpp */; };
+		44DEC1AF1F90F8E700ADBDA9 /* channelpackage.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1421F90F84400ADBDA9 /* channelpackage.h */; };
+		44DEC1B01F90F8E700ADBDA9 /* contentpackage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1411F90F84400ADBDA9 /* contentpackage.cpp */; };
+		44DEC1B11F90F8E700ADBDA9 /* contentpackage.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1401F90F84400ADBDA9 /* contentpackage.h */; };
+		44DEC1B21F90F8E700ADBDA9 /* Package.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13D1F90F84400ADBDA9 /* Package.cpp */; };
+		44DEC1B31F90F8E700ADBDA9 /* Package.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13E1F90F84400ADBDA9 /* Package.h */; };
+		44DEC1B41F90F8E700ADBDA9 /* packagedefine.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1441F90F84400ADBDA9 /* packagedefine.h */; };
+		44DEC1B51F90F8E700ADBDA9 /* connectmanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1391F90F83300ADBDA9 /* connectmanager.cpp */; };
+		44DEC1B61F90F8E700ADBDA9 /* connectmanager.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1341F90F83200ADBDA9 /* connectmanager.h */; };
+		44DEC1B71F90F8E700ADBDA9 /* listenermanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1371F90F83200ADBDA9 /* listenermanager.cpp */; };
+		44DEC1B81F90F8E700ADBDA9 /* listenermanager.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1351F90F83200ADBDA9 /* listenermanager.h */; };
+		44DEC1B91F90F8E700ADBDA9 /* SessionBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13A1F90F83300ADBDA9 /* SessionBase.cpp */; };
+		44DEC1BA1F90F8E700ADBDA9 /* SessionBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1381F90F83200ADBDA9 /* SessionBase.h */; };
+		44DEC1BB1F90F8E700ADBDA9 /* sessionfactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1361F90F83200ADBDA9 /* sessionfactory.cpp */; };
+		44DEC1BC1F90F8E700ADBDA9 /* sessionfactory.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13B1F90F83300ADBDA9 /* sessionfactory.h */; };
+		44DEC1BD1F90F8E700ADBDA9 /* Client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1331F90F82200ADBDA9 /* Client.cpp */; settings = {COMPILER_FLAGS = "-DMAC"; }; };
+		44DEC1BE1F90F8E700ADBDA9 /* Client.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1311F90F82100ADBDA9 /* Client.h */; };
+		44DEC1BF1F90F8E700ADBDA9 /* ClientBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1321F90F82100ADBDA9 /* ClientBase.cpp */; };
+		44DEC1C01F90F8E700ADBDA9 /* ClientBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1301F90F82100ADBDA9 /* ClientBase.h */; };
+		44DEC1C11F90F8E700ADBDA9 /* Channel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1201F90F78700ADBDA9 /* Channel.cpp */; };
+		44DEC1C21F90F8E700ADBDA9 /* Channel.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC12A1F90F78800ADBDA9 /* Channel.h */; };
+		44DEC1C31F90F8E700ADBDA9 /* InetSock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1251F90F78700ADBDA9 /* InetSock.cpp */; };
+		44DEC1C41F90F8E700ADBDA9 /* InetSock.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1281F90F78700ADBDA9 /* InetSock.h */; };
+		44DEC1C51F90F8E700ADBDA9 /* ServiceName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1221F90F78700ADBDA9 /* ServiceName.cpp */; };
+		44DEC1C61F90F8E700ADBDA9 /* ServiceName.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC11F1F90F78700ADBDA9 /* ServiceName.h */; };
+		44DEC1C71F90F8E700ADBDA9 /* socks.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1241F90F78700ADBDA9 /* socks.h */; };
+		44DEC1C81F90F8E700ADBDA9 /* TcpSock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1211F90F78700ADBDA9 /* TcpSock.cpp */; };
+		44DEC1C91F90F8E700ADBDA9 /* TcpSock.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1291F90F78700ADBDA9 /* TcpSock.h */; };
+		44DEC1CA1F90F8E700ADBDA9 /* UdpChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1231F90F78700ADBDA9 /* UdpChannel.cpp */; };
+		44DEC1CB1F90F8E700ADBDA9 /* UdpChannel.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC12B1F90F78800ADBDA9 /* UdpChannel.h */; };
+		44DEC1CC1F90F8E700ADBDA9 /* UdpSock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1271F90F78700ADBDA9 /* UdpSock.cpp */; };
+		44DEC1CD1F90F8E700ADBDA9 /* UdpSock.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1261F90F78700ADBDA9 /* UdpSock.h */; };
+		44DEC1CE1F90F8E700ADBDA9 /* network_mac_client in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC10A1F90F6C900ADBDA9 /* network_mac_client */; };
+		44DEC1D21F9105E000ADBDA9 /* ClientApi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1CF1F9105CE00ADBDA9 /* ClientApi.cpp */; };
+		44DEC1D31F9105E000ADBDA9 /* ClientApi.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1D01F9105CF00ADBDA9 /* ClientApi.h */; };
+		44DEC1D41F9105E000ADBDA9 /* ClientEndPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1D11F9105CF00ADBDA9 /* ClientEndPoint.cpp */; settings = {COMPILER_FLAGS = "-DCLIENT -DUNIX -DLINUX "; }; };
+		44DEC1D81F9107C600ADBDA9 /* ServerApi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1D51F9107C400ADBDA9 /* ServerApi.cpp */; };
+		44DEC1D91F9107C600ADBDA9 /* ServerEndPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1D61F9107C500ADBDA9 /* ServerEndPoint.cpp */; };
+		44DEC24C1F910C2000ADBDA9 /* ClientApi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1CF1F9105CE00ADBDA9 /* ClientApi.cpp */; };
+		44DEC24D1F910C2000ADBDA9 /* ClientApi.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1D01F9105CF00ADBDA9 /* ClientApi.h */; };
+		44DEC24E1F910C2000ADBDA9 /* ClientEndPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1D11F9105CF00ADBDA9 /* ClientEndPoint.cpp */; settings = {COMPILER_FLAGS = " -DUNIX -DLINUX "; }; };
+		44DEC24F1F910C2000ADBDA9 /* cachelist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1741F90F89400ADBDA9 /* cachelist.cpp */; };
+		44DEC2501F910C2000ADBDA9 /* cachelist.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16D1F90F89300ADBDA9 /* cachelist.h */; };
+		44DEC2511F910C2000ADBDA9 /* fielddescribe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16E1F90F89400ADBDA9 /* fielddescribe.cpp */; };
+		44DEC2521F910C2000ADBDA9 /* fielddescribe.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1761F90F89400ADBDA9 /* fielddescribe.h */; };
+		44DEC2531F910C2000ADBDA9 /* fieldset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1731F90F89400ADBDA9 /* fieldset.cpp */; };
+		44DEC2541F910C2000ADBDA9 /* fieldset.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16F1F90F89400ADBDA9 /* fieldset.h */; };
+		44DEC2551F910C2000ADBDA9 /* lock_queue in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1721F90F89400ADBDA9 /* lock_queue */; };
+		44DEC2561F910C2000ADBDA9 /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1751F90F89400ADBDA9 /* Log.cpp */; };
+		44DEC2571F910C2000ADBDA9 /* Log.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1701F90F89400ADBDA9 /* Log.h */; };
+		44DEC2581F910C2000ADBDA9 /* typedef.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1711F90F89400ADBDA9 /* typedef.h */; };
+		44DEC2591F910C2000ADBDA9 /* fielddefine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC12F1F90F7EB00ADBDA9 /* fielddefine.cpp */; };
+		44DEC25A1F910C2000ADBDA9 /* fielddefine.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC12D1F90F7EB00ADBDA9 /* fielddefine.h */; };
+		44DEC25B1F910C2000ADBDA9 /* packagedefine.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC12E1F90F7EB00ADBDA9 /* packagedefine.h */; };
+		44DEC25C1F910C2000ADBDA9 /* Common.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1621F90F88400ADBDA9 /* Common.h */; };
+		44DEC25D1F910C2000ADBDA9 /* Dispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16A1F90F88400ADBDA9 /* Dispatcher.cpp */; };
+		44DEC25E1F910C2000ADBDA9 /* Dispatcher.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1631F90F88400ADBDA9 /* Dispatcher.h */; };
+		44DEC25F1F910C2000ADBDA9 /* EventQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15E1F90F88300ADBDA9 /* EventQueue.cpp */; };
+		44DEC2601F910C2000ADBDA9 /* EventQueue.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1641F90F88400ADBDA9 /* EventQueue.h */; };
+		44DEC2611F910C2000ADBDA9 /* Handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1591F90F88300ADBDA9 /* Handler.cpp */; };
+		44DEC2621F910C2000ADBDA9 /* Handler.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16B1F90F88400ADBDA9 /* Handler.h */; };
+		44DEC2631F910C2000ADBDA9 /* Mutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15C1F90F88300ADBDA9 /* Mutex.cpp */; };
+		44DEC2641F910C2000ADBDA9 /* Mutex.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15F1F90F88300ADBDA9 /* Mutex.h */; };
+		44DEC2651F910C2000ADBDA9 /* MutexGuard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1671F90F88400ADBDA9 /* MutexGuard.cpp */; };
+		44DEC2661F910C2000ADBDA9 /* MutexGuard.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1681F90F88400ADBDA9 /* MutexGuard.h */; };
+		44DEC2671F910C2000ADBDA9 /* SelectReactor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1691F90F88400ADBDA9 /* SelectReactor.cpp */; };
+		44DEC2681F910C2000ADBDA9 /* SelectReactor.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1651F90F88400ADBDA9 /* SelectReactor.h */; };
+		44DEC2691F910C2000ADBDA9 /* Semaphore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15A1F90F88300ADBDA9 /* Semaphore.cpp */; };
+		44DEC26A1F910C2000ADBDA9 /* Semaphore.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1601F90F88300ADBDA9 /* Semaphore.h */; };
+		44DEC26B1F910C2000ADBDA9 /* Thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15D1F90F88300ADBDA9 /* Thread.cpp */; };
+		44DEC26C1F910C2000ADBDA9 /* Thread.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1611F90F88400ADBDA9 /* Thread.h */; };
+		44DEC26D1F910C2000ADBDA9 /* ServerEndPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1D61F9107C500ADBDA9 /* ServerEndPoint.cpp */; settings = {COMPILER_FLAGS = "-DLINUX -DUNIX -DSERVER"; }; };
+		44DEC26E1F910C2000ADBDA9 /* TimerHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1661F90F88400ADBDA9 /* TimerHeap.cpp */; };
+		44DEC26F1F910C2000ADBDA9 /* TimerHeap.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15B1F90F88300ADBDA9 /* TimerHeap.h */; };
+		44DEC2701F910C2000ADBDA9 /* TimerQueue.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16C1F90F88400ADBDA9 /* TimerQueue.h */; };
+		44DEC2711F910C2000ADBDA9 /* Server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1551F90F87000ADBDA9 /* Server.cpp */; };
+		44DEC2721F910C2000ADBDA9 /* Server.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1561F90F87000ADBDA9 /* Server.h */; };
+		44DEC2731F910C2000ADBDA9 /* ServerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1571F90F87000ADBDA9 /* ServerBase.cpp */; };
+		44DEC2741F910C2000ADBDA9 /* ServerBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1581F90F87000ADBDA9 /* ServerBase.h */; };
+		44DEC2751F910C2000ADBDA9 /* applicationprotocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1501F90F85A00ADBDA9 /* applicationprotocol.cpp */; };
+		44DEC2761F910C2000ADBDA9 /* applicationprotocol.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14C1F90F85A00ADBDA9 /* applicationprotocol.h */; };
+		44DEC2771F910C2000ADBDA9 /* applicationsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14F1F90F85A00ADBDA9 /* applicationsession.cpp */; };
+		44DEC2781F910C2000ADBDA9 /* applicationsession.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1511F90F85A00ADBDA9 /* applicationsession.h */; };
+		44DEC2791F910C2000ADBDA9 /* channelprotocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1491F90F85900ADBDA9 /* channelprotocol.cpp */; };
+		44DEC27A1F910C2000ADBDA9 /* channelprotocol.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1461F90F85900ADBDA9 /* channelprotocol.h */; };
+		44DEC27B1F910C2000ADBDA9 /* channelsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14A1F90F85A00ADBDA9 /* channelsession.cpp */; };
+		44DEC27C1F910C2000ADBDA9 /* channelsession.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1541F90F85A00ADBDA9 /* channelsession.h */; };
+		44DEC27D1F910C2000ADBDA9 /* contentprotocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14D1F90F85A00ADBDA9 /* contentprotocol.cpp */; };
+		44DEC27E1F910C2000ADBDA9 /* contentprotocol.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1471F90F85900ADBDA9 /* contentprotocol.h */; };
+		44DEC27F1F910C2000ADBDA9 /* contentsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1521F90F85A00ADBDA9 /* contentsession.cpp */; };
+		44DEC2801F910C2000ADBDA9 /* contentsession.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14B1F90F85A00ADBDA9 /* contentsession.h */; };
+		44DEC2811F910C2000ADBDA9 /* Protocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1531F90F85A00ADBDA9 /* Protocol.cpp */; };
+		44DEC2821F910C2000ADBDA9 /* Protocol.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14E1F90F85A00ADBDA9 /* Protocol.h */; };
+		44DEC2831F910C2000ADBDA9 /* session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1481F90F85900ADBDA9 /* session.cpp */; };
+		44DEC2841F910C2000ADBDA9 /* session.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1451F90F85900ADBDA9 /* session.h */; };
+		44DEC2851F910C2000ADBDA9 /* applicationpackage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13C1F90F84400ADBDA9 /* applicationpackage.cpp */; };
+		44DEC2861F910C2000ADBDA9 /* applicationpackage.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1431F90F84400ADBDA9 /* applicationpackage.h */; };
+		44DEC2871F910C2000ADBDA9 /* channelpackage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13F1F90F84400ADBDA9 /* channelpackage.cpp */; };
+		44DEC2881F910C2000ADBDA9 /* channelpackage.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1421F90F84400ADBDA9 /* channelpackage.h */; };
+		44DEC2891F910C2000ADBDA9 /* contentpackage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1411F90F84400ADBDA9 /* contentpackage.cpp */; };
+		44DEC28A1F910C2000ADBDA9 /* contentpackage.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1401F90F84400ADBDA9 /* contentpackage.h */; };
+		44DEC28B1F910C2000ADBDA9 /* Package.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13D1F90F84400ADBDA9 /* Package.cpp */; };
+		44DEC28C1F910C2000ADBDA9 /* Package.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13E1F90F84400ADBDA9 /* Package.h */; };
+		44DEC28D1F910C2000ADBDA9 /* packagedefine.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1441F90F84400ADBDA9 /* packagedefine.h */; };
+		44DEC28E1F910C2000ADBDA9 /* connectmanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1391F90F83300ADBDA9 /* connectmanager.cpp */; };
+		44DEC28F1F910C2000ADBDA9 /* connectmanager.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1341F90F83200ADBDA9 /* connectmanager.h */; };
+		44DEC2901F910C2000ADBDA9 /* listenermanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1371F90F83200ADBDA9 /* listenermanager.cpp */; };
+		44DEC2911F910C2000ADBDA9 /* listenermanager.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1351F90F83200ADBDA9 /* listenermanager.h */; };
+		44DEC2921F910C2000ADBDA9 /* SessionBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13A1F90F83300ADBDA9 /* SessionBase.cpp */; };
+		44DEC2931F910C2000ADBDA9 /* SessionBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1381F90F83200ADBDA9 /* SessionBase.h */; };
+		44DEC2941F910C2000ADBDA9 /* ServerApi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1D51F9107C400ADBDA9 /* ServerApi.cpp */; };
+		44DEC2951F910C2000ADBDA9 /* sessionfactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1361F90F83200ADBDA9 /* sessionfactory.cpp */; };
+		44DEC2961F910C2000ADBDA9 /* sessionfactory.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13B1F90F83300ADBDA9 /* sessionfactory.h */; };
+		44DEC2971F910C2000ADBDA9 /* Client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1331F90F82200ADBDA9 /* Client.cpp */; settings = {COMPILER_FLAGS = "-DMAC"; }; };
+		44DEC2981F910C2000ADBDA9 /* Client.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1311F90F82100ADBDA9 /* Client.h */; };
+		44DEC2991F910C2000ADBDA9 /* ClientBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1321F90F82100ADBDA9 /* ClientBase.cpp */; };
+		44DEC29A1F910C2000ADBDA9 /* ClientBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1301F90F82100ADBDA9 /* ClientBase.h */; };
+		44DEC29B1F910C2000ADBDA9 /* Channel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1201F90F78700ADBDA9 /* Channel.cpp */; };
+		44DEC29C1F910C2000ADBDA9 /* Channel.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC12A1F90F78800ADBDA9 /* Channel.h */; };
+		44DEC29D1F910C2000ADBDA9 /* InetSock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1251F90F78700ADBDA9 /* InetSock.cpp */; };
+		44DEC29E1F910C2000ADBDA9 /* InetSock.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1281F90F78700ADBDA9 /* InetSock.h */; };
+		44DEC29F1F910C2000ADBDA9 /* ServiceName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1221F90F78700ADBDA9 /* ServiceName.cpp */; };
+		44DEC2A01F910C2000ADBDA9 /* ServiceName.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC11F1F90F78700ADBDA9 /* ServiceName.h */; };
+		44DEC2A11F910C2000ADBDA9 /* socks.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1241F90F78700ADBDA9 /* socks.h */; };
+		44DEC2A21F910C2000ADBDA9 /* TcpSock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1211F90F78700ADBDA9 /* TcpSock.cpp */; };
+		44DEC2A31F910C2000ADBDA9 /* TcpSock.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1291F90F78700ADBDA9 /* TcpSock.h */; };
+		44DEC2A41F910C2000ADBDA9 /* UdpChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1231F90F78700ADBDA9 /* UdpChannel.cpp */; };
+		44DEC2A51F910C2000ADBDA9 /* UdpChannel.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC12B1F90F78800ADBDA9 /* UdpChannel.h */; };
+		44DEC2A61F910C2000ADBDA9 /* UdpSock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1271F90F78700ADBDA9 /* UdpSock.cpp */; };
+		44DEC2A71F910C2000ADBDA9 /* UdpSock.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1261F90F78700ADBDA9 /* UdpSock.h */; };
+		44DEC2A81F910C2000ADBDA9 /* network_mac_client in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC10A1F90F6C900ADBDA9 /* network_mac_client */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		44DEC1081F90F6C900ADBDA9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		44DEC2AA1F910C2000ADBDA9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		44DEC10A1F90F6C900ADBDA9 /* network_mac_client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = network_mac_client; sourceTree = BUILT_PRODUCTS_DIR; };
+		44DEC11F1F90F78700ADBDA9 /* ServiceName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ServiceName.h; path = ../channelsock/ServiceName.h; sourceTree = "<group>"; };
+		44DEC1201F90F78700ADBDA9 /* Channel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Channel.cpp; path = ../channelsock/Channel.cpp; sourceTree = "<group>"; };
+		44DEC1211F90F78700ADBDA9 /* TcpSock.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = TcpSock.cpp; path = ../channelsock/TcpSock.cpp; sourceTree = "<group>"; };
+		44DEC1221F90F78700ADBDA9 /* ServiceName.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ServiceName.cpp; path = ../channelsock/ServiceName.cpp; sourceTree = "<group>"; };
+		44DEC1231F90F78700ADBDA9 /* UdpChannel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = UdpChannel.cpp; path = ../channelsock/UdpChannel.cpp; sourceTree = "<group>"; };
+		44DEC1241F90F78700ADBDA9 /* socks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = socks.h; path = ../channelsock/socks.h; sourceTree = "<group>"; };
+		44DEC1251F90F78700ADBDA9 /* InetSock.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InetSock.cpp; path = ../channelsock/InetSock.cpp; sourceTree = "<group>"; };
+		44DEC1261F90F78700ADBDA9 /* UdpSock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UdpSock.h; path = ../channelsock/UdpSock.h; sourceTree = "<group>"; };
+		44DEC1271F90F78700ADBDA9 /* UdpSock.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = UdpSock.cpp; path = ../channelsock/UdpSock.cpp; sourceTree = "<group>"; };
+		44DEC1281F90F78700ADBDA9 /* InetSock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InetSock.h; path = ../channelsock/InetSock.h; sourceTree = "<group>"; };
+		44DEC1291F90F78700ADBDA9 /* TcpSock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TcpSock.h; path = ../channelsock/TcpSock.h; sourceTree = "<group>"; };
+		44DEC12A1F90F78800ADBDA9 /* Channel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Channel.h; path = ../channelsock/Channel.h; sourceTree = "<group>"; };
+		44DEC12B1F90F78800ADBDA9 /* UdpChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UdpChannel.h; path = ../channelsock/UdpChannel.h; sourceTree = "<group>"; };
+		44DEC12D1F90F7EB00ADBDA9 /* fielddefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = fielddefine.h; path = ../userdefine/fielddefine.h; sourceTree = "<group>"; };
+		44DEC12E1F90F7EB00ADBDA9 /* packagedefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = packagedefine.h; path = ../userdefine/packagedefine.h; sourceTree = "<group>"; };
+		44DEC12F1F90F7EB00ADBDA9 /* fielddefine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = fielddefine.cpp; path = ../userdefine/fielddefine.cpp; sourceTree = "<group>"; };
+		44DEC1301F90F82100ADBDA9 /* ClientBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ClientBase.h; path = ../client/ClientBase.h; sourceTree = "<group>"; };
+		44DEC1311F90F82100ADBDA9 /* Client.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Client.h; path = ../client/Client.h; sourceTree = "<group>"; };
+		44DEC1321F90F82100ADBDA9 /* ClientBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ClientBase.cpp; path = ../client/ClientBase.cpp; sourceTree = "<group>"; };
+		44DEC1331F90F82200ADBDA9 /* Client.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Client.cpp; path = ../client/Client.cpp; sourceTree = "<group>"; };
+		44DEC1341F90F83200ADBDA9 /* connectmanager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = connectmanager.h; path = ../lowsession/connectmanager.h; sourceTree = "<group>"; };
+		44DEC1351F90F83200ADBDA9 /* listenermanager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = listenermanager.h; path = ../lowsession/listenermanager.h; sourceTree = "<group>"; };
+		44DEC1361F90F83200ADBDA9 /* sessionfactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = sessionfactory.cpp; path = ../lowsession/sessionfactory.cpp; sourceTree = "<group>"; };
+		44DEC1371F90F83200ADBDA9 /* listenermanager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = listenermanager.cpp; path = ../lowsession/listenermanager.cpp; sourceTree = "<group>"; };
+		44DEC1381F90F83200ADBDA9 /* SessionBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SessionBase.h; path = ../lowsession/SessionBase.h; sourceTree = "<group>"; };
+		44DEC1391F90F83300ADBDA9 /* connectmanager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = connectmanager.cpp; path = ../lowsession/connectmanager.cpp; sourceTree = "<group>"; };
+		44DEC13A1F90F83300ADBDA9 /* SessionBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SessionBase.cpp; path = ../lowsession/SessionBase.cpp; sourceTree = "<group>"; };
+		44DEC13B1F90F83300ADBDA9 /* sessionfactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = sessionfactory.h; path = ../lowsession/sessionfactory.h; sourceTree = "<group>"; };
+		44DEC13C1F90F84400ADBDA9 /* applicationpackage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = applicationpackage.cpp; path = ../package/applicationpackage.cpp; sourceTree = "<group>"; };
+		44DEC13D1F90F84400ADBDA9 /* Package.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Package.cpp; path = ../package/Package.cpp; sourceTree = "<group>"; };
+		44DEC13E1F90F84400ADBDA9 /* Package.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Package.h; path = ../package/Package.h; sourceTree = "<group>"; };
+		44DEC13F1F90F84400ADBDA9 /* channelpackage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = channelpackage.cpp; path = ../package/channelpackage.cpp; sourceTree = "<group>"; };
+		44DEC1401F90F84400ADBDA9 /* contentpackage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = contentpackage.h; path = ../package/contentpackage.h; sourceTree = "<group>"; };
+		44DEC1411F90F84400ADBDA9 /* contentpackage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = contentpackage.cpp; path = ../package/contentpackage.cpp; sourceTree = "<group>"; };
+		44DEC1421F90F84400ADBDA9 /* channelpackage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = channelpackage.h; path = ../package/channelpackage.h; sourceTree = "<group>"; };
+		44DEC1431F90F84400ADBDA9 /* applicationpackage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = applicationpackage.h; path = ../package/applicationpackage.h; sourceTree = "<group>"; };
+		44DEC1441F90F84400ADBDA9 /* packagedefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = packagedefine.h; path = ../package/packagedefine.h; sourceTree = "<group>"; };
+		44DEC1451F90F85900ADBDA9 /* session.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = session.h; path = ../protocol/session.h; sourceTree = "<group>"; };
+		44DEC1461F90F85900ADBDA9 /* channelprotocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = channelprotocol.h; path = ../protocol/channelprotocol.h; sourceTree = "<group>"; };
+		44DEC1471F90F85900ADBDA9 /* contentprotocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = contentprotocol.h; path = ../protocol/contentprotocol.h; sourceTree = "<group>"; };
+		44DEC1481F90F85900ADBDA9 /* session.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = session.cpp; path = ../protocol/session.cpp; sourceTree = "<group>"; };
+		44DEC1491F90F85900ADBDA9 /* channelprotocol.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = channelprotocol.cpp; path = ../protocol/channelprotocol.cpp; sourceTree = "<group>"; };
+		44DEC14A1F90F85A00ADBDA9 /* channelsession.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = channelsession.cpp; path = ../protocol/channelsession.cpp; sourceTree = "<group>"; };
+		44DEC14B1F90F85A00ADBDA9 /* contentsession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = contentsession.h; path = ../protocol/contentsession.h; sourceTree = "<group>"; };
+		44DEC14C1F90F85A00ADBDA9 /* applicationprotocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = applicationprotocol.h; path = ../protocol/applicationprotocol.h; sourceTree = "<group>"; };
+		44DEC14D1F90F85A00ADBDA9 /* contentprotocol.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = contentprotocol.cpp; path = ../protocol/contentprotocol.cpp; sourceTree = "<group>"; };
+		44DEC14E1F90F85A00ADBDA9 /* Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Protocol.h; path = ../protocol/Protocol.h; sourceTree = "<group>"; };
+		44DEC14F1F90F85A00ADBDA9 /* applicationsession.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = applicationsession.cpp; path = ../protocol/applicationsession.cpp; sourceTree = "<group>"; };
+		44DEC1501F90F85A00ADBDA9 /* applicationprotocol.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = applicationprotocol.cpp; path = ../protocol/applicationprotocol.cpp; sourceTree = "<group>"; };
+		44DEC1511F90F85A00ADBDA9 /* applicationsession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = applicationsession.h; path = ../protocol/applicationsession.h; sourceTree = "<group>"; };
+		44DEC1521F90F85A00ADBDA9 /* contentsession.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = contentsession.cpp; path = ../protocol/contentsession.cpp; sourceTree = "<group>"; };
+		44DEC1531F90F85A00ADBDA9 /* Protocol.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Protocol.cpp; path = ../protocol/Protocol.cpp; sourceTree = "<group>"; };
+		44DEC1541F90F85A00ADBDA9 /* channelsession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = channelsession.h; path = ../protocol/channelsession.h; sourceTree = "<group>"; };
+		44DEC1551F90F87000ADBDA9 /* Server.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Server.cpp; path = ../server/Server.cpp; sourceTree = "<group>"; };
+		44DEC1561F90F87000ADBDA9 /* Server.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Server.h; path = ../server/Server.h; sourceTree = "<group>"; };
+		44DEC1571F90F87000ADBDA9 /* ServerBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ServerBase.cpp; path = ../server/ServerBase.cpp; sourceTree = "<group>"; };
+		44DEC1581F90F87000ADBDA9 /* ServerBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ServerBase.h; path = ../server/ServerBase.h; sourceTree = "<group>"; };
+		44DEC1591F90F88300ADBDA9 /* Handler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Handler.cpp; path = ../thread/Handler.cpp; sourceTree = "<group>"; };
+		44DEC15A1F90F88300ADBDA9 /* Semaphore.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Semaphore.cpp; path = ../thread/Semaphore.cpp; sourceTree = "<group>"; };
+		44DEC15B1F90F88300ADBDA9 /* TimerHeap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TimerHeap.h; path = ../thread/TimerHeap.h; sourceTree = "<group>"; };
+		44DEC15C1F90F88300ADBDA9 /* Mutex.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Mutex.cpp; path = ../thread/Mutex.cpp; sourceTree = "<group>"; };
+		44DEC15D1F90F88300ADBDA9 /* Thread.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Thread.cpp; path = ../thread/Thread.cpp; sourceTree = "<group>"; };
+		44DEC15E1F90F88300ADBDA9 /* EventQueue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = EventQueue.cpp; path = ../thread/EventQueue.cpp; sourceTree = "<group>"; };
+		44DEC15F1F90F88300ADBDA9 /* Mutex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Mutex.h; path = ../thread/Mutex.h; sourceTree = "<group>"; };
+		44DEC1601F90F88300ADBDA9 /* Semaphore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Semaphore.h; path = ../thread/Semaphore.h; sourceTree = "<group>"; };
+		44DEC1611F90F88400ADBDA9 /* Thread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Thread.h; path = ../thread/Thread.h; sourceTree = "<group>"; };
+		44DEC1621F90F88400ADBDA9 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Common.h; path = ../thread/Common.h; sourceTree = "<group>"; };
+		44DEC1631F90F88400ADBDA9 /* Dispatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Dispatcher.h; path = ../thread/Dispatcher.h; sourceTree = "<group>"; };
+		44DEC1641F90F88400ADBDA9 /* EventQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EventQueue.h; path = ../thread/EventQueue.h; sourceTree = "<group>"; };
+		44DEC1651F90F88400ADBDA9 /* SelectReactor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SelectReactor.h; path = ../thread/SelectReactor.h; sourceTree = "<group>"; };
+		44DEC1661F90F88400ADBDA9 /* TimerHeap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = TimerHeap.cpp; path = ../thread/TimerHeap.cpp; sourceTree = "<group>"; };
+		44DEC1671F90F88400ADBDA9 /* MutexGuard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MutexGuard.cpp; path = ../thread/MutexGuard.cpp; sourceTree = "<group>"; };
+		44DEC1681F90F88400ADBDA9 /* MutexGuard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MutexGuard.h; path = ../thread/MutexGuard.h; sourceTree = "<group>"; };
+		44DEC1691F90F88400ADBDA9 /* SelectReactor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SelectReactor.cpp; path = ../thread/SelectReactor.cpp; sourceTree = "<group>"; };
+		44DEC16A1F90F88400ADBDA9 /* Dispatcher.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Dispatcher.cpp; path = ../thread/Dispatcher.cpp; sourceTree = "<group>"; };
+		44DEC16B1F90F88400ADBDA9 /* Handler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Handler.h; path = ../thread/Handler.h; sourceTree = "<group>"; };
+		44DEC16C1F90F88400ADBDA9 /* TimerQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TimerQueue.h; path = ../thread/TimerQueue.h; sourceTree = "<group>"; };
+		44DEC16D1F90F89300ADBDA9 /* cachelist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cachelist.h; path = ../utility/cachelist.h; sourceTree = "<group>"; };
+		44DEC16E1F90F89400ADBDA9 /* fielddescribe.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = fielddescribe.cpp; path = ../utility/fielddescribe.cpp; sourceTree = "<group>"; };
+		44DEC16F1F90F89400ADBDA9 /* fieldset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = fieldset.h; path = ../utility/fieldset.h; sourceTree = "<group>"; };
+		44DEC1701F90F89400ADBDA9 /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Log.h; path = ../utility/Log.h; sourceTree = "<group>"; };
+		44DEC1711F90F89400ADBDA9 /* typedef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = typedef.h; path = ../utility/typedef.h; sourceTree = "<group>"; };
+		44DEC1721F90F89400ADBDA9 /* lock_queue */ = {isa = PBXFileReference; lastKnownFileType = text; name = lock_queue; path = ../utility/lock_queue; sourceTree = "<group>"; };
+		44DEC1731F90F89400ADBDA9 /* fieldset.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = fieldset.cpp; path = ../utility/fieldset.cpp; sourceTree = "<group>"; };
+		44DEC1741F90F89400ADBDA9 /* cachelist.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cachelist.cpp; path = ../utility/cachelist.cpp; sourceTree = "<group>"; };
+		44DEC1751F90F89400ADBDA9 /* Log.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Log.cpp; path = ../utility/Log.cpp; sourceTree = "<group>"; };
+		44DEC1761F90F89400ADBDA9 /* fielddescribe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = fielddescribe.h; path = ../utility/fielddescribe.h; sourceTree = "<group>"; };
+		44DEC1CF1F9105CE00ADBDA9 /* ClientApi.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ClientApi.cpp; path = ../ClientApi.cpp; sourceTree = "<group>"; };
+		44DEC1D01F9105CF00ADBDA9 /* ClientApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ClientApi.h; path = ../ClientApi.h; sourceTree = "<group>"; };
+		44DEC1D11F9105CF00ADBDA9 /* ClientEndPoint.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ClientEndPoint.cpp; path = ../ClientEndPoint.cpp; sourceTree = "<group>"; };
+		44DEC1D51F9107C400ADBDA9 /* ServerApi.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ServerApi.cpp; path = ../ServerApi.cpp; sourceTree = "<group>"; };
+		44DEC1D61F9107C500ADBDA9 /* ServerEndPoint.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ServerEndPoint.cpp; path = ../ServerEndPoint.cpp; sourceTree = "<group>"; };
+		44DEC1D71F9107C500ADBDA9 /* ServerApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ServerApi.h; path = ../ServerApi.h; sourceTree = "<group>"; };
+		44DEC1E01F910BFA00ADBDA9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		44DEC2AE1F910C2000ADBDA9 /* network_mac_server */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = network_mac_server; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		44DEC1071F90F6C900ADBDA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44DEC2A91F910C2000ADBDA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		44DEC1011F90F6C900ADBDA9 = {
+			isa = PBXGroup;
+			children = (
+				44DEC1D51F9107C400ADBDA9 /* ServerApi.cpp */,
+				44DEC1D71F9107C500ADBDA9 /* ServerApi.h */,
+				44DEC1D61F9107C500ADBDA9 /* ServerEndPoint.cpp */,
+				44DEC1CF1F9105CE00ADBDA9 /* ClientApi.cpp */,
+				44DEC1D01F9105CF00ADBDA9 /* ClientApi.h */,
+				44DEC1D11F9105CF00ADBDA9 /* ClientEndPoint.cpp */,
+				44DEC11E1F90F75C00ADBDA9 /* utility */,
+				44DEC11D1F90F75500ADBDA9 /* userdefine */,
+				44DEC11C1F90F74D00ADBDA9 /* thread */,
+				44DEC11B1F90F74700ADBDA9 /* server */,
+				44DEC11A1F90F74000ADBDA9 /* protocol */,
+				44DEC1191F90F73500ADBDA9 /* package */,
+				44DEC1171F90F72100ADBDA9 /* lowsession */,
+				44DEC1161F90F71A00ADBDA9 /* client */,
+				44DEC1141F90F6DD00ADBDA9 /* channelsock */,
+				44DEC1DF1F910BFA00ADBDA9 /* network_mac_server */,
+				44DEC10B1F90F6C900ADBDA9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		44DEC10B1F90F6C900ADBDA9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				44DEC10A1F90F6C900ADBDA9 /* network_mac_client */,
+				44DEC2AE1F910C2000ADBDA9 /* network_mac_server */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		44DEC1141F90F6DD00ADBDA9 /* channelsock */ = {
+			isa = PBXGroup;
+			children = (
+				44DEC1201F90F78700ADBDA9 /* Channel.cpp */,
+				44DEC12A1F90F78800ADBDA9 /* Channel.h */,
+				44DEC1251F90F78700ADBDA9 /* InetSock.cpp */,
+				44DEC1281F90F78700ADBDA9 /* InetSock.h */,
+				44DEC1221F90F78700ADBDA9 /* ServiceName.cpp */,
+				44DEC11F1F90F78700ADBDA9 /* ServiceName.h */,
+				44DEC1241F90F78700ADBDA9 /* socks.h */,
+				44DEC1211F90F78700ADBDA9 /* TcpSock.cpp */,
+				44DEC1291F90F78700ADBDA9 /* TcpSock.h */,
+				44DEC1231F90F78700ADBDA9 /* UdpChannel.cpp */,
+				44DEC12B1F90F78800ADBDA9 /* UdpChannel.h */,
+				44DEC1271F90F78700ADBDA9 /* UdpSock.cpp */,
+				44DEC1261F90F78700ADBDA9 /* UdpSock.h */,
+			);
+			name = channelsock;
+			sourceTree = "<group>";
+		};
+		44DEC1161F90F71A00ADBDA9 /* client */ = {
+			isa = PBXGroup;
+			children = (
+				44DEC1331F90F82200ADBDA9 /* Client.cpp */,
+				44DEC1311F90F82100ADBDA9 /* Client.h */,
+				44DEC1321F90F82100ADBDA9 /* ClientBase.cpp */,
+				44DEC1301F90F82100ADBDA9 /* ClientBase.h */,
+			);
+			name = client;
+			sourceTree = "<group>";
+		};
+		44DEC1171F90F72100ADBDA9 /* lowsession */ = {
+			isa = PBXGroup;
+			children = (
+				44DEC1391F90F83300ADBDA9 /* connectmanager.cpp */,
+				44DEC1341F90F83200ADBDA9 /* connectmanager.h */,
+				44DEC1371F90F83200ADBDA9 /* listenermanager.cpp */,
+				44DEC1351F90F83200ADBDA9 /* listenermanager.h */,
+				44DEC13A1F90F83300ADBDA9 /* SessionBase.cpp */,
+				44DEC1381F90F83200ADBDA9 /* SessionBase.h */,
+				44DEC1361F90F83200ADBDA9 /* sessionfactory.cpp */,
+				44DEC13B1F90F83300ADBDA9 /* sessionfactory.h */,
+			);
+			name = lowsession;
+			sourceTree = "<group>";
+		};
+		44DEC1191F90F73500ADBDA9 /* package */ = {
+			isa = PBXGroup;
+			children = (
+				44DEC13C1F90F84400ADBDA9 /* applicationpackage.cpp */,
+				44DEC1431F90F84400ADBDA9 /* applicationpackage.h */,
+				44DEC13F1F90F84400ADBDA9 /* channelpackage.cpp */,
+				44DEC1421F90F84400ADBDA9 /* channelpackage.h */,
+				44DEC1411F90F84400ADBDA9 /* contentpackage.cpp */,
+				44DEC1401F90F84400ADBDA9 /* contentpackage.h */,
+				44DEC13D1F90F84400ADBDA9 /* Package.cpp */,
+				44DEC13E1F90F84400ADBDA9 /* Package.h */,
+				44DEC1441F90F84400ADBDA9 /* packagedefine.h */,
+			);
+			name = package;
+			sourceTree = "<group>";
+		};
+		44DEC11A1F90F74000ADBDA9 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				44DEC1501F90F85A00ADBDA9 /* applicationprotocol.cpp */,
+				44DEC14C1F90F85A00ADBDA9 /* applicationprotocol.h */,
+				44DEC14F1F90F85A00ADBDA9 /* applicationsession.cpp */,
+				44DEC1511F90F85A00ADBDA9 /* applicationsession.h */,
+				44DEC1491F90F85900ADBDA9 /* channelprotocol.cpp */,
+				44DEC1461F90F85900ADBDA9 /* channelprotocol.h */,
+				44DEC14A1F90F85A00ADBDA9 /* channelsession.cpp */,
+				44DEC1541F90F85A00ADBDA9 /* channelsession.h */,
+				44DEC14D1F90F85A00ADBDA9 /* contentprotocol.cpp */,
+				44DEC1471F90F85900ADBDA9 /* contentprotocol.h */,
+				44DEC1521F90F85A00ADBDA9 /* contentsession.cpp */,
+				44DEC14B1F90F85A00ADBDA9 /* contentsession.h */,
+				44DEC1531F90F85A00ADBDA9 /* Protocol.cpp */,
+				44DEC14E1F90F85A00ADBDA9 /* Protocol.h */,
+				44DEC1481F90F85900ADBDA9 /* session.cpp */,
+				44DEC1451F90F85900ADBDA9 /* session.h */,
+			);
+			name = protocol;
+			sourceTree = "<group>";
+		};
+		44DEC11B1F90F74700ADBDA9 /* server */ = {
+			isa = PBXGroup;
+			children = (
+				44DEC1551F90F87000ADBDA9 /* Server.cpp */,
+				44DEC1561F90F87000ADBDA9 /* Server.h */,
+				44DEC1571F90F87000ADBDA9 /* ServerBase.cpp */,
+				44DEC1581F90F87000ADBDA9 /* ServerBase.h */,
+			);
+			name = server;
+			sourceTree = "<group>";
+		};
+		44DEC11C1F90F74D00ADBDA9 /* thread */ = {
+			isa = PBXGroup;
+			children = (
+				44DEC1621F90F88400ADBDA9 /* Common.h */,
+				44DEC16A1F90F88400ADBDA9 /* Dispatcher.cpp */,
+				44DEC1631F90F88400ADBDA9 /* Dispatcher.h */,
+				44DEC15E1F90F88300ADBDA9 /* EventQueue.cpp */,
+				44DEC1641F90F88400ADBDA9 /* EventQueue.h */,
+				44DEC1591F90F88300ADBDA9 /* Handler.cpp */,
+				44DEC16B1F90F88400ADBDA9 /* Handler.h */,
+				44DEC15C1F90F88300ADBDA9 /* Mutex.cpp */,
+				44DEC15F1F90F88300ADBDA9 /* Mutex.h */,
+				44DEC1671F90F88400ADBDA9 /* MutexGuard.cpp */,
+				44DEC1681F90F88400ADBDA9 /* MutexGuard.h */,
+				44DEC1691F90F88400ADBDA9 /* SelectReactor.cpp */,
+				44DEC1651F90F88400ADBDA9 /* SelectReactor.h */,
+				44DEC15A1F90F88300ADBDA9 /* Semaphore.cpp */,
+				44DEC1601F90F88300ADBDA9 /* Semaphore.h */,
+				44DEC15D1F90F88300ADBDA9 /* Thread.cpp */,
+				44DEC1611F90F88400ADBDA9 /* Thread.h */,
+				44DEC1661F90F88400ADBDA9 /* TimerHeap.cpp */,
+				44DEC15B1F90F88300ADBDA9 /* TimerHeap.h */,
+				44DEC16C1F90F88400ADBDA9 /* TimerQueue.h */,
+			);
+			name = thread;
+			sourceTree = "<group>";
+		};
+		44DEC11D1F90F75500ADBDA9 /* userdefine */ = {
+			isa = PBXGroup;
+			children = (
+				44DEC12F1F90F7EB00ADBDA9 /* fielddefine.cpp */,
+				44DEC12D1F90F7EB00ADBDA9 /* fielddefine.h */,
+				44DEC12E1F90F7EB00ADBDA9 /* packagedefine.h */,
+			);
+			name = userdefine;
+			sourceTree = "<group>";
+		};
+		44DEC11E1F90F75C00ADBDA9 /* utility */ = {
+			isa = PBXGroup;
+			children = (
+				44DEC1741F90F89400ADBDA9 /* cachelist.cpp */,
+				44DEC16D1F90F89300ADBDA9 /* cachelist.h */,
+				44DEC16E1F90F89400ADBDA9 /* fielddescribe.cpp */,
+				44DEC1761F90F89400ADBDA9 /* fielddescribe.h */,
+				44DEC1731F90F89400ADBDA9 /* fieldset.cpp */,
+				44DEC16F1F90F89400ADBDA9 /* fieldset.h */,
+				44DEC1721F90F89400ADBDA9 /* lock_queue */,
+				44DEC1751F90F89400ADBDA9 /* Log.cpp */,
+				44DEC1701F90F89400ADBDA9 /* Log.h */,
+				44DEC1711F90F89400ADBDA9 /* typedef.h */,
+			);
+			name = utility;
+			sourceTree = "<group>";
+		};
+		44DEC1DF1F910BFA00ADBDA9 /* network_mac_server */ = {
+			isa = PBXGroup;
+			children = (
+				44DEC1E01F910BFA00ADBDA9 /* main.cpp */,
+			);
+			path = network_mac_server;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		44DEC1091F90F6C900ADBDA9 /* network_mac_client */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44DEC1111F90F6C900ADBDA9 /* Build configuration list for PBXNativeTarget "network_mac_client" */;
+			buildPhases = (
+				44DEC1061F90F6C900ADBDA9 /* Sources */,
+				44DEC1071F90F6C900ADBDA9 /* Frameworks */,
+				44DEC1081F90F6C900ADBDA9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = network_mac_client;
+			productName = network_mac;
+			productReference = 44DEC10A1F90F6C900ADBDA9 /* network_mac_client */;
+			productType = "com.apple.product-type.tool";
+		};
+		44DEC24A1F910C2000ADBDA9 /* network_mac_server */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44DEC2AB1F910C2000ADBDA9 /* Build configuration list for PBXNativeTarget "network_mac_server" */;
+			buildPhases = (
+				44DEC24B1F910C2000ADBDA9 /* Sources */,
+				44DEC2A91F910C2000ADBDA9 /* Frameworks */,
+				44DEC2AA1F910C2000ADBDA9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = network_mac_server;
+			productName = network_mac;
+			productReference = 44DEC2AE1F910C2000ADBDA9 /* network_mac_server */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		44DEC1021F90F6C900ADBDA9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "王东明";
+				TargetAttributes = {
+					44DEC1091F90F6C900ADBDA9 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					44DEC24A1F910C2000ADBDA9 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 44DEC1051F90F6C900ADBDA9 /* Build configuration list for PBXProject "network_mac" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 44DEC1011F90F6C900ADBDA9;
+			productRefGroup = 44DEC10B1F90F6C900ADBDA9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				44DEC1091F90F6C900ADBDA9 /* network_mac_client */,
+				44DEC24A1F910C2000ADBDA9 /* network_mac_server */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		44DEC1061F90F6C900ADBDA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44DEC1D21F9105E000ADBDA9 /* ClientApi.cpp in Sources */,
+				44DEC1D31F9105E000ADBDA9 /* ClientApi.h in Sources */,
+				44DEC1D41F9105E000ADBDA9 /* ClientEndPoint.cpp in Sources */,
+				44DEC1771F90F8E700ADBDA9 /* cachelist.cpp in Sources */,
+				44DEC1781F90F8E700ADBDA9 /* cachelist.h in Sources */,
+				44DEC1791F90F8E700ADBDA9 /* fielddescribe.cpp in Sources */,
+				44DEC17A1F90F8E700ADBDA9 /* fielddescribe.h in Sources */,
+				44DEC17B1F90F8E700ADBDA9 /* fieldset.cpp in Sources */,
+				44DEC17C1F90F8E700ADBDA9 /* fieldset.h in Sources */,
+				44DEC17D1F90F8E700ADBDA9 /* lock_queue in Sources */,
+				44DEC17E1F90F8E700ADBDA9 /* Log.cpp in Sources */,
+				44DEC17F1F90F8E700ADBDA9 /* Log.h in Sources */,
+				44DEC1801F90F8E700ADBDA9 /* typedef.h in Sources */,
+				44DEC1811F90F8E700ADBDA9 /* fielddefine.cpp in Sources */,
+				44DEC1821F90F8E700ADBDA9 /* fielddefine.h in Sources */,
+				44DEC1831F90F8E700ADBDA9 /* packagedefine.h in Sources */,
+				44DEC1841F90F8E700ADBDA9 /* Common.h in Sources */,
+				44DEC1851F90F8E700ADBDA9 /* Dispatcher.cpp in Sources */,
+				44DEC1861F90F8E700ADBDA9 /* Dispatcher.h in Sources */,
+				44DEC1871F90F8E700ADBDA9 /* EventQueue.cpp in Sources */,
+				44DEC1881F90F8E700ADBDA9 /* EventQueue.h in Sources */,
+				44DEC1891F90F8E700ADBDA9 /* Handler.cpp in Sources */,
+				44DEC18A1F90F8E700ADBDA9 /* Handler.h in Sources */,
+				44DEC18B1F90F8E700ADBDA9 /* Mutex.cpp in Sources */,
+				44DEC18C1F90F8E700ADBDA9 /* Mutex.h in Sources */,
+				44DEC18D1F90F8E700ADBDA9 /* MutexGuard.cpp in Sources */,
+				44DEC18E1F90F8E700ADBDA9 /* MutexGuard.h in Sources */,
+				44DEC18F1F90F8E700ADBDA9 /* SelectReactor.cpp in Sources */,
+				44DEC1901F90F8E700ADBDA9 /* SelectReactor.h in Sources */,
+				44DEC1911F90F8E700ADBDA9 /* Semaphore.cpp in Sources */,
+				44DEC1921F90F8E700ADBDA9 /* Semaphore.h in Sources */,
+				44DEC1931F90F8E700ADBDA9 /* Thread.cpp in Sources */,
+				44DEC1941F90F8E700ADBDA9 /* Thread.h in Sources */,
+				44DEC1D91F9107C600ADBDA9 /* ServerEndPoint.cpp in Sources */,
+				44DEC1951F90F8E700ADBDA9 /* TimerHeap.cpp in Sources */,
+				44DEC1961F90F8E700ADBDA9 /* TimerHeap.h in Sources */,
+				44DEC1971F90F8E700ADBDA9 /* TimerQueue.h in Sources */,
+				44DEC1981F90F8E700ADBDA9 /* Server.cpp in Sources */,
+				44DEC1991F90F8E700ADBDA9 /* Server.h in Sources */,
+				44DEC19A1F90F8E700ADBDA9 /* ServerBase.cpp in Sources */,
+				44DEC19B1F90F8E700ADBDA9 /* ServerBase.h in Sources */,
+				44DEC19C1F90F8E700ADBDA9 /* applicationprotocol.cpp in Sources */,
+				44DEC19D1F90F8E700ADBDA9 /* applicationprotocol.h in Sources */,
+				44DEC19E1F90F8E700ADBDA9 /* applicationsession.cpp in Sources */,
+				44DEC19F1F90F8E700ADBDA9 /* applicationsession.h in Sources */,
+				44DEC1A01F90F8E700ADBDA9 /* channelprotocol.cpp in Sources */,
+				44DEC1A11F90F8E700ADBDA9 /* channelprotocol.h in Sources */,
+				44DEC1A21F90F8E700ADBDA9 /* channelsession.cpp in Sources */,
+				44DEC1A31F90F8E700ADBDA9 /* channelsession.h in Sources */,
+				44DEC1A41F90F8E700ADBDA9 /* contentprotocol.cpp in Sources */,
+				44DEC1A51F90F8E700ADBDA9 /* contentprotocol.h in Sources */,
+				44DEC1A61F90F8E700ADBDA9 /* contentsession.cpp in Sources */,
+				44DEC1A71F90F8E700ADBDA9 /* contentsession.h in Sources */,
+				44DEC1A81F90F8E700ADBDA9 /* Protocol.cpp in Sources */,
+				44DEC1A91F90F8E700ADBDA9 /* Protocol.h in Sources */,
+				44DEC1AA1F90F8E700ADBDA9 /* session.cpp in Sources */,
+				44DEC1AB1F90F8E700ADBDA9 /* session.h in Sources */,
+				44DEC1AC1F90F8E700ADBDA9 /* applicationpackage.cpp in Sources */,
+				44DEC1AD1F90F8E700ADBDA9 /* applicationpackage.h in Sources */,
+				44DEC1AE1F90F8E700ADBDA9 /* channelpackage.cpp in Sources */,
+				44DEC1AF1F90F8E700ADBDA9 /* channelpackage.h in Sources */,
+				44DEC1B01F90F8E700ADBDA9 /* contentpackage.cpp in Sources */,
+				44DEC1B11F90F8E700ADBDA9 /* contentpackage.h in Sources */,
+				44DEC1B21F90F8E700ADBDA9 /* Package.cpp in Sources */,
+				44DEC1B31F90F8E700ADBDA9 /* Package.h in Sources */,
+				44DEC1B41F90F8E700ADBDA9 /* packagedefine.h in Sources */,
+				44DEC1B51F90F8E700ADBDA9 /* connectmanager.cpp in Sources */,
+				44DEC1B61F90F8E700ADBDA9 /* connectmanager.h in Sources */,
+				44DEC1B71F90F8E700ADBDA9 /* listenermanager.cpp in Sources */,
+				44DEC1B81F90F8E700ADBDA9 /* listenermanager.h in Sources */,
+				44DEC1B91F90F8E700ADBDA9 /* SessionBase.cpp in Sources */,
+				44DEC1BA1F90F8E700ADBDA9 /* SessionBase.h in Sources */,
+				44DEC1D81F9107C600ADBDA9 /* ServerApi.cpp in Sources */,
+				44DEC1BB1F90F8E700ADBDA9 /* sessionfactory.cpp in Sources */,
+				44DEC1BC1F90F8E700ADBDA9 /* sessionfactory.h in Sources */,
+				44DEC1BD1F90F8E700ADBDA9 /* Client.cpp in Sources */,
+				44DEC1BE1F90F8E700ADBDA9 /* Client.h in Sources */,
+				44DEC1BF1F90F8E700ADBDA9 /* ClientBase.cpp in Sources */,
+				44DEC1C01F90F8E700ADBDA9 /* ClientBase.h in Sources */,
+				44DEC1C11F90F8E700ADBDA9 /* Channel.cpp in Sources */,
+				44DEC1C21F90F8E700ADBDA9 /* Channel.h in Sources */,
+				44DEC1C31F90F8E700ADBDA9 /* InetSock.cpp in Sources */,
+				44DEC1C41F90F8E700ADBDA9 /* InetSock.h in Sources */,
+				44DEC1C51F90F8E700ADBDA9 /* ServiceName.cpp in Sources */,
+				44DEC1C61F90F8E700ADBDA9 /* ServiceName.h in Sources */,
+				44DEC1C71F90F8E700ADBDA9 /* socks.h in Sources */,
+				44DEC1C81F90F8E700ADBDA9 /* TcpSock.cpp in Sources */,
+				44DEC1C91F90F8E700ADBDA9 /* TcpSock.h in Sources */,
+				44DEC1CA1F90F8E700ADBDA9 /* UdpChannel.cpp in Sources */,
+				44DEC1CB1F90F8E700ADBDA9 /* UdpChannel.h in Sources */,
+				44DEC1CC1F90F8E700ADBDA9 /* UdpSock.cpp in Sources */,
+				44DEC1CD1F90F8E700ADBDA9 /* UdpSock.h in Sources */,
+				44DEC1CE1F90F8E700ADBDA9 /* network_mac_client in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44DEC24B1F910C2000ADBDA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44DEC24C1F910C2000ADBDA9 /* ClientApi.cpp in Sources */,
+				44DEC24D1F910C2000ADBDA9 /* ClientApi.h in Sources */,
+				44DEC24E1F910C2000ADBDA9 /* ClientEndPoint.cpp in Sources */,
+				44DEC24F1F910C2000ADBDA9 /* cachelist.cpp in Sources */,
+				44DEC2501F910C2000ADBDA9 /* cachelist.h in Sources */,
+				44DEC2511F910C2000ADBDA9 /* fielddescribe.cpp in Sources */,
+				44DEC2521F910C2000ADBDA9 /* fielddescribe.h in Sources */,
+				44DEC2531F910C2000ADBDA9 /* fieldset.cpp in Sources */,
+				44DEC2541F910C2000ADBDA9 /* fieldset.h in Sources */,
+				44DEC2551F910C2000ADBDA9 /* lock_queue in Sources */,
+				44DEC2561F910C2000ADBDA9 /* Log.cpp in Sources */,
+				44DEC2571F910C2000ADBDA9 /* Log.h in Sources */,
+				44DEC2581F910C2000ADBDA9 /* typedef.h in Sources */,
+				44DEC2591F910C2000ADBDA9 /* fielddefine.cpp in Sources */,
+				44DEC25A1F910C2000ADBDA9 /* fielddefine.h in Sources */,
+				44DEC25B1F910C2000ADBDA9 /* packagedefine.h in Sources */,
+				44DEC25C1F910C2000ADBDA9 /* Common.h in Sources */,
+				44DEC25D1F910C2000ADBDA9 /* Dispatcher.cpp in Sources */,
+				44DEC25E1F910C2000ADBDA9 /* Dispatcher.h in Sources */,
+				44DEC25F1F910C2000ADBDA9 /* EventQueue.cpp in Sources */,
+				44DEC2601F910C2000ADBDA9 /* EventQueue.h in Sources */,
+				44DEC2611F910C2000ADBDA9 /* Handler.cpp in Sources */,
+				44DEC2621F910C2000ADBDA9 /* Handler.h in Sources */,
+				44DEC2631F910C2000ADBDA9 /* Mutex.cpp in Sources */,
+				44DEC2641F910C2000ADBDA9 /* Mutex.h in Sources */,
+				44DEC2651F910C2000ADBDA9 /* MutexGuard.cpp in Sources */,
+				44DEC2661F910C2000ADBDA9 /* MutexGuard.h in Sources */,
+				44DEC2671F910C2000ADBDA9 /* SelectReactor.cpp in Sources */,
+				44DEC2681F910C2000ADBDA9 /* SelectReactor.h in Sources */,
+				44DEC2691F910C2000ADBDA9 /* Semaphore.cpp in Sources */,
+				44DEC26A1F910C2000ADBDA9 /* Semaphore.h in Sources */,
+				44DEC26B1F910C2000ADBDA9 /* Thread.cpp in Sources */,
+				44DEC26C1F910C2000ADBDA9 /* Thread.h in Sources */,
+				44DEC26D1F910C2000ADBDA9 /* ServerEndPoint.cpp in Sources */,
+				44DEC26E1F910C2000ADBDA9 /* TimerHeap.cpp in Sources */,
+				44DEC26F1F910C2000ADBDA9 /* TimerHeap.h in Sources */,
+				44DEC2701F910C2000ADBDA9 /* TimerQueue.h in Sources */,
+				44DEC2711F910C2000ADBDA9 /* Server.cpp in Sources */,
+				44DEC2721F910C2000ADBDA9 /* Server.h in Sources */,
+				44DEC2731F910C2000ADBDA9 /* ServerBase.cpp in Sources */,
+				44DEC2741F910C2000ADBDA9 /* ServerBase.h in Sources */,
+				44DEC2751F910C2000ADBDA9 /* applicationprotocol.cpp in Sources */,
+				44DEC2761F910C2000ADBDA9 /* applicationprotocol.h in Sources */,
+				44DEC2771F910C2000ADBDA9 /* applicationsession.cpp in Sources */,
+				44DEC2781F910C2000ADBDA9 /* applicationsession.h in Sources */,
+				44DEC2791F910C2000ADBDA9 /* channelprotocol.cpp in Sources */,
+				44DEC27A1F910C2000ADBDA9 /* channelprotocol.h in Sources */,
+				44DEC27B1F910C2000ADBDA9 /* channelsession.cpp in Sources */,
+				44DEC27C1F910C2000ADBDA9 /* channelsession.h in Sources */,
+				44DEC27D1F910C2000ADBDA9 /* contentprotocol.cpp in Sources */,
+				44DEC27E1F910C2000ADBDA9 /* contentprotocol.h in Sources */,
+				44DEC27F1F910C2000ADBDA9 /* contentsession.cpp in Sources */,
+				44DEC2801F910C2000ADBDA9 /* contentsession.h in Sources */,
+				44DEC2811F910C2000ADBDA9 /* Protocol.cpp in Sources */,
+				44DEC2821F910C2000ADBDA9 /* Protocol.h in Sources */,
+				44DEC2831F910C2000ADBDA9 /* session.cpp in Sources */,
+				44DEC2841F910C2000ADBDA9 /* session.h in Sources */,
+				44DEC2851F910C2000ADBDA9 /* applicationpackage.cpp in Sources */,
+				44DEC2861F910C2000ADBDA9 /* applicationpackage.h in Sources */,
+				44DEC2871F910C2000ADBDA9 /* channelpackage.cpp in Sources */,
+				44DEC2881F910C2000ADBDA9 /* channelpackage.h in Sources */,
+				44DEC2891F910C2000ADBDA9 /* contentpackage.cpp in Sources */,
+				44DEC28A1F910C2000ADBDA9 /* contentpackage.h in Sources */,
+				44DEC28B1F910C2000ADBDA9 /* Package.cpp in Sources */,
+				44DEC28C1F910C2000ADBDA9 /* Package.h in Sources */,
+				44DEC28D1F910C2000ADBDA9 /* packagedefine.h in Sources */,
+				44DEC28E1F910C2000ADBDA9 /* connectmanager.cpp in Sources */,
+				44DEC28F1F910C2000ADBDA9 /* connectmanager.h in Sources */,
+				44DEC2901F910C2000ADBDA9 /* listenermanager.cpp in Sources */,
+				44DEC2911F910C2000ADBDA9 /* listenermanager.h in Sources */,
+				44DEC2921F910C2000ADBDA9 /* SessionBase.cpp in Sources */,
+				44DEC2931F910C2000ADBDA9 /* SessionBase.h in Sources */,
+				44DEC2941F910C2000ADBDA9 /* ServerApi.cpp in Sources */,
+				44DEC2951F910C2000ADBDA9 /* sessionfactory.cpp in Sources */,
+				44DEC2961F910C2000ADBDA9 /* sessionfactory.h in Sources */,
+				44DEC2971F910C2000ADBDA9 /* Client.cpp in Sources */,
+				44DEC2981F910C2000ADBDA9 /* Client.h in Sources */,
+				44DEC2991F910C2000ADBDA9 /* ClientBase.cpp in Sources */,
+				44DEC29A1F910C2000ADBDA9 /* ClientBase.h in Sources */,
+				44DEC29B1F910C2000ADBDA9 /* Channel.cpp in Sources */,
+				44DEC29C1F910C2000ADBDA9 /* Channel.h in Sources */,
+				44DEC29D1F910C2000ADBDA9 /* InetSock.cpp in Sources */,
+				44DEC29E1F910C2000ADBDA9 /* InetSock.h in Sources */,
+				44DEC29F1F910C2000ADBDA9 /* ServiceName.cpp in Sources */,
+				44DEC2A01F910C2000ADBDA9 /* ServiceName.h in Sources */,
+				44DEC2A11F910C2000ADBDA9 /* socks.h in Sources */,
+				44DEC2A21F910C2000ADBDA9 /* TcpSock.cpp in Sources */,
+				44DEC2A31F910C2000ADBDA9 /* TcpSock.h in Sources */,
+				44DEC2A41F910C2000ADBDA9 /* UdpChannel.cpp in Sources */,
+				44DEC2A51F910C2000ADBDA9 /* UdpChannel.h in Sources */,
+				44DEC2A61F910C2000ADBDA9 /* UdpSock.cpp in Sources */,
+				44DEC2A71F910C2000ADBDA9 /* UdpSock.h in Sources */,
+				44DEC2A81F910C2000ADBDA9 /* network_mac_client in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		44DEC10F1F90F6C900ADBDA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		44DEC1101F90F6C900ADBDA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		44DEC1121F90F6C900ADBDA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		44DEC1131F90F6C900ADBDA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		44DEC2AC1F910C2000ADBDA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		44DEC2AD1F910C2000ADBDA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		44DEC1051F90F6C900ADBDA9 /* Build configuration list for PBXProject "network_mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44DEC10F1F90F6C900ADBDA9 /* Debug */,
+				44DEC1101F90F6C900ADBDA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44DEC1111F90F6C900ADBDA9 /* Build configuration list for PBXNativeTarget "network_mac_client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44DEC1121F90F6C900ADBDA9 /* Debug */,
+				44DEC1131F90F6C900ADBDA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44DEC2AB1F910C2000ADBDA9 /* Build configuration list for PBXNativeTarget "network_mac_server" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44DEC2AC1F910C2000ADBDA9 /* Debug */,
+				44DEC2AD1F910C2000ADBDA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 44DEC1021F90F6C900ADBDA9 /* Project object */;
+}

@@ -1,4 +1,4 @@
-﻿#ifndef CLIENTAPI_H
+#ifndef CLIENTAPI_H
 #define CLIENTAPI_H
 #include "SelectReactor.h"
 #include "Client.h"
@@ -46,15 +46,6 @@ private:
 
 
 
-class CClientSession:public CSelectReactor
-{
-public:
-	CClientSession(const char* client,const char* server);
-	virtual bool InitInstance();
-	CContentSession* m_Session;
-	CClient* m_client;
-	CChannel* m_clientchannel;
-};
 
 class CClientApplicationSession :public CApplicationSession
 {

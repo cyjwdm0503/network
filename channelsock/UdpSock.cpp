@@ -1,4 +1,4 @@
-﻿#include "UdpSock.h"
+#include "UdpSock.h"
 #include "Log.h"
 #include "UdpChannel.h"
 #include <string>
@@ -128,7 +128,8 @@ int CUdpSock::Bind()
 	addr.sin_family = AF_INET;
 	addr.sin_port =  m_service->GetNPort();
 	socklen_t len =  sizeof(addr);
-	int re = bind(m_fd,(sockaddr*)&addr,len);
+    CLog::GetInstance()->PrintLog("addr:%d,port:%d",addr.sin_addr.s_addr,addr.sin_port);
+    int re = bind(m_fd,(sockaddr*)&addr,len);
 	DEBUGOUT(re);
 	return re;
 }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "GLOBAL">
+         <PersistentStrings>
+            <PersistentString
+               value = "((CApplicationPackageHeader*)0x10200c2d8">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CContentHeadType::ToStream(char*):contentpackage.h">
+      </ContextState>
+      <ContextState
+         contextName = "CCacheList::push_back(void*, unsigned long):cachelist.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "CContentHeadType::ToStream(char*):contentpackage.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "(CContentHeadType*)pStream">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CContentHeadType::HostToNet():contentpackage.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "CPackage::Length():Package.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "CContentHeadType::NetToHost():contentpackage.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "CChannel::Write(unsigned long, char const*):Channel.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "CContentPackage::MakePackage():contentpackage.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "CChannel::Read(unsigned long, char*):Channel.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "CPackage::CopyPackage(CPackage*):Package.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "CApplicationPackageHeader::ToStream(char*):applicationpackage.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "CProtocol::HandlePackage(CPackage*, CProtocol*):Protocol.cpp">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

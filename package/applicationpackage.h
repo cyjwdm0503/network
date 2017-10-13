@@ -1,4 +1,4 @@
-﻿#ifndef APPLICATIONPACKAGE_H 
+#ifndef APPLICATIONPACKAGE_H 
 #define APPLICATIONPACKAGE_H
 
 #include "Package.h"
@@ -42,21 +42,40 @@ struct	CApplicationPackageHeader
 
 const int  APPLICATIONHEADERLENGTH	= sizeof(CApplicationPackageHeader);
 
+
 #ifndef SETATTR
+
+#ifdef WIN
 #define  SETATTR(Name,ValueType)\
 	void Set##Name(ValueType value)\
 {\
-	m_ApplicationHeader.##Name = (##value);\
+m_ApplicationHeader.##Name = (##value);\
 }
+#else
+#define  SETATTR(Name,ValueType)\
+void Set##Name(ValueType value)\
+{\
+m_ApplicationHeader.Name = (value);\
+}
+#endif
 
 #endif
 
 #ifndef GETATTR
+
+#ifdef WIN
 #define  GETATTR(Name,ValueType)\
 	ValueType Get##Name()\
 {\
 	return m_ApplicationHeader.##Name;\
 }
+#else
+#define  GETATTR(Name,ValueType)\
+ValueType Get##Name()\
+{\
+return m_ApplicationHeader.Name;\
+}
+#endif
 
 #endif
 
@@ -74,22 +93,23 @@ public:
 
 	virtual bool CopyPackage(CPackage* pPackage);
 
-	SETATTR(Type,unsigned char);
-	SETATTR(Chain,unsigned char);
-	SETATTR(PubSession,unsigned char);
-	SETATTR(FrontID,unsigned char);
-	SETATTR(ContentLength,unsigned short);
-	SETATTR(CommPhaseNo,unsigned short);
-	SETATTR(SubjectID,unsigned short);
-	SETATTR(FrontSubjectID,unsigned short);
-	SETATTR(Tid,unsigned int);
-	SETATTR(SequenceNo,unsigned int);
-	SETATTR(RequestID,unsigned int);
-	SETATTR(SessionID,unsigned int);
 	SETATTR(FrontSeqNo,unsigned int);
 	SETATTR(CompSeqNo,unsigned int);
 	SETATTR(ActiveID,unsigned int);
-
+    SETATTR(Chain,unsigned char);
+    SETATTR(PubSession,unsigned char);
+    SETATTR(FrontID,unsigned char);
+    SETATTR(ContentLength,unsigned short);
+    SETATTR(CommPhaseNo,unsigned short);
+    SETATTR(SubjectID,unsigned short);
+    SETATTR(FrontSubjectID,unsigned short);
+    SETATTR(Tid,unsigned int);
+    SETATTR(SequenceNo,unsigned int);
+    SETATTR(RequestID,unsigned int);
+    SETATTR(SessionID,unsigned int);
+    SETATTR(Type,unsigned char);
+    
+    
 	GETATTR(Type,unsigned char);
 	GETATTR(Chain,unsigned char);
 	GETATTR(PubSession,unsigned char);

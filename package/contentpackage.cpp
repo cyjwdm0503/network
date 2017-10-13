@@ -1,4 +1,4 @@
-﻿#include "contentpackage.h"
+#include "contentpackage.h"
 #include "socks.h"
 
 void CContentHeadType::NetToHost()
@@ -13,6 +13,28 @@ void CContentHeadType::HostToNet()
 	HostToNetLong(Type);
 	HostToNetLong(ExtensionLen);
 	HostToNetLong(Length);
+}
+void CContentHeadType::Init()
+{
+    memset(this,0,sizeof(CContentHeadType));
+}
+
+void CContentHeadType::ToStream( char *pStream )
+{
+    memcpy(pStream,this,sizeof(CContentHeadType));
+    ((CContentHeadType*)pStream)->HostToNet();
+}
+
+void CContentHeadType::FromStream( char *pStream )
+{
+    memcpy(this,pStream,sizeof(CContentHeadType));
+    NetToHost();
+}
+
+
+void CContentExtHeadType::Init()
+{
+    memset(this,0,sizeof(CContentExtHeadType));
 }
 
 void CContentPackage::Clear()

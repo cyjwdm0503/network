@@ -1,6 +1,14 @@
-﻿#include "fieldset.h"
+#include "fieldset.h"
 #include <cstring>
 #include "socks.h"
+
+#ifndef min
+#define min(a,b)   (((a)<(b))? (a):(b))
+#endif
+
+#ifndef max
+#define max(a,b)    (((a)>(b))?(a):(b))
+#endif
 
 CFieldIterator::CFieldIterator( char* head,char* end,CFieldDescribe* fielddesc ):m_head(head),m_end(end),m_desc(NULL)
 {

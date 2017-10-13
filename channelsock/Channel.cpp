@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include "Channel.h"
 #include "Log.h"
 CChannel::~CChannel()
@@ -37,6 +37,13 @@ int CChannel::Read(size_t max,char* buf)
 			return -1;
 		}
 	}
+    
+    char logbuf[max+1];
+    memcpy(logbuf, buf, re);
+    char format[128];
+    sprintf(format, "\%%%ds",re);
+    CLog::GetInstance()->PrintLog(format,buf);
+    
 	return re;
 }
 
@@ -68,6 +75,13 @@ int CChannel::Write(size_t max,const char* buf)
 			return -1;
 		}
 	}
+    
+    char logbuf[max+1];
+    memcpy(logbuf, buf, re);
+    char format[128];
+    sprintf(format, "\%%%ds",re);
+    CLog::GetInstance()->PrintLog(format,buf);
+    
 	return re;
 
 }

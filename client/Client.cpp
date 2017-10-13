@@ -1,4 +1,4 @@
-﻿#include "Client.h"
+#include "Client.h"
 #include "TcpSock.h"
 #include "UdpSock.h"
 CChannel* CClient::CreateClient( CServiceName* server )
@@ -29,7 +29,11 @@ CChannel* CClient::ConnectServer(const char* location)
 	re = select(m_clientsock->Getfd()+1,NULL,&connectfd,NULL,&tv);
 	if(re == 0)
 	{
-		closesocket(m_clientsock->Getfd());
+#ifdef MAC
+		close(m_clientsock->Getfd());
+#else
+        closesocket(m_clientsock->Getfd());
+#endif
 		re = -1;
 	}
 	if(re!= 0 && FD_ISSET(m_clientsock->Getfd(),&connectfd))

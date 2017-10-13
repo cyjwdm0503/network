@@ -1,10 +1,11 @@
-﻿#ifndef TYPEDEF_H
+#ifndef TYPEDEF_H
 #define TYPEDEF_H
 
 #include <cstring>
 #include <cstdlib>
 #include <cstdio>
-
+#include <cfloat>
+#include <cmath>
 class CBaseStringType
 {
 };

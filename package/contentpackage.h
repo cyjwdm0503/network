@@ -1,4 +1,4 @@
-﻿/************************************************************************/
+/************************************************************************/
 /*数据保证层的package,下层应为channelpackage与对应的协议
 利用下层收到的数据字符，取出对应的contentpackage。并取出对应的上层应用数据包
 /**该package主要是用来保证链路能够正确连接。并返回完整的应用数据包给上层。
@@ -113,28 +113,7 @@ private:
 	CContentExtHeadType m_contentexthead;
 };
 
-void CContentHeadType::Init()
-{
-	memset(this,0,sizeof(CContentHeadType));
-}
 
-void CContentHeadType::ToStream( char *pStream )
-{
-	memcpy(pStream,this,sizeof(CContentHeadType));
-	((CContentHeadType*)pStream)->HostToNet();
-}
-
-void CContentHeadType::FromStream( char *pStream )
-{
-	memcpy(this,pStream,sizeof(CContentHeadType));
-	NetToHost();
-}
-
-
-void CContentExtHeadType::Init()
-{
-	memset(this,0,sizeof(CContentExtHeadType));
-}
 
 
 

@@ -1,4 +1,4 @@
-﻿#include "ServerApi.h"
+#include "ServerApi.h"
 #include "channelpackage.h"
 #include "contentpackage.h"
 #include "contentsession.h"
@@ -150,14 +150,14 @@ void CServerApplicationSession::OnTimer( int event )
 		CApplicationPackage contentpackage;
 		contentpackage.ConstructAlloc(1024,128);
 		contentpackage.AllocMax();
-		contentpackage.SetSequenceNo(SERVERVERSION++);
+		contentpackage.SetSequenceNo(++SERVERVERSION);
 		contentpackage.SetTid(PACKAGE_SendField_ID);
 		contentpackage.Truncate(0);
 		SendField field;
 		field.m_char = 's';
-		field.m_int = SERVERVERSION++;
-		field.m_short = SERVERVERSION++;
-		field.m_string = "string";
+		field.m_int = SERVERVERSION;
+		field.m_short = SERVERVERSION;
+		field.m_string = "1234567890";
 		contentpackage.AddField(&field.m_Describe,&field);
 		//contentpackage.MakePackage();
 

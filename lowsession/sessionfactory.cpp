@@ -1,8 +1,9 @@
 #include "sessionfactory.h"
 #include "Log.h"
+#include <exception>
 void CSessionFactory::OnTimer( int event )
 {
-	throw std::exception("The method or operation is not implemented.");
+    throw std::exception();
 }
 
 int CSessionFactory::HandleEvent( int event,DWORD dwParam,void* pParam )

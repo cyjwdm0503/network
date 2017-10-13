@@ -1,4 +1,4 @@
-﻿#ifndef DISPATCHER_H
+#ifndef DISPATCHER_H
 #define DISPATCHER_H
 #include "Thread.h"
 #include "Handler.h"
@@ -45,7 +45,7 @@ protected:
 	time_t m_MiscroTime;
 	time_t m_Time;
 	time_t m_clock;
-#elif  UNIX
+#else
 	DWORD m_MiscroTime;
 	DWORD m_Time;
 	DWORD m_clock;

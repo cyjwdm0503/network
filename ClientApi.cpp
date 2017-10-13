@@ -1,4 +1,4 @@
-﻿#include "ClientApi.h"
+#include "ClientApi.h"
 #include <iostream>
 #include "Client.h"
 #include "channelpackage.h"
@@ -7,6 +7,7 @@
 #include "packagedefine.h"
 #include "fielddefine.h"
 #include "Log.h"
+#include "contentsession.h"
 using namespace  std;
 
 static  int CLIENTVERSION = 0;
@@ -130,23 +131,6 @@ CClientApi::~CClientApi()
 }
 
 
-bool CClientSession::InitInstance()
-{
-	if(m_clientchannel != NULL)
-	{
-		m_Session = new CClientContent(this,m_clientchannel);
-		AddHandler(m_Session);
-		return CDispatcher::InitInstance();
-	}
-	return false;
-}
-
-CClientSession::CClientSession( const char* clientip,const char* serverip )
-{
-	m_client = new CClient();
-	m_client->CreateClient(clientip);
-	m_clientchannel = m_client->ConnectServer(serverip);
-}
 
 
 CClientApplicationSession::CClientApplicationSession(CDispatcher* dispatcher,CChannel* channel):
