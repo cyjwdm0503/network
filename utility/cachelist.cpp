@@ -10,7 +10,7 @@ CCacheList::~CCacheList()
 {
 }
 
-void* CCacheList::get_data( int& length )
+void* CCacheList::get_data( size_t& length )
 {
 	void* ptr = NULL;
 
@@ -33,7 +33,7 @@ void* CCacheList::get_data( int& length )
 	}
 }
 
-void* CCacheList::push_back( void* data, int length )
+void* CCacheList::push_back( void* data, size_t length )
 {
 	char* ptr =  NULL;
 	//如果第一个清空，则删除
@@ -57,7 +57,7 @@ void* CCacheList::push_back( void* data, int length )
 	return ptr;
 }
 
-int CCacheList::pop_front( int maxlength )
+size_t CCacheList::pop_front( size_t maxlength )
 {
 	//如果第一个清空，则删除
 	while(m_nodeList.size()>0 && m_nodeList.front()->isdeleted())
@@ -100,19 +100,19 @@ void CacheNode::clear()
 	}
 }
 
-int CacheNode::size()
+size_t CacheNode::size()
 {
 	return m_length-(m_cur-m_buf);
 }
 
-int CacheNode::avablesize()
+size_t CacheNode::avablesize()
 {
 	return m_maxSize-size();
 }
 
-int CacheNode::pop( int length )
+size_t CacheNode::pop( size_t length )
 {
-	int ret = 0;
+	size_t ret = 0;
 	if(size() < length)
 	{
 		ret = size();
@@ -127,7 +127,7 @@ int CacheNode::pop( int length )
 	return ret;
 }
 
-void* CacheNode::getdata( int& length )
+void* CacheNode::getdata( size_t& length )
 {
 	if(length > size())
 		length = size();
@@ -135,7 +135,7 @@ void* CacheNode::getdata( int& length )
 	return ptr;
 }
 
-char* CacheNode::push( void* data,int len )
+char* CacheNode::push( void* data,size_t len )
 {
 	char* tmp = m_buf+m_length;
 	memcpy(tmp,data,len);
@@ -153,7 +153,7 @@ CacheNode::~CacheNode()
 	m_cur =  NULL;
 }
 
-CacheNode::CacheNode( int maxsize ) :m_maxSize(maxsize)
+CacheNode::CacheNode( size_t maxsize ) :m_maxSize(maxsize)
 {
 	m_buf = new char[m_maxSize];
 	m_cur =  m_buf;

@@ -15,7 +15,7 @@ int CChannel::Read(size_t max,char* buf)
 	if(!m_bConnected)
 		return -1;
 	int re = 0;
-	#ifdef WIN32
+	#ifdef WIN
 	re = recv(m_fd,buf,max,0);
 	#else
 	re =  read(m_fd,buf,max);
@@ -45,7 +45,7 @@ int CChannel::Write(size_t max,const char* buf)
 	if(!m_bConnected)
 		return -1;
 	int re = 0;
-	#ifdef WIN32
+	#ifdef WIN
 	re = send(m_fd,buf,max,0);
 	#else
 	re = write(m_fd,buf,max);
@@ -97,7 +97,7 @@ CChannel::CChannel( int fd )
 	m_bConnected = true;
 	int ret = 0;
 
-#ifdef WIN32
+#ifdef WIN
 	unsigned long on_windows=1;
 	ret = ioctlsocket(fd, FIONBIO, &on_windows) ; 
 #else
@@ -120,7 +120,7 @@ bool CChannel::Disconnect()
 {
 	m_bConnected = false;
 	std::cout<<"CChannel::Disconnect()"<<std::endl;
-#ifdef WIN32
+#ifdef WIN
   closesocket(m_fd);
 #else
   close(m_fd);

@@ -1,7 +1,7 @@
 ﻿#include "Semaphore.h"
 CSemaphore::CSemaphore( int count,const char* name)
 {
-#ifdef WIN32
+#ifdef WIN
 	m_semap = CreateSemaphore(NULL,count,count,name);
 	if(m_semap != NULL)
 	{
@@ -19,7 +19,7 @@ CSemaphore::CSemaphore( int count,const char* name)
 
 CSemaphore::~CSemaphore()
 {
-#ifdef WIN32
+#ifdef WIN
 	CloseHandle(m_semap);
 #else
 
@@ -30,7 +30,7 @@ CSemaphore::~CSemaphore()
 
 void CSemaphore::Lock( int* pCount )
 {
-#ifdef WIN32
+#ifdef WIN
 	WaitForSingleObject(m_semap,INFINITE);
 #else
 	pthread_mutex_lock(&mtx);
@@ -52,7 +52,7 @@ void CSemaphore::Lock( int* pCount )
 
 void CSemaphore::UnLock(int* pCount)
 {
-#ifdef WIN32
+#ifdef WIN
 	ReleaseSemaphore(m_semap,1,NULL);
 #else
 	pthread_mutex_lock(&mtx);
@@ -69,7 +69,7 @@ void CSemaphore::UnLock(int* pCount)
 
 bool CSemaphore::TryLock(int* pCount)
 {
-#ifdef WIN32
+#ifdef WIN
 	return WaitForSingleObject(m_semap,0) == WAIT_OBJECT_0 ;
 #else
 	pthread_mutex_lock(&mtx);

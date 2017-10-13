@@ -6,25 +6,43 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Client_Release|Win32 = Client_Release|Win32
+		Client_Release|x64 = Client_Release|x64
 		Client|Win32 = Client|Win32
+		Client|x64 = Client|x64
 		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
 		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
 		Server_Release|Win32 = Server_Release|Win32
+		Server_Release|x64 = Server_Release|x64
 		Server|Win32 = Server|Win32
+		Server|x64 = Server|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Client_Release|Win32.ActiveCfg = Client_Release|Win32
 		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Client_Release|Win32.Build.0 = Client_Release|Win32
+		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Client_Release|x64.ActiveCfg = Client_Release|x64
+		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Client_Release|x64.Build.0 = Client_Release|x64
 		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Client|Win32.ActiveCfg = Client|Win32
 		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Client|Win32.Build.0 = Client|Win32
+		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Client|x64.ActiveCfg = Client|x64
+		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Client|x64.Build.0 = Client|x64
 		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Debug|Win32.ActiveCfg = Debug|Win32
 		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Debug|Win32.Build.0 = Debug|Win32
+		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Debug|x64.ActiveCfg = Debug|x64
+		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Debug|x64.Build.0 = Debug|x64
 		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Release|Win32.ActiveCfg = Release|Win32
 		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Release|Win32.Build.0 = Release|Win32
+		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Release|x64.ActiveCfg = Release|x64
+		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Release|x64.Build.0 = Release|x64
 		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Server_Release|Win32.ActiveCfg = Server_Release|Win32
 		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Server_Release|Win32.Build.0 = Server_Release|Win32
+		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Server_Release|x64.ActiveCfg = Server_Release|x64
+		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Server_Release|x64.Build.0 = Server_Release|x64
 		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Server|Win32.ActiveCfg = Server|Win32
 		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Server|Win32.Build.0 = Server|Win32
+		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Server|x64.ActiveCfg = Server|x64
+		{85BCE879-E8FE-423F-9675-730D8DCE7342}.Server|x64.Build.0 = Server|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,7 +14,7 @@ public:
 	bool TryLock();
 
 public:
-#ifdef WIN32
+#ifdef WIN
 	HANDLE m_lock;
 #else
     pthread_mutex_t m_lock;

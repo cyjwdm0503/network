@@ -8,3 +8,6 @@ ServerApi.cpp1
 *.unsuccessfulbuild
 *.tlog
 *.pdb
+*.ilk
+*.idb
+*.opensdf

@@ -3,7 +3,7 @@
 #include "TimerHeap.h"
 #include <iostream>
 
-#ifdef WIN32
+#ifdef WIN
 #include <sys/timeb.h>
 #include <sys/types.h>
 #else
@@ -110,7 +110,7 @@ void CDispatcher::Run()
 
 void CDispatcher::SyncTimer()
 {
-#ifdef WIN32
+#ifdef WIN
 	struct _timeb timebuf;
 	_ftime(&timebuf);
 	m_Time = timebuf.time;
@@ -152,7 +152,7 @@ void CDispatcher::RemoveHandler( CHandler* handler )
 	}
 }
 
-int CDispatcher::Time()
+time_t CDispatcher::Time()
 {
 	return m_Time;
 }

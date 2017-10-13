@@ -3,7 +3,7 @@
 
 #define   WIN32_LEAN_AND_MEAN
 
-#ifdef WIN32
+#ifdef WIN
 //#ifndef TEST
 //#define TEST
 //

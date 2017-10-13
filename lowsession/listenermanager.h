@@ -17,16 +17,17 @@ public:
 	virtual void OnTimer( int event );
 
 
-	CChannel* AccpetConnecter();
-	void SendAccepted(CChannel* channel);
-
 	virtual void GetIds( int* readid,int* writeid );
 
 	virtual void HandleInput();
 
 	void SetListenLocation(string connectLocation);
 
-public:
+private:
+
+
+	CChannel* AccpetConnecter();
+	void SendAccepted(CChannel* channel);
 	CSelectReactor* m_outReactor;
 	string m_listenLocation;
 	CServer* m_server;

@@ -3,7 +3,7 @@
 
 CMutex::CMutex()
 {
-#ifdef WIN32
+#ifdef WIN
 	m_lock =  CreateMutex(NULL,FALSE,NULL);
 #else
     pthread_mutex_init(&m_lock,NULL);
@@ -12,7 +12,7 @@ CMutex::CMutex()
 
 CMutex::CMutex( const char* name )
 {
-#ifdef WIN32
+#ifdef WIN
 	m_lock =  CreateMutex(NULL,FALSE,name);
 	if(m_lock != NULL)
 	{
@@ -28,7 +28,7 @@ CMutex::CMutex( const char* name )
 
 CMutex::~CMutex()
 {
-#ifdef WIN32
+#ifdef WIN
 	CloseHandle(m_lock);
 #else
     pthread_mutex_destroy(&m_lock);
@@ -37,7 +37,7 @@ CMutex::~CMutex()
 
 void CMutex::Lock()
 {
-#ifdef WIN32
+#ifdef WIN
 	WaitForSingleObject(m_lock,INFINITE);
 #else
     pthread_mutex_lock(&m_lock);
@@ -47,7 +47,7 @@ void CMutex::Lock()
 
 void CMutex::UnLock()
 {
-#ifdef WIN32
+#ifdef WIN
 	ReleaseMutex(m_lock);
 #else
     pthread_mutex_unlock(&m_lock);
@@ -56,7 +56,7 @@ void CMutex::UnLock()
 
 bool CMutex::TryLock()
 {
-#ifdef WIN32
+#ifdef WIN
 	return (WaitForSingleObject(m_lock,0) == WAIT_OBJECT_0);
 #else
     return  pthread_mutex_trylock(&m_lock) == 0;

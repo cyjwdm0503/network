@@ -10,7 +10,7 @@ CFieldDescribe::CFieldDescribe( unsigned short FieldID,int StructSize,const char
 	fun();//执行一次内部数据位置的基础数据
 }
 
-void CFieldDescribe::SetupMember( MemberType type,int ClassOffset,int Size,const char* name )
+void CFieldDescribe::SetupMember( MemberType type,int ClassOffset,size_t Size,const char* name )
 {
 	SMembererDesc* desc = (m_MemberDesc+m_TotalMember);
 	strcpy(desc->name,name);
@@ -23,27 +23,27 @@ void CFieldDescribe::SetupMember( MemberType type,int ClassOffset,int Size,const
 
 }
 
-void CFieldDescribe::SetupMember( CBaseShortType&,int ClassOffset,int Size,const char* name )
+void CFieldDescribe::SetupMember( CBaseShortType&,int ClassOffset,size_t Size,const char* name )
 {
 	SetupMember(MT_TWO,  ClassOffset,  Size,    name);
 }
 
-void CFieldDescribe::SetupMember( CBaseCharType&,int ClassOffset,int Size,const char* name )
+void CFieldDescribe::SetupMember( CBaseCharType&,int ClassOffset,size_t Size,const char* name )
 {
 	SetupMember(MT_ONE,  ClassOffset,  Size,    name);
 }
 
-void CFieldDescribe::SetupMember( CBaseDoubleType&,int ClassOffset,int Size,const char* name )
+void CFieldDescribe::SetupMember( CBaseDoubleType&,int ClassOffset,size_t Size,const char* name )
 {
 	SetupMember(MT_EIGHT,  ClassOffset,  Size,    name);
 }
 
-void CFieldDescribe::SetupMember( CBaseIntTpye&,int ClassOffset,int Size,const char* name )
+void CFieldDescribe::SetupMember( CBaseIntTpye&,int ClassOffset,size_t Size,const char* name )
 {
 	SetupMember(MT_FOUR,  ClassOffset,  Size,    name);
 }
 
-void CFieldDescribe::SetupMember( CBaseStringType&,int ClassOffset,int Size,const char* name )
+void CFieldDescribe::SetupMember( CBaseStringType&,int ClassOffset,size_t Size,const char* name )
 {
 	SetupMember(MT_ONE,  ClassOffset,  Size,    name);
 }

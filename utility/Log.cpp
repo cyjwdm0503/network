@@ -1,7 +1,7 @@
 ﻿#include "Log.h"
 #include <cerrno>
 #include <cstring>
-#ifdef WIN32
+#ifdef WIN
 //#include "afxsock.h"
 #endif
 using namespace std;
@@ -34,8 +34,7 @@ CLog:: ~CLog()
 
 void CLog::Printerrno(int re)
 {
-	char buf[1024]; 
-#ifdef WIN32
+#ifdef WIN
 	PrintLog("GetLastError:%d\n",WSAGetLastError());
 #else
 	PrintLog("GetLastError:%d\tdesc:%s\n",re,strerror(errno));

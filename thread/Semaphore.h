@@ -12,7 +12,7 @@ public:
 	void UnLock(int* pCount= NULL);
 	bool TryLock(int* pCount=NULL);
 private:
-    #ifdef WIN32
+    #ifdef WIN
         HANDLE m_semap;
 	#else
          pthread_cond_t  m_semap;

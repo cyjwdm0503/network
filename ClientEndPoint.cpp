@@ -8,7 +8,7 @@
 
 
 
-#ifdef WIN32
+#ifdef WIN
 
 
 
@@ -45,7 +45,7 @@ int main(int argi ,char*args[])
 		args[2] = "udp://127.255.255.255:1234" ;
 #endif
 	}
-#ifdef WIN32
+#ifdef WIN
 
 	WSADATA wsaData;
 	int iResult;

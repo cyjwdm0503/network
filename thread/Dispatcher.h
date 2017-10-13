@@ -31,7 +31,7 @@ public:
 	virtual void SyncRun();
 	void  AddHandler( CHandler* handler );
 	void  RemoveHandler( CHandler* handler );
-	int Time();
+	time_t Time();
 protected:
 	typedef std::list<CHandler*> ChandlerList;
 	ChandlerList m_IOlist;
@@ -41,8 +41,17 @@ protected:
 	CMutex m_mtx;
 	bool IsRun;
 
+#ifdef WIN
+	time_t m_MiscroTime;
+	time_t m_Time;
+	time_t m_clock;
+#elif  UNIX
 	DWORD m_MiscroTime;
 	DWORD m_Time;
 	DWORD m_clock;
+#endif
+
+
+
 };
 #endif

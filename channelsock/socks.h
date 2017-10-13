@@ -4,7 +4,7 @@ SOCK对应的头文件
 #ifndef SOCK_H
 #define SOCK_H
 
-#ifdef WIN32
+#ifdef WIN
 
 //#ifndef TEST
 //#define TEST
@@ -131,11 +131,11 @@ static void ChangeEndianCopy8(char *pTarget, char *pSource)
 
 
 //用于判定socket读取错误
-#ifdef WIN32
+#ifdef WIN
 #define GET_LAST_ERROR() WSAGetLastError() 
 #define EWOULDBLOCK WSAEWOULDBLOCK
 #else
 #define GET_LAST_ERROR() errno
-#endif // WIN32
+#endif // WIN
 
 #endif

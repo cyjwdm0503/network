@@ -22,7 +22,7 @@ struct SMembererDesc
 	MemberType type;//成员变量的类型---用来做字节序转换
 	int classOffset;//在类中的偏移量
 	int streamOffset;//在package中的偏移量
-	int size;//数据长度
+	size_t size;//数据长度
 	char name[30];//数据名称长度
 };
 
@@ -34,14 +34,14 @@ public:
 
 
 
-	void SetupMember(MemberType type,int ClassOffset,int Size,const char* name);
+	void SetupMember(MemberType type,int ClassOffset,size_t Size,const char* name);
 	
 	//设置对应数据成员的占位信息等
-	void SetupMember(CBaseStringType&,int ClassOffset,int Size,const char* name );
-	void SetupMember(CBaseIntTpye&,int ClassOffset,int Size,const char* name );
-	void SetupMember(CBaseDoubleType&,int ClassOffset,int Size,const char* name );
-	void SetupMember(CBaseCharType&,int ClassOffset,int Size,const char* name );
-	void SetupMember(CBaseShortType&,int ClassOffset,int Size,const char* name );
+	void SetupMember(CBaseStringType&,int ClassOffset,size_t Size,const char* name );
+	void SetupMember(CBaseIntTpye&,int ClassOffset,size_t Size,const char* name );
+	void SetupMember(CBaseDoubleType&,int ClassOffset,size_t Size,const char* name );
+	void SetupMember(CBaseCharType&,int ClassOffset,size_t Size,const char* name );
+	void SetupMember(CBaseShortType&,int ClassOffset,size_t Size,const char* name );
 	
 	void StreamToClass(char* pField,char* pStream,int streamSize);
 	void ClassToStream(char* pClass,char* pStream);
@@ -49,7 +49,7 @@ public:
 
 	unsigned short m_FieldID;
 	int m_ClassSize;
-	int m_StreamSize;
+	size_t m_StreamSize;
 	char m_Comment[127];
 	int m_TotalMember;
 	char m_FieldName[127];

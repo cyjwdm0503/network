@@ -27,7 +27,7 @@ int CUdpSock::CreateSocket()
 	int re = CInetSock::CreateSocket();
 	int on = 1;
 	setsockopt(m_fd,SOL_SOCKET,SO_BROADCAST,(char*)&on,sizeof(on));
-#ifdef WIN32
+#ifdef WIN
 	/*
 	用于解决发送UDP报文到不可达的UDP服务器时会返回-1的错误错误代码10054
 	*/

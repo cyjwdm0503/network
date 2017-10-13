@@ -78,7 +78,7 @@ CUdpChannel::CUdpChannel( int fd ):CChannel(fd)
 		CLog::GetInstance()->PrintLog("Can not setsockopt revbuf\n");
 	}
 
-#ifdef WIN32
+#ifdef WIN
 	unsigned long on_windows=1;
 	ret = ioctlsocket(fd, FIONBIO, &on_windows) ; 
 #else

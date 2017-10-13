@@ -51,10 +51,10 @@ public:
 
 	bool SendHeartTag();
 private:
-	int m_timeOut;
+	time_t m_timeOut;
 	bool m_needchecktime;
-	int m_LastReadTime;
-	int m_LastWriteTime;
+	time_t m_LastReadTime;
+	time_t m_LastWriteTime;
 };
 
 

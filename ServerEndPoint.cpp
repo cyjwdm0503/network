@@ -6,7 +6,7 @@
 #include "channelpackage.h"
 #include "ServerApi.h"
 #include "SessionBase.h"
-#ifdef WIN32
+#ifdef WIN
 
 #else
 	#include <csignal>
@@ -32,7 +32,7 @@ int main(int argi ,char*args[])
 
 	}
 
-#ifdef WIN32
+#ifdef WIN
 
 	WSADATA wsaData;
 	int iResult;

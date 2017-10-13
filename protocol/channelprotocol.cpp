@@ -91,7 +91,7 @@ void CChannelProtocol::HandleOutput()
 		return;
 	for(int i=0; i<10; i++)
 	{
-		int outlen = 4096;
+		size_t outlen = 4096;
 		int successlen = 0;
 		void* ptr = m_cacheList->get_data(outlen);
 		if(outlen>0)

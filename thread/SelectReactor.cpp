@@ -1,6 +1,6 @@
 ﻿#include "SelectReactor.h"
 #include <iostream>
-#ifdef WIN32
+#ifdef WIN
 
 #else
 

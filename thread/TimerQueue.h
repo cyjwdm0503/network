@@ -2,7 +2,7 @@
 #define TIMERQUEUE_H
 
 #include "Handler.h"
-
+#include <ctime>
 /************************************************************************/
 /* 对外提供的定时器抽象接口*/
 /************************************************************************/
@@ -13,7 +13,7 @@ public:
 	
 	virtual void RemoverTime(CHandler* handler,DWORD event) =0 ;
 
-	virtual void Expire(DWORD curclock) = 0;
+	virtual void Expire(time_t curclock) = 0;
 	virtual ~CTimerQueue(){};
 	CTimerQueue(){};
 };

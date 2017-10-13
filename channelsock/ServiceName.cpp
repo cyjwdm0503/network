@@ -124,7 +124,7 @@ int CServiceName::GetPort()const
 addr_t CServiceName::GetNHost() const
 {
 	in_addr addr;
-#ifdef WIN32
+#ifdef WIN
 	addr.s_addr = inet_addr(m_host);
 #else
 	inet_aton(m_host,&addr);

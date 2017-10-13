@@ -5,7 +5,7 @@
 CThread::CThread()
 {
 	m_IDThread = 0;
-#ifdef WIN32
+#ifdef WIN
     m_hThread = (THREAD_HANDLE)0;
 #else
     memset(&m_hThread,0,sizeof(m_hThread));
@@ -16,7 +16,7 @@ CThread::CThread()
 CThread::~CThread()
 {
 	m_IDThread = 0;
-#ifdef WIN32
+#ifdef WIN
     m_hThread = (THREAD_HANDLE)0;
 #else
 	 memset(&m_hThread,0,sizeof(m_hThread));
@@ -25,7 +25,7 @@ CThread::~CThread()
 
 bool CThread::Create( void )
 {
-#ifdef WIN32
+#ifdef WIN
     m_hThread = ::CreateThread(NULL,0,_ThreadEntry,this,0,&m_IDThread);
 	if(m_hThread == NULL)
 		return false;
@@ -56,7 +56,7 @@ void CThread::Run()
 
 void CThread::SleepMs(int ms)
 {
-#ifdef WIN32
+#ifdef WIN
 	::Sleep(ms);
 #else
     usleep(ms*1000);
@@ -68,7 +68,7 @@ THREAD_HANDLE CThread::GetHandle()
 	return m_hThread;
 }
 
-#ifdef WIN32
+#ifdef WIN
 DWORD WINAPI CThread::_ThreadEntry( LPVOID pParam )
 #else
 void * CThread::_ThreadEntry(void *pParam)
@@ -89,7 +89,7 @@ void * CThread::_ThreadEntry(void *pParam)
 
 bool CThread::Join()
 {
-#ifdef WIN32
+#ifdef WIN
 	return (WaitForSingleObject(GetHandle(),INFINITE) != 0);
 #else
     void* status;
@@ -99,7 +99,7 @@ bool CThread::Join()
 
 bool CThread::IsCurrentThread()
 {
-#ifdef WIN32
+#ifdef WIN
 	return ::GetCurrentThreadId() == m_IDThread;
 #else
 	return pthread_self() == m_hThread;

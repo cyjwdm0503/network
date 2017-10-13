@@ -10,8 +10,8 @@ class CTimerHeapNode
 public:
 	CHandler* handler;
 	int event;
-	DWORD elapse;
-	DWORD expire;
+	time_t elapse;
+	time_t expire;
 };
 
 //生效时间越早的越大
@@ -45,15 +45,15 @@ public:
 
 	virtual void RemoverTime( CHandler* handler,DWORD event );
 
-	virtual void Expire( DWORD curmsclock );
+	virtual void Expire(time_t curclock );
 	
 	//
 	//根据现在的时间同步
-	virtual void SyncTime(DWORD curmsclock);
+	virtual void SyncTime(time_t curclock);
 	virtual ~CTimerHeap();
-	CTimerHeap(DWORD curmsclock);
+	CTimerHeap(time_t curmsclock);
 private:
-	DWORD m_beginclock;
-	DWORD m_curclock;
+	time_t m_beginclock;
+	time_t m_curclock;
 };
 #endif

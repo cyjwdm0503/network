@@ -26,7 +26,7 @@ void CTimerHeap::RemoverTime( CHandler* handler,DWORD event )
 	}
 }
 
-void CTimerHeap::Expire( DWORD curclock )
+void CTimerHeap::Expire( time_t curclock )
 {
 	//修改起点偏移时间
 	SyncTime(curclock);
@@ -57,13 +57,13 @@ CTimerHeap::~CTimerHeap()
 
 }
 
-void CTimerHeap::SyncTime( DWORD curclock )
+void CTimerHeap::SyncTime( time_t curmsclock )
 {
-	m_curclock = curclock - m_beginclock;
+	m_curclock = curmsclock - m_beginclock;
 }
 
-CTimerHeap::CTimerHeap( DWORD curclock )
+CTimerHeap::CTimerHeap( time_t curmsclock )
 {
-	m_beginclock = curclock;
+	m_beginclock = curmsclock;
 }
 

@@ -3,7 +3,7 @@
 
 #include "Common.h"
 
-#ifdef WIN32
+#ifdef WIN
 //typedef unsigned long DWORD;
 typedef HANDLE THREAD_HANDLE;
 
@@ -28,7 +28,7 @@ public:
 	void SleepMs(int ms);
 	THREAD_HANDLE GetHandle();
 	bool IsCurrentThread();
-#ifdef WIN32
+#ifdef WIN
 	static DWORD WINAPI _ThreadEntry(LPVOID pParam);
 #else
 	static void * _ThreadEntry(void *pParam);
