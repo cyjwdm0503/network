@@ -5,9 +5,11 @@ ServerApi.cpp1
 *.sdf
 *.obj
 *.o
+*/*/*.o
 *.unsuccessfulbuild
 *.tlog
 *.pdb
 *.ilk
 *.idb
 *.opensdf
+obj/Debug/ServerEndPoint.o
