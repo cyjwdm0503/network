@@ -5,20 +5,15 @@
 #include <set>
 #include "socks.h"
 
-class CSelectReactor:public CDispatcher
+class CSelectReactor : public CDispatcher
 {
-public:
+  public:
 	CSelectReactor();
 	virtual ~CSelectReactor();
 
 	virtual void SyncRun();
-	virtual void PrepareIds( fd_set& readset,fd_set& writeset,int& maxfd);
-	virtual void RunHandler( fd_set& readset,fd_set& writeset,int& maxfd);
-private:
-
-
+	virtual void PrepareIds(fd_set &readset, fd_set &writeset, int &maxfd);
+	virtual void RunHandler(fd_set &readset, fd_set &writeset, int &maxfd);
 };
-
-
 
 #endif

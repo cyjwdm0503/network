@@ -5,7 +5,7 @@
                 "name": "(lldb) Launch",
                 "type": "cppdbg",
                 "request": "launch",
-                "program": "enter program name, for example ${workspaceRoot}/a.out",
+                "program": "${workspaceRoot}/Client_connect_mac",
                 "args": [],
                 "stopAtEntry": false,
                 "cwd": "${workspaceRoot}",

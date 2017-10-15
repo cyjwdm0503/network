@@ -1,43 +1,41 @@
 /************************************************************************/
 /* 
-ÓÃÓÚÎ¬»¤Á¬½ÓµÄ¶ÏÏßÖØÁ¬¡£Ò»¸ösessionÊÕµ½¶ÌÏßÐÅÏ¢ºó£¬ÖØÐÂ´´½¨ÐÂµÄsession¡£¾ÉµÄsession²»ÔÙ¹ÜÀí
-ºóÆÚÐèÒªÅÐ¶¨contentsessionÊÇ·ñÄÜ¹»ÊÕµ½·þÎñÆ÷ÐÄÌø£¬Èç¹ûÊÕ²»µ½Ò²ÅÐ¶¨¶ÏÏß¡£
+ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ÓµÄ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½sessionï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½ï¿½ï¿½ï¿½Âµï¿½sessionï¿½ï¿½ï¿½Éµï¿½sessionï¿½ï¿½ï¿½Ù¹ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Ð¶ï¿½contentsessionï¿½Ç·ï¿½ï¿½Ü¹ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ²ï¿½ï¿½ï¿½Ò²ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ß¡ï¿½
 
 */
 /************************************************************************/
-#ifndef  SESSIONFACTORY
+#ifndef SESSIONFACTORY
 #define SESSIONFACTORY
-
 
 #include "connectmanager.h"
 #include "listenermanager.h"
 #include "session.h"
 #include "applicationsession.h"
 
-class CSessionFactory:public CHandler,public CConnectCallback
+class CSessionFactory : public CHandler, public CConnectCallback
 {
-public:
-	CSessionFactory(CSelectReactor* selectreactor);
-	
-	 void OnTimer( int event );
+  public:
+	CSessionFactory(CSelectReactor *selectreactor);
 
-	 int HandleEvent( int event,DWORD dwParam,void* pParam );
+	void OnTimer(int event);
 
-	 void OnConnected( int code );
+	int HandleEvent(int event, DWORD dwParam, void *pParam);
 
-	 void OnDisConnected( int code );
+	void OnConnected(int code);
 
-	 void SetConnectLoc(string connectLoc);
-	 void SetListenLoc(string listenLoc);
-	 void Start();
+	void OnDisConnected(int code);
 
-	virtual CSession* CreateSession(CChannel* channel)= 0;
-private:
-	CConnectManager* m_connectManager;
-	CListenerManager* m_listenManager;
-	CSelectReactor* m_selectReactor;
+	void SetConnectLoc(string connectLoc);
+	void SetListenLoc(string listenLoc);
+	void Start();
 
+	virtual CSession *CreateSession(CChannel *channel);
 
+  private:
+	CConnectManager *m_connectManager;
+	CListenerManager *m_listenManager;
+	CSelectReactor *m_selectReactor;
 };
 
 #endif

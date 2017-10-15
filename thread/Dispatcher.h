@@ -9,35 +9,37 @@
 #include "EventQueue.h"
 #include "TimerHeap.h"
 
-class CDispatcher:public CThread
+class CDispatcher : public CThread
 {
-public:
+  public:
 	CDispatcher();
 	virtual ~CDispatcher();
 
-	void RegisterTimer(CHandler* handler,int event,int ms);
-	void RemoveTimer(CHandler* handler,int event);
+	void RegisterTimer(CHandler *handler, int event, int ms);
+	void RemoveTimer(CHandler *handler, int event);
 	//异步event
-	bool PostEvent(CHandler* handler,EVENT_MSG event,DWORD dwParam,void* pParam);//异步
+	bool PostEvent(CHandler *handler, EVENT_MSG event, DWORD dwParam, void *pParam); //异步
 	//同步event
-	int SendEvent(CHandler* handler,EVENT_MSG event,DWORD dwParam,void* pParam);//同步
+	int SendEvent(CHandler *handler, EVENT_MSG event, DWORD dwParam, void *pParam); //同步
 
-	virtual int HandleEvent(int nEventID, DWORD dwParam, void *pParam){return 0;};
-	
+	//所用注册事件的都通知
+	virtual int HandleEvent(int nEventID, DWORD dwParam, void *pParam);
+
 	void DispatherTimer();
 	void DispatherEvent();
 	void Run();
 	void SyncTimer();
 	virtual void SyncRun();
-	void  AddHandler( CHandler* handler );
-	void  RemoveHandler( CHandler* handler );
+	void AddHandler(CHandler *handler);
+	void RemoveHandler(CHandler *handler);
 	time_t Time();
-protected:
-	typedef std::list<CHandler*> ChandlerList;
+
+  protected:
+	typedef std::list<CHandler *> ChandlerList;
 	ChandlerList m_IOlist;
 
-	CTimerQueue* m_Timerheap;
-	CEventQueue* m_EventQueue;
+	CTimerQueue *m_Timerheap;
+	CEventQueue *m_EventQueue;
 	CMutex m_mtx;
 	bool IsRun;
 
@@ -50,8 +52,5 @@ protected:
 	DWORD m_Time;
 	DWORD m_clock;
 #endif
-
-
-
 };
 #endif

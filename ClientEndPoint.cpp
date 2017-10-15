@@ -1,19 +1,15 @@
 ﻿#include "ClientApi.h"
 #include "Log.h"
-
+#include "sessionfactory.h"
 #include <iostream>
 #include <cstring>
 #include <cstdlib>
 #include <cstdio>
 
-
-
 #ifdef WIN
 
-
-
 #else
-	#include <csignal>
+#include <csignal>
 #endif
 using namespace std;
 
@@ -26,23 +22,20 @@ struct Content
 	int m_buf;
 };
 
-
-int main(int argi ,char*args[])
+int main(int argi, char *args[])
 {
 
-
-
-	if( argi != 3)
+	if (argi != 3)
 	{
 		argi = 3;
-		args[0] = "client.exe" ;
+		args[0] = "client.exe";
 #ifdef TCP
-		args[1] = "tcp://127.0.0.1:4321" ;
-		args[2] = "tcp://127.0.0.1:1234" ;
+		args[1] = "tcp://127.0.0.1:4321";
+		args[2] = "tcp://127.0.0.1:1234";
 #endif
 #ifdef UDP
-		args[1] = "udp://127.255.255.255:1235" ;
-		args[2] = "udp://127.255.255.255:1234" ;
+		args[1] = "udp://127.255.255.255:1235";
+		args[2] = "udp://127.255.255.255:1234";
 #endif
 	}
 #ifdef WIN
@@ -51,21 +44,30 @@ int main(int argi ,char*args[])
 	int iResult;
 
 	// Initialize Winsock
-	iResult = WSAStartup(MAKEWORD(2,2), &wsaData);
-	if (iResult != 0) {
+	iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
+	if (iResult != 0)
+	{
 		printf("WSAStartup failed: %d\n", iResult);
 		return 1;
 	}
 
-
-
 #else
 	//signal(SIGABRT,SIG_IGN);
-	signal(SIGPIPE,SIG_IGN);
-	//signal(SIGINT,SIG_IGN);
+	signal(SIGPIPE, SIG_IGN);
+//signal(SIGINT,SIG_IGN);
 #endif
-	
-	ClientApp client(args[1],args[2]);
+
+#ifdef CONNCETFACTORY
+	CSelectReactor global_reactor;
+	global_reactor.Create();
+	CSessionFactory session_factory(&global_reactor);
+	session_factory.SetConnectLoc(args[2]);
+	session_factory.Start();
+	global_reactor.Join();
+	return 0;
+#endif
+
+	ClientApp client(args[1], args[2]);
 	client.Create();
 	client.Join();
 	/*
@@ -96,9 +98,9 @@ int main(int argi ,char*args[])
 	}
 
 	*/
-	cout<<"input char:";
+	cout << "input char:";
 	char x;
-	cin>>x;
+	cin >> x;
 	return 0;
 }
 

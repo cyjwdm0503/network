@@ -1,5 +1,4 @@
-﻿#include "channelsession.h"
-
+﻿#include "channelsession.h" 
 
 void CChannelSession::HandleOutput()
 {
@@ -60,7 +59,3 @@ int CChannelSession::HandleEvent( int event,DWORD dwParam,void* pParam )
 	return 0;
 }
 
-void CSession::RegisterConnectCallback(CConnectCallback* callback)
-{
-	m_ConnectCallback = callback;
-}

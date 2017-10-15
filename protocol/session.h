@@ -17,46 +17,40 @@ session 的input，output沦落为channelprotocol的特例方法
 
 class CSessionCallback
 {
-public:
+  public:
 	virtual void OnReadError(int ErrorCode){};
 	virtual void OnWriteError(int ErrorCode){};
 	virtual void OnDisconnected(int ErrorCode){};
 	virtual void OnConnected(int Code){};
-	
 };
 
 class CConnectCallback
 {
-public:
+  public:
 	virtual void OnConnected(int code){};
 	virtual void OnDisConnected(int code){};
 };
 
-class CSession:public CHandler
+class CSession : public CHandler
 {
-public:
-	CSession(CDispatcher *selecter,CChannel *pChannel,int MaxPackageSize);
+  public:
+	CSession(CDispatcher *selecter, CChannel *pChannel, int MaxPackageSize);
 	virtual ~CSession();
 
-	virtual void GetIds( int* readid,int* writeid );
+	virtual void GetIds(int *readid, int *writeid);
 
-
-	virtual int HandleEvent( int event,DWORD dwParam,void* pParam );
+	virtual int HandleEvent(int event, DWORD dwParam, void *pParam);
 
 	virtual void HandleInput();
 
 	virtual void HandleOutput();
-
-	void RegisterConnectCallback(CConnectCallback* callback);
-protected:
-	CChannelProtocol* m_ChannelProtocol;
-	CChannel* m_Channel;
-	CConnectCallback* m_ConnectCallback;
+	void RegisterConnectCallback(CConnectCallback *callback);
+  protected:
+	CChannelProtocol *m_ChannelProtocol;
+	CChannel *m_Channel;
 	unsigned int m_SessionID;
-
+	CConnectCallback *m_ConnectCallback;
+	
 };
-
-
-
 
 #endif

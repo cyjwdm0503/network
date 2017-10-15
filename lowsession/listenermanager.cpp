@@ -1,7 +1,7 @@
 ﻿#include "listenermanager.h"
-void CListenerManager::GetIds( int* readid,int* writeid )
+void CListenerManager::GetIds(int *readid, int *writeid)
 {
-	if(m_serverchannel != NULL)
+	if (m_serverchannel != NULL)
 	{
 		*readid = m_serverchannel->Getfd();
 	}
@@ -15,32 +15,30 @@ void CListenerManager::GetIds( int* readid,int* writeid )
 void CListenerManager::HandleInput()
 {
 	//内部生成channel方式有待考验，因为涉及到serverapi多线程读取channel
-	CChannel* channel = AccpetConnecter();
-	if(channel != NULL)
+	CChannel *channel = AccpetConnecter();
+	if (channel != NULL)
 	{
-		if(channel->GetService()->GetNChannel() == SOCK_DGRAM)
-		{//自我不在进行自我调度
+		if (channel->GetService()->GetNChannel() == SOCK_DGRAM)
+		{ //自我不在进行自我调度
 			this->RemoveHandler(this);
 		}
 	}
 }
 
-CListenerManager::CListenerManager( CSelectReactor* outReactor,string listenLocation ):CHandler(this)
+CListenerManager::CListenerManager(CSelectReactor *outReactor, string listenLocation) : CHandler(this)
 {
-	m_outReactor =  outReactor;
+	m_outReactor = outReactor;
 	m_listenLocation = listenLocation;
-	m_server =  new CServer();
+	m_server = new CServer();
 	m_serverchannel = NULL;
-	
-	if(!m_listenLocation.empty())
-		m_serverchannel =  m_server->CreateServer(m_listenLocation.c_str());
-	
+
+	if (!m_listenLocation.empty())
+		m_serverchannel = m_server->CreateServer(m_listenLocation.c_str());
+
 	AddHandler(this);
 }
 
-
-
-int CListenerManager::HandleEvent( int event,DWORD dwParam,void* pParam )
+int CListenerManager::HandleEvent(int event, DWORD dwParam, void *pParam)
 {
 	switch (event)
 	{
@@ -49,45 +47,42 @@ int CListenerManager::HandleEvent( int event,DWORD dwParam,void* pParam )
 	default:
 		break;
 	}
-	return CHandler::HandleEvent(event,dwParam,pParam);
+	return CHandler::HandleEvent(event, dwParam, pParam);
 }
 
-
-CChannel* CListenerManager::AccpetConnecter()
+CChannel *CListenerManager::AccpetConnecter()
 {
-	CChannel* channel = m_server->AcceptClient();
-	if(channel != NULL)
+	CChannel *channel = m_server->AcceptClient();
+	if (channel != NULL)
 	{
 		SendAccepted(channel);
 	}
 	return channel;
 }
 
-void CListenerManager::SendAccepted( CChannel* channel )
+void CListenerManager::SendAccepted(CChannel *channel)
 {
-	if(m_outReactor != NULL)
+	if (m_outReactor != NULL)
 	{
-		m_outReactor->PostEvent(this,EVENT_ACCEPT_SUCCESS,0,(void*)channel);
+		m_outReactor->PostEvent(NULL, EVENT_ACCEPT_SUCCESS, 0, (void *)channel);
 	}
 }
 
-void CListenerManager::OnTimer( int event )
+void CListenerManager::OnTimer(int event)
 {
-
 }
 
 void CListenerManager::SetListenLocation(string connectLocation)
 {
-	m_listenLocation =  connectLocation;
-	if(m_serverchannel == NULL)
+	m_listenLocation = connectLocation;
+	if (m_serverchannel == NULL)
 	{
-		if(!m_listenLocation.empty())
-			m_serverchannel =  m_server->CreateServer(m_listenLocation.c_str());
+		if (!m_listenLocation.empty())
+			m_serverchannel = m_server->CreateServer(m_listenLocation.c_str());
 	}
 }
 
-
-void CListenerManager::PostEvent( int event, DWORD dwParam,void* pParam )
+void CListenerManager::PostEvent(int event, DWORD dwParam, void *pParam)
 {
-	CHandler::PostEvent(event,dwParam,pParam);
+	CHandler::PostEvent(event, dwParam, pParam);
 }

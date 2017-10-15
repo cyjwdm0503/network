@@ -4,7 +4,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "build",
+            "taskName": "buildClient",
             "type": "shell",
             "command": "clang++",
             "args": [
@@ -22,7 +22,65 @@
                 " -DUNIX -DLINUX -DMAC -DCLIENT",
                 "./*/*.cpp",
                 "./*.cpp",
-                "-o TEST"
+                "-o Client_mac"
+            ],
+            "group": "build",
+            "presentation": {
+                // Reveal the output only if unrecognized errors occur.
+                "reveal": "silent"
+            },
+            // Use the standard MS compiler pattern to detect errors, warnings and infos
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "taskName": "buildCConnectClient",
+            "type": "shell",
+            "command": "clang++",
+            "args": [
+                // Ask msbuild to generate full paths for file names.
+                "-g -I./",
+                "-I./channelsock",
+                " -I./client",
+                " -I./lowsession",
+                " -I./package",
+                " -I./protocol ",
+                " -I./server",
+                " -I./thread",
+                " -I./userdefine",
+                " -I./utility",
+                " -DUNIX -DLINUX -DMAC -DCLIENT -DCONNCETFACTORY",
+                "./*/*.cpp",
+                "./*.cpp",
+                "-o Client_connect_mac"
+            ],
+            "group": "build",
+            "presentation": {
+                // Reveal the output only if unrecognized errors occur.
+                "reveal": "silent"
+            },
+            // Use the standard MS compiler pattern to detect errors, warnings and infos
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "taskName": "buildServer",
+            "type": "shell",
+            "command": "clang++",
+            "args": [
+                // Ask msbuild to generate full paths for file names.
+                "-I./",
+                "-I./channelsock",
+                " -I./client",
+                " -I./lowsession",
+                " -I./package",
+                " -I./protocol ",
+                " -I./server",
+                " -I./thread",
+                " -I./userdefine",
+                " -I./utility",
+                " -DUNIX -DLINUX -DMAC -DSERVER",
+                "./*/*.cpp",
+                "./*.cpp",
+                "-o Server_mac"
             ],
             "group": "build",
             "presentation": {
