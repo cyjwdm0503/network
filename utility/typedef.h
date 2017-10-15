@@ -285,7 +285,7 @@ public:
 	}
 
 	///等于操作符，从浮点数中获取
-	///@param	v	等于的浮点数
+    ///@param	value	等于的浮点数
 	///@return	输入的字浮点数
 	const double operator =(const double value)
 	{
@@ -709,8 +709,8 @@ public:
 	///@return	得到的hash值
 	unsigned int hash(unsigned int seed) const
 	{
-		unsigned long ret=seed;
-		unsigned  long v = 0x100 | value;
+		unsigned int ret=seed;
+		unsigned int v = 0x100 | value;
 		int r = (int)((v>>2)^v)&0x0f;
 		ret = (ret<<r)|(ret>>(32-r));
 		ret &= 0xFFFFFFFFL;

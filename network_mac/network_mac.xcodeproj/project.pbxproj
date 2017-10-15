@@ -7,6 +7,99 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		443F39D51F92748200060DBE /* ClientApi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1CF1F9105CE00ADBDA9 /* ClientApi.cpp */; };
+		443F39D61F92748200060DBE /* ClientApi.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1D01F9105CF00ADBDA9 /* ClientApi.h */; };
+		443F39D71F92748200060DBE /* ClientEndPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1D11F9105CF00ADBDA9 /* ClientEndPoint.cpp */; settings = {COMPILER_FLAGS = "-DUNIX -DLINUX "; }; };
+		443F39D81F92748200060DBE /* cachelist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1741F90F89400ADBDA9 /* cachelist.cpp */; };
+		443F39D91F92748200060DBE /* cachelist.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16D1F90F89300ADBDA9 /* cachelist.h */; };
+		443F39DA1F92748200060DBE /* fielddescribe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16E1F90F89400ADBDA9 /* fielddescribe.cpp */; };
+		443F39DB1F92748200060DBE /* fielddescribe.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1761F90F89400ADBDA9 /* fielddescribe.h */; };
+		443F39DC1F92748200060DBE /* fieldset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1731F90F89400ADBDA9 /* fieldset.cpp */; };
+		443F39DD1F92748200060DBE /* fieldset.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16F1F90F89400ADBDA9 /* fieldset.h */; };
+		443F39DE1F92748200060DBE /* lock_queue in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1721F90F89400ADBDA9 /* lock_queue */; };
+		443F39DF1F92748200060DBE /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1751F90F89400ADBDA9 /* Log.cpp */; };
+		443F39E01F92748200060DBE /* Log.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1701F90F89400ADBDA9 /* Log.h */; };
+		443F39E11F92748200060DBE /* typedef.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1711F90F89400ADBDA9 /* typedef.h */; };
+		443F39E21F92748200060DBE /* fielddefine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC12F1F90F7EB00ADBDA9 /* fielddefine.cpp */; };
+		443F39E31F92748200060DBE /* fielddefine.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC12D1F90F7EB00ADBDA9 /* fielddefine.h */; };
+		443F39E41F92748200060DBE /* packagedefine.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC12E1F90F7EB00ADBDA9 /* packagedefine.h */; };
+		443F39E51F92748200060DBE /* Common.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1621F90F88400ADBDA9 /* Common.h */; };
+		443F39E61F92748200060DBE /* Dispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16A1F90F88400ADBDA9 /* Dispatcher.cpp */; };
+		443F39E71F92748200060DBE /* Dispatcher.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1631F90F88400ADBDA9 /* Dispatcher.h */; };
+		443F39E81F92748200060DBE /* EventQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15E1F90F88300ADBDA9 /* EventQueue.cpp */; };
+		443F39E91F92748200060DBE /* EventQueue.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1641F90F88400ADBDA9 /* EventQueue.h */; };
+		443F39EA1F92748200060DBE /* Handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1591F90F88300ADBDA9 /* Handler.cpp */; };
+		443F39EB1F92748200060DBE /* Handler.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16B1F90F88400ADBDA9 /* Handler.h */; };
+		443F39EC1F92748200060DBE /* Mutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15C1F90F88300ADBDA9 /* Mutex.cpp */; };
+		443F39ED1F92748200060DBE /* Mutex.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15F1F90F88300ADBDA9 /* Mutex.h */; };
+		443F39EE1F92748200060DBE /* MutexGuard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1671F90F88400ADBDA9 /* MutexGuard.cpp */; };
+		443F39EF1F92748200060DBE /* MutexGuard.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1681F90F88400ADBDA9 /* MutexGuard.h */; };
+		443F39F01F92748200060DBE /* SelectReactor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1691F90F88400ADBDA9 /* SelectReactor.cpp */; };
+		443F39F11F92748200060DBE /* SelectReactor.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1651F90F88400ADBDA9 /* SelectReactor.h */; };
+		443F39F21F92748200060DBE /* Semaphore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15A1F90F88300ADBDA9 /* Semaphore.cpp */; };
+		443F39F31F92748200060DBE /* Semaphore.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1601F90F88300ADBDA9 /* Semaphore.h */; };
+		443F39F41F92748200060DBE /* Thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15D1F90F88300ADBDA9 /* Thread.cpp */; };
+		443F39F51F92748200060DBE /* Thread.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1611F90F88400ADBDA9 /* Thread.h */; };
+		443F39F61F92748200060DBE /* ServerEndPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1D61F9107C500ADBDA9 /* ServerEndPoint.cpp */; };
+		443F39F71F92748200060DBE /* TimerHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1661F90F88400ADBDA9 /* TimerHeap.cpp */; };
+		443F39F81F92748200060DBE /* TimerHeap.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC15B1F90F88300ADBDA9 /* TimerHeap.h */; };
+		443F39F91F92748200060DBE /* TimerQueue.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16C1F90F88400ADBDA9 /* TimerQueue.h */; };
+		443F39FA1F92748200060DBE /* Server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1551F90F87000ADBDA9 /* Server.cpp */; };
+		443F39FB1F92748200060DBE /* Server.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1561F90F87000ADBDA9 /* Server.h */; };
+		443F39FC1F92748200060DBE /* ServerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1571F90F87000ADBDA9 /* ServerBase.cpp */; };
+		443F39FD1F92748200060DBE /* ServerBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1581F90F87000ADBDA9 /* ServerBase.h */; };
+		443F39FE1F92748200060DBE /* applicationprotocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1501F90F85A00ADBDA9 /* applicationprotocol.cpp */; };
+		443F39FF1F92748200060DBE /* applicationprotocol.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14C1F90F85A00ADBDA9 /* applicationprotocol.h */; };
+		443F3A001F92748200060DBE /* applicationsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14F1F90F85A00ADBDA9 /* applicationsession.cpp */; };
+		443F3A011F92748200060DBE /* applicationsession.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1511F90F85A00ADBDA9 /* applicationsession.h */; };
+		443F3A021F92748200060DBE /* channelprotocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1491F90F85900ADBDA9 /* channelprotocol.cpp */; };
+		443F3A031F92748200060DBE /* channelprotocol.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1461F90F85900ADBDA9 /* channelprotocol.h */; };
+		443F3A041F92748200060DBE /* channelsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14A1F90F85A00ADBDA9 /* channelsession.cpp */; };
+		443F3A051F92748200060DBE /* channelsession.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1541F90F85A00ADBDA9 /* channelsession.h */; };
+		443F3A061F92748200060DBE /* contentprotocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14D1F90F85A00ADBDA9 /* contentprotocol.cpp */; };
+		443F3A071F92748200060DBE /* contentprotocol.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1471F90F85900ADBDA9 /* contentprotocol.h */; };
+		443F3A081F92748200060DBE /* contentsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1521F90F85A00ADBDA9 /* contentsession.cpp */; };
+		443F3A091F92748200060DBE /* contentsession.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14B1F90F85A00ADBDA9 /* contentsession.h */; };
+		443F3A0A1F92748200060DBE /* Protocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1531F90F85A00ADBDA9 /* Protocol.cpp */; };
+		443F3A0B1F92748200060DBE /* Protocol.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC14E1F90F85A00ADBDA9 /* Protocol.h */; };
+		443F3A0C1F92748200060DBE /* session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1481F90F85900ADBDA9 /* session.cpp */; };
+		443F3A0D1F92748200060DBE /* session.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1451F90F85900ADBDA9 /* session.h */; };
+		443F3A0E1F92748200060DBE /* applicationpackage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13C1F90F84400ADBDA9 /* applicationpackage.cpp */; };
+		443F3A0F1F92748200060DBE /* applicationpackage.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1431F90F84400ADBDA9 /* applicationpackage.h */; };
+		443F3A101F92748200060DBE /* channelpackage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13F1F90F84400ADBDA9 /* channelpackage.cpp */; };
+		443F3A111F92748200060DBE /* channelpackage.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1421F90F84400ADBDA9 /* channelpackage.h */; };
+		443F3A121F92748200060DBE /* contentpackage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1411F90F84400ADBDA9 /* contentpackage.cpp */; };
+		443F3A131F92748200060DBE /* contentpackage.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1401F90F84400ADBDA9 /* contentpackage.h */; };
+		443F3A141F92748200060DBE /* Package.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13D1F90F84400ADBDA9 /* Package.cpp */; };
+		443F3A151F92748200060DBE /* Package.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13E1F90F84400ADBDA9 /* Package.h */; };
+		443F3A161F92748200060DBE /* packagedefine.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1441F90F84400ADBDA9 /* packagedefine.h */; };
+		443F3A171F92748200060DBE /* connectmanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1391F90F83300ADBDA9 /* connectmanager.cpp */; };
+		443F3A181F92748200060DBE /* connectmanager.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1341F90F83200ADBDA9 /* connectmanager.h */; };
+		443F3A191F92748200060DBE /* listenermanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1371F90F83200ADBDA9 /* listenermanager.cpp */; };
+		443F3A1A1F92748200060DBE /* listenermanager.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1351F90F83200ADBDA9 /* listenermanager.h */; };
+		443F3A1B1F92748200060DBE /* SessionBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13A1F90F83300ADBDA9 /* SessionBase.cpp */; };
+		443F3A1C1F92748200060DBE /* SessionBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1381F90F83200ADBDA9 /* SessionBase.h */; };
+		443F3A1D1F92748200060DBE /* ServerApi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1D51F9107C400ADBDA9 /* ServerApi.cpp */; };
+		443F3A1E1F92748200060DBE /* sessionfactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1361F90F83200ADBDA9 /* sessionfactory.cpp */; settings = {COMPILER_FLAGS = "-DUNIX -DLINUX -DSESSION_TEST"; }; };
+		443F3A1F1F92748200060DBE /* sessionfactory.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC13B1F90F83300ADBDA9 /* sessionfactory.h */; };
+		443F3A201F92748200060DBE /* Client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1331F90F82200ADBDA9 /* Client.cpp */; settings = {COMPILER_FLAGS = "-DMAC"; }; };
+		443F3A211F92748200060DBE /* Client.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1311F90F82100ADBDA9 /* Client.h */; };
+		443F3A221F92748200060DBE /* ClientBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1321F90F82100ADBDA9 /* ClientBase.cpp */; };
+		443F3A231F92748200060DBE /* ClientBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1301F90F82100ADBDA9 /* ClientBase.h */; };
+		443F3A241F92748200060DBE /* Channel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1201F90F78700ADBDA9 /* Channel.cpp */; };
+		443F3A251F92748200060DBE /* Channel.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC12A1F90F78800ADBDA9 /* Channel.h */; };
+		443F3A261F92748200060DBE /* InetSock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1251F90F78700ADBDA9 /* InetSock.cpp */; };
+		443F3A271F92748200060DBE /* InetSock.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1281F90F78700ADBDA9 /* InetSock.h */; };
+		443F3A281F92748200060DBE /* ServiceName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1221F90F78700ADBDA9 /* ServiceName.cpp */; };
+		443F3A291F92748200060DBE /* ServiceName.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC11F1F90F78700ADBDA9 /* ServiceName.h */; };
+		443F3A2A1F92748200060DBE /* socks.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1241F90F78700ADBDA9 /* socks.h */; };
+		443F3A2B1F92748200060DBE /* TcpSock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1211F90F78700ADBDA9 /* TcpSock.cpp */; };
+		443F3A2C1F92748200060DBE /* TcpSock.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1291F90F78700ADBDA9 /* TcpSock.h */; };
+		443F3A2D1F92748200060DBE /* UdpChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1231F90F78700ADBDA9 /* UdpChannel.cpp */; };
+		443F3A2E1F92748200060DBE /* UdpChannel.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC12B1F90F78800ADBDA9 /* UdpChannel.h */; };
+		443F3A2F1F92748200060DBE /* UdpSock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1271F90F78700ADBDA9 /* UdpSock.cpp */; };
+		443F3A301F92748200060DBE /* UdpSock.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1261F90F78700ADBDA9 /* UdpSock.h */; };
+		443F3A381F9306DA00060DBE /* network_mac_session in Sources */ = {isa = PBXBuildFile; fileRef = 443F3A371F92748200060DBE /* network_mac_session */; };
 		44DEC1771F90F8E700ADBDA9 /* cachelist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC1741F90F89400ADBDA9 /* cachelist.cpp */; };
 		44DEC1781F90F8E700ADBDA9 /* cachelist.h in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16D1F90F89300ADBDA9 /* cachelist.h */; };
 		44DEC1791F90F8E700ADBDA9 /* fielddescribe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DEC16E1F90F89400ADBDA9 /* fielddescribe.cpp */; };
@@ -196,6 +289,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		443F3A331F92748200060DBE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		44DEC1081F90F6C900ADBDA9 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -217,6 +319,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		443F3A371F92748200060DBE /* network_mac_session */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = network_mac_session; sourceTree = BUILT_PRODUCTS_DIR; };
 		44DEC10A1F90F6C900ADBDA9 /* network_mac_client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = network_mac_client; sourceTree = BUILT_PRODUCTS_DIR; };
 		44DEC11F1F90F78700ADBDA9 /* ServiceName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ServiceName.h; path = ../channelsock/ServiceName.h; sourceTree = "<group>"; };
 		44DEC1201F90F78700ADBDA9 /* Channel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Channel.cpp; path = ../channelsock/Channel.cpp; sourceTree = "<group>"; };
@@ -316,6 +419,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		443F3A321F92748200060DBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		44DEC1071F90F6C900ADBDA9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -361,6 +471,7 @@
 			children = (
 				44DEC10A1F90F6C900ADBDA9 /* network_mac_client */,
 				44DEC2AE1F910C2000ADBDA9 /* network_mac_server */,
+				443F3A371F92748200060DBE /* network_mac_session */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -526,6 +637,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		443F39D31F92748200060DBE /* network_mac_session */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 443F3A341F92748200060DBE /* Build configuration list for PBXNativeTarget "network_mac_session" */;
+			buildPhases = (
+				443F39D41F92748200060DBE /* Sources */,
+				443F3A321F92748200060DBE /* Frameworks */,
+				443F3A331F92748200060DBE /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = network_mac_session;
+			productName = network_mac;
+			productReference = 443F3A371F92748200060DBE /* network_mac_session */;
+			productType = "com.apple.product-type.tool";
+		};
 		44DEC1091F90F6C900ADBDA9 /* network_mac_client */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44DEC1111F90F6C900ADBDA9 /* Build configuration list for PBXNativeTarget "network_mac_client" */;
@@ -569,6 +697,9 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "王东明";
 				TargetAttributes = {
+					443F39D31F92748200060DBE = {
+						ProvisioningStyle = Automatic;
+					};
 					44DEC1091F90F6C900ADBDA9 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -592,11 +723,112 @@
 			targets = (
 				44DEC1091F90F6C900ADBDA9 /* network_mac_client */,
 				44DEC24A1F910C2000ADBDA9 /* network_mac_server */,
+				443F39D31F92748200060DBE /* network_mac_session */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		443F39D41F92748200060DBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				443F39D51F92748200060DBE /* ClientApi.cpp in Sources */,
+				443F39D61F92748200060DBE /* ClientApi.h in Sources */,
+				443F39D71F92748200060DBE /* ClientEndPoint.cpp in Sources */,
+				443F39D81F92748200060DBE /* cachelist.cpp in Sources */,
+				443F39D91F92748200060DBE /* cachelist.h in Sources */,
+				443F39DA1F92748200060DBE /* fielddescribe.cpp in Sources */,
+				443F39DB1F92748200060DBE /* fielddescribe.h in Sources */,
+				443F39DC1F92748200060DBE /* fieldset.cpp in Sources */,
+				443F39DD1F92748200060DBE /* fieldset.h in Sources */,
+				443F39DE1F92748200060DBE /* lock_queue in Sources */,
+				443F39DF1F92748200060DBE /* Log.cpp in Sources */,
+				443F39E01F92748200060DBE /* Log.h in Sources */,
+				443F39E11F92748200060DBE /* typedef.h in Sources */,
+				443F39E21F92748200060DBE /* fielddefine.cpp in Sources */,
+				443F39E31F92748200060DBE /* fielddefine.h in Sources */,
+				443F39E41F92748200060DBE /* packagedefine.h in Sources */,
+				443F39E51F92748200060DBE /* Common.h in Sources */,
+				443F39E61F92748200060DBE /* Dispatcher.cpp in Sources */,
+				443F39E71F92748200060DBE /* Dispatcher.h in Sources */,
+				443F39E81F92748200060DBE /* EventQueue.cpp in Sources */,
+				443F39E91F92748200060DBE /* EventQueue.h in Sources */,
+				443F39EA1F92748200060DBE /* Handler.cpp in Sources */,
+				443F39EB1F92748200060DBE /* Handler.h in Sources */,
+				443F39EC1F92748200060DBE /* Mutex.cpp in Sources */,
+				443F39ED1F92748200060DBE /* Mutex.h in Sources */,
+				443F39EE1F92748200060DBE /* MutexGuard.cpp in Sources */,
+				443F39EF1F92748200060DBE /* MutexGuard.h in Sources */,
+				443F39F01F92748200060DBE /* SelectReactor.cpp in Sources */,
+				443F39F11F92748200060DBE /* SelectReactor.h in Sources */,
+				443F39F21F92748200060DBE /* Semaphore.cpp in Sources */,
+				443F39F31F92748200060DBE /* Semaphore.h in Sources */,
+				443F39F41F92748200060DBE /* Thread.cpp in Sources */,
+				443F39F51F92748200060DBE /* Thread.h in Sources */,
+				443F39F61F92748200060DBE /* ServerEndPoint.cpp in Sources */,
+				443F39F71F92748200060DBE /* TimerHeap.cpp in Sources */,
+				443F39F81F92748200060DBE /* TimerHeap.h in Sources */,
+				443F39F91F92748200060DBE /* TimerQueue.h in Sources */,
+				443F39FA1F92748200060DBE /* Server.cpp in Sources */,
+				443F39FB1F92748200060DBE /* Server.h in Sources */,
+				443F39FC1F92748200060DBE /* ServerBase.cpp in Sources */,
+				443F39FD1F92748200060DBE /* ServerBase.h in Sources */,
+				443F39FE1F92748200060DBE /* applicationprotocol.cpp in Sources */,
+				443F39FF1F92748200060DBE /* applicationprotocol.h in Sources */,
+				443F3A001F92748200060DBE /* applicationsession.cpp in Sources */,
+				443F3A011F92748200060DBE /* applicationsession.h in Sources */,
+				443F3A021F92748200060DBE /* channelprotocol.cpp in Sources */,
+				443F3A031F92748200060DBE /* channelprotocol.h in Sources */,
+				443F3A041F92748200060DBE /* channelsession.cpp in Sources */,
+				443F3A051F92748200060DBE /* channelsession.h in Sources */,
+				443F3A061F92748200060DBE /* contentprotocol.cpp in Sources */,
+				443F3A071F92748200060DBE /* contentprotocol.h in Sources */,
+				443F3A081F92748200060DBE /* contentsession.cpp in Sources */,
+				443F3A091F92748200060DBE /* contentsession.h in Sources */,
+				443F3A0A1F92748200060DBE /* Protocol.cpp in Sources */,
+				443F3A0B1F92748200060DBE /* Protocol.h in Sources */,
+				443F3A0C1F92748200060DBE /* session.cpp in Sources */,
+				443F3A0D1F92748200060DBE /* session.h in Sources */,
+				443F3A0E1F92748200060DBE /* applicationpackage.cpp in Sources */,
+				443F3A0F1F92748200060DBE /* applicationpackage.h in Sources */,
+				443F3A101F92748200060DBE /* channelpackage.cpp in Sources */,
+				443F3A111F92748200060DBE /* channelpackage.h in Sources */,
+				443F3A121F92748200060DBE /* contentpackage.cpp in Sources */,
+				443F3A131F92748200060DBE /* contentpackage.h in Sources */,
+				443F3A141F92748200060DBE /* Package.cpp in Sources */,
+				443F3A151F92748200060DBE /* Package.h in Sources */,
+				443F3A161F92748200060DBE /* packagedefine.h in Sources */,
+				443F3A171F92748200060DBE /* connectmanager.cpp in Sources */,
+				443F3A181F92748200060DBE /* connectmanager.h in Sources */,
+				443F3A191F92748200060DBE /* listenermanager.cpp in Sources */,
+				443F3A1A1F92748200060DBE /* listenermanager.h in Sources */,
+				443F3A1B1F92748200060DBE /* SessionBase.cpp in Sources */,
+				443F3A1C1F92748200060DBE /* SessionBase.h in Sources */,
+				443F3A1D1F92748200060DBE /* ServerApi.cpp in Sources */,
+				443F3A1E1F92748200060DBE /* sessionfactory.cpp in Sources */,
+				443F3A1F1F92748200060DBE /* sessionfactory.h in Sources */,
+				443F3A201F92748200060DBE /* Client.cpp in Sources */,
+				443F3A211F92748200060DBE /* Client.h in Sources */,
+				443F3A221F92748200060DBE /* ClientBase.cpp in Sources */,
+				443F3A231F92748200060DBE /* ClientBase.h in Sources */,
+				443F3A241F92748200060DBE /* Channel.cpp in Sources */,
+				443F3A251F92748200060DBE /* Channel.h in Sources */,
+				443F3A261F92748200060DBE /* InetSock.cpp in Sources */,
+				443F3A271F92748200060DBE /* InetSock.h in Sources */,
+				443F3A281F92748200060DBE /* ServiceName.cpp in Sources */,
+				443F3A291F92748200060DBE /* ServiceName.h in Sources */,
+				443F3A2A1F92748200060DBE /* socks.h in Sources */,
+				443F3A2B1F92748200060DBE /* TcpSock.cpp in Sources */,
+				443F3A2C1F92748200060DBE /* TcpSock.h in Sources */,
+				443F3A2D1F92748200060DBE /* UdpChannel.cpp in Sources */,
+				443F3A2E1F92748200060DBE /* UdpChannel.h in Sources */,
+				443F3A2F1F92748200060DBE /* UdpSock.cpp in Sources */,
+				443F3A301F92748200060DBE /* UdpSock.h in Sources */,
+				443F3A381F9306DA00060DBE /* network_mac_session in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		44DEC1061F90F6C900ADBDA9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -800,6 +1032,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		443F3A351F92748200060DBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		443F3A361F92748200060DBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		44DEC10F1F90F6C900ADBDA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -938,6 +1186,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		443F3A341F92748200060DBE /* Build configuration list for PBXNativeTarget "network_mac_session" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				443F3A351F92748200060DBE /* Debug */,
+				443F3A361F92748200060DBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		44DEC1051F90F6C900ADBDA9 /* Build configuration list for PBXProject "network_mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

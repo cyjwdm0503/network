@@ -90,3 +90,14 @@ CSession* CSessionFactory::CreateSession( CChannel* channel )
 
 }
 
+#ifdef SESSION_TEST
+
+int main(int,char**)
+{
+    
+    
+    cout<<"SESSTION_TEST"<<endl;
+}
+
+#endif
+

@@ -1,4 +1,4 @@
-﻿#include "Log.h"
+#include "Log.h"
 #include <cerrno>
 #include <cstring>
 #ifdef WIN
@@ -50,7 +50,7 @@ void CLog::PrintLog(const char* info,...)
 	time(&now);
 	char timeBuffer[100];
 	strftime(timeBuffer, 100,"%b %d %H:%M:%S\t",localtime(&now));
-	fprintf(stdout,timeBuffer);
+    fprintf(stdout,"%s", timeBuffer);
 	va_list v;
 	va_start(v,info);
 	vfprintf(stdout, info,v);
