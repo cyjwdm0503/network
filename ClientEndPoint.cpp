@@ -57,6 +57,10 @@ int main(int argi, char *args[])
 //signal(SIGINT,SIG_IGN);
 #endif
 
+#ifndef CONNCETFACTORY
+#define CONNCETFACTORY
+#endif
+
 #ifdef CONNCETFACTORY
 	CSelectReactor global_reactor;
 	global_reactor.Create();

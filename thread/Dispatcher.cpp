@@ -1,10 +1,11 @@
-#include "Dispatcher.h"
+﻿#include "Dispatcher.h"
 #include "Mutex.h"
 #include "TimerHeap.h"
 #include <iostream>
 
 #ifdef WIN
-
+#include <sys/timeb.h>
+#include <sys/types.h>
 #else
 #include <sys/timeb.h>
 #include <sys/types.h>

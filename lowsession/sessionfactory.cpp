@@ -1,4 +1,4 @@
-#include "sessionfactory.h"
+﻿#include "sessionfactory.h"
 #include "Log.h"
 #include <exception>
 #include "clientApi.h"

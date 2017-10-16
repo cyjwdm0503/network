@@ -1,4 +1,4 @@
-#ifndef TYPEDEF_H
+﻿#ifndef TYPEDEF_H
 #define TYPEDEF_H
 
 #include <cstring>

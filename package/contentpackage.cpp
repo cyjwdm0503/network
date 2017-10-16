@@ -1,4 +1,4 @@
-#include "contentpackage.h"
+﻿#include "contentpackage.h"
 #include "socks.h"
 
 void CContentHeadType::NetToHost()

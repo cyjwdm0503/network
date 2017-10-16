@@ -1,4 +1,4 @@
-#include "Client.h"
+﻿#include "Client.h"
 #include "TcpSock.h"
 #include "UdpSock.h"
 #include "Log.h"
@@ -29,7 +29,7 @@ CChannel* CClient::ConnectServer(const char* location)
 	fd_set connectfd;
 	FD_ZERO(&connectfd);
 	timeval tv;
-	tv.tv_sec= 30;
+	tv.tv_sec= 10;
 	tv.tv_usec = 0;
 	FD_SET(m_clientsock->Getfd(),&connectfd);
 	re = select(m_clientsock->Getfd()+1,NULL,&connectfd,NULL,&tv);

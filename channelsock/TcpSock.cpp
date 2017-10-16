@@ -1,4 +1,4 @@
-#include "TcpSock.h"
+﻿#include "TcpSock.h"
 #include "Log.h"
 CTcpSock::CTcpSock():CInetSock()
 {

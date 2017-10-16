@@ -1,4 +1,4 @@
-#ifndef APPLICATIONPACKAGE_H 
+﻿#ifndef APPLICATIONPACKAGE_H 
 #define APPLICATIONPACKAGE_H
 
 #include "Package.h"

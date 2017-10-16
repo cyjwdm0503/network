@@ -1,4 +1,4 @@
-#ifndef CLIENTAPI_H
+﻿#ifndef CLIENTAPI_H
 #define CLIENTAPI_H
 #include "SelectReactor.h"
 #include "Client.h"

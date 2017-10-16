@@ -1,4 +1,4 @@
-#ifndef DISPATCHER_H
+﻿#ifndef DISPATCHER_H
 #define DISPATCHER_H
 #include "Thread.h"
 #include "Handler.h"

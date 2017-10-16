@@ -1,4 +1,4 @@
-/**
+﻿/**
 SOCK对应的头文件
 **/
 #ifndef SOCK_H
