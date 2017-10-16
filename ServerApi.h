@@ -12,7 +12,7 @@
 class CServer;
 class CChannel;
 
-const size_t  MAXLENGTH = 1024;
+static  size_t  MAXLENGTH = 1024;
 
 class CServerApi:public CHandler
 {

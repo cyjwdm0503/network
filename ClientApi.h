@@ -9,7 +9,7 @@
 class CClient;
 class CChannel;
 
-const size_t  MAXLENGTH = 1024;
+extern size_t  MAXLENGTH;
 
 class CClientApi:public CSelectReactor,public CHandler
 {

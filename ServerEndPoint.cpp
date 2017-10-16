@@ -6,6 +6,7 @@
 #include "channelpackage.h"
 #include "ServerApi.h"
 #include "SessionBase.h"
+#include "sessionfactory.h"
 #ifdef WIN
 
 #else
@@ -54,6 +55,19 @@ int main(int argi ,char*args[])
     //signal(SIGINT,SIG_IGN);
 #endif
 
+
+#ifndef LISTENFACTORY
+#define LISTENFACTORY
+
+	CSelectReactor global_reactor;
+	global_reactor.Create();
+	CSessionFactory session_factory(&global_reactor);
+	session_factory.SetListenLoc(args[1]);
+	session_factory.Start();
+	global_reactor.Join();
+	return 0;
+
+#endif
 
 	CSelectReactor reactor;
 	CServerSession server(&reactor,args[1]);

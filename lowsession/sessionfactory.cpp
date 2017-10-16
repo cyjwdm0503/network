@@ -1,6 +1,7 @@
 ﻿#include "sessionfactory.h"
 #include "Log.h"
 #include <exception>
+#include "ServerApi.h"
 #include "ClientApi.h"
 
 void CSessionFactory::OnTimer(int event)
@@ -13,10 +14,10 @@ int CSessionFactory::HandleEvent(int event, DWORD dwParam, void *pParam)
 	switch (event)
 	{
 	case EVENT_CONNECT_SUCCESS:
-		CreateSession((CChannel *)pParam);
+		CreateClientSession((CChannel *)pParam);
 		break;
 	case EVENT_ACCEPT_SUCCESS:
-		CreateSession((CChannel *)pParam);
+		CreateServerSession((CChannel *)pParam);
 	default:
 		break;
 	}
@@ -81,15 +82,32 @@ void CSessionFactory::Start()
 	}
 }
 
-CSession *CSessionFactory::CreateSession(CChannel *channel)
+CSession *CSessionFactory::CreateClientSession(CChannel *channel)
 {
 	//CSession* session = new CSession(m_selectReactor,channel,4096);
 	//m_selectReactor->AddHandler(session);
 	//session->RegisterConnectCallback(this);
 	//return session;
 
-	CLog::GetInstance()->PrintLog("CreateSession");
+	CLog::GetInstance()->PrintLog("CreateClientSession");
 	CSession *session = new CClientApplicationSession(m_selectReactor, channel);
+	session->RegisterConnectCallback(this);
+	m_selectReactor->AddHandler(session);
+	return session;
+	//return CDispatcher::InitInstance();
+	return NULL;
+}
+CSession *CSessionFactory::CreateServerSession(CChannel *channel)
+{
+	//CSession* session = new CSession(m_selectReactor,channel,4096);
+	//m_selectReactor->AddHandler(session);
+	//session->RegisterConnectCallback(this);
+	//return session;
+
+	
+
+	CLog::GetInstance()->PrintLog("CreateServerSession");
+	CSession *session = new CServerApplicationSession(m_selectReactor, channel);
 	session->RegisterConnectCallback(this);
 	m_selectReactor->AddHandler(session);
 	return session;
