@@ -1,4 +1,10 @@
-﻿#include "TimerHeap.h"
+﻿/*
+ * 
+ * 可能定时器里面设定定时器会出现迭代器失效
+ * 
+ */
+
+#include "TimerHeap.h"
 
 const DWORD MAX_TIMER_HEAP_TIMEOUT = 3600*24*1000; 
 //定时器调度上线
