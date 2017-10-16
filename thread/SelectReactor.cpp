@@ -23,7 +23,11 @@ void CSelectReactor::SyncRun()
 	//SleepMs(100);
 	timeval t;
 	t.tv_sec = 0;
+#ifdef WIN
 	t.tv_usec = 10000;//windows最低为10ms
+#else
+	t.tv_usec = 10;
+#endif
 	select(maxfd+1,&readset,&writeset,NULL,&t);
 
 	//

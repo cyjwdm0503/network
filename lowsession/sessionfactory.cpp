@@ -1,7 +1,8 @@
 ﻿#include "sessionfactory.h"
 #include "Log.h"
 #include <exception>
-#include "clientApi.h"
+#include "ClientApi.h"
+
 void CSessionFactory::OnTimer(int event)
 {
 	throw std::exception();

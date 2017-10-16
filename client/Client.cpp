@@ -36,10 +36,10 @@ CChannel* CClient::ConnectServer(const char* location)
 	DEBUGOUT(re);
 	if(re <= 0)
 	{
-#ifdef MAC
-		close(m_clientsock->Getfd());
-#else
+#ifdef WIN
         closesocket(m_clientsock->Getfd());
+#else
+	close(m_clientsock->Getfd());
 #endif
 		re = -1;
 	}
@@ -49,7 +49,12 @@ CChannel* CClient::ConnectServer(const char* location)
 
 	if(re!= 0 && FD_ISSET(m_clientsock->Getfd(),&connectfd))
 	{
-		re = 0;
+		sockaddr_in addr;
+		socklen_t len = sizeof(addr);
+		if(getpeername(m_clientsock->Getfd(),(sockaddr*)&addr,&len)<0)
+			re = -1;
+		else
+			re = 0;
 	}
 
 	if(re == 0)
