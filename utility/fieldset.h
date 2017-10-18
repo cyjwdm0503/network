@@ -41,6 +41,7 @@ class CFieldSet:public CPackage
  
 public:
 	CFieldSet();
+
 	virtual ~CFieldSet();
 
 

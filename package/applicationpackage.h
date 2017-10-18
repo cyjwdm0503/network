@@ -83,7 +83,7 @@ class CApplicationPackage:public CFieldSet
 {
 
 
-
+	
 public:
 	virtual int GetActiveID();
 

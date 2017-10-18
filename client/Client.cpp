@@ -37,9 +37,9 @@ CChannel* CClient::ConnectServer(const char* location)
 	if(re <= 0)
 	{
 #ifdef WIN
-        closesocket(m_clientsock->Getfd());
+		closesocket(m_clientsock->Getfd());
 #else
-	close(m_clientsock->Getfd());
+		close(m_clientsock->Getfd());
 #endif
 		re = -1;
 	}

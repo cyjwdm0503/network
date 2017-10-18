@@ -157,6 +157,12 @@
     <ClCompile Include="..\lowsession\sessionfactory.cpp">
       <Filter>lowsession</Filter>
     </ClCompile>
+    <ClCompile Include="..\utility\lockqueue.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\utility\filedata.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\channelsock\Channel.h">
@@ -296,5 +302,13 @@
     <ClInclude Include="..\lowsession\sessionfactory.h">
       <Filter>lowsession</Filter>
     </ClInclude>
+    <ClInclude Include="..\utility\filedata.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\utility\lockqueue.h">
+      <Filter>utility</Filter>
+    </None>
   </ItemGroup>
 </Project>

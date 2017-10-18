@@ -79,10 +79,7 @@ CFieldSet::CFieldSet():CPackage()
 
 }
 
-CFieldSet::~CFieldSet()
-{
 
-}
 
 int CFieldSet::GetSingleField( CFieldDescribe *pFieldDescribe, void *pField )
 {
@@ -123,3 +120,4 @@ char * CFieldSet::AllocField( unsigned short wFieldID,unsigned short wSize )
 
 	return fielddata;
 }
+

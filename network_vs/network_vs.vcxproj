@@ -474,6 +474,8 @@
     <ClCompile Include="..\utility\cachelist.cpp" />
     <ClCompile Include="..\utility\fielddescribe.cpp" />
     <ClCompile Include="..\utility\fieldset.cpp" />
+    <ClCompile Include="..\utility\filedata.cpp" />
+    <ClCompile Include="..\utility\lockqueue.cpp" />
     <ClCompile Include="..\utility\Log.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -522,8 +524,12 @@
     <ClInclude Include="..\utility\cachelist.h" />
     <ClInclude Include="..\utility\fielddescribe.h" />
     <ClInclude Include="..\utility\fieldset.h" />
+    <ClInclude Include="..\utility\filedata.h" />
     <ClInclude Include="..\utility\Log.h" />
     <ClInclude Include="..\utility\typedef.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\utility\lockqueue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
