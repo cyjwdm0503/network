@@ -1,6 +1,8 @@
 ﻿/************************************************************************/
 /* 
 用于读取与写入文件
+每次存入的数据需要存入对应的报文长度.为了方便快速查找对应id数据，附加一个ID文件，用于记录每100个的位置
+
 */
 /************************************************************************/
 
@@ -39,16 +41,26 @@ using namespace  std ;
 
 #endif
 
+struct DataNode
+{
+	unsigned long long id;
+	size_t			size;
+};
+
 class CFileData
 {
 public:
-	CFileData(string filename);
+	CFileData(string dataname);
 	void WriteData(void* data,size_t length);
 	void ReadData(size_t id, void* data, size_t& length);
 
 private:
-	FILE* m_file;
+	void OpenFile();
+	FILE* m_datafile;
+	FILE* m_idfile;
 	fpos_t m_filePos;
+	string m_dataname;
+	string m_idname;
 	
 };
 
