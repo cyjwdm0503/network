@@ -19,48 +19,70 @@ using namespace  std ;
 
 
 //两类系统fpos_t不一致
-#ifdef WIN
+#ifdef WIN32
 
 #ifndef GETFPOS
-#define GETFPOS(pos) (pos)
+#define GETFPOS(idpos) (idpos)
 #endif
 
 #ifndef SETFPOS
-#define SETFPOS(pos,value)  ((value) = (pos))
+#define SETFPOS(idpos,value)  ((idpos) = (value))
 #endif
 
 #else
 
 #ifndef GETFPOS
-#define GETFPOS(pos) ((pos).__pos)
+#define GETFPOS(idpos) ((idpos).__pos)
 #endif
 
 #ifndef SETFPOS
-#define SETFPOS(pos,value) ((value) = ((pos).__pos))
+#define SETFPOS(idpos,value) (((idpos).__pos)=(value))
 #endif
 
 #endif
 
+//id文件的头部，用于描述文件基本信息
+struct DataHead
+{
+	char head[1024];
+};
+
+//id文件的节点内容----每个Data写一次
 struct DataNode
 {
-	unsigned long long id;
-	size_t			size;
+	unsigned long long pos;
+	size_t size;
+	DataNode():pos(0),size(0){}
 };
+
+
+const size_t DATAHEADLENGTH =  sizeof(DataHead);
 
 class CFileData
 {
 public:
 	CFileData(string dataname);
+	CFileData();
+	~CFileData();
 	void WriteData(void* data,size_t length);
-	void ReadData(size_t id, void* data, size_t& length);
-
+	void ReadData(size_t id, void* data, long long& length);
+	long long  GetMaxID();
+	void WriteHead(string headinfo);
+	bool ReadHead(string& headinfo);
 private:
+	DataNode GetDataNode(size_t id);
 	void OpenFile();
-	FILE* m_datafile;
-	FILE* m_idfile;
-	fpos_t m_filePos;
-	string m_dataname;
-	string m_idname;
+
+
+
+
+	long long  m_maxID;
+	FILE* m_dataFile;
+	FILE* m_idFile;
+	fpos_t m_idPos;
+	fpos_t m_dataPos;
+	string m_dataName;
+	string m_idName;
 	
 };
 
