@@ -41,6 +41,15 @@ CApplicationPackageHeader::CApplicationPackageHeader()
 	memset(this, 0 ,sizeof(CApplicationPackageHeader));
 }
 
+	
+CApplicationPackage::CApplicationPackage():CFieldSet()
+{
+
+}
+CApplicationPackage::~CApplicationPackage()
+{
+
+}
 
 int CApplicationPackage::GetActiveID()
 {

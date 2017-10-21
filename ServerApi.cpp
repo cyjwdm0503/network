@@ -188,3 +188,10 @@ int CServerApplicationSession::HandlePackage( CPackage* pPackage )
 	}
 	return 0;
 }
+
+
+
+void CServerApplicationSession::OnDisconnected(int ErrorCode)
+{
+	KillTimer(APPLICATIONPACKAGE_TEST_TIMER_ID);	
+}

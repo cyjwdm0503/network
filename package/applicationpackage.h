@@ -81,10 +81,11 @@ return m_ApplicationHeader.Name;\
 
 class CApplicationPackage:public CFieldSet
 {
-
-
-	
 public:
+	
+	CApplicationPackage();
+	~CApplicationPackage();
+
 	virtual int GetActiveID();
 
 	virtual int ValidPackage();

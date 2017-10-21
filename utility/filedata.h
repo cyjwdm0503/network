@@ -19,7 +19,7 @@ using namespace  std ;
 
 
 //两类系统fpos_t不一致
-#ifdef WIN32
+#if defined(WIN) || defined(MAC)
 
 #ifndef GETFPOS
 #define GETFPOS(idpos) (idpos)

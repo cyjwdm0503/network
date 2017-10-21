@@ -22,7 +22,7 @@
                 " -DUNIX -DLINUX -DMAC -DCLIENT",
                 "./*/*.cpp",
                 "./*.cpp",
-                "-o Client_mac"
+                "-o Client_mac.exe"
             ],
             "group": "build",
             "presentation": {
@@ -51,7 +51,7 @@
                 " -DUNIX -DLINUX -DMAC -DCLIENT -DCONNCETFACTORY",
                 "./*/*.cpp",
                 "./*.cpp",
-                "-o Client_connect_mac"
+                "-o Client_connect_mac.exe"
             ],
             "group": "build",
             "presentation": {
@@ -80,7 +80,7 @@
                 " -DUNIX -DLINUX -DMAC -DSERVER",
                 "./*/*.cpp",
                 "./*.cpp",
-                "-o Server_mac"
+                "-o Server_mac.exe"
             ],
             "group": "build",
             "presentation": {

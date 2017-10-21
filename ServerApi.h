@@ -38,6 +38,7 @@ class CServerApplicationSession:public CApplicationSession
 {
 public:
 	CServerApplicationSession(CDispatcher* dispatcher,CChannel* channel);
+	virtual void OnDisconnected(int ErrorCode);
 	virtual void OnTimer( int event );
 	int HandlePackage( CPackage* pPackage);
 

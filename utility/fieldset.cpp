@@ -79,6 +79,10 @@ CFieldSet::CFieldSet():CPackage()
 
 }
 
+CFieldSet::~CFieldSet()
+{
+	;
+}
 
 
 int CFieldSet::GetSingleField( CFieldDescribe *pFieldDescribe, void *pField )

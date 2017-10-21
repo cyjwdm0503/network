@@ -34,7 +34,11 @@ private:
 };
 
 
-
+template<typename T>
+CLockQueue<T>::CLockQueue( int size ):m_avliableSize(size),m_usedSize(0),m_sem(size)
+{
+	;
+}
 
 template<typename T>
 bool CLockQueue<T>::GetValue( T& value )
@@ -79,9 +83,6 @@ CLockQueue<T>::~CLockQueue()
 	;
 }
 
-template<typename T>
-CLockQueue<T>::CLockQueue( int size ):m_avliableSize(size),m_usedSize(0),m_sem(size):
-{
-}
+
 
 #endif 

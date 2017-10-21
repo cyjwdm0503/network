@@ -1,5 +1,4 @@
-#include "stdafx.h"
-#include "filedata.h"
+﻿#include "filedata.h"
 
 CFileData::CFileData( string filename )
 {
