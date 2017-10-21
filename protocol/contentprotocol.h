@@ -18,8 +18,8 @@ CContentProtocol.Push()会写入到CChannelProtocol
 在一个协议连接起来后。如果设置进行心跳验证
 服务器和客服端会进行心跳包的通信。
 */
-#ifndef CONTENTPROTOCOL_H 
-#define CONTENTPROTOCOL_H
+#ifndef PROTOCOL_CONTENTPROTOCOL_H 
+#define PROTOCOL_CONTENTPROTOCOL_H
 
 
 #include "Protocol.h"

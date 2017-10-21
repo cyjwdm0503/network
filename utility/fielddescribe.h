@@ -4,8 +4,8 @@
 //主要目的是为了避免对齐导致的错误。因此需要统计每个member的实际长度。以及类和package流中各自的偏移位置
 //field的存取规则。。用于描述field. field在创建时就要生成对应的的fielddescribe。。对应package通过描述存取对应的内容到一个field指针中
 /************************************************************************/
-#ifndef FIELDDESCRIBE_H
-#define FIELDDESCRIBE_H
+#ifndef UTILITY_FIELDDESCRIBE_H
+#define UTILITY_FIELDDESCRIBE_H
 #include <cstring>
 #include "typedef.h"
 

@@ -1,5 +1,5 @@
-﻿#ifndef SEMAPHORE_H
-#define SEMAPHORE_H
+﻿#ifndef THREAD_SEMAPHORE_H
+#define THREAD_SEMAPHORE_H
 
 #include "Common.h"
 class CSemaphore

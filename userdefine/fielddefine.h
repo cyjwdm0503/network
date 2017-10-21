@@ -1,6 +1,6 @@
 ﻿//用代码生成工具生成对应的代码
-#ifndef FIELDDEFINE_H
-#define FIELDDEFINE_H
+#ifndef USERDEFINE_FIELDDEFINE_H
+#define USERDEFINE_FIELDDEFINE_H
 
 #include "fielddescribe.h"
 

@@ -4,8 +4,8 @@
 */
 /************************************************************************/
 
-#ifndef LOCKQUEUE_H
-#define LOCKQUEUE_H
+#ifndef UTILITY_LOCKQUEUE_H
+#define UTILITY_LOCKQUEUE_H
 
 #include "Mutex.h"
 #include "MutexGuard.h"

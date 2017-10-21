@@ -6,6 +6,7 @@ CFileData::CFileData( string filename )
 	m_idName = string(filename)+".id";
 	m_dataFile = NULL;
 	m_idFile = NULL;
+	m_maxID = 0;
 	SETFPOS(m_idPos,0);
 	SETFPOS(m_dataPos,0);
 	OpenFile();
@@ -15,6 +16,7 @@ CFileData::CFileData()
 {
 	m_dataName = string("test")+".data";
 	m_idName = string("test")+".id";
+	m_maxID = 0;
 	m_dataFile = NULL;
 	m_idFile = NULL;
 	SETFPOS(m_idPos,0);
@@ -24,6 +26,7 @@ CFileData::CFileData()
 
 void CFileData::WriteData( void* data,size_t length )
 {
+	CMutexGuard guard(m_mtx);
 	if(length >0)
 	{
 		if(m_idFile  && m_dataFile)
@@ -48,6 +51,7 @@ void CFileData::WriteData( void* data,size_t length )
 void CFileData::ReadData( size_t id, void* data, long long& length )
 {
 
+	CMutexGuard guard(m_mtx);
 	if(id > m_maxID)
 	{
 		length = 0;
@@ -109,6 +113,8 @@ void CFileData::WriteHead( string headinfo )
 
 long long  CFileData::GetMaxID()
 {
+	if(m_maxID != 0)
+		return m_maxID;
 	if(m_idFile != NULL)
 	{
 		fpos_t  currPos;

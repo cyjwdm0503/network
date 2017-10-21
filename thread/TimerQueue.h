@@ -1,5 +1,5 @@
-﻿#ifndef TIMERQUEUE_H
-#define TIMERQUEUE_H
+﻿#ifndef THREAD_TIMERQUEUE_H
+#define THREAD_TIMERQUEUE_H
 
 #include "Handler.h"
 #include <ctime>

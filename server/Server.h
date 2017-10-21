@@ -1,5 +1,5 @@
-﻿#ifndef SERVER_H
-#define SERVER_H
+﻿#ifndef USERDEFINE_SERVER_H
+#define USERDEFINE_SERVER_H
 
 #include "ServerBase.h"
 #include "InetSock.h"

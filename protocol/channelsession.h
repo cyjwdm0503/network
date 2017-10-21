@@ -1,5 +1,5 @@
-﻿#ifndef CHANNELSESSION_H
-#define CHANNELSESSION_H
+﻿#ifndef PROTOCOL_CHANNELSESSION_H
+#define PROTOCOL_CHANNELSESSION_H
 #include "session.h"
 class CChannelSession : public CSession, public CSessionCallback
 {

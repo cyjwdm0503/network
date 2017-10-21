@@ -1,5 +1,5 @@
-﻿#ifndef DISPATCHER_H
-#define DISPATCHER_H
+﻿#ifndef THREAD_DISPATCHER_H
+#define THREAD_DISPATCHER_H
 #include "Thread.h"
 #include "Handler.h"
 #include <list>

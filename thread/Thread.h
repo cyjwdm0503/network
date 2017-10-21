@@ -1,5 +1,5 @@
-﻿#ifndef THREAD_H
-#define THREAD_H
+﻿#ifndef THREAD_THREAD_H
+#define THREAD_THREAD_H
 
 #include "Common.h"
 

@@ -1,5 +1,5 @@
-﻿#ifndef SELECTREACTOR_H
-#define SELECTREACTOR_H
+﻿#ifndef THREAD_SELECTREACTOR_H
+#define THREAD_SELECTREACTOR_H
 
 #include "Dispatcher.h"
 #include <set>

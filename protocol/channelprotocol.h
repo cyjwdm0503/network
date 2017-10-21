@@ -4,8 +4,8 @@
 后续需要处理写入和读取失败的逻辑，然后不再对改套接字的session进行调度--通过修改SessionCallBack完成
 */
 /************************************************************************/
-#ifndef CHANNELPROTOCOL_H
-#define CHANNELPROTOCOL_H
+#ifndef PROTOCOL_CHANNELPROTOCOL_H
+#define PROTOCOL_CHANNELPROTOCOL_H
 #include "channelpackage.h"
 #include "Protocol.h"
 #include "cachelist.h"

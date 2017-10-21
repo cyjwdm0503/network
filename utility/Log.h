@@ -3,8 +3,8 @@
 
 **/
 
-#ifndef LOG_H
-#define LOG_H
+#ifndef UTILITY_LOG_H
+#define UTILITY_LOG_H
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>

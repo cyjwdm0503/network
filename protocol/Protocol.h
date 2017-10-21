@@ -1,5 +1,5 @@
-﻿#ifndef PROTOCOL_H
-#define PROTOCOL_H
+﻿#ifndef PROTOCOL_PROTOCOL_H
+#define PROTOCOL_PROTOCOL_H
 /************************************************************************/
 /* 
 发送数据经历protocol的过程为

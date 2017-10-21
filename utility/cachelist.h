@@ -3,8 +3,8 @@
 目前用于channelprotocol 发送tcp包的缓存管理的list
 */
 /************************************************************************/
-#ifndef CACHELIST_H
-#define CACHELIST_H
+#ifndef UTILITY_CACHELIST_H
+#define UTILITY_CACHELIST_H
 
 #include <list>
 #include <string>

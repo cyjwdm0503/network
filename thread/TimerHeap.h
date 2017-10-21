@@ -1,5 +1,5 @@
-﻿#ifndef  TIMERHEAP_H
-#define  TIMERHEAP_H
+﻿#ifndef  THREAD_TIMERHEAP_H
+#define  THREAD_TIMERHEAP_H
 #include "TimerQueue.h"
 #include <queue>
 #include <map>

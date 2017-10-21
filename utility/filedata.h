@@ -7,10 +7,10 @@
 /************************************************************************/
 
 
-#ifndef FILEDATA_H
-#define FILEDATA_H
+#ifndef UTILITY_FILEDATA_H
+#define UTILITY_FILEDATA_H
 
-
+#include "MutexGuard.h"
 #include <cstdio>
 #include <cstring>
 #include <string>
@@ -83,6 +83,7 @@ private:
 	fpos_t m_dataPos;
 	string m_dataName;
 	string m_idName;
+	CMutex m_mtx;
 	
 };
 

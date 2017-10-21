@@ -1,5 +1,5 @@
-﻿#ifndef TYPEDEF_H
-#define TYPEDEF_H
+﻿#ifndef UTILITY_TYPEDEF_H
+#define UTILITY_TYPEDEF_H
 
 #include <cstring>
 #include <cstdlib>

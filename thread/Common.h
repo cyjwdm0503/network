@@ -1,5 +1,5 @@
-﻿#ifndef COMMON_H
-#define COMMON_H
+﻿#ifndef THREAD_COMMON_H
+#define THREAD_COMMON_H
 
 #define   WIN32_LEAN_AND_MEAN
 

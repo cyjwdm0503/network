@@ -9,8 +9,8 @@ session 的input，output沦落为channelprotocol的特例方法
 
 */
 /************************************************************************/
-#ifndef SESSION_H
-#define SESSION_H
+#ifndef PROTOCOL_SESSION_H
+#define PROTOCOL_SESSION_H
 
 #include "channelprotocol.h"
 #include "Handler.h"

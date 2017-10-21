@@ -1,5 +1,5 @@
-﻿#ifndef MUTEXGUARD_H
-#define MUTEXGUARD_H
+﻿#ifndef THREAD_MUTEXGUARD_H
+#define THREAD_MUTEXGUARD_H
 
 #include "Mutex.h"
 class CMutexGuard

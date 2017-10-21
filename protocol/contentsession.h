@@ -2,8 +2,8 @@
 /* 
 */
 /************************************************************************/
-#ifndef CONTENTSESSION_H
-#define CONTENTSESSION_H
+#ifndef PROTOCOL_CONTENTSESSION_H
+#define PROTOCOL_CONTENTSESSION_H
 #include "session.h"
 #include "contentprotocol.h"
 #include "contentpackage.h"

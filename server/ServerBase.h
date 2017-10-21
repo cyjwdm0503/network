@@ -1,5 +1,5 @@
-﻿#ifndef SERVERBASE_H
-#define SERVERBASE_H
+﻿#ifndef USERDEFINE_SERVERBASE_H
+#define USERDEFINE_SERVERBASE_H
 
 #include "Channel.h"
 #include "ServiceName.h"

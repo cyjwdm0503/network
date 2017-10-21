@@ -6,8 +6,8 @@
 /************************************************************************/
 
 
-#ifndef PACKAGEQUEUE_H
-#define PACKAGEQUEUE_H
+#ifndef UTILITY_PACKAGEQUEUE_H
+#define UTILITY_PACKAGEQUEUE_H
 #include "lockqueue.h"
 #include "applicationpackage.h"
 #include <list>

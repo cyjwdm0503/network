@@ -1,5 +1,5 @@
-﻿#ifndef MUTEX_H
-#define MUTEX_H
+﻿#ifndef THREAD_MUTEX_H
+#define THREAD_MUTEX_H
 
 #include "Common.h"
 

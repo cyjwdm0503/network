@@ -1,5 +1,5 @@
-﻿#ifndef FIELDSET_H 
-#define FIELDSET_H
+﻿#ifndef UTILITY_FIELDSET_H 
+#define UTILITY_FIELDSET_H
 /************************************************************************/
 /* 应用层协议，contentpackage主要是用来确保每个包是一个完整的数据包，但是没法对应于业务。
 此package对应于业务，每个package内都是存取的分业务的数据包。
