@@ -2,6 +2,7 @@
 #define THREAD_MUTEXGUARD_H
 
 #include "Mutex.h"
+
 class CMutexGuard
 {
 public:

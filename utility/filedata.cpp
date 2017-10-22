@@ -24,7 +24,7 @@ CFileData::CFileData()
 	OpenFile();
 }
 
-void CFileData::WriteData( void* data,size_t length )
+bool CFileData::WriteData( void* data,size_t length )
 {
 	CMutexGuard guard(m_mtx);
 	if(length >0)
@@ -44,17 +44,21 @@ void CFileData::WriteData( void* data,size_t length )
 
 			fgetpos(m_dataFile,&m_dataPos);
 			fgetpos(m_idFile,&m_idPos);
+			return true;
 		}
+		return false;
 	}
+	return false;
 }
 
-void CFileData::ReadData( size_t id, void* data, long long& length )
+bool CFileData::ReadData( size_t id, void* data, long long& length )
 {
 
 	CMutexGuard guard(m_mtx);
 	if(id > m_maxID)
 	{
 		length = 0;
+		return false;
 	}
 	else
 	{
@@ -64,7 +68,7 @@ void CFileData::ReadData( size_t id, void* data, long long& length )
 		SETFPOS(pos,node.pos);
 		fsetpos(m_dataFile,&pos);
 		length = fread(data,1,node.size,m_dataFile);
-
+		return true;
 	}
 
 }
@@ -97,7 +101,7 @@ DataNode CFileData::GetDataNode( size_t id )
 	return node;
 }
 
-void CFileData::WriteHead( string headinfo )
+bool CFileData::WriteHead( string headinfo )
 {
 	if(m_idFile)
 	{
@@ -108,7 +112,9 @@ void CFileData::WriteHead( string headinfo )
 		fseek(m_idFile,0,SEEK_SET);
 		fwrite(headinfo.c_str(),1,headinfo.length(),m_idFile);
 		SETFPOS(m_idPos,DATAHEADLENGTH);
+		return true;
 	}
+	return false;
 }
 
 long long  CFileData::GetMaxID()

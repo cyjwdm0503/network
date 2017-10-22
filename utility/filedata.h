@@ -41,6 +41,15 @@ using namespace  std ;
 
 #endif
 
+
+class PackageDataInterface
+{
+public:
+	virtual bool WriteData(void* data,size_t length) = 0; 
+	virtual bool ReadData(size_t id, void* data, long long& length)=0;
+	virtual bool WriteHead(string headinfo) = 0;
+	virtual bool ReadHead(string& headinfo) = 0; 
+};
 //id文件的头部，用于描述文件基本信息
 struct DataHead
 {
@@ -58,16 +67,17 @@ struct DataNode
 
 const size_t DATAHEADLENGTH =  sizeof(DataHead);
 
-class CFileData
+
+class CFileData:public PackageDataInterface
 {
 public:
 	CFileData(string dataname);
 	CFileData();
 	~CFileData();
-	void WriteData(void* data,size_t length);
-	void ReadData(size_t id, void* data, long long& length);
+	bool WriteData(void* data,size_t length);
+	bool ReadData(size_t id, void* data, long long& length);
 	long long  GetMaxID();
-	void WriteHead(string headinfo);
+	bool WriteHead(string headinfo);
 	bool ReadHead(string& headinfo);
 private:
 	DataNode GetDataNode(size_t id);

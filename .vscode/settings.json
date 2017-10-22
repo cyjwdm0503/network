@@ -5,6 +5,7 @@
         "__locale": "cpp",
         "list": "cpp",
         "cstdlib": "cpp",
-        "cstring": "cpp"
+        "cstring": "cpp",
+        "string": "cpp"
     }
 }
